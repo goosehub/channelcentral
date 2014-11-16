@@ -1,0 +1,29 @@
+/*	Global */
+body {
+    overflow-x: hidden;
+    background-color: #000000;
+}
+
+/*	Windows */
+#contentWindow {
+	max-height: 80%;
+	height: 500px;
+}
+#titleWindow {
+	background-color: green;
+	text-align: center;
+	height: 100%;
+}
+#chatHeadWindow {
+	background-color: purple;
+	text-align: center;
+	height: 100%;
+}
+#chatWindow {
+	background-color: #FFF;
+	height: 100%;
+}
+#vocaFrame {
+	width: 525px;
+	height: 280px;
+}
