@@ -32,6 +32,7 @@ else
 <div class="row">
   <div class="col-md-4">
   <iframe id="vocaFrame" src="http://vocaroo.com/?minimal" seamless></iframe>
+  <iframe id="chanFrame" src="http://4chan.org/s4s" seamless></iframe>
   </div>
   <div class="col-md-4">
   	<div id="contentWindow">
