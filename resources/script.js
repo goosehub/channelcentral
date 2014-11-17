@@ -2,7 +2,6 @@ $(document).ready(function()
 {
 
 //Chat
-
 //Load chat display
     function loadLog()
     {

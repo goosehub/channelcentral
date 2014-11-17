@@ -2,8 +2,7 @@
 <html lang="en">
 <meta charset="utf-8">
 <head>
-  <title>S4S RADIO 
-  <!-- echo edvent name -->
+  <title>S4S RADIO
   </title>
 
 	<meta name="keywords" content="________">
@@ -52,5 +51,3 @@ if(isset($_POST['enter'])){
 
 
 ?>
-
-<div class="page-wrapper">
