@@ -17,11 +17,12 @@ else
 
   <div class="col-md-4">
     <div id="navCnt">
-      <div class="btn-group" role="group" aria-label="...">
-          <a id="homeBtn" class="btn btn-lg btn-default" href="#">Home</a>
-          <button id="scheduleBtn" class="btn btn-lg btn-default" href="#">Schedule</button>
-          <button id="chanBtn" class="btn btn-lg btn-default" href="#">4chan</button>
-          <button id="vocaBtn" class="btn btn-lg btn-default" href="#">Vocaroo</button>
+      <div id="navBar" class="btn-group" role="group" aria-label="...">
+          <a id="homeBtn" class="btn btn-default" href="/">esfores</a>
+          <button id="scheduleBtn" class="btn btn-default" href="#">Calendar</button>
+          <button id="vocaBtn" class="btn btn-default" href="#">Record</button>
+          <button id="uploadBtn" class="btn btn-default" href="#">Upload</button>
+          <button id="chanBtn" class="btn btn-default" href="#">4chan</button>
       </div>
     </div>
     <div id="viewer">

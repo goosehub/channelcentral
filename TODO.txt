@@ -1,0 +1,18 @@
+TODO
+	Develop
+		youtube id REGEX
+		youtube/audio model independence
+		youtube api duration
+		duration and start time logic
+		active users
+		transitions logic
+		asynch upload/iframe
+		leave button
+		schedule frame
+		chat introduce and leave
+	Design
+		background images for divs
+		youtube flex-box library
+		schedule
+		default calendar
+		much more
