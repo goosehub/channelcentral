@@ -16,10 +16,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$name = $_SESSION['name'];
 	$message = $_POST['text'];
 	$message = mysqli_real_escape_string($con, $message);
-			$operation = "INSERT INTO
+			$query = "INSERT INTO
                 chat(name, message)
             VALUES('$name', '$message')"; 
-			$result = mysqli_query($con, $operation);
+			$result = mysqli_query($con, $query);
 
 }  
 ?>

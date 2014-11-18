@@ -12,23 +12,24 @@ else
 <div id="pageWrapper">
 
 <div class="row">
+
+<!-- Left -->
+
   <div class="col-md-4">
     <div id="navCnt">
       <div class="btn-group" role="group" aria-label="...">
-          <a class="btn btn-lg btn-default" href="#">Link</a>
-          <a class="btn btn-lg btn-default" href="#">Link</a>
-          <a class="btn btn-lg btn-default" href="#">Link</a>
+          <a id="homeBtn" class="btn btn-lg btn-default" href="#">Home</a>
+          <button id="scheduleBtn" class="btn btn-lg btn-default" href="#">Schedule</button>
+          <button id="chanBtn" class="btn btn-lg btn-default" href="#">4chan</button>
+          <button id="vocaBtn" class="btn btn-lg btn-default" href="#">Vocaroo</button>
       </div>
     </div>
-  <div id="chanCnt">
-    <iframe id="chanFrame" src="http://4chan.org/s4s" seamless></iframe>
-  </div>
-  <div id="vocaCnt">
+    <div id="viewer">
     <iframe id="vocaFrame" src="http://vocaroo.com/?minimal" seamless></iframe>
-  </div>
+    </div>
   </div>
 
-
+<!-- Center -->
   
   <div class="col-md-4">
     <div id="headline">
@@ -40,14 +41,54 @@ else
 
     <img id="imageCover" src="/s4sradio/images/example.jpg">
 		<audio controls id="audioPlayer">
-		  <source src="audio/test.mp3" type="audio/mpeg" height="500px">
+		  <source src="audio/test.mp3" type="audio/mpeg">
 		  Your browser does not support this audio.
 		</audio>
   	</div>
 
+    <div id="uploadFormCnt">
+
+    <form name="uploadForm" id="UploadForm" action="/s4sradio/ajax/formpost.php" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+
+    <div class="input-group">
+      <div class="input-group-addon">Enter Youtube URL</div>
+      <input class="form-control" type="input" name="youtubeInput" /><br />
+    </div>
+    
+    <div class="input-group">
+      <div class="input-group-addon contributeFileAddon"><strong>Or</strong> Upload Audio</div>
+      <input class="form-control contributeFile" name="audioInput" type="file" />
+    </div>
+
+    <div class="input-group">
+      <div class="input-group-addon contributeFileAddon"><strong>With</strong> An Image</div>
+      <input class="form-control contributeFile" name="imageInput" type="file" />
+    </div>
+
+    <div id="typeInput" class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><strong>And</strong> Pick Type</div>
+
+        <select class="form-control" name="typeInput">
+          <option value="default">Pick An Option</option>
+          <option value="Music">Music</option>
+          <option value="Shoutout">Shoutout</option>
+          <option value="Segment">Segment</option>
+          <option value="Other">Other</option>
+        </select>
+
+      </div>
+    </div>
+
+    <input class="form-control input-lg" id="contributeSubmit" type="submit" name="submitForm" value="Contribute" />
+
+    </div>
+    </form>
+    </div>
   </div>
 
-
+<!-- Right -->
 
   <div class="col-md-4">
       <div id="chatHead">
