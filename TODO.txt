@@ -1,5 +1,6 @@
 TODO
 	Develop
+		get audio duration
 		youtube id REGEX
 		youtube/audio model independence
 		youtube api duration

@@ -28,20 +28,39 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$data['errorExists'] = '';
 	$data['errorInvalid'] = '';
 
-// $audioInput = $_POST['audioInput'];
-
 // Image info
-		$image_info = getimagesize($_FILES["imageInput"]["tmp_name"]);
-		$audio_info = filesize($_FILES["audioInput"]["tmp_name"]);
-		$image_width = $image_info[0];
-		$image_height = $image_info[1];
-		$allowedExts = array("gif", "jpeg", "jpg", "png", "mp3", "ogg", "flak", "wav");
-		$temp = explode(".", $_FILES["imageInput"]["name"]);
-		$extension = end($temp);
+	$image_info = getimagesize($_FILES["imageInput"]["tmp_name"]);
+	$audio_info = filesize($_FILES["audioInput"]["tmp_name"]);
+	$image_width = $image_info[0];
+	$image_height = $image_info[1];
+	$allowedExts = array("gif", "jpeg", "jpg", "png", "mp3", "ogg", "flak", "wav");
+	$temp = explode(".", $_FILES["imageInput"]["name"]);
+	$extension = end($temp);
+
+// GetID3 function
+	function get_duration($audioPath, $audioFile) 
+	{ 
+	// include getID3() library 
+	require_once('../resources/getID3-1.9.8/getid3/getid3.php'); 
+	$getID3 = new getID3();
+	//set up path
+	$FullFileName = realpath($audioPath.'/'.$audioFile); 
+	if (is_file($FullFileName)) { 
+		//limit time to work function
+		set_time_limit(30); 
+		//analyze
+		$ThisFileInfo = $getID3->analyze($FullFileName); 
+		getid3_lib::CopyTagsToComments($ThisFileInfo); 
+		//return seconds
+		$duration = $ThisFileInfo['playtime_seconds']; 
+		return $duration; 
+		} 
+	} 
+
 //Validate
 		if (
 		(
-			($_FILES["imageInput"]["type"] == "image/gif")
+		   ($_FILES["imageInput"]["type"] == "image/gif")
 		|| ($_FILES["imageInput"]["type"] == "image/jpeg")
 		|| ($_FILES["imageInput"]["type"] == "image/jpg")
 		|| ($_FILES["imageInput"]["type"] == "image/pjpeg")
@@ -70,6 +89,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		      "../images/" . $_FILES["imageInput"]["name"]);
 		      move_uploaded_file($_FILES["audioInput"]["tmp_name"],
 		      "../audio/" . $_FILES["audioInput"]["name"]);
+//Get audio duration
+		      $duration = get_duration("../audio", $_FILES["audioInput"]["name"]);
 // Prepare for model
 		      $imageInput = $_FILES["imageInput"]["name"];
 			  $imageInput = mysqli_real_escape_string($con, $imageInput);
@@ -77,8 +98,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			  $audioInput = mysqli_real_escape_string($con, $audioInput);
 // Query
 		      $query = "INSERT INTO upload 
-		      (name, time, youtube, audio, image, type)
-		      VALUES('". $name ."', '". $time ."', '". $youtubeInput ."', '". $audioInput ."', '". $imageInput ."', '". $typeInput ."');";
+		      (name, time, youtube, audio, image, type, duration)
+		      VALUES('". $name ."', '". $time ."', '". $youtubeInput ."',
+		       '". $audioInput ."', '". $imageInput ."', '". $typeInput ."', '". $duration ."');";
 		      $result = mysqli_query($con, $query);   
 //Load success view	
 		  }
@@ -90,7 +112,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // view reporting
 		}
 }
-
-
 
 ?>
