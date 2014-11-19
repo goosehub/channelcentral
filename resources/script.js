@@ -1,6 +1,6 @@
 var vocaLoad = '<iframe id="vocaFrame" src="http://vocaroo.com/?minimal" seamless></iframe>';
 var chanLoad = '<iframe id="chanFrame" src="http://4chan.org/s4s" seamless></iframe>';
-var uploadLoad = '<iframe id="uploadFrame" src="./ajax/upload.php" seamless></iframe>';
+var uploadLoad = '<iframe id="uploadFrame" name="uploadFrameName" src="controller/upload.php" seamless></iframe>';
 
 $(document).ready(function()
 {
@@ -11,7 +11,7 @@ function loadLog()
 {
     $.ajax(
     {
-        url: "/s4sradio/ajax/chatload.php",
+        url: "controller/chatload.php",
         cache: false,
         success: function(html)
         {
@@ -44,7 +44,7 @@ $('#chanBtn').click(function()
 $("#submitChat").click(function()
 {
     var clientchat = $("#chatInput").val();
-    $.post("/s4sradio/ajax/chatpost.php",
+    $.post("controller/chatpost.php",
     {
         text: clientchat
     });
@@ -55,7 +55,8 @@ $("#submitChat").click(function()
 //form input
 $('#submitForm').click(function()
 {
-    $.post('ajax/formpost.php', $('#uploadForm').serialize());
+    $.post('controller/formpost.php', $('#uploadForm').serialize());
+    document.getElementById("#uploadFrameName").src = "http://WWW.microsoft.com";
 });
 
 

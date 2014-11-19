@@ -1,205 +1,133 @@
-<?php
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<head>
+  <title>S4S RADIO
+  </title>
 
-/*
- *---------------------------------------------------------------
- * APPLICATION ENVIRONMENT
- *---------------------------------------------------------------
- *
- * You can load different configurations depending on your
- * current environment. Setting the environment also influences
- * things like logging and error reporting.
- *
- * This can be set to anything, but default usage is:
- *
- *     development
- *     testing
- *     production
- *
- * NOTE: If you change these, also change the error_reporting() code below
- *
- */
-	define('ENVIRONMENT', 'development');
-/*
- *---------------------------------------------------------------
- * ERROR REPORTING
- *---------------------------------------------------------------
- *
- * Different environments will require different levels of error reporting.
- * By default development will show errors but testing and live will hide them.
- */
+  <meta name="keywords" content="________">
+  <meta name="description" content="________">
+  <meta name="author" content="________">
+  <meta name="robots" CONTENT="all">
 
-if (defined('ENVIRONMENT'))
-{
-	switch (ENVIRONMENT)
-	{
-		case 'development':
-			error_reporting(E_ALL);
-		break;
-	
-		case 'testing':
-		case 'production':
-			error_reporting(0);
-		break;
+      <!-- Style -->
+  <link rel="stylesheet" href="resources/bootstrap.min.css" />
+  <link rel="stylesheet" href="resources/style.css" />
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
 
-		default:
-			exit('The application environment is not set correctly.');
-	}
+<body>
+    <!-- Body -->
+
+    <?php
+session_start();
+  
+//prompt for session name before creating page
+
+ //login form
+function loginForm(){
+    echo'
+    <center>
+    <br><br><br><br><br>
+    <div id="loginform">
+    <form action="index.php" method="post">
+        <input type="text" name="name" id="name" />
+        <input type="submit" name="enter" id="loginEnter" value="Enter Name" />
+    </form>
+    <br><br>
+    <a type="button" id="loginLeave" class="btn btn-default">Leave</a>
+    </div>
+    </center>
+    ';
 }
+// Set session
+if(isset($_POST['enter'])){
+    if($_POST['name'] != ""){
+        $_SESSION['name'] = stripslashes(htmlspecialchars($_POST['name']));
+    }
+}
+//Check if logged in
+if(!isset($_SESSION['name'])){
+    loginForm();
+}
+else
+//Must be connected to end on same view
+{
+//begin page content
+?>
+<div id="pageWrapper">
 
-/*
- *---------------------------------------------------------------
- * SYSTEM FOLDER NAME
- *---------------------------------------------------------------
- *
- * This variable must contain the name of your "system" folder.
- * Include the path if the folder is not in the same  directory
- * as this file.
- *
- */
-	$system_path = 'system';
+<div class="row">
 
-/*
- *---------------------------------------------------------------
- * APPLICATION FOLDER NAME
- *---------------------------------------------------------------
- *
- * If you want this front controller to use a different "application"
- * folder then the default one you can set its name here. The folder
- * can also be renamed or relocated anywhere on your server.  If
- * you do, use a full server path. For more info please see the user guide:
- * http://codeigniter.com/user_guide/general/managing_apps.html
- *
- * NO TRAILING SLASH!
- *
- */
-	$application_folder = 'application';
+<!-- Left -->
 
-/*
- * --------------------------------------------------------------------
- * DEFAULT CONTROLLER
- * --------------------------------------------------------------------
- *
- * Normally you will set your default controller in the routes.php file.
- * You can, however, force a custom routing by hard-coding a
- * specific controller class/function here.  For most applications, you
- * WILL NOT set your routing here, but it's an option for those
- * special instances where you might want to override the standard
- * routing in a specific front controller that shares a common CI installation.
- *
- * IMPORTANT:  If you set the routing here, NO OTHER controller will be
- * callable. In essence, this preference limits your application to ONE
- * specific controller.  Leave the function name blank if you need
- * to call functions dynamically via the URI.
- *
- * Un-comment the $routing array below to use this feature
- *
- */
-	// The directory name, relative to the "controllers" folder.  Leave blank
-	// if your controller is not in a sub-folder within the "controllers" folder
-	// $routing['directory'] = '';
+  <div class="col-md-4">
+    <div id="navCnt">
+      <div id="navBar" class="btn-group" role="group" aria-label="...">
+          <a id="homeBtn" class="btn btn-default" href="/">esfores</a>
+          <button id="scheduleBtn" class="btn btn-default" href="#">Calendar</button>
+          <button id="vocaBtn" class="btn btn-default" href="#">Record</button>
+          <button id="uploadBtn" class="btn btn-default" href="#">Upload</button>
+          <button id="chanBtn" class="btn btn-default" href="#">4chan</button>
+      </div>
+    </div>
+    <div id="viewer">
+    <iframe id="uploadFrame" name="uploadFrameName" src="controller/upload.php" seamless></iframe>
+    </div>
+  </div>
 
-	// The controller class file name.  Example:  Mycontroller
-	// $routing['controller'] = '';
+<!-- Center -->
+  
+  <div class="col-md-4">
+    <div id="headline">
+        <p>S4S RADIO</p>
+    </div>
 
-	// The controller function you wish to be called.
-	// $routing['function']	= '';
+  	<div id="contentWindow">
+		<!-- <iframe id="youtubeFrame" src="//www.youtube.com/embed/QjsPG0Kspxo" frameborder="0" allowfullscreen></iframe> -->
 
+    <img id="imageCover" src="images/example.jpg">
+		<audio controls id="audioPlayer">
+		  <source src="audio/test.mp3" type="audio/mpeg">
+		  Your browser does not support this audio.
+		</audio>
+  	</div>
+  </div>
 
-/*
- * -------------------------------------------------------------------
- *  CUSTOM CONFIG VALUES
- * -------------------------------------------------------------------
- *
- * The $assign_to_config array below will be passed dynamically to the
- * config class when initialized. This allows you to set custom config
- * items or override any default config values found in the config.php file.
- * This can be handy as it permits you to share one application between
- * multiple front controller files, with each file containing different
- * config values.
- *
- * Un-comment the $assign_to_config array below to use this feature
- *
- */
-	// $assign_to_config['name_of_config_item'] = 'value of config item';
+<!-- Right -->
 
+  <div class="col-md-4">
+      <div id="chatHead">
+        <p>12 users active</p>
+      </div>
 
+                <!-- chatroom -->
+    <div id="inputCnt">
+    <form name="chatForm" id="chatForm" action="controller/chatpost.php" method="post" enctype="multipart/form-data">
+    <input name="message" type="text" class="form-control" id="chatInput">
+    <!-- submit button positioned off screen -->
+    <input name="submitChat" type="submit" id="submitChat" value="DICK" style="position: absolute; left: -9999px">
+    </form>
+    </div>
 
-// --------------------------------------------------------------------
-// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
-// --------------------------------------------------------------------
+    <div id="chatBox">
+    Loading...
+    </div>
 
-/*
- * ---------------------------------------------------------------
- *  Resolve the system path for increased reliability
- * ---------------------------------------------------------------
- */
+  </div>
 
-	// Set the current directory correctly for CLI requests
-	if (defined('STDIN'))
-	{
-		chdir(dirname(__FILE__));
-	}
+<!-- row and pagewrap -->
+</div>
+</div>
+<?php 
+} //no content after this bracket 
+?>
+    <!-- Script -->
+  <script type="text/javascript" src="resources/jquery-1.8.3.min.js"></script>
+    <script src="resources/bootstrap.min.js"></script>
+    <script type="text/javascript" src="resources/script.js"></script>
 
-	if (realpath($system_path) !== FALSE)
-	{
-		$system_path = realpath($system_path).'/';
-	}
-
-	// ensure there's a trailing slash
-	$system_path = rtrim($system_path, '/').'/';
-
-	// Is the system path correct?
-	if ( ! is_dir($system_path))
-	{
-		exit("Your system folder path does not appear to be set correctly. Please open the following file and correct this: ".pathinfo(__FILE__, PATHINFO_BASENAME));
-	}
-
-/*
- * -------------------------------------------------------------------
- *  Now that we know the path, set the main path constants
- * -------------------------------------------------------------------
- */
-	// The name of THIS file
-	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
-
-	// The PHP file extension
-	// this global constant is deprecated.
-	define('EXT', '.php');
-
-	// Path to the system folder
-	define('BASEPATH', str_replace("\\", "/", $system_path));
-
-	// Path to the front controller (this file)
-	define('FCPATH', str_replace(SELF, '', __FILE__));
-
-	// Name of the "system folder"
-	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
-
-
-	// The path to the "application" folder
-	if (is_dir($application_folder))
-	{
-		define('APPPATH', $application_folder.'/');
-	}
-	else
-	{
-		if ( ! is_dir(BASEPATH.$application_folder.'/'))
-		{
-			exit("Your application folder path does not appear to be set correctly. Please open the following file and correct this: ".SELF);
-		}
-
-		define('APPPATH', BASEPATH.$application_folder.'/');
-	}
-
-/*
- * --------------------------------------------------------------------
- * LOAD THE BOOTSTRAP FILE
- * --------------------------------------------------------------------
- *
- * And away we go...
- *
- */
-require_once BASEPATH.'core/CodeIgniter.php';
-
-/* End of file index.php */
-/* Location: ./index.php */
+</body>
+</html>

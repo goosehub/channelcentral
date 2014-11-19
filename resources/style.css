@@ -40,7 +40,6 @@ body {
 	height: 100%;	
 }
 
-
 /*	Center */
 #headline {
 	background-color: lightgreen;
@@ -50,7 +49,7 @@ body {
 }
 #contentWindow {
 	max-height: 90%;
-	height: 60vh;
+	height: 90vh;
 }
 #youtubeFrame {
 	width: 100%;
@@ -63,10 +62,6 @@ body {
 #audioPlayer {
 	width: 100%;
 }
-#uploadFormCnt {
-	height: 30vh;
-}
-
 
 /*	Right */
 #chatHead {
