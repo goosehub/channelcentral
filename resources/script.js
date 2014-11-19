@@ -24,6 +24,10 @@ setInterval(loadLog, 2000);
 
 
 //frame loading
+$('#uploadBtn').click(function()
+{
+    // $('#viewer').html(vocaLoad);
+});
 $('#vocaBtn').click(function()
 {
     $('#viewer').html(vocaLoad);

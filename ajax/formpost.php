@@ -17,25 +17,50 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 //set known variables for query
 	$name = $_SESSION['name'];
+	$name = mysqli_real_escape_string($con, $name);
 	$time = time();
 	$youtubeInput = $_POST['youtubeInput'];
 	$youtubeInput = mysqli_real_escape_string($con, $youtubeInput);
 	$typeInput = $_POST['typeInput'];
 	$typeInput = mysqli_real_escape_string($con, $typeInput);
 
+//check if youtube input exists
+if (strlen($youtubeInput) > 10)
+	{
+// Get youtube ID from URL
+	parse_str( parse_url( $youtubeInput, PHP_URL_QUERY ), $my_array_of_vars );
+	$youtubeID = $my_array_of_vars['v'];
+//check if valid ID
+//if valid, ignore audio and insert youtube into DB
+	if (strlen($youtubeID) === 11)
+		{
+//get youtube video duration and title
+		$url = "http://gdata.youtube.com/feeds/api/videos/". $youtubeID;
+		$doc = new DOMDocument;
+		$doc->load($url);
+		$title = $doc->getElementsByTagName("title")->item(0)->nodeValue;
+		$duration = $doc->getElementsByTagName('duration')->item(0)->getAttribute('seconds');
+// Query
+		      $query = "INSERT INTO upload 
+		      (name, time, type, youtube, title, duration)
+		      VALUES('". $name ."', '". $time ."', '". $typeInput ."',
+		       '". $youtubeID ."', '". $title ."', '". $duration ."');";
+		      $result = mysqli_query($con, $query);  
+//remove uneeded files if exists
+		$imageInput = '';
+		$audioInput = '';
+//Load success view	
+		  }
+	}
+	else
+	{
+
+//rest is for file uploads only
+
 // Set error warnings
 	$data['errorCode'] = '';
 	$data['errorExists'] = '';
 	$data['errorInvalid'] = '';
-
-// Image info
-	$image_info = getimagesize($_FILES["imageInput"]["tmp_name"]);
-	$audio_info = filesize($_FILES["audioInput"]["tmp_name"]);
-	$image_width = $image_info[0];
-	$image_height = $image_info[1];
-	$allowedExts = array("gif", "jpeg", "jpg", "png", "mp3", "ogg", "flak", "wav");
-	$temp = explode(".", $_FILES["imageInput"]["name"]);
-	$extension = end($temp);
 
 // GetID3 function
 	function get_duration($audioPath, $audioFile) 
@@ -56,6 +81,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		return $duration; 
 		} 
 	} 
+
+// File info
+		$image_info = getimagesize($_FILES["imageInput"]["tmp_name"]);
+		$audio_info = filesize($_FILES["audioInput"]["tmp_name"]);
+		$image_width = $image_info[0];
+		$image_height = $image_info[1];
+		$allowedExts = array("gif", "jpeg", "jpg", "png", "mp3", "ogg", "flak", "wav");
+		$temp = explode(".", $_FILES["imageInput"]["name"]);
+		$extension = end($temp);
 
 //Validate
 		if (
@@ -91,6 +125,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		      "../audio/" . $_FILES["audioInput"]["name"]);
 //Get audio duration
 		      $duration = get_duration("../audio", $_FILES["audioInput"]["name"]);
+		      $duration = floor($duration);
 // Prepare for model
 		      $imageInput = $_FILES["imageInput"]["name"];
 			  $imageInput = mysqli_real_escape_string($con, $imageInput);
@@ -98,19 +133,23 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			  $audioInput = mysqli_real_escape_string($con, $audioInput);
 // Query
 		      $query = "INSERT INTO upload 
-		      (name, time, youtube, audio, image, type, duration)
-		      VALUES('". $name ."', '". $time ."', '". $youtubeInput ."',
-		       '". $audioInput ."', '". $imageInput ."', '". $typeInput ."', '". $duration ."');";
+		      (name, time, audio, image, type, duration)
+		      VALUES('". $name ."', '". $time ."', '". $audioInput ."',
+		       '". $imageInput ."', '". $typeInput ."', '". $duration ."');";
 		      $result = mysqli_query($con, $query);   
 //Load success view	
 		  }
 		}
-		else
-		{
-// General error Reporting
-			$data['errorInvalid'] = 'Invalid File Size. 200 by 200 pixels is the minimum. 3200 by 3200 is the maximum.';
-// view reporting
-		}
+
+//Not usable in current form
+// 		else if ($data['errorInvalid'] === TRUE)
+// 		{
+// // General error Reporting
+// 			$data['errorInvalid'] = 'Invalid File Size. 200 by 200 pixels is the minimum. 3200 by 3200 is the maximum.';
+// // view reporting
+// 		}
+
+	}
 }
 
 ?>
