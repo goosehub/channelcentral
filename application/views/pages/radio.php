@@ -26,7 +26,7 @@ else
       </div>
     </div>
     <div id="viewer">
-    <iframe id="vocaFrame" src="http://vocaroo.com/?minimal" seamless></iframe>
+    <iframe id="uploadFrame" src="./ajax/upload.php" seamless></iframe>
     </div>
   </div>
 
@@ -47,7 +47,7 @@ else
 		</audio>
   	</div>
 
-    <div id="uploadFormCnt">
+<!--     <div id="uploadFormCnt">
 
     <form name="uploadForm" id="UploadForm" action="/s4sradio/ajax/formpost.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
@@ -86,7 +86,7 @@ else
 
     </div>
     </form>
-    </div>
+    </div> -->
   </div>
 
 <!-- Right -->

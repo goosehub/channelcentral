@@ -1,5 +1,6 @@
 var vocaLoad = '<iframe id="vocaFrame" src="http://vocaroo.com/?minimal" seamless></iframe>';
 var chanLoad = '<iframe id="chanFrame" src="http://4chan.org/s4s" seamless></iframe>';
+var uploadLoad = '<iframe id="uploadFrame" src="./ajax/upload.php" seamless></iframe>';
 
 $(document).ready(function()
 {
@@ -26,7 +27,7 @@ setInterval(loadLog, 2000);
 //frame loading
 $('#uploadBtn').click(function()
 {
-    // $('#viewer').html(vocaLoad);
+    $('#viewer').html(uploadLoad);
 });
 $('#vocaBtn').click(function()
 {
