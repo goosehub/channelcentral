@@ -22,22 +22,31 @@ session_start();
     <form name="uploadForm" id="UploadForm" action="../controller/formpost.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
 
+    <!-- <p class="instructions">For youtube videos</p> -->
+
     <div class="input-group">
       <div class="input-group-addon">Enter Youtube URL</div>
       <input class="form-control" type="input" name="youtubeInput" /><br />
     </div>
     
+    <input class="form-control btn btn-primary contribute" type="submit" name="submitForm" value="Contribute" />
+
+    <button class="instructions btn" disabled="disabled">OR</button>
+
     <div class="input-group">
-      <div class="input-group-addon contributeFileAddon"><strong>Or</strong> Upload Audio</div>
-      <input class="form-control contributeFile" name="audioInput" type="file" />
+      <div class="input-group-addon">Upload Audio</div>
+      <input class="form-control" name="audioInput" type="file" />
     </div>
 
     <div class="input-group">
-      <div class="input-group-addon contributeFileAddon"><strong>With</strong> An Image</div>
-      <input class="form-control contributeFile" name="imageInput" type="file" />
+      <div class="input-group-addon">Attach Image</div>
+      <input class="form-control" name="imageInput" type="file" />
     </div>
 
-    <div id="typeInput" class="form-group">
+    <!-- <button class="instructions btn" disabled="disabled">THEN</button> -->
+
+
+<!--     <div id="typeInput" class="form-group">
       <div class="input-group">
         <div class="input-group-addon"><strong>And</strong> Pick Type</div>
 
@@ -48,11 +57,10 @@ session_start();
           <option value="Segment">Segment</option>
           <option value="Other">Other</option>
         </select>
-
       </div>
-    </div>
+    </div> -->
 
-    <input class="form-control input-lg" id="contributeSubmit" type="submit" name="submitForm" value="Contribute" />
+    <input class="form-control btn btn-primary contribute" type="submit" name="submitForm" value="Contribute" />
 
     </div>
     </form>

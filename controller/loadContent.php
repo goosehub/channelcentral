@@ -63,7 +63,7 @@ $query = "SELECT start, end, duration, youtube, audio, image, special
 // Else request users for content
 		else 
 		{
-		echo "<h1>Upload content to start the show</h1>
+		echo "<h1 id='requestContent'>Upload content to start the show</h1>
 		|
 		4000";
 		}

@@ -15,10 +15,12 @@ if ($result = mysqli_query($con, $sql))
 // Prevent running html
                     $message = htmlentities($message);
 // Load name and message
-                    echo '<strong>
-                    <font class="chatName">'.$row['name'].'</font>
-                      </strong><br><font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      '.nl2br($message).'<font><br>';
+                    echo '<font class="chatName"><strong>'.$row['name'].' </strong></font>
+                    <font class="timestamp"> on '.$row['timestamp'].' EST</font>
+                    
+                    <font class="chatMsg">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    '.nl2br($message).'</font>';
                     }
           }
 }

@@ -5,9 +5,9 @@
   <title>S4S RADIO
   </title>
 
-  <meta name="keywords" content="________">
-  <meta name="description" content="________">
-  <meta name="author" content="________">
+  <meta name="keywords" content="music">
+  <meta name="description" content="An interactive online radio station">
+  <meta name="author" content="J Jonah Jameson">
   <meta name="robots" CONTENT="all">
 
       <!-- Style -->
@@ -66,15 +66,17 @@ else
   <div class="col-md-4">
     <div id="navCnt">
       <div id="navBar" class="btn-group" role="group" aria-label="...">
-          <a id="homeBtn" class="btn btn-default" href="/">esfores</a>
-          <button id="scheduleBtn" class="btn btn-default" href="#">Calendar</button>
-          <button id="vocaBtn" class="btn btn-default" href="#">Record</button>
-          <button id="uploadBtn" class="btn btn-default" href="#">Upload</button>
-          <button id="chanBtn" class="btn btn-default" href="#">4chan</button>
+          <a id="homeBtn" class="btn btn-primary" href="/">esfores</a>
+          <button id="uploadBtn" class="btn btn-info" href="#">Upload</button>
+          <!-- <button id="vocaBtn" class="btn btn-success" href="#">Record</button> -->
+          <button id="scheduleBtn" class="btn btn-success" href="#">Calendar</button>
+          <button id="chanBtn" class="btn btn-warning" href="#">4chan</button>
+          <button id="tribuneBtn" class="btn btn-danger" href="#">Tribune</button>
       </div>
     </div>
     <div id="viewer">
-    <iframe id="uploadFrame" name="uploadFrameName" src="view/upload.php" seamless></iframe>
+    <iframe id="uploadFrame" src="view/upload.php" seamless></iframe>
+    <iframe id="vocaFrame" src="http://vocaroo.com/?minimal" seamless></iframe>
     </div>
   </div>
 
@@ -82,7 +84,7 @@ else
   
   <div class="col-md-4">
     <div id="headline">
-        <p>S4S RADIO</p>
+        <p>esfores RADIO</p>
     </div>
 
   	<div id="contentWindow">
@@ -94,7 +96,7 @@ else
 
   <div class="col-md-4">
       <div id="chatHead">
-        <p>12 users active</p>
+        <p>__ users active</p>
       </div>
 
                 <!-- chatroom -->

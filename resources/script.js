@@ -1,6 +1,10 @@
-var vocaLoad = '<iframe id="vocaFrame" src="http://vocaroo.com/?minimal" seamless></iframe>';
-var chanLoad = '<iframe id="chanFrame" src="http://4chan.org/s4s" seamless></iframe>';
-var uploadLoad = '<iframe id="uploadFrame" name="uploadFrameName" src="view/upload.php" seamless></iframe>';
+var uploadLoad = '<iframe id="uploadFrame" src="view/upload.php" seamless></iframe>' + 
+                    '<iframe id="vocaFrame" src="http://vocaroo.com/?minimal" seamless></iframe>';
+
+var chanLoad = '<iframe id="chanFrame" src="http://4chan.org/s4s"></iframe>';
+
+var tribuneLoad = '<iframe id="tribuneFrame" src="/tribune/news/"></iframe>';
+
 
 $(document).ready(function()
 {
@@ -69,6 +73,10 @@ $('#vocaBtn').click(function()
 $('#chanBtn').click(function()
 {
     $('#viewer').html(chanLoad);
+});
+$('#tribuneBtn').click(function()
+{
+    $('#viewer').html(tribuneLoad);
 });
 
 

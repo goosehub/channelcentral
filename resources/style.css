@@ -1,16 +1,17 @@
 /*
-
-background image divs
-
+radio
 */
-
-
 
 /*	Global */
 body {
     overflow-x: hidden;
     /*overflow-y: hidden;*/
     background-color: #000000;
+    background: url('/radio/resources/background-img/space.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 #pageWrapper {
 	height:100%;
@@ -20,32 +21,52 @@ body {
 #navCnt {
 	height:10vh;
 	text-align: center;
-	background-color: lightblue;
 }
 #viewer {
 	height: 85vh;
 	width: 100%;
 }
-#vocaFrame {
-	background-color: blue;
+#uploadFrame {
 	width: 100%;
-	height: 100%;
+	height: 50%;
+}
+#vocaFrame {
+	width: 100%;
+	height: 50%;
 }
 #chanFrame {
 	width: 100%;
 	height: 100%;
 }
-#uploadFrame {
+#tribuneFrame {
 	width: 100%;
-	height: 100%;	
+	height: 100%;
 }
+.instructions {
+	text-align: center;
+	width: 33%;
+	margin-left: 33.3%;
+}
+.contribute {
+	width: 50%;
+	margin: 0 auto;
+	display: block;
+	border-radius: 15px;
+}
+
 
 /*	Center */
 #headline {
-	background-color: lightgreen;
-	text-align: center;
 	height: 10vh;
+}
+#headline p {
+	text-align: center;
 	font-size: 2em;
+	color: white;
+	padding: 0.2em;
+	border: 5px white solid;
+	box-shadow: 0px 0px 50px;
+	background-color: black;
 }
 #contentWindow {
 	max-height: 90%;
@@ -62,19 +83,57 @@ body {
 #audioPlayer {
 	width: 100%;
 }
+#requestContent {
+	color: white;
+	opacity: 0.8;
+	text-align: center;
+	width: 66%;
+	margin: 0 auto;
+	margin-top: 5em;
+	padding: 0.5em;
+	background-color: black;
+	border: 3px white solid;
+	border-radius: 50px;
+}
 
 /*	Right */
 #chatHead {
-	background-color: purple;
-	text-align: center;
 	height: 10vh;
+}
+#chatHead p {
+	color: white;
+	padding:0.1em;
+	border: 2px white solid;
+	text-align: center;
 	font-size: 2em;
 }
 #inputCnt {
 	height: 5vh;
 }
 #chatBox {
-	background-color: #FFF;
+	background-color: #000;
 	height: 80vh;
 	overflow-x: hidden;
+}
+.chatName, .timestamp, .chatMsg {
+	color: white;
+}
+.chatName, .timestamp {
+	display: inline-block;
+}
+.chatName {
+	font-size: 1.3em;
+}
+.timestamp {
+	opacity: 60%;
+	font-size: 0.8em;
+}
+.chatName, .chatMsg {
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}
+.chatMsg {
+	display: block;
+	margin-bottom: 0.4em;
+	opacity: 0.9;
 }
