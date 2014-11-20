@@ -1,9 +1,5 @@
 TODO
 	Develop
-		get audio duration
-		youtube id REGEX
-		youtube/audio model independence
-		youtube api duration
 		duration and start time logic
 		active users
 		transitions logic

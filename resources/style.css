@@ -9,7 +9,7 @@ background image divs
 /*	Global */
 body {
     overflow-x: hidden;
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
     background-color: #000000;
 }
 #pageWrapper {
@@ -23,7 +23,7 @@ body {
 	background-color: lightblue;
 }
 #viewer {
-	height: 90vh;
+	height: 85vh;
 	width: 100%;
 }
 #vocaFrame {
@@ -45,11 +45,11 @@ body {
 	background-color: lightgreen;
 	text-align: center;
 	height: 10vh;
-	font-size: 4em;
+	font-size: 2em;
 }
 #contentWindow {
 	max-height: 90%;
-	height: 90vh;
+	height: 85vh;
 }
 #youtubeFrame {
 	width: 100%;
@@ -68,13 +68,13 @@ body {
 	background-color: purple;
 	text-align: center;
 	height: 10vh;
-	font-size: 4em;
+	font-size: 2em;
 }
 #inputCnt {
 	height: 5vh;
 }
 #chatBox {
 	background-color: #FFF;
-	height: 85vh;
+	height: 80vh;
 	overflow-x: hidden;
 }

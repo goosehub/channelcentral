@@ -1,24 +1,19 @@
 <?php
 session_start();
 
-// Create connection
-$con = new mysqli("localhost","root","","radio");
-// Check connection
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
-
-
+include 'connect.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 // if(isset($_SESSION['name'])) //also works
 {
-	header("Location: upload.php");
+// Redirect after submit
+	header("Location: ../view/upload.php");
 
 //set known variables for query
 	$name = $_SESSION['name'];
 	$name = mysqli_real_escape_string($con, $name);
 	$time = time();
+	date_default_timezone_set('America/New_York');
 	$youtubeInput = $_POST['youtubeInput'];
 	$youtubeInput = mysqli_real_escape_string($con, $youtubeInput);
 	$typeInput = $_POST['typeInput'];
@@ -27,9 +22,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 //check if youtube input exists
 if (strlen($youtubeInput) > 10)
 	{
+
+//youtube logic below
+
 // Get youtube ID from URL
 	parse_str( parse_url( $youtubeInput, PHP_URL_QUERY ), $my_array_of_vars );
 	$youtubeID = $my_array_of_vars['v'];
+
 //check if valid ID
 //if valid, ignore audio and insert youtube into DB
 	if (strlen($youtubeID) === 11)
@@ -38,24 +37,54 @@ if (strlen($youtubeInput) > 10)
 		$url = "http://gdata.youtube.com/feeds/api/videos/". $youtubeID;
 		$doc = new DOMDocument;
 		$doc->load($url);
-		$title = $doc->getElementsByTagName("title")->item(0)->nodeValue;
+			// title is not retrieved for all videos 
+		// $title = $doc->getElementsByTagName("title")->item(0)->nodeValue;
 		$duration = $doc->getElementsByTagName('duration')->item(0)->getAttribute('seconds');
+		// Add time for ads and loading time
+		// Will need monitoring for adjusting
+		$duration = $duration + 5;
+
+//check duration
+		if ($duration < 4800)
+		{
+// Compare exisiting schedule
+			$query = "SELECT end
+			FROM upload
+			WHERE end >= '".$time."'
+			ORDER BY end DESC
+			LIMIT 1;";
+			$result = mysqli_query($con, $query);
+			$row = mysqli_fetch_assoc($result);
+			if ($row['end'] > 16)
+			{
+				$start = $row['end'];
+			}
+			else {
+				$start = $time;
+			}
+			$end = $start + $duration;
+			$scheduled = date("M j, Y, g:i:s a", $start);
+
 // Query
 		      $query = "INSERT INTO upload 
-		      (name, time, type, youtube, title, duration)
+		      (name, time, type, youtube, duration, start, end, scheduled)
 		      VALUES('". $name ."', '". $time ."', '". $typeInput ."',
-		       '". $youtubeID ."', '". $title ."', '". $duration ."');";
+		       '". $youtubeID ."', '". $duration ."', '". $start ."',
+		        '". $end ."', '". $scheduled ."');";
 		      $result = mysqli_query($con, $query);  
+
 //remove uneeded files if exists
-		$imageInput = '';
-		$audioInput = '';
-//Load success view	
-		  }
+			$imageInput = '';
+			$audioInput = '';
+			}
+		}
 	}
 	else
 	{
 
+
 //rest is for file uploads only
+
 
 // Set error warnings
 	$data['errorCode'] = '';
@@ -117,27 +146,54 @@ if (strlen($youtubeInput) > 10)
 		  else if ($_FILES["audioInput"]["error"] > 0) {
 		    $data['errorCode'] = "Return Code: " . $_FILES["audioInput"]["error"] . "<br>";
 		  } 
-		  else {
+		  else
+		  {
 // Move Files
 		      move_uploaded_file($_FILES["imageInput"]["tmp_name"],
 		      "../images/" . $_FILES["imageInput"]["name"]);
 		      move_uploaded_file($_FILES["audioInput"]["tmp_name"],
 		      "../audio/" . $_FILES["audioInput"]["name"]);
+
 //Get audio duration
 		      $duration = get_duration("../audio", $_FILES["audioInput"]["name"]);
 		      $duration = floor($duration);
+// Add time for ads and loading time
+// Will need monitoring for adjusting
+		      $duration = $duration + 1;
+		      		if ($duration < 4800)
+		      		{
+// Compare exisiting schedule
+		      			$query = "SELECT end
+		      			FROM upload
+		      			WHERE end >= '".$time."'
+		      			ORDER BY end DESC
+		      			LIMIT 1;";
+		      			$result = mysqli_query($con, $query);
+		      			$row = mysqli_fetch_assoc($result);
+		      			if ($row['end'] > 16)
+		      			{
+		      				$start = $row['end'];
+		      			}
+		      			else {
+		      				$start = $time;
+		      			}
+		      			$end = $start + $duration;
+						$scheduled = date("M j, Y, g:i:s a", $start);
+
 // Prepare for model
-		      $imageInput = $_FILES["imageInput"]["name"];
-			  $imageInput = mysqli_real_escape_string($con, $imageInput);
-  		      $audioInput = $_FILES["audioInput"]["name"];
-			  $audioInput = mysqli_real_escape_string($con, $audioInput);
+			      $imageInput = $_FILES["imageInput"]["name"];
+				  $imageInput = mysqli_real_escape_string($con, $imageInput);
+	  		      $audioInput = $_FILES["audioInput"]["name"];
+				  $audioInput = mysqli_real_escape_string($con, $audioInput);
+
 // Query
-		      $query = "INSERT INTO upload 
-		      (name, time, audio, image, type, duration)
-		      VALUES('". $name ."', '". $time ."', '". $audioInput ."',
-		       '". $imageInput ."', '". $typeInput ."', '". $duration ."');";
-		      $result = mysqli_query($con, $query);   
-//Load success view	
+			      $query = "INSERT INTO upload 
+			      (name, time, audio, image, type, duration, start, end, scheduled)
+			      VALUES('". $name ."', '". $time ."', '". $audioInput ."',
+			       '". $imageInput ."', '". $typeInput ."', '". $duration ."'
+			       , '". $start ."', '". $end ."', '". $scheduled ."');";
+			      $result = mysqli_query($con, $query);   
+			  }
 		  }
 		}
 
@@ -148,6 +204,7 @@ if (strlen($youtubeInput) > 10)
 // 			$data['errorInvalid'] = 'Invalid File Size. 200 by 200 pixels is the minimum. 3200 by 3200 is the maximum.';
 // // view reporting
 // 		}
+//
 
 	}
 }

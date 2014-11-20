@@ -74,7 +74,7 @@ else
       </div>
     </div>
     <div id="viewer">
-    <iframe id="uploadFrame" name="uploadFrameName" src="controller/upload.php" seamless></iframe>
+    <iframe id="uploadFrame" name="uploadFrameName" src="view/upload.php" seamless></iframe>
     </div>
   </div>
 
@@ -86,13 +86,7 @@ else
     </div>
 
   	<div id="contentWindow">
-		<!-- <iframe id="youtubeFrame" src="//www.youtube.com/embed/QjsPG0Kspxo" frameborder="0" allowfullscreen></iframe> -->
-
-    <img id="imageCover" src="images/example.jpg">
-		<audio controls id="audioPlayer">
-		  <source src="audio/test.mp3" type="audio/mpeg">
-		  Your browser does not support this audio.
-		</audio>
+<p>Loading...</p>
   	</div>
   </div>
 
