@@ -66,12 +66,14 @@ else
   <div class="col-md-4">
     <div id="navCnt">
       <div id="navBar" class="btn-group" role="group" aria-label="...">
-          <a id="homeBtn" class="btn btn-primary" href="/">esfores</a>
-          <button id="uploadBtn" class="btn btn-info" href="#">Upload</button>
+          <a id="homeBtn" class="btn btn-default disabled" href="#">esfores</a>
+          <button id="uploadBtn" class="btn btn-default" href="#">Upload</button>
           <!-- <button id="vocaBtn" class="btn btn-success" href="#">Record</button> -->
-          <button id="scheduleBtn" class="btn btn-success" href="#">Calendar</button>
+          <!-- <button id="scheduleBtn" class="btn btn-success" href="#">Schedule</button> -->
+          <button id="pulpBtn" class="btn btn-primary" href="#">Pulp</button>
           <button id="chanBtn" class="btn btn-warning" href="#">4chan</button>
-          <button id="tribuneBtn" class="btn btn-danger" href="#">Tribune</button>
+          <!-- <button id="tribuneBtn" class="btn btn-danger" href="#">Tribune</button> -->
+          <button id="sumoBtn" class="btn btn-success" href="#">Sumo</button>
       </div>
     </div>
     <div id="viewer">
@@ -84,7 +86,7 @@ else
   
   <div class="col-md-4">
     <div id="headline">
-        <p>esfores RADIO</p>
+        <p>Welcome /b/</p>
     </div>
 
   	<div id="contentWindow">

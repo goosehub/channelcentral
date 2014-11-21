@@ -22,6 +22,10 @@ body {
 	height:10vh;
 	text-align: center;
 }
+#homeBtn {
+	background-color: black;
+	color: white;
+}
 #viewer {
 	height: 85vh;
 	width: 100%;
@@ -42,6 +46,10 @@ body {
 	width: 100%;
 	height: 100%;
 }
+#assignmentFrame, #pulpFrame, #sumoFrame {
+	width: 100%;
+	height: 100%;
+}
 .instructions {
 	text-align: center;
 	width: 33%;
@@ -50,8 +58,19 @@ body {
 .contribute {
 	width: 50%;
 	margin: 0 auto;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
 	display: block;
 	border-radius: 15px;
+   -moz-box-shadow:    inset 2px 2px 2px #FFF;
+   -webkit-box-shadow: inset 2px 2px 2px #FFF;
+   box-shadow:         inset 2px 2px 2px #FFF;
+}
+#currentLimit {
+	font-size: 1.5em;	
+	color: white;
+	opacity: 0.9;
+	text-align: center;
 }
 
 

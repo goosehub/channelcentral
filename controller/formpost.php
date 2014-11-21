@@ -45,7 +45,7 @@ if (strlen($youtubeInput) > 10)
 		$duration = $duration + 5;
 
 //check duration
-		if ($duration < 4800)
+		if ($duration < 300)
 		{
 // Compare exisiting schedule
 			$query = "SELECT end
@@ -160,7 +160,7 @@ if (strlen($youtubeInput) > 10)
 // Add time for ads and loading time
 // Will need monitoring for adjusting
 		      $duration = $duration + 1;
-		      		if ($duration < 4800)
+		      		if ($duration < 300)
 		      		{
 // Compare exisiting schedule
 		      			$query = "SELECT end

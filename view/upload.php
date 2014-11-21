@@ -19,6 +19,8 @@ session_start();
 
     <div id="uploadFormCnt">
 
+    <p id="currentLimit">Limit on uploads tonight is <strong>8</strong> minutes</p>
+
     <form name="uploadForm" id="UploadForm" action="../controller/formpost.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
 
@@ -31,7 +33,7 @@ session_start();
     
     <input class="form-control btn btn-primary contribute" type="submit" name="submitForm" value="Contribute" />
 
-    <button class="instructions btn" disabled="disabled">OR</button>
+    <button class="instructions btn" disabled="disabled"><strong>OR</strong></button>
 
     <div class="input-group">
       <div class="input-group-addon">Upload Audio</div>
