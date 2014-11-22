@@ -12,11 +12,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$message = mysqli_real_escape_string($con, $message);
 	date_default_timezone_set('America/New_York');
 	$timestamp = date("M j, g:i A");
+// Check length of message
+	if (strlen($message) < 512)
+	{
 // Insert
-			$query = "INSERT INTO
-                chat(name, message, timestamp)
-            VALUES('$name', '$message', '$timestamp')"; 
-			$result = mysqli_query($con, $query);
-
+		$query = "INSERT INTO
+            chat(name, message, timestamp)
+        VALUES('$name', '$message', '$timestamp')"; 
+		$result = mysqli_query($con, $query);
+	}
 }  
 ?>

@@ -89,23 +89,22 @@ if (strlen($youtubeInput) > 10)
 // Set error warnings
 	$data['errorCode'] = '';
 	$data['errorExists'] = '';
-	$data['errorInvalid'] = '';
 
 // GetID3 function
 	function get_duration($audioPath, $audioFile) 
 	{ 
-	// include getID3() library 
+// include getID3() library 
 	require_once('../resources/getID3-1.9.8/getid3/getid3.php'); 
 	$getID3 = new getID3();
-	//set up path
+//set up path
 	$FullFileName = realpath($audioPath.'/'.$audioFile); 
 	if (is_file($FullFileName)) { 
-		//limit time to work function
+//limit time to work function
 		set_time_limit(30); 
-		//analyze
+//analyze
 		$ThisFileInfo = $getID3->analyze($FullFileName); 
 		getid3_lib::CopyTagsToComments($ThisFileInfo); 
-		//return seconds
+//return seconds
 		$duration = $ThisFileInfo['playtime_seconds']; 
 		return $duration; 
 		} 
@@ -193,20 +192,12 @@ if (strlen($youtubeInput) > 10)
 			       '". $imageInput ."', '". $typeInput ."', '". $duration ."'
 			       , '". $start ."', '". $end ."', '". $scheduled ."');";
 			      $result = mysqli_query($con, $query);   
-			  }
-		  }
+			    }
+		    }
 		}
-
-//Not usable in current form
-// 		else if ($data['errorInvalid'] === TRUE)
-// 		{
-// // General error Reporting
-// 			$data['errorInvalid'] = 'Invalid File Size. 200 by 200 pixels is the minimum. 3200 by 3200 is the maximum.';
-// // view reporting
-// 		}
-//
-
 	}
 }
+
+//Hey, it's a staircase
 
 ?>

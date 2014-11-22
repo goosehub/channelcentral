@@ -19,7 +19,7 @@ session_start();
 
     <div id="uploadFormCnt">
 
-    <p id="currentLimit">Limit on uploads tonight is <strong>8</strong> minutes</p>
+    <p id="currentLimit">Limit on uploads today is <strong>5</strong> minutes</p>
 
     <form name="uploadForm" id="UploadForm" action="../controller/formpost.php" method="post" enctype="multipart/form-data">
     <div class="form-group">

@@ -62,9 +62,9 @@ function loadLog()
 // 
 // chat disabled to save bandwidth
 // 
-// loadLog();
+loadLog();
 // Refresh
-setInterval(loadLog, 1500); 
+setInterval(loadLog, 5000); 
 
 
 //frame loading
