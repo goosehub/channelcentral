@@ -103,6 +103,16 @@ $("#submitChat").click(function()
      $("#chatForm :input").val("");
 // Load log so user can instantly see his message
     loadLog();
+// Seperate so loadLog stays instant
+    $.ajax(
+    {
+        url: "controller/trim-chat.php",
+        cache: false,
+        success: function(html)
+        {
+        // no action needed
+        }
+    });
     return false;
 });
 
