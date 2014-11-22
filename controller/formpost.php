@@ -29,9 +29,17 @@ if (strlen($youtubeInput) > 10)
 	parse_str( parse_url( $youtubeInput, PHP_URL_QUERY ), $my_array_of_vars );
 	$youtubeID = $my_array_of_vars['v'];
 
-//check if valid ID
+// Check database to see if youtubeID already exists
+			$query = "SELECT youtube
+			FROM upload
+			WHERE youtube = '".$youtubeID."';";
+			$result = mysqli_query($con, $query);
+			$row = mysqli_fetch_assoc($result);
+
+//check if valid and non repeating youtubeID
 //if valid, ignore audio and insert youtube into DB
-	if (strlen($youtubeID) === 11)
+	if (strlen($youtubeID) === 11
+		&& $row['youtube'] !== $youtubeID)
 		{
 //get youtube video duration and title
 		$url = "http://gdata.youtube.com/feeds/api/videos/". $youtubeID;
@@ -158,7 +166,7 @@ if (strlen($youtubeInput) > 10)
 		      $duration = floor($duration);
 // Add time for ads and loading time
 // Will need monitoring for adjusting
-		      $duration = $duration + 1;
+		      $duration = $duration + 5;
 		      		if ($duration < 300)
 		      		{
 // Compare exisiting schedule
@@ -197,7 +205,5 @@ if (strlen($youtubeInput) > 10)
 		}
 	}
 }
-
-//Hey, it's a staircase
 
 ?>

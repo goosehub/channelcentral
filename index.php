@@ -98,7 +98,7 @@ else
 
   <div class="col-md-4">
       <div id="chatHead">
-        <p>__ users active</p>
+        <p>You are <?php echo $_SESSION['name'] ?></p>
       </div>
 
                 <!-- chatroom -->

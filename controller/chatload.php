@@ -4,8 +4,8 @@ include 'connect.php';
 
 // Get chat data
 $sql = "SELECT *
-            from chat
-            ORDER BY id DESC;";
+        from chat
+        ORDER BY id DESC;";
 if ($result = mysqli_query($con, $sql))
 {
           while($row = mysqli_fetch_assoc($result)) 

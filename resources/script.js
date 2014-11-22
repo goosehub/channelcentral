@@ -59,12 +59,9 @@ function loadLog()
     });
 }
 // Initial Load
-// 
-// chat disabled to save bandwidth
-// 
 loadLog();
 // Refresh
-setInterval(loadLog, 5000); 
+setInterval(loadLog, 4000); 
 
 
 //frame loading
@@ -104,6 +101,8 @@ $("#submitChat").click(function()
         text: clientchat
     });
      $("#chatForm :input").val("");
+// Load log so user can instantly see his message
+    loadLog();
     return false;
 });
 
