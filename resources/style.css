@@ -69,11 +69,17 @@ body {
    -webkit-box-shadow: inset 2px 2px 2px #FFF;
    box-shadow:         inset 2px 2px 2px #FFF;
 }
+#uploadInfo {
+	background-color: #000;
+	opacity: 0.8;
+}
 #currentLimit {
 	font-size: 1.5em;	
-	color: white;
+	color: #FFF;
 	opacity: 0.9;
 	text-align: center;
+	margin-bottom: 0;
+
 }
 
 

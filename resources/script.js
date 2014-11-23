@@ -145,7 +145,6 @@ $('#submitForm').click(function()
     //not working
     loadContent();
     $.post('controller/formpost.php', $('#uploadForm').serialize());
-    // ;
 });
 
 

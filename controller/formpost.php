@@ -13,6 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$name = $_SESSION['name'];
 	$name = mysqli_real_escape_string($con, $name);
 	$time = time();
+	$limit = $time + 900;
 	date_default_timezone_set('America/New_York');
 	$youtubeInput = $_POST['youtubeInput'];
 	$youtubeInput = mysqli_real_escape_string($con, $youtubeInput);
@@ -23,7 +24,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Check if it wins
 			$query = "SELECT start
 			FROM upload
-			WHERE start >= '".$time."'
+			WHERE start >= '".$limit."'
 			ORDER BY start DESC
 			LIMIT 1;";
 			$result = mysqli_query($con, $query);
@@ -71,6 +72,7 @@ if (strlen($youtubeInput) > 10)
 		if ($duration < 600)
 		{
 // Compare exisiting schedule
+// $limit declares how far in the future a video can be queued
 			$query = "SELECT end
 			FROM upload
 			WHERE end >= '".$time."'
