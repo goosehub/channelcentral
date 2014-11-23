@@ -9,8 +9,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Redirect after submit
 	header("Location: ../view/upload.php");
 
-
-
 //set known variables for query
 	$name = $_SESSION['name'];
 	$name = mysqli_real_escape_string($con, $name);
@@ -20,6 +18,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$youtubeInput = mysqli_real_escape_string($con, $youtubeInput);
 	$typeInput = $_POST['typeInput'];
 	$typeInput = mysqli_real_escape_string($con, $typeInput);
+
+
+// Check if it wins
+			$query = "SELECT start
+			FROM upload
+			WHERE start >= '".$time."'
+			ORDER BY start DESC
+			LIMIT 1;";
+			$result = mysqli_query($con, $query);
+			$row = mysqli_fetch_assoc($result);
+			if ($row['start'] > 16)
+			{
+				// for passing errors later
+			}
+			else {
 
 //check if youtube input exists
 if (strlen($youtubeInput) > 10)
@@ -175,7 +188,7 @@ if (strlen($youtubeInput) > 10)
 		      			$query = "SELECT end
 		      			FROM upload
 		      			WHERE end >= '".$time."'
-		      			ORDER BY end DESC
+		      			ORDER BY end ASC
 		      			LIMIT 1;";
 		      			$result = mysqli_query($con, $query);
 		      			$row = mysqli_fetch_assoc($result);
@@ -202,8 +215,9 @@ if (strlen($youtubeInput) > 10)
 			       '". $imageInput ."', '". $typeInput ."', '". $duration ."'
 			       , '". $start ."', '". $end ."', '". $scheduled ."');";
 			      $result = mysqli_query($con, $query);   
+				    }
 			    }
-		    }
+			}
 		}
 	}
 }

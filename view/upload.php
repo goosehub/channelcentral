@@ -19,7 +19,7 @@ session_start();
 
     <div id="uploadFormCnt">
 
-    <p id="currentLimit">Limit on uploads today is <strong>5</strong> minutes</p>
+    <p id="currentLimit">Limit on uploads today is <strong>10</strong> minutes</p>
 
     <form name="uploadForm" id="UploadForm" action="../controller/formpost.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
@@ -31,7 +31,9 @@ session_start();
       <input class="form-control" type="input" name="youtubeInput" /><br />
     </div>
     
+    <div id="contributeA">
     <input class="form-control btn btn-primary contribute" type="submit" name="submitForm" value="Contribute" />
+    </div>
 
     <button class="instructions btn" disabled="disabled"><strong>OR</strong></button>
 
@@ -62,7 +64,9 @@ session_start();
       </div>
     </div> -->
 
+    <div id="contributeB">
     <input class="form-control btn btn-primary contribute" type="submit" name="submitForm" value="Contribute" />
+    </div>
 
     </div>
     </form>

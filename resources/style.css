@@ -26,6 +26,9 @@ body {
 	background-color: black;
 	color: white;
 }
+.uploadOff {
+	opacity: 33%;
+}
 #viewer {
 	height: 85vh;
 	width: 100%;

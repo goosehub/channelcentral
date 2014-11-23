@@ -34,7 +34,7 @@ function loadContent()
             startCounter(counter);
         }
     });
-    
+
 }
 // Sets countdown
 function startCounter(counter){
@@ -63,6 +63,26 @@ function loadLog()
 loadLog();
 // Refresh
 setInterval(loadLog, 4000); 
+
+
+//Load contribute buttons
+function freeUpload()
+{
+    $.ajax(
+    {
+        url: "/radio/controller/freeUpload.php",
+        cache: false,
+        success: function(html)
+        {
+            $("#contributeA").html(html);
+            $("#contributeB").html(html);
+        }
+    });
+}
+// Initial Load
+freeUpload();
+// Refresh
+setInterval(freeUpload, 4000); 
 
 
 //frame loading
@@ -124,8 +144,8 @@ $('#submitForm').click(function()
 {
     //not working
     loadContent();
-
     $.post('controller/formpost.php', $('#uploadForm').serialize());
+    // ;
 });
 
 
