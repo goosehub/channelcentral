@@ -1,3 +1,5 @@
+<div id="chatFade">
+
 <?php 
 
 include 'connect.php';
@@ -26,3 +28,5 @@ if ($result = mysqli_query($con, $sql))
 }
 
 ?>
+
+</div>

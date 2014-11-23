@@ -71,10 +71,10 @@ else
           <!-- <button id="vocaBtn" class="btn btn-success" href="#">Record</button> -->
           <!-- <button id="scheduleBtn" class="btn btn-success" href="#">Schedule</button> -->
           <button id="pulpBtn" class="btn btn-primary" href="#">Pulp</button>
-          <!-- <button id="chanBtn" class="btn btn-warning" href="#">4chan</button> -->
-          <button id="tribuneBtn" class="btn btn-danger" href="#">Tribune</button>
-          <button id="leaveBtn" class="btn btn-warning" href="#">Re-Enter</button>
-          <button id="sumoBtn" class="btn btn-success" href="#">Sumo</button>
+          <button id="chanBtn" class="btn btn-warning" href="#">4chan</button>
+          <!-- <button id="tribuneBtn" class="btn btn-danger" href="#">Tribune</button> -->
+          <button id="leaveBtn" class="btn btn-danger" href="#">Re-Enter</button>
+          <button id="specialBtn" class="btn btn-success" href="#">Squeeze</button>
       </div>
     </div>
     <div id="viewer">
@@ -88,7 +88,7 @@ else
   <div class="col-md-4">
     <div id="headline">
         <p>
-        Welcome clownercraft
+        esfores
         </p>
     </div>
 

@@ -1,13 +1,13 @@
 var uploadLoad = '<iframe id="uploadFrame" src="view/upload.php" seamless></iframe>' + 
                     '<iframe id="vocaFrame" src="http://vocaroo.com/?minimal" seamless></iframe>';
 
-var chanLoad = '<iframe id="chanFrame" src="http://4chan.org"></iframe>';
+var chanLoad = '<iframe id="chanFrame" src="http://4chan.org/s4s/"></iframe>';
 
 var tribuneLoad = '<iframe id="tribuneFrame" src="/tribune/news/"></iframe>';
 
 var pulpLoad = '<iframe id="pulpFrame" src="http://interplay.xyz/pulp/winter2013.pdf" seamless></iframe>'; 
 
-var sumoLoad = '<center><img class="img-circle" src="http://bbsimg.ngfiles.com/1/21938000/ngbbs4cbd66710a5ea.gif"/></center>'; 
+var sumoLoad = '<center><img class="img-circle" src="resources/special.gif"/></center>'; 
 
 $(document).ready(function()
 {
@@ -106,7 +106,7 @@ $('#pulpBtn').click(function()
 {
     $('#viewer').html(pulpLoad);
 });
-$('#sumoBtn').click(function()
+$('#specialBtn').click(function()
 {
     $('#viewer').html(sumoLoad);
 });

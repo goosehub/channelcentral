@@ -7,7 +7,7 @@ body {
     overflow-x: hidden;
     overflow-y: hidden;
     background-color: #000000;
-    background: url('/radio/resources/background-img/space.jpg') no-repeat center center fixed; 
+    background: url('/radio/resources/background-img.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -136,6 +136,7 @@ body {
 	background-color: #000;
 	height: 80vh;
 	overflow-x: hidden;
+	background: linear-gradient(to top, rgba(000, 000, 000, 0), rgba(000, 000, 000, 1) 5%);
 }
 .chatName, .timestamp, .chatMsg {
 	color: white;
