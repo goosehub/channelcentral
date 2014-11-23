@@ -2,7 +2,7 @@
 <html lang="en">
 <meta charset="utf-8">
 <head>
-  <title>S4S RADIO
+  <title>esfores RADIO
   </title>
 
   <meta name="keywords" content="music">
@@ -73,6 +73,7 @@ else
           <button id="pulpBtn" class="btn btn-primary" href="#">Pulp</button>
           <!-- <button id="chanBtn" class="btn btn-warning" href="#">4chan</button> -->
           <button id="tribuneBtn" class="btn btn-danger" href="#">Tribune</button>
+          <button id="leaveBtn" class="btn btn-warning" href="#">Re-Enter</button>
           <button id="sumoBtn" class="btn btn-success" href="#">Sumo</button>
       </div>
     </div>
@@ -86,7 +87,9 @@ else
   
   <div class="col-md-4">
     <div id="headline">
-        <p>Welcome /b/</p>
+        <p>
+        Welcome clownercraft
+        </p>
     </div>
 
   	<div id="contentWindow">

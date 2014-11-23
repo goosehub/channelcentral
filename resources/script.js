@@ -34,6 +34,7 @@ function loadContent()
             startCounter(counter);
         }
     });
+    
 }
 // Sets countdown
 function startCounter(counter){
@@ -89,7 +90,9 @@ $('#sumoBtn').click(function()
 {
     $('#viewer').html(sumoLoad);
 });
-
+  $("#leaveBtn ").click(function(){
+        window.location = 'controller/leave.php';   
+    });
 
 
 //chat input

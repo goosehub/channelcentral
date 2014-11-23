@@ -9,6 +9,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Redirect after submit
 	header("Location: ../view/upload.php");
 
+
+
 //set known variables for query
 	$name = $_SESSION['name'];
 	$name = mysqli_real_escape_string($con, $name);
@@ -53,7 +55,7 @@ if (strlen($youtubeInput) > 10)
 		$duration = $duration + 5;
 
 //check duration
-		if ($duration < 300)
+		if ($duration < 600)
 		{
 // Compare exisiting schedule
 			$query = "SELECT end
