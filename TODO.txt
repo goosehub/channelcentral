@@ -29,7 +29,6 @@ anime review
 
 //Host
 
--insert 
 -change
 -skip
 -audio/youtube only

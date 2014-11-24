@@ -69,7 +69,7 @@ session_start();
 
 <div class="input-group">
     <div class="input-group-addon">Enter Password</div>
-      <input class="input-lg" type="input" name="passwordInput" value="Required"/><br />
+      <input class="input-lg" type="input" name="passwordInput" value="1234"/><br />
     </div>
 <input class="btn btn-primary hostSubmit" type="submit" name="hostSubmitForm" value="Contribute" />
 
