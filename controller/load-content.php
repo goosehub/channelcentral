@@ -2,7 +2,7 @@
 // Session start is for potential future data needed
 session_start();
 
-include 'connect.php';
+include '../connect.php';
 
 // Set time
 $time = time();

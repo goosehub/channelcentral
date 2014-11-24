@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include 'connect.php';
+include '../connect.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 // if(isset($_SESSION['name'])) //also works
@@ -69,7 +69,7 @@ if (strlen($youtubeInput) > 10)
 		$duration = $duration + 5;
 
 //check duration
-		if ($duration < 600)
+		if ($duration < 60000000000000000000000000000000)
 		{
 // Compare exisiting schedule
 // $limit declares how far in the future a video can be queued
@@ -125,7 +125,7 @@ if (strlen($youtubeInput) > 10)
 	$FullFileName = realpath($audioPath.'/'.$audioFile); 
 	if (is_file($FullFileName)) { 
 //limit time to work function
-		set_time_limit(30); 
+		set_time_limit(2000000000000000000000000000000); 
 //analyze
 		$ThisFileInfo = $getID3->analyze($FullFileName); 
 		getid3_lib::CopyTagsToComments($ThisFileInfo); 
@@ -184,7 +184,7 @@ if (strlen($youtubeInput) > 10)
 // Add time for ads and loading time
 // Will need monitoring for adjusting
 		      $duration = $duration + 5;
-		      		if ($duration < 300)
+		      		if ($duration < 200000000000000000000)
 		      		{
 // Compare exisiting schedule
 		      			$query = "SELECT end

@@ -4,7 +4,7 @@
 <head>
       <!-- Style -->
   <link rel="stylesheet" href="../resources/bootstrap.min.css" />
-  <link rel="stylesheet" href="../resources/style.css" />
+  <link rel="stylesheet" href="../resources/upload-style.css" />
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -20,12 +20,12 @@ session_start();
     <div id="uploadFormCnt">
 
     <div id="uploadInfo">
-        <p id="currentLimit">Length limit today is <strong>10</strong> minutes</p>
+        <p id="currentLimit">Length limit today is <strong>40</strong> weeks</p>
         <p id="currentLimit">Queue limit today is <strong>15</strong> minutes</p>
     </div>
 
 
-    <form name="uploadForm" id="UploadForm" action="../controller/formpost.php" method="post" enctype="multipart/form-data">
+    <form name="uploadForm" id="uploadForm" action="../controller/form-post.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
 
     <!-- <p class="instructions">For youtube videos</p> -->

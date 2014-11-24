@@ -1,5 +1,5 @@
 <?php
-include 'connect.php';
+include '../connect.php';
 // Clear all but the latest 32
     $query = "DELETE FROM `chat`
     WHERE id NOT IN (

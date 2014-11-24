@@ -7,18 +7,16 @@ var tribuneLoad = '<iframe id="tribuneFrame" src="/tribune/news/"></iframe>';
 
 var pulpLoad = '<iframe id="pulpFrame" src="http://interplay.xyz/pulp/winter2013.pdf" seamless></iframe>'; 
 
-var sumoLoad = '<center><img class="img-circle" src="resources/special.gif"/></center>'; 
+var sumoLoad = '<center><img class="img-circle questionImg" src="resources/special.gif"/></center>'; 
 
 $(document).ready(function()
 {
-
-var contentRefresher = 4000;
 
 function loadContent()
 {
     $.ajax(
     {
-        url: "controller/loadContent.php",
+        url: "controller/load-content.php",
         cache: false,
         success: function(html)
         {
@@ -50,7 +48,7 @@ function loadLog()
 {
     $.ajax(
     {
-        url: "controller/chatload.php",
+        url: "view/chat-load.php",
         cache: false,
         success: function(html)
         {
@@ -62,15 +60,33 @@ function loadLog()
 // Initial Load
 loadLog();
 // Refresh
-setInterval(loadLog, 4000); 
+setInterval(loadLog, 4000);
 
-
-//Load contribute buttons
-function freeUpload()
+//Load headline display
+function loadHeadline()
 {
     $.ajax(
     {
-        url: "/radio/controller/freeUpload.php",
+        url: "view/headline.php",
+        cache: false,
+        success: function(html)
+        {
+            $("#headline").html(html);
+        }
+    });
+}
+// Initial Load
+loadHeadline();
+// Refresh
+setInterval(loadHeadline, 10000); 
+
+
+//Load contribute buttons
+function activeSubmit()
+{
+    $.ajax(
+    {
+        url: "/radio/view/active-submit.php",
         cache: false,
         success: function(html)
         {
@@ -80,9 +96,9 @@ function freeUpload()
     });
 }
 // Initial Load
-freeUpload();
+activeSubmit();
 // Refresh
-setInterval(freeUpload, 4000); 
+setInterval(activeSubmit, 4000); 
 
 
 //frame loading
@@ -119,7 +135,7 @@ $('#specialBtn').click(function()
 $("#submitChat").click(function()
 {
     var clientchat = $("#chatInput").val();
-    $.post("controller/chatpost.php",
+    $.post("controller/chat-post.php",
     {
         text: clientchat
     });
@@ -129,7 +145,7 @@ $("#submitChat").click(function()
 // Seperate so loadLog stays instant
     $.ajax(
     {
-        url: "controller/trim-chat.php",
+        url: "model/trim-chat.php",
         cache: false,
         success: function(html)
         {
@@ -142,9 +158,8 @@ $("#submitChat").click(function()
 //form input
 $('#submitForm').click(function()
 {
-    //not working
     loadContent();
-    $.post('controller/formpost.php', $('#uploadForm').serialize());
+    $.post('controller/form-post.php', $('#uploadForm').serialize());
 });
 
 

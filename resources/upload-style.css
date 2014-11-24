@@ -1,0 +1,30 @@
+body {
+	background: none;
+}
+.instructions {
+	text-align: center;
+	width: 33%;
+	margin-left: 33.3%;
+}
+.contribute {
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	display: block;
+	border-radius: 15px;
+   -moz-box-shadow:    inset 2px 2px 2px #FFF;
+   -webkit-box-shadow: inset 2px 2px 2px #FFF;
+   box-shadow:         inset 2px 2px 2px #FFF;
+}
+#uploadInfo {
+	background-color: #000;
+	opacity: 0.7;
+}
+#currentLimit {
+	font-size: 1.5em;	
+	color: #FFF;
+	opacity: 0.9;
+	text-align: center;
+	margin-bottom: 0;
+}

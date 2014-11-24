@@ -1,6 +1,6 @@
 <?php
 
-include 'connect.php';
+include '../connect.php';
 
 $time = time();
 $limit = $time + 900;

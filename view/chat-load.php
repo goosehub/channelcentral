@@ -2,7 +2,7 @@
 
 <?php 
 
-include 'connect.php';
+include '../connect.php';
 
 // Get chat data
 $sql = "SELECT *

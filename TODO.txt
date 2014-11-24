@@ -1,15 +1,9 @@
 TODO
 	Develop
-		duration and start time logic
 		active users
 		transitions logic
-		asynch upload/iframe
-		leave button
 		schedule frame
-		chat introduce and leave
 	Design
-		background images for divs
-		youtube flex-box library
 		schedule
 		default calendar
 		much more
@@ -28,3 +22,21 @@ movie night
 minute movies
 s4s radio
 anime review
+
+
+
+
+
+//Host
+
+-headline
+-clear queue
+-max length
+-max queue
+-insert 
+-audio/youtube only
+-frames 1-3
+-? image
+
+-insert
+-change
