@@ -19,8 +19,6 @@ session_start();
 
 <div id="hostFormCnt">
 
-<br/>
-
 <h2>Password is 1234</h2>
 
 <br/><br/>
@@ -48,12 +46,7 @@ session_start();
       <input class="" type="checkbox" name="hostClearQueueInput" />
 </div>
 
-<div class="input-group">
-    <div class="input-group-addon">Enter Password</div>
-      <input class="form-control" type="input" name="passwordInput" /><br />
-    </div>
-
-<h2>All host uploads go to the front of the queue</h2> 
+<h3>Each host uploads go to the front of the queue</h3> 
 
     <div class="input-group">
   <div class="input-group-addon">Enter Youtube URL</div>
@@ -72,7 +65,13 @@ session_start();
   <input class="form-control" name="hostImageInput" type="file" />
 </div>
 
-<input class="form-control btn btn-primary contribute" type="submit" name="hostSubmitForm" value="Contribute" />
+<br/><br/><br/>
+
+<div class="input-group">
+    <div class="input-group-addon">Enter Password</div>
+      <input class="input-lg" type="input" name="passwordInput" value="Required"/><br />
+    </div>
+<input class="btn btn-primary hostSubmit" type="submit" name="hostSubmitForm" value="Contribute" />
 
 </div>
 </form>

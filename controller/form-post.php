@@ -17,13 +17,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	date_default_timezone_set('America/New_York');
 	$youtubeInput = $_POST['youtubeInput'];
 	$youtubeInput = mysqli_real_escape_string($con, $youtubeInput);
-	$typeInput = $_POST['typeInput'];
-	$typeInput = mysqli_real_escape_string($con, $typeInput);
+	// files must be sanitized later
 
 include '../model/host-model.php';
 
 include '../model/queue-limit.php';
-
 	if ($queueLimit['end'] > 1)
 	{
 		// for passing errors later
@@ -80,8 +78,8 @@ if (strlen($youtubeInput) > 10)
 
 // Query
 		      $query = "INSERT INTO upload 
-		      (name, time, type, youtube, duration, start, end, scheduled)
-		      VALUES('". $name ."', '". $time ."', '". $typeInput ."',
+		      (name, time, youtube, duration, start, end, scheduled)
+		      VALUES('". $name ."', '". $time ."',
 		       '". $youtubeID ."', '". $duration ."', '". $start ."',
 		        '". $end ."', '". $scheduled ."');";
 		      $result = mysqli_query($con, $query);  
@@ -190,9 +188,9 @@ if (strlen($youtubeInput) > 10)
 
 // Query
 			      $query = "INSERT INTO upload 
-			      (name, time, audio, image, type, duration, start, end, scheduled)
+			      (name, time, audio, image, duration, start, end, scheduled)
 			      VALUES('". $name ."', '". $time ."', '". $audioInput ."',
-			       '". $imageInput ."', '". $typeInput ."', '". $duration ."'
+			       '". $imageInput ."', '". $duration ."'
 			       , '". $start ."', '". $end ."', '". $scheduled ."');";
 			      $result = mysqli_query($con, $query);   
 				    }

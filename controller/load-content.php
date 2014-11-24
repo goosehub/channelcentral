@@ -8,26 +8,19 @@ include '../connect.php';
 $time = time();
 
 // Query database
-$query = "SELECT start, end, duration, youtube, audio, image, special
-		FROM upload
-		WHERE start <= '".$time."'
-		AND end >= '".$time."'
-		ORDER BY end DESC
-		LIMIT 1;";
-		$result = mysqli_query($con, $query);
-		$row = mysqli_fetch_assoc($result);
+include '../model/find-current.php';
 // If end is valid end
-		if ($row['end'] > 16)
+		if ($current['end'] > 1)
 		{
 // If content is youtube video 
-			if ($row['youtube'])
+			if ($current['youtube'])
 			{
 // Youtube load
 				echo '<iframe id="youtubeFrame" src="//www.youtube.com/embed/
-				'.$row['youtube'].'
+				'.$current['youtube'].'
 				?autoplay=1" frameborder="0" allowfullscreen></iframe>';
 // Counter logic
-				$counter = $row['end'] - $time;
+				$counter = $current['end'] - $time;
 // Convert to milliseconds
 				$counter = $counter * 1000;
 // Split from data
@@ -40,19 +33,19 @@ $query = "SELECT start, end, duration, youtube, audio, image, special
 			{
 //Image load
 				echo '<img id="imageCover" src="images/
-				'.$row['image'].'
+				'.$current['image'].'
 				">';
 // Audio load
 		// add audio type variable and logic conversion
 				echo '<audio controls id="audioPlayer" autoplay="autoplay">
 				<source src="audio/
-				'.$row['audio'].'
+				'.$current['audio'].'
 				" type="audio/mpeg">
-				  Your browser does not support this audio.
+				  Your bcurrentser does not support this audio.
 				</audio>';
 			}
 // Counter logic
-				$counter = $row['end'] - $time;
+				$counter = $current['end'] - $time;
 // Convert to milliseconds
 				$counter = $counter * 1000;
 // Split from data

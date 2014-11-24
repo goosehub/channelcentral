@@ -28,3 +28,7 @@ body {
 	text-align: center;
 	margin-bottom: 0;
 }
+.hostSubmit {
+	margin-left: 0;
+	width: 30%;
+}
