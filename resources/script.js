@@ -44,61 +44,78 @@ loadContent();
 //Chat
 
 //Load chat display
-function loadLog()
-{
-    $.ajax(
+    function loadLog()
     {
-        url: "view/chat-load.php",
-        cache: false,
-        success: function(html)
+        $.ajax(
         {
-            $("#chatBox").html(html);
-            //$("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
-        }
-    });
-}
-// Initial Load
-loadLog();
-// Refresh
-setInterval(loadLog, 4000);
+            url: "view/chat-load.php",
+            cache: false,
+            success: function(html)
+            {
+                $("#chatBox").html(html);
+                //$("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+            }
+        });
+    }
+    // Initial Load
+    loadLog();
+    // Refresh
+    setInterval(loadLog, 4000);
 
 //Load headline display
-function loadHeadline()
-{
-    $.ajax(
+    function loadHeadline()
     {
-        url: "view/headline.php",
-        cache: false,
-        success: function(html)
+        $.ajax(
         {
-            $("#headline").html(html);
-        }
-    });
-}
-// Initial Load
-loadHeadline();
-// Refresh
-setInterval(loadHeadline, 10000); 
+            url: "view/headline.php",
+            cache: false,
+            success: function(html)
+            {
+                $("#headline").html(html);
+            }
+        });
+    }
+    // Initial Load
+    loadHeadline();
+    // Refresh
+    setInterval(loadHeadline, 10000); 
 
+//Load upload info
+    function uploadInfo()
+    {
+        $.ajax(
+        {
+            url: "/radio/view/upload-info.php",
+            cache: false,
+            success: function(html)
+            {
+                $("#uploadInfo").html(html);
+            }
+        });
+    }
+    // Initial Load
+    uploadInfo();
+    // Refresh
+    setInterval(uploadInfo, 10000); 
 
 //Load contribute buttons
-function activeSubmit()
-{
-    $.ajax(
+    function activeSubmit()
     {
-        url: "/radio/view/active-submit.php",
-        cache: false,
-        success: function(html)
+        $.ajax(
         {
-            $("#contributeA").html(html);
-            $("#contributeB").html(html);
-        }
-    });
-}
-// Initial Load
-activeSubmit();
-// Refresh
-setInterval(activeSubmit, 4000); 
+            url: "/radio/view/active-submit.php",
+            cache: false,
+            success: function(html)
+            {
+                $("#contributeA").html(html);
+                $("#contributeB").html(html);
+            }
+        });
+    }
+    // Initial Load
+    activeSubmit();
+    // Refresh
+    setInterval(activeSubmit, 4000); 
 
 
 //frame loading

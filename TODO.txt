@@ -29,14 +29,9 @@ anime review
 
 //Host
 
--headline
--clear queue
--max length
--max queue
 -insert 
+-change
+-skip
 -audio/youtube only
 -frames 1-3
 -? image
-
--insert
--change

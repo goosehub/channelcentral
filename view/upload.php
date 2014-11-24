@@ -20,8 +20,6 @@ session_start();
     <div id="uploadFormCnt">
 
     <div id="uploadInfo">
-        <p id="currentLimit">Length limit today is <strong>40</strong> weeks</p>
-        <p id="currentLimit">Queue limit today is <strong>15</strong> minutes</p>
     </div>
 
 
@@ -50,9 +48,6 @@ session_start();
       <div class="input-group-addon">Attach Image</div>
       <input class="form-control" name="imageInput" type="file" />
     </div>
-
-    <!-- <button class="instructions btn" disabled="disabled">THEN</button> -->
-
 
 <!--     <div id="typeInput" class="form-group">
       <div class="input-group">

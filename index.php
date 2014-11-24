@@ -74,7 +74,7 @@ else
           <button id="chanBtn" class="btn btn-warning" href="#">4chan</button>
           <!-- <button id="tribuneBtn" class="btn btn-danger" href="#">Tribune</button> -->
           <button id="leaveBtn" class="btn btn-danger" href="#">Re-Enter</button>
-          <a id="hostBtn" class="btn btn-info" href="view/host.php">Host</a>
+          <a id="hostBtn" class="btn btn-info" href="view/host.php" target="_blank">Host</a>
           <button id="specialBtn" class="btn btn-success" href="#">?</button>
       </div>
     </div>

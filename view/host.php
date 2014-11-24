@@ -21,9 +21,7 @@ session_start();
 
 <br/>
 
-<div id="uploadInfo">
-    <p id="currentLimit">Password is 1234</p>
-</div>
+<h2>Password is 1234</h2>
 
 <br/><br/>
 
@@ -36,8 +34,18 @@ session_start();
     </div>
 
 <div class="input-group">
+    <div class="input-group-addon">Max Upload Length in Seconds</div>
+      <input class="form-control" type="input" name="hostLengthInput" /><br />
+    </div>
+
+<div class="input-group">
+    <div class="input-group-addon">Max Queue in Seconds</div>
+      <input class="form-control" type="input" name="hostQueueLimitInput" /><br />
+    </div>
+
+<div class="input-group">
     <div class="input-group-addon">Clear Queue</div>
-      <input class="form-control" type="checkbox" name="hostClearQueueInput" value="Clear Queue" />
+      <input class="" type="checkbox" name="hostClearQueueInput" />
 </div>
 
 <div class="input-group">
@@ -45,35 +53,26 @@ session_start();
       <input class="form-control" type="input" name="passwordInput" /><br />
     </div>
 
-    <input class="form-control btn btn-primary contribute" type="submit" name="hostSubmitForm" value="Contribute" />
+<h2>All host uploads go to the front of the queue</h2> 
 
-
-<!-- <p class="instructions">For youtube videos</p> -->
-
-<!--     <div class="input-group">
+    <div class="input-group">
   <div class="input-group-addon">Enter Youtube URL</div>
-  <input class="form-control" type="input" name="youtubeInput" /><br />
-</div>
-
-<div id="contributeA">
-<input class="form-control btn btn-primary contribute" type="submit" name="submitForm" value="Contribute" />
+  <input class="form-control" type="input" name="hostYoutubeInput" /><br />
 </div>
 
 <button class="instructions btn" disabled="disabled"><strong>OR</strong></button>
 
 <div class="input-group">
   <div class="input-group-addon">Upload Audio</div>
-  <input class="form-control" name="audioInput" type="file" />
+  <input class="form-control" name="hostAudioInput" type="file" />
 </div>
 
 <div class="input-group">
   <div class="input-group-addon">Attach Image</div>
-  <input class="form-control" name="imageInput" type="file" />
+  <input class="form-control" name="hostImageInput" type="file" />
 </div>
 
-<div id="contributeB">
-<input class="form-control btn btn-primary contribute" type="submit" name="submitForm" value="Contribute" />
-</div> -->
+<input class="form-control btn btn-primary contribute" type="submit" name="hostSubmitForm" value="Contribute" />
 
 </div>
 </form>

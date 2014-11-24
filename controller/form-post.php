@@ -20,20 +20,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$typeInput = $_POST['typeInput'];
 	$typeInput = mysqli_real_escape_string($con, $typeInput);
 
+include '../model/host-model.php';
 
-// Check if it wins
-			$query = "SELECT start
-			FROM upload
-			WHERE start >= '".$limit."'
-			ORDER BY start DESC
-			LIMIT 1;";
-			$result = mysqli_query($con, $query);
-			$row = mysqli_fetch_assoc($result);
-			if ($row['start'] > 16)
-			{
-				// for passing errors later
-			}
-			else {
+include '../model/queue-limit.php';
+
+	if ($queueLimit['end'] > 1)
+	{
+		// for passing errors later
+	}
+	else {
 
 //check if youtube input exists
 if (strlen($youtubeInput) > 10)
@@ -69,20 +64,13 @@ if (strlen($youtubeInput) > 10)
 		$duration = $duration + 5;
 
 //check duration
-		if ($duration < 60000000000000000000000000000000)
+		if ($duration < $host['length'])
 		{
-// Compare exisiting schedule
-// $limit declares how far in the future a video can be queued
-			$query = "SELECT end
-			FROM upload
-			WHERE end >= '".$time."'
-			ORDER BY end DESC
-			LIMIT 1;";
-			$result = mysqli_query($con, $query);
-			$row = mysqli_fetch_assoc($result);
-			if ($row['end'] > 16)
+// Find next available slot
+		include '../model/find-slot.php';
+			if ($slot['end'] > 1)
 			{
-				$start = $row['end'];
+				$start = $slot['end'];
 			}
 			else {
 				$start = $time;
@@ -111,10 +99,6 @@ if (strlen($youtubeInput) > 10)
 //rest is for file uploads only
 
 
-// Set error warnings
-	$data['errorCode'] = '';
-	$data['errorExists'] = '';
-
 // GetID3 function
 	function get_duration($audioPath, $audioFile) 
 	{ 
@@ -125,7 +109,7 @@ if (strlen($youtubeInput) > 10)
 	$FullFileName = realpath($audioPath.'/'.$audioFile); 
 	if (is_file($FullFileName)) { 
 //limit time to work function
-		set_time_limit(2000000000000000000000000000000); 
+		set_time_limit(60); 
 //analyze
 		$ThisFileInfo = $getID3->analyze($FullFileName); 
 		getid3_lib::CopyTagsToComments($ThisFileInfo); 
@@ -184,19 +168,13 @@ if (strlen($youtubeInput) > 10)
 // Add time for ads and loading time
 // Will need monitoring for adjusting
 		      $duration = $duration + 5;
-		      		if ($duration < 200000000000000000000)
+		      		if ($duration < $host['length'])
 		      		{
-// Compare exisiting schedule
-		      			$query = "SELECT end
-		      			FROM upload
-		      			WHERE end >= '".$time."'
-		      			ORDER BY end ASC
-		      			LIMIT 1;";
-		      			$result = mysqli_query($con, $query);
-		      			$row = mysqli_fetch_assoc($result);
-		      			if ($row['end'] > 16)
+// find next available slot
+				include '../model/find-slot.php';
+		      			if ($slot['end'] > 16)
 		      			{
-		      				$start = $row['end'];
+		      				$start = $slot['end'];
 		      			}
 		      			else {
 		      				$start = $time;
