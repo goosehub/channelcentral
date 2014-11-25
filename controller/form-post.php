@@ -186,7 +186,6 @@ if (strlen($youtubeInput) > 10)
 
 // Prepare for model
 			      $imageInput = $filename;
-				  $imageInput = mysqli_real_escape_string($con, $imageInput);
 	  		      $audioInput = $_FILES["audioInput"]["name"];
 				  $audioInput = mysqli_real_escape_string($con, $audioInput);
 

@@ -41,7 +41,7 @@ include '../model/find-current.php';
 				<source src="audio/
 				'.$current['audio'].'
 				" type="audio/mpeg">
-				  Your bcurrentser does not support this audio.
+				  Your browser does not support this audio.
 				</audio>';
 			}
 // Counter logic

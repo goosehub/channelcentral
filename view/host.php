@@ -19,9 +19,10 @@ session_start();
 
 <div id="hostFormCnt">
 
-<h2>Password is 1234</h2>
+<h2>Welcome to your hosting center</h2>
+<h4> Be sure to remember your password with each submit</h4>
 
-<br/><br/>
+<br/>
 
 <form name="uploadForm" id="hostForm" action="../controller/host-form-post.php" method="post" enctype="multipart/form-data">
 <div class="form-group">
@@ -46,14 +47,15 @@ session_start();
       <input class="" type="checkbox" name="hostClearQueueInput" />
 </div>
 
-<h3>Each host uploads go to the front of the queue</h3> 
+<h5>Each host uploads go to the front of the queue</h5> 
+<h5>Host uploads have no length limits</h5>
 
     <div class="input-group">
   <div class="input-group-addon">Enter Youtube URL</div>
   <input class="form-control" type="input" name="hostYoutubeInput" /><br />
 </div>
 
-<button class="instructions btn" disabled="disabled"><strong>OR</strong></button>
+<button class="btn" disabled="disabled"><strong>OR</strong></button>
 
 <div class="input-group">
   <div class="input-group-addon">Upload Audio</div>
@@ -65,17 +67,63 @@ session_start();
   <input class="form-control" name="hostImageInput" type="file" />
 </div>
 
-<br/><br/><br/>
+<br/>
+
+<h5>Password Required</h5>
 
 <div class="input-group">
     <div class="input-group-addon">Enter Password</div>
       <input class="input-lg" type="input" name="passwordInput" value="1234"/><br />
     </div>
-<input class="btn btn-primary hostSubmit" type="submit" name="hostSubmitForm" value="Contribute" />
+<input class="btn btn-primary hostSubmit" type="submit" name="hostSubmitForm" value="Submit Changes" />
 
 </div>
 </form>
 </div>
+
+<h3>Below is the current queue in order</h3>
+<h5>Refresh to update</h5>
+
+<?php 
+
+include '../connect.php';
+
+$time = time();
+
+// Get current queue
+    $query = "SELECT *
+    FROM upload 
+    WHERE start > '". $time ."';";
+// Fetch each row
+if ($result = mysqli_query($con, $query))
+{
+        while($row = mysqli_fetch_assoc($result)) 
+        {
+// If youtube, load youtube
+          if ($row['youtube'])
+          {
+          echo '<iframe id="youtubeFrame" 
+          src="//www.youtube.com/embed/'.$row['youtube'].'?autoplay=0" 
+          frameborder="0" allowfullscreen></iframe><br/>';
+          }
+// Else load audio and image
+          else
+          {
+// Image load
+          echo '<img id="imageCover" src="../images/'.$row['image'].'
+          ">';
+// Audio load
+          // add audio type variable and logic conversion
+          echo '<br/><audio controls id="audioPlayer">
+          <source src="../audio/'.$row['audio'].'
+          " type="audio/mpeg">
+            Your browser does not support this audio.
+          </audio><br/>';
+          }
+    }
+}
+
+?>
 
 <!-- Script -->
     <script type="text/javascript" src="../resources/jquery-1.8.3.min.js"></script>

@@ -177,9 +177,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				  } 
 				  else
 				  {
+// Rename file to UNIX time
+	          $filename = time().'.'.$extension;
+
 // Move Files
 				      move_uploaded_file($_FILES["hostImageInput"]["tmp_name"],
-				      "../images/" . $_FILES["hostImageInput"]["name"]);
+				      "../images/" . $filename);
 				      move_uploaded_file($_FILES["hostAudioInput"]["tmp_name"],
 				      "../audio/" . $_FILES["hostAudioInput"]["name"]);
 
@@ -195,8 +198,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 					  include '../model/find-current.php';
 
 // Prepare for model
-				      $hostImageInput = $_FILES["hostImageInput"]["name"];
-					  $hostImageInput = mysqli_real_escape_string($con, $hostImageInput);
+				      $hostImageInput = $filename;
 		  		      $hostAudioInput = $_FILES["hostAudioInput"]["name"];
 					  $hostAudioInput = mysqli_real_escape_string($con, $hostAudioInput);
 
