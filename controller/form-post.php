@@ -19,8 +19,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$youtubeInput = mysqli_real_escape_string($con, $youtubeInput);
 	// files must be sanitized later
 
+// Load for later
 include '../model/host-model.php';
 
+// Load for now
 include '../model/queue-limit.php';
 	if ($queueLimit['end'] > 1)
 	{
@@ -154,9 +156,11 @@ if (strlen($youtubeInput) > 10)
 		  } 
 		  else
 		  {
+// Rename file to UNIX time
+	          $filename = time().'.'.$extension;
 // Move Files
 		      move_uploaded_file($_FILES["imageInput"]["tmp_name"],
-		      "../images/" . $_FILES["imageInput"]["name"]);
+		      "../images/" . $filename);
 		      move_uploaded_file($_FILES["audioInput"]["tmp_name"],
 		      "../audio/" . $_FILES["audioInput"]["name"]);
 
@@ -181,7 +185,7 @@ if (strlen($youtubeInput) > 10)
 						$scheduled = date("M j, Y, g:i:s a", $start);
 
 // Prepare for model
-			      $imageInput = $_FILES["imageInput"]["name"];
+			      $imageInput = $filename;
 				  $imageInput = mysqli_real_escape_string($con, $imageInput);
 	  		      $audioInput = $_FILES["audioInput"]["name"];
 				  $audioInput = mysqli_real_escape_string($con, $audioInput);
