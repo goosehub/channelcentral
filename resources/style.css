@@ -38,6 +38,10 @@ body {
 	width: 100%;
 	height: 40%;
 }
+#showsFrame {
+	width: 100%;
+	height: 100%;
+}
 #chanFrame {
 	width: 100%;
 	height: 100%;

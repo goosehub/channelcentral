@@ -44,7 +44,12 @@ session_start();
 
 <div class="input-group">
     <div class="input-group-addon">Clear Queue</div>
-      <input class="" type="checkbox" name="hostClearQueueInput" />
+      <input class="" type="checkbox" name="hostClearQueueInput" value="yes" />
+</div>
+
+<div class="input-group">
+  <div class="input-group-addon">Background Image</div>
+  <input class="form-control" name="hostBackgroundInput" type="file" />
 </div>
 
 <h5>Each host uploads go to the front of the queue</h5> 

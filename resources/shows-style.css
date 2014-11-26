@@ -1,0 +1,15 @@
+body {
+	background: none;
+}
+h1 {
+	text-align: center;
+	opacity: 0.7;
+	background-color: black;
+	color: white;
+}
+p {
+	text-align: center;
+	color: white;
+	background-color: black;
+	padding: 2em;
+}

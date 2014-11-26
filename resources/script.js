@@ -1,13 +1,15 @@
 var uploadLoad = '<iframe id="uploadFrame" src="view/upload.php" seamless></iframe>' + 
                     '<iframe id="vocaFrame" src="http://vocaroo.com/?minimal" seamless></iframe>';
 
+var showsLoad = '<iframe id="showsFrame" src="view/shows.php" seamless></iframe>';
+
 var chanLoad = '<iframe id="chanFrame" src="http://4chan.org/s4s/"></iframe>';
 
 var tribuneLoad = '<iframe id="tribuneFrame" src="/tribune/news/"></iframe>';
 
 var pulpLoad = '<iframe id="pulpFrame" src="http://interplay.xyz/pulp/winter2013.pdf" seamless></iframe>'; 
 
-var sumoLoad = '<center><img class="img-circle questionImg" src="resources/special.gif"/></center>'; 
+var specialLoad = '<center><img class="img-circle questionImg" src="resources/special.gif"/></center>'; 
 
 $(document).ready(function()
 {
@@ -62,9 +64,12 @@ loadContent();
     // Refresh
     setInterval(loadLog, 4000);
 
-//Load headline display
-    function loadHeadline()
+// Used to determine current background image
+var background = '';
+//Load host information
+    function loadHostInfo()
     {
+// Headline
         $.ajax(
         {
             url: "view/headline.php",
@@ -74,54 +79,40 @@ loadContent();
                 $("#headline").html(html);
             }
         });
-    }
-    // Initial Load
-    loadHeadline();
-    // Refresh
-    setInterval(loadHeadline, 10000); 
-
-//Load upload info
-    function uploadInfo()
-    {
+// background image
         $.ajax(
         {
-            url: "/radio/view/upload-info.php",
+            url: "/radio/view/background.php",
             cache: false,
             success: function(html)
             {
-                $("#uploadInfo").html(html);
+// Check if background has changed
+// Prevents blinking background
+                if (background === html)
+                {
+                }
+                else
+                {
+                    background = html;
+                    document.body.style.backgroundImage = 'url(background/'+background+')';
+                }
             }
         });
     }
-    // Initial Load
-    uploadInfo();
-    // Refresh
-    setInterval(uploadInfo, 10000); 
-
-//Load contribute buttons
-    function activeSubmit()
-    {
-        $.ajax(
-        {
-            url: "/radio/view/active-submit.php",
-            cache: false,
-            success: function(html)
-            {
-                $("#contributeA").html(html);
-                $("#contributeB").html(html);
-            }
-        });
-    }
-    // Initial Load
-    activeSubmit();
-    // Refresh
-    setInterval(activeSubmit, 4000); 
+// Initial Load
+    loadHostInfo();
+// Refresh
+    setInterval(loadHostInfo, 10000); 
 
 
 //frame loading
 $('#uploadBtn').click(function()
 {
     $('#viewer').html(uploadLoad);
+});
+$('#showsBtn').click(function()
+{
+    $('#viewer').html(showsLoad);
 });
 $('#vocaBtn').click(function()
 {
@@ -141,7 +132,7 @@ $('#pulpBtn').click(function()
 });
 $('#specialBtn').click(function()
 {
-    $('#viewer').html(sumoLoad);
+    $('#viewer').html(specialLoad);
 });
   $("#leaveBtn ").click(function(){
         window.location = 'controller/leave.php';   
@@ -170,13 +161,6 @@ $("#submitChat").click(function()
         }
     });
     return false;
-});
-
-//form input
-$('#submitForm').click(function()
-{
-    loadContent();
-    $.post('controller/form-post.php', $('#uploadForm').serialize());
 });
 
 

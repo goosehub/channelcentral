@@ -18,8 +18,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	date_default_timezone_set('America/New_York');
 	$hostHeadlineInput = $_POST['hostHeadlineInput'];
 	$hostHeadlineInput = mysqli_real_escape_string($con, $hostHeadlineInput);
-	$hostClearQueueInput = $_POST['hostClearQueueInput'];
-	$hostClearQueueInput = mysqli_real_escape_string($con, $hostClearQueueInput);
 	$hostLengthInput = $_POST['hostLengthInput'];
 	$hostLengthInput = mysqli_real_escape_string($con, $hostLengthInput);
 	$hostQueueLimitInput = $_POST['hostQueueLimitInput'];
@@ -64,12 +62,66 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
 		}
-		if ($hostClearQueueInput)
+		if ($_POST['hostClearQueueInput'] = "yes")
 		{
 		      $query = "DELETE FROM upload 
 		      WHERE start > '". $time ."';";
 		      $result = mysqli_query($con, $query);  
 		}
+// Upload new background image
+		if ($_FILES["hostBackgroundInput"]["name"])
+		{
+// File info
+			$image_info = getimagesize($_FILES["hostBackgroundInput"]["tmp_name"]);
+			$image_width = $image_info[0];
+			$image_height = $image_info[1];
+			$allowedExts = array("gif", "jpeg", "jpg", "png");
+			$temp = explode(".", $_FILES["hostBackgroundInput"]["name"]);
+			$extension = end($temp);
+//Validate
+			if (
+			(
+			   ($_FILES["hostBackgroundInput"]["type"] == "image/gif")
+			|| ($_FILES["hostBackgroundInput"]["type"] == "image/jpeg")
+			|| ($_FILES["hostBackgroundInput"]["type"] == "image/jpg")
+			|| ($_FILES["hostBackgroundInput"]["type"] == "image/pjpeg")
+			|| ($_FILES["hostBackgroundInput"]["type"] == "image/x-png")
+			|| ($_FILES["hostBackgroundInput"]["type"] == "image/png")
+			)
+			&& ($_FILES["hostBackgroundInput"]["size"] < 3200000)
+			&& ($image_height < 6400)
+			&& ($image_width < 6400)
+			&& ($image_height > 400)
+			&& ($image_width > 400)
+			&& in_array($extension, $allowedExts)
+			) 
+			{	
+// Error check
+			  if ($_FILES["hostBackgroundInput"]["error"] > 0) {
+			    $data['errorCode'] = "Return Code: " . $_FILES["hostBackgroundInput"]["error"] . "<br>";
+			  } 
+			  else
+			  {
+// Rename file to UNIX time
+          $filename = time().'.'.$extension;
+
+// Move Files
+		      move_uploaded_file($_FILES["hostBackgroundInput"]["tmp_name"],
+		      "../background/" . $filename);
+// Prepare for model
+		      $hostBackgroundInput = $filename;
+// Query
+		      $query = "UPDATE host 
+		      SET background = '". $hostBackgroundInput ."'
+		      WHERE id = 1;";
+		      $result = mysqli_query($con, $query);  
+		}
+	}
+}
+
+// 
+// Upload
+// 
 
 	if (strlen($hostYoutubeInput) > 10)
 		{

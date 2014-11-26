@@ -12,4 +12,4 @@ include '../connect.php';
       ) foo);"; 
     // foo is for required alias
     $result = mysqli_query($con, $query);
-    ?>
+?>

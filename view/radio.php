@@ -68,12 +68,11 @@ else
       <div id="navBar" class="btn-group" role="group" aria-label="...">
           <a id="homeBtn" class="btn btn-default disabled" href="#">esfores</a>
           <button id="uploadBtn" class="btn btn-default" href="#">Upload</button>
-          <!-- <button id="vocaBtn" class="btn btn-success" href="#">Record</button> -->
-          <!-- <button id="scheduleBtn" class="btn btn-success" href="#">Schedule</button> -->
-          <button id="pulpBtn" class="btn btn-primary" href="#">Pulp</button>
+          <button id="showsBtn" class="btn btn-primary" href="#">Shows</button>
+          <button id="pulpBtn" class="btn btn-info" href="#">Pulp</button>
           <button id="chanBtn" class="btn btn-warning" href="#">4chan</button>
           <!-- <button id="tribuneBtn" class="btn btn-danger" href="#">Tribune</button> -->
-          <button id="leaveBtn" class="btn btn-danger" href="#">Re-Enter</button>
+          <button id="leaveBtn" class="btn btn-danger" href="#">Leave</button>
           <!-- <a id="hostBtn" class="btn btn-info" href="view/host.php" target="_blank">Host</a> -->
           <button id="specialBtn" class="btn btn-success" href="#">?</button>
       </div>
@@ -89,7 +88,7 @@ else
   <div class="col-md-4">
     <div id="headline">
         <p>
-        esfores
+        ...
         </p>
     </div>
 
