@@ -115,12 +115,12 @@ if ($result = mysqli_query($con, $query))
           else
           {
 // Image load
-          echo '<img id="imageCover" src="../images/'.$row['image'].'
+          echo '<img id="imageCover" src="../upload/images/'.$row['image'].'
           ">';
 // Audio load
           // add audio type variable and logic conversion
           echo '<br/><audio controls id="audioPlayer">
-          <source src="../audio/'.$row['audio'].'
+          <source src="../upload/audio/'.$row['audio'].'
           " type="audio/mpeg">
             Your browser does not support this audio.
           </audio><br/>';

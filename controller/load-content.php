@@ -32,13 +32,13 @@ include '../model/find-current.php';
 			else
 			{
 //Image load
-				echo '<img id="imageCover" src="images/
+				echo '<img id="imageCover" src="upload/images/
 				'.$current['image'].'
 				">';
 // Audio load
 		// add audio type variable and logic conversion
 				echo '<audio controls id="audioPlayer" autoplay="autoplay">
-				<source src="audio/
+				<source src="upload/audio/
 				'.$current['audio'].'
 				" type="audio/mpeg">
 				  Your browser does not support this audio.

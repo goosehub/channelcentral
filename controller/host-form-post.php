@@ -107,7 +107,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 // Move Files
 		      move_uploaded_file($_FILES["hostBackgroundInput"]["tmp_name"],
-		      "../background/" . $filename);
+		      "../upload/background/" . $filename);
 // Prepare for model
 		      $hostBackgroundInput = $filename;
 // Query
@@ -234,9 +234,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 // Move Files
 				      move_uploaded_file($_FILES["hostImageInput"]["tmp_name"],
-				      "../images/" . $filename);
+				      "../upload/images/" . $filename);
 				      move_uploaded_file($_FILES["hostAudioInput"]["tmp_name"],
-				      "../audio/" . $_FILES["hostAudioInput"]["name"]);
+				      "../upload/audio/" . $_FILES["hostAudioInput"]["name"]);
 
 //Get audio duration
 				      $duration = get_duration("../audio", $_FILES["hostAudioInput"]["name"]);

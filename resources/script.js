@@ -94,7 +94,7 @@ var background = '';
                 else
                 {
                     background = html;
-                    document.body.style.backgroundImage = 'url(background/'+background+')';
+                    document.body.style.backgroundImage = 'url(upload/background/'+background+')';
                 }
             }
         });

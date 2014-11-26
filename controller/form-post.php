@@ -160,9 +160,9 @@ if (strlen($youtubeInput) > 10)
 	          $filename = time().'.'.$extension;
 // Move Files
 		      move_uploaded_file($_FILES["imageInput"]["tmp_name"],
-		      "../images/" . $filename);
+		      "../upload/images/" . $filename);
 		      move_uploaded_file($_FILES["audioInput"]["tmp_name"],
-		      "../audio/" . $_FILES["audioInput"]["name"]);
+		      "../upload/audio/" . $_FILES["audioInput"]["name"]);
 
 //Get audio duration
 		      $duration = get_duration("../audio", $_FILES["audioInput"]["name"]);
