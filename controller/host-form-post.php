@@ -239,7 +239,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				      "../upload/audio/" . $_FILES["hostAudioInput"]["name"]);
 
 //Get audio duration
-				      $duration = get_duration("../audio", $_FILES["hostAudioInput"]["name"]);
+				      $duration = get_duration("../upload/audio", $_FILES["hostAudioInput"]["name"]);
 				      $duration = floor($duration);
 // Add time for ads and loading time
 // Will need monitoring for adjusting

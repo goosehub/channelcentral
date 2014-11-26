@@ -165,7 +165,7 @@ if (strlen($youtubeInput) > 10)
 		      "../upload/audio/" . $_FILES["audioInput"]["name"]);
 
 //Get audio duration
-		      $duration = get_duration("../audio", $_FILES["audioInput"]["name"]);
+		      $duration = get_duration("../upload/audio", $_FILES["audioInput"]["name"]);
 		      $duration = floor($duration);
 // Add time for ads and loading time
 // Will need monitoring for adjusting
