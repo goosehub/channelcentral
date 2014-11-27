@@ -7,9 +7,31 @@ h1 {
 	background-color: black;
 	color: white;
 }
-p {
+#appeal {
 	text-align: center;
 	color: white;
 	background-color: black;
-	padding: 2em;
+	padding: 0.1em;
+	font-size: 1.4em;
+}
+.event {
+	opacity: 0.8;
+	margin: 0.3em;
+	background-color: black;
+}
+.event p {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.name {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: white;
+	margin-left: 3em;
+}
+.time {
+	font-size: 1em;
+	color: white;
+	opacity: 0.8;
+	margin-left: 1.5em;
 }

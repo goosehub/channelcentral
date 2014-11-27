@@ -28,7 +28,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 	$passwordInput = $_POST['passwordInput'];
 	$passwordInput = mysqli_real_escape_string($con, $passwordInput);
-	date_default_timezone_set('America/New_York');
 
 	if (
 // MASTER KEY
@@ -88,11 +87,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			|| ($_FILES["hostBackgroundInput"]["type"] == "image/x-png")
 			|| ($_FILES["hostBackgroundInput"]["type"] == "image/png")
 			)
-			&& ($_FILES["hostBackgroundInput"]["size"] < 3200000)
-			&& ($image_height < 6400)
-			&& ($image_width < 6400)
-			&& ($image_height > 400)
-			&& ($image_width > 400)
+			&& ($_FILES["hostBackgroundInput"]["size"] < 320000000)
+			&& ($image_height < 100000)
+			&& ($image_width < 100000)
+			&& ($image_height > 100)
+			&& ($image_width > 100)
 			&& in_array($extension, $allowedExts)
 			) 
 			{	
@@ -150,7 +149,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 // Find next available slot
 				include '../model/host-insert.php';
-				include '../model/find-current.php';
 
 // Query
 			      $query = "INSERT INTO upload 
@@ -247,7 +245,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 // Find next available slot
 					  include '../model/host-insert.php';
-					  include '../model/find-current.php';
 
 // Prepare for model
 				      $hostImageInput = $filename;

@@ -62,7 +62,7 @@ loadContent();
     // Initial Load
     loadLog();
     // Refresh
-    setInterval(loadLog, 4000);
+    setInterval(loadLog, 2000);
 
 // Used to determine current background image
 var background = '';
@@ -102,7 +102,7 @@ var background = '';
 // Initial Load
     loadHostInfo();
 // Refresh
-    setInterval(loadHostInfo, 10000); 
+    setInterval(loadHostInfo, 30000); 
 
 
 //frame loading
@@ -150,7 +150,6 @@ $("#submitChat").click(function()
      $("#chatForm :input").val("");
 // Load log so user can instantly see his message
     loadLog();
-// Seperate so loadLog stays instant
     $.ajax(
     {
         url: "model/trim-chat.php",

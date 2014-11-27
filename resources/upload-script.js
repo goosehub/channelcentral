@@ -18,7 +18,7 @@ $(document).ready(function()
     // Initial Load
     loadUploadInfo();
     // Refresh
-    setInterval(loadUploadInfo, 10000); 
+    setInterval(loadUploadInfo, 30000); 
 
 // Load contribute buttons
 // Must refresh more frequently, so it is seperate
@@ -38,7 +38,7 @@ $(document).ready(function()
     // Initial Load
     activeSubmit();
     // Refresh
-    setInterval(activeSubmit, 2000); 
+    setInterval(activeSubmit, 5000); 
 
 //form input
 $('#submitForm').click(function()

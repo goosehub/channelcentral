@@ -36,8 +36,6 @@ function loginForm(){
         <input type="text" name="name" id="name" />
         <input type="submit" name="enter" id="loginEnter" value="Enter Name" />
     </form>
-    <br><br>
-    <a type="button" id="loginLeave" class="btn btn-default">Leave</a>
     </div>
     </center>
     ';

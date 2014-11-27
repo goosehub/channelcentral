@@ -58,6 +58,6 @@ include '../model/find-current.php';
 		{
 		echo "<h1 id='requestContent'>Upload content to start the show</h1>
 		|
-		4000";
+		2000";
 		}
 ?>

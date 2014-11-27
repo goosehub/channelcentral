@@ -52,6 +52,7 @@ session_start();
   <input class="form-control" name="hostBackgroundInput" type="file" />
 </div>
 
+<br/>
 <h5>Each host uploads go to the front of the queue</h5> 
 <h5>Host uploads have no length limits</h5>
 
@@ -81,13 +82,14 @@ session_start();
       <input class="input-lg" type="input" name="passwordInput" value="1234"/><br />
     </div>
 <input class="btn btn-primary hostSubmit" type="submit" name="hostSubmitForm" value="Submit Changes" />
+<h5>Changes can take up to 30 seconds to take effect</h5>
 
 </div>
 </form>
 </div>
 
 <h3>Below is the current queue in order</h3>
-<h5>Refresh to update</h5>
+<a href=".">Refresh to update</a><br/>
 
 <?php 
 

@@ -27,6 +27,21 @@
 		{
 			$start = $time;
 		}
-	$end = $start + $duration;
+		// $query = "SELECT * 
+		// FROM upload 
+		// WHERE start >= '".$time."' 
+		// AND special = 'scheduled' 
+		// ORDER BY end 
+		// DESC LIMIT 1";
+		// $result = mysqli_query($con, $query);
+		// $priority = mysqli_fetch_assoc($result);
+		// if ($priority['start'] < $start + $duration)
+		// {
+		// 	$end = $priority['start'];
+		// }
+		// else
+		// {
+		$end = $start + $duration;
+		// }
 	$scheduled = date("M j, Y, g:i:s a", $start);
 ?>
