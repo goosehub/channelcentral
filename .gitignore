@@ -43,6 +43,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+uploads/
 *.mp3
 *.wav
 *.jpg
