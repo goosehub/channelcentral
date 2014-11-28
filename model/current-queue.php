@@ -12,6 +12,9 @@ if ($result = mysqli_query($con, $query))
 {
         while($row = mysqli_fetch_assoc($result)) 
         {
+          echo '<div class="queueItem btn btn-default">
+                <h3 class="itemID">ID: '.$row['id'].'</h3>
+                <h3 class="itemInfo">'.$row['special'].'</h3>';
 // If youtube, load youtube
           if ($row['youtube'])
           {
@@ -33,6 +36,7 @@ if ($result = mysqli_query($con, $query))
             Your browser does not support this audio.
           </audio><br/>';
           }
+          echo '</div>';
     }
 }
 ?>
