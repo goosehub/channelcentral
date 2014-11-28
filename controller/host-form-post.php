@@ -12,6 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 //set known variables for query
 	// variable names are long to prevent confusion
+	$special = 'host';
 	$name = $_SESSION['name'];
 	$name = mysqli_real_escape_string($con, $name);
 	$time = time();
@@ -22,6 +23,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostLengthInput = mysqli_real_escape_string($con, $hostLengthInput);
 	$hostQueueLimitInput = $_POST['hostQueueLimitInput'];
 	$hostQueueLimitInput = mysqli_real_escape_string($con, $hostQueueLimitInput);
+	$hostStart = $_POST['hostStart'];
+	$hostStart = mysqli_real_escape_string($con, $hostStart);
+	$hostDeleteItem = $_POST['hostDeleteItem'];
+	$hostDeleteItem = mysqli_real_escape_string($con, $hostDeleteItem);
 	$hostYoutubeInput = $_POST['hostYoutubeInput'];
 	$hostYoutubeInput = mysqli_real_escape_string($con, $hostYoutubeInput);
 	// files must be sanitized later
@@ -61,11 +66,42 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
 		}
-		if ($_POST['hostClearQueueInput'] = "yes")
+		if (isset($_POST['hostClearQueueInput']))
 		{
 		      $query = "DELETE FROM upload 
 		      WHERE start > '". $time ."';";
 		      $result = mysqli_query($con, $query);  
+		}
+		if ($hostDeleteItem)
+		{
+// find duration of deleted item
+			$query = "SELECT * FROM upload 
+			WHERE id = '". $hostDeleteItem ."';";
+			$deleteItemResult = mysqli_query($con, $query); 
+			$deletedItem = mysqli_fetch_assoc($deleteItemResult);
+// Deleted selected
+		    $query = "DELETE FROM upload 
+		    WHERE id = '". $hostDeleteItem ."';";
+		    $deletedResult = mysqli_query($con, $query); 
+// Move the rest forward that are not timed
+  		    $query = "SELECT * FROM upload 
+		    WHERE special != 'timed'
+		    AND start >= '".$deletedItem['start']."';";
+			if ($advanceResult = mysqli_query($con, $query))
+			{
+		        while($advance = mysqli_fetch_assoc($advanceResult)) 
+		        {
+		        	$newStart = $advance['start'] - $deletedItem['duration'];
+		        	$newEnd = $advance['end'] - $deletedItem['duration'];
+		        	$newScheduled = ' '.$advance['scheduled'].' minus '.$deletedItem['duration'].' seconds';
+		        	$query = "UPDATE upload 
+						      SET start = '". $newStart ."',
+						      end = '". $newEnd ."',
+						      scheduled = '". $newScheduled ."'
+						      WHERE id = '".$advance['id'] ."';";
+		        	$result = mysqli_query($con, $query); 
+		        }
+		    }
 		}
 // Upload new background image
 		if ($_FILES["hostBackgroundInput"]["name"])
@@ -133,8 +169,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 //check if valid
 //if valid, ignore audio and insert youtube into DB
-			if (strlen($youtubeID) === 11
-				&& $row['youtube'] !== $youtubeID)
+			if (strlen($youtubeID) === 11)
 				{
 //get youtube video duration and title
 				$url = "http://gdata.youtube.com/feeds/api/videos/". $youtubeID;
@@ -149,13 +184,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 // Find next available slot
 				include '../model/host-insert.php';
-
 // Query
 			      $query = "INSERT INTO upload 
 			      (name, time, youtube, duration, start, end, scheduled, special)
 			      VALUES('". $name ."', '". $time ."',
 			       '". $youtubeID ."', '". $duration ."', '". $start ."',
-			        '". $end ."', '". $scheduled ."', 'Host');";
+			        '". $end ."', '". $scheduled ."', '".$special."');";
 			      $result = mysqli_query($con, $query);  
 
 //remove uneeded files if exists
@@ -256,7 +290,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				      (name, time, audio, image, duration, start, end, scheduled, special)
 				      VALUES('". $name ."', '". $time ."', '". $hostAudioInput ."',
 				       '". $hostImageInput ."', '". $duration ."'
-				       , '". $start ."', '". $end ."', '". $scheduled ."', 'Host');";
+				       , '". $start ."', '". $end ."', '". $scheduled ."', '".$special."');";
 				      $result = mysqli_query($con, $query);   
 				  }
 		    }

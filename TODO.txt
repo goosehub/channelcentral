@@ -1,12 +1,11 @@
 TODO
-	Develop
-		active users
-		transitions logic
-		schedule frame
-	Design
-		schedule
-		default calendar
-		much more
+	schedule events
+	active users
+	queue delete by id
+	host style
+	delete current
+	transitions logic
+	delete current
 
 
 

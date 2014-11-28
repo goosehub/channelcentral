@@ -19,42 +19,24 @@ session_start();
 
 <div id="hostFormCnt">
 
-<h2>Welcome to your hosting center</h2>
-<h4> Be sure to remember your password with each submit</h4>
-
-<br/>
+<h2 id="welcome">Welcome to your hosting center</h2>
+<h4>When ready, enter Password and Submit</h4>
 
 <form name="uploadForm" id="hostForm" action="../controller/host-form-post.php" method="post" enctype="multipart/form-data">
 <div class="form-group">
 
-<div class="input-group">
-    <div class="input-group-addon">Enter Headline</div>
-      <input class="form-control" type="input" name="hostHeadlineInput" /><br />
+<div class="input-group hostPassword">
+    <div class="input-group-addon">Enter Password</div>
+      <input class="input-lg" type="input" name="passwordInput" value="1234"/><br />
     </div>
 
-<div class="input-group">
-    <div class="input-group-addon">Max Upload Length in Seconds</div>
-      <input class="form-control" type="input" name="hostLengthInput" /><br />
-    </div>
+<input class="btn btn-primary hostSubmit" type="submit" name="hostSubmitForm" value="Submit Changes" />
 
-<div class="input-group">
-    <div class="input-group-addon">Max Queue in Seconds</div>
-      <input class="form-control" type="input" name="hostQueueLimitInput" /><br />
-    </div>
+<h5 class="note">Changes can take up to 30 seconds to take effect</h5>
 
-<div class="input-group">
-    <div class="input-group-addon">Clear Queue</div>
-      <input class="" type="checkbox" name="hostClearQueueInput" value="yes" />
-</div>
-
-<div class="input-group">
-  <div class="input-group-addon">Background Image</div>
-  <input class="form-control" name="hostBackgroundInput" type="file" />
-</div>
-
-<br/>
-<h5>Each host uploads go to the front of the queue</h5> 
-<h5>Host uploads have no length limits</h5>
+<h3>Host Uploads</h3>
+<h5 class="note">Host uploads go to the front of the queue</h5> 
+<h5 class="note">Host uploads have no length and size limits</h5>
 
     <div class="input-group">
   <div class="input-group-addon">Enter Youtube URL</div>
@@ -73,64 +55,62 @@ session_start();
   <input class="form-control" name="hostImageInput" type="file" />
 </div>
 
-<br/>
-
-<h5>Password Required</h5>
+<button class="btn" disabled="disabled"><strong>OPTIONAL</strong></button>
 
 <div class="input-group">
-    <div class="input-group-addon">Enter Password</div>
-      <input class="input-lg" type="input" name="passwordInput" value="1234"/><br />
+    <div class="input-group-addon">UNIX time start</div>
+      <input class="form-control" type="input" name="hostStart" /><br />
     </div>
-<input class="btn btn-primary hostSubmit" type="submit" name="hostSubmitForm" value="Submit Changes" />
-<h5>Changes can take up to 30 seconds to take effect</h5>
+
+<h3>Host Settings</h3>
+
+<div class="input-group">
+    <div class="input-group-addon">Headline</div>
+      <input class="form-control" type="input" name="hostHeadlineInput" /><br />
+    </div>
+
+<div class="input-group">
+    <div class="input-group-addon">Max Upload Length in Seconds</div>
+      <input class="form-control" type="input" name="hostLengthInput" /><br />
+    </div>
+
+<div class="input-group">
+    <div class="input-group-addon">Max Queue in Seconds</div>
+      <input class="form-control" type="input" name="hostQueueLimitInput" /><br />
+    </div>
+
+<div class="input-group">
+  <div class="input-group-addon">Background Image</div>
+  <input class="form-control" name="hostBackgroundInput" type="file" />
+</div>
+
+<div class="input-group">
+    <div class="input-group-addon">Delete Queue Item by ID</div>
+      <input class="form-control" type="input" name="hostDeleteItem" /><br />
+    </div>
+
+<div class="input-group">
+    <div class="input-group-addon">Clear Entire Queue</div>
+      <input id="checkbox" class="" type="checkbox" name="hostClearQueueInput" value="yes" />
+</div>
+
+<h3>Current Queue</h3>
+<h5 class="note">Ordered by start time, not by ID</h5>
+<div id="reloadQueue" class="btn btn-success">Click here to refresh</div>
+
+  <div id="currentQueue">
+
+  <?php 
+
+  include '../model/current-queue.php';
+
+  ?>
+
+  </div>
 
 </div>
 </form>
 </div>
-
-<h3>Below is the current queue in order</h3>
-<a href=".">Refresh to update</a><br/>
-
-<?php 
-
-include '../connect.php';
-
-$time = time();
-
-// Get current queue
-    $query = "SELECT *
-    FROM upload 
-    WHERE start > '". $time ."';";
-// Fetch each row
-if ($result = mysqli_query($con, $query))
-{
-        while($row = mysqli_fetch_assoc($result)) 
-        {
-// If youtube, load youtube
-          if ($row['youtube'])
-          {
-          echo '<iframe id="youtubeFrame" 
-          src="//www.youtube.com/embed/'.$row['youtube'].'?autoplay=0" 
-          frameborder="0" allowfullscreen></iframe><br/>';
-          }
-// Else load audio and image
-          else
-          {
-// Image load
-          echo '<img id="imageCover" src="../upload/images/'.$row['image'].'
-          ">';
-// Audio load
-          // add audio type variable and logic conversion
-          echo '<br/><audio controls id="audioPlayer">
-          <source src="../upload/audio/'.$row['audio'].'
-          " type="audio/mpeg">
-            Your browser does not support this audio.
-          </audio><br/>';
-          }
-    }
-}
-
-?>
 
 <!-- Script -->
     <script type="text/javascript" src="../resources/jquery-1.8.3.min.js"></script>
