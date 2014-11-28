@@ -3,6 +3,7 @@ session_start();
 
 include '../connect.php';
 
+// If new message
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 // if(isset($_SESSION['name'])) //also works
 {

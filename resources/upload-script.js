@@ -22,6 +22,7 @@ $(document).ready(function()
 
 // Load contribute buttons
 // Must refresh more frequently, so it is seperate
+// If uploading gets competitive, refresh may need to be upped
     function activeSubmit()
     {
         $.ajax(

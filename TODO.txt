@@ -10,6 +10,8 @@ TODO
 	favicon
 	Add in bumps
 	navbar responsiveness
+	upload info shows no uploads
+		when length and queue is 0
 
 Shows
 	movie night

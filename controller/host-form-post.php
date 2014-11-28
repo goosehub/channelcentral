@@ -29,10 +29,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostYoutubeInput = mysqli_real_escape_string($con, $hostYoutubeInput);
 	// files must be sanitized later
 
+// If current video will be clear, set as ID to be deleted
 	if (isset($_POST['hostClearCurrent'])) {
 		include '../model/find-current.php';
 		$hostDeleteItem = $current['id'];
 	}
+// Else, prepare any other ID's to be deleted
 	else
 	{
 		$hostDeleteItem = $_POST['hostDeleteItem'];
@@ -52,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		&& $time <= 2400000000)
 		)
 	{
-// Query
+// Headline
 		if ($hostHeadlineInput)
 		{
 		      $query = "UPDATE host 
@@ -60,6 +62,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
 		}
+// Max Length
 		if ($hostLengthInput)
 		{
 		      $query = "UPDATE host 
@@ -67,6 +70,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
 		}
+// Max Queue
 		if ($hostQueueLimitInput)
 		{
 		      $query = "UPDATE host 
@@ -74,6 +78,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
 		}
+// Clear Queue
 		if (isset($_POST['hostClearQueueInput']))
 		{
 		      $query = "DELETE FROM upload 

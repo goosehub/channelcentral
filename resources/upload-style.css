@@ -1,10 +1,8 @@
 body {
 	background: none;
 }
-#hostFormCnt {
-	width: 66%;
-	margin-left: 12%;
-}
+
+/*	upload */
 .instructions {
 	text-align: center;
 	width: 33%;
@@ -25,7 +23,6 @@ body {
 	background-color: #000;
 	opacity: 0.7;
 }
-/*	For user */
 .infoItem {
 	font-size: 1.5em;	
 	color: #FFF;
@@ -33,7 +30,12 @@ body {
 	text-align: center;
 	margin-bottom: 0;
 }
-/*	For host */
+
+/*	host */
+#hostFormCnt {
+	width: 66%;
+	margin-left: 12%;
+}
 .itemInfo {	
 	color: #000;
 	margin: 0.2em;

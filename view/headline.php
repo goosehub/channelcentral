@@ -5,6 +5,7 @@ include '../connect.php';
 
 include '../model/host-model.php';
 
-		echo $host['headline'];
+echo $host['headline'];
+	
 ?>
 </p>

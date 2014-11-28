@@ -15,6 +15,7 @@ if ($result = mysqli_query($con, $query))
 {
       while($row = mysqli_fetch_assoc($result)) 
       {
+// Display info
         $queueItemStart = date("M j, Y, g:i:s A", $row['start']);
         echo '<div class="queueItem btn btn-default">
               <h3 class="itemInfo">ID: '.$row['id'].'</h3>

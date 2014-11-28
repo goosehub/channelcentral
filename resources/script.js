@@ -1,3 +1,5 @@
+// Nav bar buttons
+
 var uploadLoad = '<iframe id="uploadFrame" src="view/upload.php" seamless></iframe>' + 
                     '<iframe id="vocaFrame" src="http://vocaroo.com/?minimal" seamless></iframe>';
 
@@ -14,6 +16,7 @@ var specialLoad = '<center><img class="img-circle questionImg" src="resources/sp
 $(document).ready(function()
 {
 
+// Load content
 function loadContent()
 {
     $.ajax(
@@ -36,7 +39,7 @@ function loadContent()
     });
 
 }
-// Sets countdown
+// Sets countdown til next content load
 function startCounter(counter){
     setTimeout(loadContent, counter);
 }
@@ -149,6 +152,7 @@ $('#specialBtn').click(function()
 {
     $('#viewer').html(specialLoad);
 });
+// End user session
   $("#leaveBtn ").click(function(){
         window.location = 'controller/leave.php';   
     });

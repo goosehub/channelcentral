@@ -22,13 +22,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Load for later
 include '../model/host-model.php';
 
-// Load for now
+// Find queue limit
 include '../model/queue-limit.php';
+// 
 	if ($queueLimit['end'] > 1)
 	{
-		// for passing errors later
+// Queue limit reached
 	}
 	else {
+// Queue not full
 
 //check if youtube input exists
 if (strlen($youtubeInput) > 10)
@@ -160,7 +162,6 @@ if (strlen($youtubeInput) > 10)
 		      $duration = get_duration("../upload/audio", $_FILES["audioInput"]["name"]);
 		      $duration = floor($duration);
 // Add time for ads and loading time
-// Will need monitoring for adjusting
 		      $duration = $duration + 5;
 		      		if ($duration < $host['length'])
 		      		{

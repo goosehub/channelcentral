@@ -30,7 +30,7 @@ include 'find-current.php';
         	$newStart = $delay['start'] + $duration;
         	$newEnd = $delay['end'] + $duration;
         	$newScheduled = ' '.$delay['scheduled'].' + '.$duration.' secs';
-	        	// Inner is needed
+	        	// Inner is needed to avoid mixups
 			      $queryInner = "UPDATE upload 
 			      SET start = '". $newStart ."',
 			      end = '". $newEnd ."',
