@@ -85,14 +85,19 @@ session_start();
 </div>
 
 <div class="input-group">
-    <div class="input-group-addon">Delete Queue Item by ID</div>
-      <input class="form-control" type="input" name="hostDeleteItem" /><br />
-    </div>
+    <div class="input-group-addon">Clear Currently Playing</div>
+      <input class="checkbox" class="" type="checkbox" name="hostClearCurrent" value="yes" />
+</div>
 
 <div class="input-group">
     <div class="input-group-addon">Clear Entire Queue</div>
-      <input id="checkbox" class="" type="checkbox" name="hostClearQueueInput" value="yes" />
+      <input class="checkbox" class="" type="checkbox" name="hostClearQueueInput" value="yes" />
 </div>
+
+<div class="input-group">
+    <div class="input-group-addon">Remove Queue Item by ID</div>
+      <input class="form-control" type="input" name="hostDeleteItem" /><br />
+    </div>
 
 <h3>Current Queue</h3>
 <h5 class="note">Ordered by start time, not by ID</h5>

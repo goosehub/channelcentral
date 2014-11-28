@@ -1,6 +1,10 @@
 body {
 	background: none;
 }
+#hostFormCnt {
+	width: 66%;
+	margin-left: 12%;
+}
 .instructions {
 	text-align: center;
 	width: 33%;
@@ -21,6 +25,7 @@ body {
 	background-color: #000;
 	opacity: 0.7;
 }
+/*	For user */
 .infoItem {
 	font-size: 1.5em;	
 	color: #FFF;
@@ -28,11 +33,27 @@ body {
 	text-align: center;
 	margin-bottom: 0;
 }
+/*	For host */
+.itemInfo {	
+	color: #000;
+	margin: 0.2em;
+	opacity: 0.8;
+}
 .hostSubmit {
 	margin-left: 0;
 	width: 30%;
 }
-
-/*	Current Queue */
+#reloadQueue {
+	width: 33%;
+	height: 2em;
+	font-size: 1.5em;
+	margin-left: 33%;
+	margin-bottom: 0.5em;
+}
 .queueItem {
-	}
+	display: block;
+}
+.checkbox {
+	width: 2em;
+	height: 2em;
+}

@@ -25,11 +25,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostQueueLimitInput = mysqli_real_escape_string($con, $hostQueueLimitInput);
 	$hostStart = $_POST['hostStart'];
 	$hostStart = mysqli_real_escape_string($con, $hostStart);
-	$hostDeleteItem = $_POST['hostDeleteItem'];
-	$hostDeleteItem = mysqli_real_escape_string($con, $hostDeleteItem);
 	$hostYoutubeInput = $_POST['hostYoutubeInput'];
 	$hostYoutubeInput = mysqli_real_escape_string($con, $hostYoutubeInput);
 	// files must be sanitized later
+
+	if (isset($_POST['hostClearCurrent'])) {
+		include '../model/find-current.php';
+		$hostDeleteItem = $current['id'];
+	}
+	else
+	{
+		$hostDeleteItem = $_POST['hostDeleteItem'];
+		$hostDeleteItem = mysqli_real_escape_string($con, $hostDeleteItem);
+	}
 
 	$passwordInput = $_POST['passwordInput'];
 	$passwordInput = mysqli_real_escape_string($con, $passwordInput);
@@ -72,8 +80,34 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		      WHERE start > '". $time ."';";
 		      $result = mysqli_query($con, $query);  
 		}
-		if ($hostDeleteItem)
+// 		if (isset($_POST['hostClearCurrent']))
+// 		{
+// // change number to whatever the current hostInfo refresh time is
+// 			$reloadTime = $time + 30;
+// // Set reload time
+// 		      $query = "UPDATE host 
+// 		      SET reload = '". $reloadTime ."'
+// 		      WHERE id = 1;";
+// 		      $result = mysqli_query($con, $query); 
+// 		}
+// If current or future is being cleared
+		if (isset($hostDeleteItem)
+			|| isset($_POST['hostClearCurrent']))
 		{
+// Check if current is deleted
+			if (isset($_POST['hostClearCurrent']))
+			{
+// change number to whatever the current hostInfo refresh time is
+				$reloadTime = $time + 20;
+// Set reload command to be found by client
+			    $query = "UPDATE host 
+			    SET reload = '". $reloadTime ."'
+			    WHERE id = 1;";
+			    $result = mysqli_query($con, $query); 
+// Set ID to be deleted to be the current
+			include '../model/find-current.php';
+			$hostDeleteItem = $current['id'];
+			}
 // find duration of deleted item
 			$query = "SELECT * FROM upload 
 			WHERE id = '". $hostDeleteItem ."';";

@@ -6,6 +6,7 @@ TODO
 	delete current
 	transitions logic
 	delete current
+	catch up when entering room
 
 
 

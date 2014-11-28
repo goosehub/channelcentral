@@ -10,9 +10,10 @@ $('#HostSubmitForm').click(function()
 });
 $('#reloadQueue').click(function()
 {
+    // $("#currentQueue").html('Loading...');
     $.ajax(
     {
-        url: "model/current-queue.php",
+        url: "../model/current-queue.php",
         cache: false,
         success: function(html)
         {

@@ -1,4 +1,6 @@
 <?php
+include '../connect.php';
+
 	$query = "SELECT *
 	FROM host
 	WHERE id = 1;";

@@ -1,5 +1,5 @@
 <?php
-$query = "SELECT start, end, duration, youtube, audio, image, special
+$query = "SELECT *
 		FROM upload
 		WHERE start <= '".$time."'
 		AND end >= '".$time."'

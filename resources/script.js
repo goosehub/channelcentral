@@ -82,7 +82,7 @@ var background = '';
 // background image
         $.ajax(
         {
-            url: "/radio/view/background.php",
+            url: "view/background.php",
             cache: false,
             success: function(html)
             {
@@ -98,11 +98,26 @@ var background = '';
                 }
             }
         });
+// Check if current song is still playing
+        $.ajax(
+        {
+            url: "model/check-reload.php",
+            cache: false,
+            success: function(html)
+            {
+// If reload signal was sent
+                if (html.length > 3)
+                {
+// Load content
+                    loadContent();
+                }
+            }
+        });
     }
 // Initial Load
     loadHostInfo();
 // Refresh
-    setInterval(loadHostInfo, 30000); 
+    setInterval(loadHostInfo, 20000); 
 
 
 //frame loading
