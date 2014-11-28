@@ -9,6 +9,7 @@ TODO
 	catch up when entering room
 	favicon
 	Add in bumps
+	navbar responsiveness
 
 Shows
 	movie night
