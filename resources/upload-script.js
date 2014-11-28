@@ -38,7 +38,7 @@ $(document).ready(function()
     // Initial Load
     activeSubmit();
     // Refresh
-    setInterval(activeSubmit, 5000); 
+    setInterval(activeSubmit, 6000); 
 
 //form input
 $('#submitForm').click(function()

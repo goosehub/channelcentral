@@ -15,7 +15,9 @@ include 'find-current.php';
 	{
 		$start = $time;
 	}
+// Find end
 	include 'find-end.php';
+// Push all others in queue behind this upload
 	$query = "SELECT *
 	FROM upload
 	WHERE start >= ".$time."
@@ -24,6 +26,7 @@ include 'find-current.php';
         while(($delay = mysqli_fetch_assoc($result))
         	&& (strlen($hostStart) < 3) )
         {
+// Set new time slot
         	$newStart = $delay['start'] + $duration;
         	$newEnd = $delay['end'] + $duration;
         	$newScheduled = ' '.$delay['scheduled'].' + '.$duration.' secs';

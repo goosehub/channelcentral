@@ -80,16 +80,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		      WHERE start > '". $time ."';";
 		      $result = mysqli_query($con, $query);  
 		}
-// 		if (isset($_POST['hostClearCurrent']))
-// 		{
-// // change number to whatever the current hostInfo refresh time is
-// 			$reloadTime = $time + 30;
-// // Set reload time
-// 		      $query = "UPDATE host 
-// 		      SET reload = '". $reloadTime ."'
-// 		      WHERE id = 1;";
-// 		      $result = mysqli_query($con, $query); 
-// 		}
 // If current or future is being cleared
 		if (isset($hostDeleteItem)
 			|| isset($_POST['hostClearCurrent']))
@@ -98,6 +88,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			if (isset($_POST['hostClearCurrent']))
 			{
 // change number to whatever the current hostInfo refresh time is
+// Keep consistant
 				$reloadTime = $time + 20;
 // Set reload command to be found by client
 			    $query = "UPDATE host 
@@ -125,6 +116,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			{
 		        while($advance = mysqli_fetch_assoc($advanceResult)) 
 		        {
+// Set new time slot
 		        	$newStart = $advance['start'] - $deletedItem['duration'];
 		        	$newEnd = $advance['end'] - $deletedItem['duration'];
 		        	$newScheduled = ' '.$advance['scheduled'].' - '.$deletedItem['duration'].' secs';
@@ -132,7 +124,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 						      SET start = '". $newStart ."',
 						      end = '". $newEnd ."',
 						      scheduled = '". $newScheduled ."'
-						      WHERE id = '".$advance['id'] ."';";
+						      WHERE id = '".$advance['id'] ."'
+						      AND special != 'timed';";
 		        	$result = mysqli_query($con, $query); 
 		        }
 		    }

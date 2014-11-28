@@ -62,7 +62,7 @@ loadContent();
     // Initial Load
     loadLog();
     // Refresh
-    setInterval(loadLog, 2000);
+    setInterval(loadLog, 4000);
 
 // Used to determine current background image
 var background = '';

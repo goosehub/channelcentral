@@ -32,7 +32,7 @@ session_start();
 
 <input class="btn btn-primary hostSubmit" type="submit" name="hostSubmitForm" value="Submit Changes" />
 
-<h5 class="note">Changes can take up to 30 seconds to take effect</h5>
+<h5>Changes can take up to 30 seconds to take effect</h5>
 
 <h3>Host Uploads</h3>
 <h5 class="note">Host uploads go to the front of the queue</h5> 
@@ -64,6 +64,8 @@ session_start();
       <a href="http://www.unixtimestamp.com/" target="_blank">UNIX converter</a>
 
 <h3>Host Settings</h3>
+
+<h5 class="note">Turn Length and Queue to 0 to turn off user uploads</h5>
 
 <div class="input-group">
     <div class="input-group-addon">Headline</div>

@@ -7,30 +7,11 @@ TODO
 	transitions logic
 	delete current
 	catch up when entering room
-
-
-
-		Songs, Videos, Calls, Segments, Promos, Commercials/Ads
-
-bump, promo
-
-DJ
+	favicon
+	Add in bumps
 
 Shows
-
-movie night
-minute movies
-s4s radio
-anime review
-
-
-
-
-
-//Host
-
--change
--skip
--audio/youtube only
--frames 1-3
--? image
+	movie night
+	minute movies
+	s4s radio
+	anime review
