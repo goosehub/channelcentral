@@ -8,6 +8,18 @@ $('#HostSubmitForm').click(function()
     loadContent();
     $.post('controller/host-form-post.php', $('#hostForm').serialize());
 });
+$('#reloadQueue').click(function()
+{
+    $.ajax(
+    {
+        url: "model/current-queue.php",
+        cache: false,
+        success: function(html)
+        {
+            $("#currentQueue").html(html);
+        }
+    });
+});
 
 
 

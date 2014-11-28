@@ -36,10 +36,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 	if (
 // MASTER KEY
-		$passwordInput = '8462'
+		$passwordInput === '8462'
 		||
 // Temporary for event hosts
-		($passwordInput = '1234'
+		($passwordInput === '1234'
 		&& $time >= 1400000000
 		&& $time <= 2400000000)
 		)

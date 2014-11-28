@@ -6,7 +6,8 @@ $time = time();
 // Get current queue
     $query = "SELECT *
     FROM upload 
-    WHERE start > '". $time ."';";
+    WHERE start > '". $time ."'
+    ORDER BY start ASC;";
 // Fetch each row
 if ($result = mysqli_query($con, $query))
 {
