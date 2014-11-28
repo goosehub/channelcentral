@@ -1,47 +1,39 @@
 <?php
-	$time = time();
-
+// Find current upload
+include 'find-current.php';
+// If timed start, start at time
+	if (strlen($hostStart) > 1) {
+		$start = $hostStart;
+		$special = 'timed';
+	}
+// Else if current exists, start at the end of current
+	else if ($current['end']) {
+		$start = $current['end'];
+	}
+// Else start now
+	else
+	{
+		$start = $time;
+	}
+	include 'find-end.php';
 	$query = "SELECT *
 	FROM upload
-	WHERE start >= '".$time."';";
+	WHERE start >= ".$time."
+	AND special != 'timed';";
 	$result = mysqli_query($con, $query);
-        while($delay = mysqli_fetch_assoc($result)) 
+        while(($delay = mysqli_fetch_assoc($result))
+        	&& (strlen($hostStart) < 3) )
         {
         	$newStart = $delay['start'] + $duration;
         	$newEnd = $delay['end'] + $duration;
-        	$newScheduled = ' '.$delay['scheduled'].' plus '.$duration.' seconds';
+        	$newScheduled = ' '.$delay['scheduled'].' + '.$duration.' secs';
 	        	// Inner is needed
 			      $queryInner = "UPDATE upload 
 			      SET start = '". $newStart ."',
 			      end = '". $newEnd ."',
 			      scheduled = '". $newScheduled ."'
-			      WHERE id = '".$delay['id'] ."';";
+			      WHERE id = '".$delay['id'] ."'
+			      AND special != 'timed';";
 			$resultInner = mysqli_query($con, $queryInner);  
 		}
-
-	include 'find-current.php';
-		if ($current['end']) {
-			$start = $current['end'];
-		}
-		else
-		{
-			$start = $time;
-		}
-		// $query = "SELECT * 
-		// FROM upload 
-		// WHERE start >= '".$time."' 
-		// AND special = 'scheduled' 
-		// ORDER BY end 
-		// DESC LIMIT 1";
-		// $result = mysqli_query($con, $query);
-		// $priority = mysqli_fetch_assoc($result);
-		// if ($priority['start'] < $start + $duration)
-		// {
-		// 	$end = $priority['start'];
-		// }
-		// else
-		// {
-		$end = $start + $duration;
-		// }
-	$scheduled = date("M j, Y, g:i:s a", $start);
 ?>

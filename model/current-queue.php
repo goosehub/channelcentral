@@ -8,6 +8,7 @@ date_default_timezone_set('America/New_York');
     $query = "SELECT *
     FROM upload 
     WHERE start > '". $time ."'
+    AND special != 'timed'
     ORDER BY start ASC;";
 // Fetch each row
 if ($result = mysqli_query($con, $query))

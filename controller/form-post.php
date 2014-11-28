@@ -68,15 +68,7 @@ if (strlen($youtubeInput) > 10)
 		{
 // Find next available slot
 		include '../model/find-slot.php';
-			if ($slot['end'] > 1)
-			{
-				$start = $slot['end'];
-			}
-			else {
-				$start = $time;
-			}
-			$end = $start + $duration;
-			$scheduled = date("M j, Y, g:i:s a", $start);
+		include '../model/find-end.php';
 
 // Query
 		      $query = "INSERT INTO upload 
@@ -174,15 +166,7 @@ if (strlen($youtubeInput) > 10)
 		      		{
 // find next available slot
 				include '../model/find-slot.php';
-		      			if ($slot['end'] > 16)
-		      			{
-		      				$start = $slot['end'];
-		      			}
-		      			else {
-		      				$start = $time;
-		      			}
-		      			$end = $start + $duration;
-						$scheduled = date("M j, Y, g:i:s a", $start);
+				include '../model/find-end.php';
 
 // Prepare for model
 			      $imageInput = $filename;

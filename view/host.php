@@ -61,6 +61,7 @@ session_start();
     <div class="input-group-addon">UNIX time start</div>
       <input class="form-control" type="input" name="hostStart" /><br />
     </div>
+      <a href="http://www.unixtimestamp.com/" target="_blank">UNIX converter</a>
 
 <h3>Host Settings</h3>
 
@@ -90,7 +91,7 @@ session_start();
 </div>
 
 <div class="input-group">
-    <div class="input-group-addon">Clear Entire Queue</div>
+    <div class="input-group-addon">Clear Upcoming Queue</div>
       <input class="checkbox" class="" type="checkbox" name="hostClearQueueInput" value="yes" />
 </div>
 

@@ -127,7 +127,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		        {
 		        	$newStart = $advance['start'] - $deletedItem['duration'];
 		        	$newEnd = $advance['end'] - $deletedItem['duration'];
-		        	$newScheduled = ' '.$advance['scheduled'].' minus '.$deletedItem['duration'].' seconds';
+		        	$newScheduled = ' '.$advance['scheduled'].' - '.$deletedItem['duration'].' secs';
 		        	$query = "UPDATE upload 
 						      SET start = '". $newStart ."',
 						      end = '". $newEnd ."',
