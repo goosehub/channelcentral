@@ -1,4 +1,6 @@
 TODO
+	Error reports
+	Clear past uploads
 	schedule events
 	active users
 	queue delete by id

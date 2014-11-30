@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Redirect after submit
 	header("Location: ../view/host.php");
 
-//set known variables for query
+//Set and sanitize known variables for query
 	// variable names are long to prevent confusion
 	$special = 'host';
 	$name = $_SESSION['name'];
@@ -29,6 +29,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostYoutubeInput = mysqli_real_escape_string($con, $hostYoutubeInput);
 	// files must be sanitized later
 
+// Translate hostStart into UNIX
+	$hostStart = strtotime($hostStart);
+
 // If current video will be clear, set as ID to be deleted
 	if (isset($_POST['hostClearCurrent'])) {
 		include '../model/find-current.php';
@@ -44,6 +47,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$passwordInput = $_POST['passwordInput'];
 	$passwordInput = mysqli_real_escape_string($con, $passwordInput);
 
+// 
+// Start Password locked functions
+// 
 	if (
 // MASTER KEY
 		$passwordInput === '8462'

@@ -23,6 +23,4 @@ $('#reloadQueue').click(function()
     });
 });
 
-
-
 }); //end document

@@ -5,6 +5,7 @@
       <!-- Style -->
   <link rel="stylesheet" href="../resources/bootstrap.min.css" />
   <link rel="stylesheet" href="../resources/upload-style.css" />
+  <link rel="stylesheet" type="text/css" href="/jquery.datetimepicker.css"/ >
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -58,10 +59,10 @@ session_start();
 <button class="btn" disabled="disabled"><strong>OPTIONAL</strong></button>
 
 <div class="input-group">
-    <div class="input-group-addon">UNIX time start</div>
-      <input class="form-control" type="input" name="hostStart" /><br />
+    <div class="input-group-addon">Start time</div>
+      <input class="form-control" type="input" name="hostStart" placeholder="YYYY-MM-DD HH:MM:SSPM" /><br />
     </div>
-      <a href="http://www.unixtimestamp.com/" target="_blank">UNIX converter</a>
+<h5 class="note">All times are EST (New York Time)</h5>
 
 <h3>Host Settings</h3>
 
@@ -124,6 +125,7 @@ session_start();
     <script type="text/javascript" src="../resources/jquery-1.8.3.min.js"></script>
     <script src="../resources/bootstrap.min.js"></script>
     <script type="text/javascript" src="../resources/host-script.js"></script>
+    <script src="/jquery.datetimepicker.js"></script>
 
    </body>
    </html>
