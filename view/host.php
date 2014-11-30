@@ -64,6 +64,24 @@ session_start();
     </div>
 <h5 class="note">All times are EST (New York Time)</h5>
 
+<h3>Schedule Show</h3>
+
+<div class="input-group">
+    <div class="input-group-addon">Title</div>
+      <input class="form-control" type="input" name="hostShowTitle" /><br />
+    </div>
+
+<div class="input-group">
+    <div class="input-group-addon">Timeframe</div>
+      <input class="form-control" type="input" name="hostShowTimeframe" /><br />
+    </div>
+
+<div class="input-group">
+    <div class="input-group-addon">Start time</div>
+      <input class="form-control" type="input" name="hostShowStart" value="2015-01-01 12:00:00AM"/><br />
+    </div>
+<h5 class="note">All times are EST (New York Time)</h5>
+
 <h3>Host Settings</h3>
 
 <h5 class="note">Turn Length and Queue to 0 to turn off user uploads</h5>
@@ -105,17 +123,24 @@ session_start();
 
 <h3>Current Queue</h3>
 <h5 class="note">Ordered by start time, not by ID</h5>
-<div id="reloadQueue" class="btn btn-success">Click here to refresh</div>
 
   <div id="currentQueue">
-
   <?php 
-
   include '../model/current-queue.php';
-
-  ?>
-
+    ?>
   </div>
+
+<div id="reloadQueue" class="btn btn-success">Click here to refresh</div>
+  
+<h3>Scheduled to Play</h3>
+
+  <div id="timedQueue">
+  <?php 
+  include '../model/timed-queue.php';
+    ?>
+  </div>
+
+<div id="reloadQueue" class="btn btn-success">Click here to refresh</div>
 
 </div>
 </form>

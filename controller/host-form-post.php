@@ -27,10 +27,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostStart = mysqli_real_escape_string($con, $hostStart);
 	$hostYoutubeInput = $_POST['hostYoutubeInput'];
 	$hostYoutubeInput = mysqli_real_escape_string($con, $hostYoutubeInput);
+	$hostShowTitle = $_POST['hostShowTitle'];
+	$hostShowTitle = mysqli_real_escape_string($con, $hostShowTitle);
+	$hostShowTimeframe = $_POST['hostShowTimeframe'];
+	$hostShowTimeframe = mysqli_real_escape_string($con, $hostShowTimeframe);
+	$hostShowStart = $_POST['hostShowStart'];
+	$hostShowStart = mysqli_real_escape_string($con, $hostShowStart);
 	// files must be sanitized later
 
 // Translate hostStart into UNIX
 	$hostStart = strtotime($hostStart);
+	$hostShowStart = strtotime($hostShowStart);
 
 // If current video will be clear, set as ID to be deleted
 	if (isset($_POST['hostClearCurrent'])) {
@@ -60,6 +67,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		&& $time <= 2400000000)
 		)
 	{
+// Show insert
+		if (isset($hostShowTitle) && isset($hostShowTimeframe) && isset($hostShowStart))
+		{
+		      $query = "INSERT INTO schedule 
+		      (title, timeframe, start, name)
+		      VALUES('". $hostShowTitle ."',
+		      '". $hostShowTimeframe ."',
+		      '". $hostShowStart ."',
+		      '". $name ."');";
+		      $result = mysqli_query($con, $query);  
+		}
 // Headline
 		if ($hostHeadlineInput)
 		{

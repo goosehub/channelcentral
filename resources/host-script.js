@@ -11,7 +11,7 @@ $('#HostSubmitForm').click(function()
 // Reload the upcoming queue
 $('#reloadQueue').click(function()
 {
-    // $("#currentQueue").html('Loading...');
+    // Current Queue
     $.ajax(
     {
         url: "../model/current-queue.php",
@@ -19,6 +19,16 @@ $('#reloadQueue').click(function()
         success: function(html)
         {
             $("#currentQueue").html(html);
+        }
+    });
+    // Timed Queue
+    $.ajax(
+    {
+        url: "../model/timed-queue.php",
+        cache: false,
+        success: function(html)
+        {
+            $("#timedQueue").html(html);
         }
     });
 });
