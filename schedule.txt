@@ -1,19 +1,17 @@
 Sun
 	s4s Sunday
 Mon
-	Movie Night Mondays
+	Movie Night
 Tues
 	Anime Marathon
 
 	Let's play
 Wed
-	Rick Roll Wednesdays
+	Rick Roll
 Thur
 	le radioman show
 Fri
 	Friday Night Open Mic
 Sat
 	Morning Cartoons
-	The J Jonah Jameson Show
-
-
+	Saturday Night Live

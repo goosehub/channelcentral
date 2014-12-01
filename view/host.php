@@ -10,6 +10,9 @@
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <link rel="shortcut icon" href="../resources/favicon.ico">
+  <title>
+  HOST center
+  </title>
 </head>
 
 <body>
@@ -63,24 +66,7 @@ session_start();
     <div class="input-group-addon">Start time</div>
       <input class="form-control" type="input" name="hostStart" placeholder="YYYY-MM-DD HH:MM:SSPM" /><br />
     </div>
-<h5 class="note">All times are EST (New York Time)</h5>
-
-<h3>Schedule A Show</h3>
-
-<div class="input-group">
-    <div class="input-group-addon">Title</div>
-      <input class="form-control" type="input" name="hostShowTitle" /><br />
-    </div>
-
-<div class="input-group">
-    <div class="input-group-addon">Timeframe</div>
-      <input class="form-control" type="input" name="hostShowTimeframe" /><br />
-    </div>
-
-<div class="input-group">
-    <div class="input-group-addon">Start time</div>
-      <input class="form-control" type="input" name="hostShowStart" value="2015-01-01 12:00:00AM"/><br />
-    </div>
+<h5 class="note">Format is YYYY-MM-DD HH:MM:SSPM</h5>
 <h5 class="note">All times are EST (New York Time)</h5>
 
 <h3>Host Settings</h3>
@@ -132,6 +118,25 @@ session_start();
   </div>
 
 <div id="reloadQueue" class="btn btn-success">Click here to refresh</div>
+
+<h3>Schedule A Show</h3>
+
+<div class="input-group">
+    <div class="input-group-addon">Title</div>
+      <input class="form-control" type="input" name="hostShowTitle" /><br />
+    </div>
+
+<div class="input-group">
+    <div class="input-group-addon">Timeframe</div>
+      <input class="form-control" type="input" name="hostShowTimeframe" /><br />
+    </div>
+
+<div class="input-group">
+    <div class="input-group-addon">Start time</div>
+      <input class="form-control" type="input" name="hostShowStart" placeholder="YYYY-MM-DD HH:MM:SSPM"/><br />
+    </div>
+<h5 class="note">Format is YYYY-MM-DD HH:MM:SSPM</h5>
+<h5 class="note">All times are EST (New York Time)</h5>
   
 <h3>Scheduled to Play</h3>
 

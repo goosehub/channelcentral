@@ -68,7 +68,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		)
 	{
 // Show insert
-		if (isset($hostShowTitle) && isset($hostShowTimeframe) && isset($hostShowStart))
+		if ($hostShowTitle && $hostShowTimeframe && $hostShowStart)
 		{
 		      $query = "INSERT INTO schedule 
 		      (title, timeframe, start, name)
