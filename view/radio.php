@@ -48,7 +48,7 @@ if(isset($_POST['enter'])){
 // Set error reporting
         $_SESSION['errLength'] = $_SESSION['errRepeat'] = $_SESSION['errCode'] = 
         $_SESSION['errImgSize'] = $_SESSION['errAudioSize'] = $_SESSION['errFileType'] =
-        $_SESSION['errRickRoll'] = '';
+        $_SESSION['errQueueLimit'] = $_SESSION['errRickRoll'] = '';
     }
 }
 //Check if logged in

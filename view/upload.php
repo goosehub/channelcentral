@@ -22,6 +22,7 @@ session_start();
     <div id="uploadInfo">
     </div>
 
+<!-- Error Reporting -->
 <?php
     if ( $_SESSION['errLength']
       || $_SESSION['errRepeat']
@@ -29,6 +30,7 @@ session_start();
       || $_SESSION['errImgSize']
       || $_SESSION['errAudioSize']
       || $_SESSION['errFileType']
+      || $_SESSION['errQueueLimit']
       || $_SESSION['errRickRoll']
       )
     {
@@ -39,6 +41,7 @@ session_start();
       echo $_SESSION['errImgSize'];
       echo $_SESSION['errAudioSize'];
       echo $_SESSION['errFileType'];
+      echo $_SESSION['errQueueLimit'];
       echo $_SESSION['errRickRoll'];
     echo '</div>';
     }

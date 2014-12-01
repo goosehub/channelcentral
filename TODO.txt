@@ -1,22 +1,8 @@
 TODO
-	Error reports
-	Clear past uploads
-	schedule events
 	active users
-	queue delete by id
-	host style
-	delete current
-	transitions logic
-	delete current
 	catch up when entering room
 	favicon
 	Add in bumps
 	navbar responsiveness
 	upload info shows no uploads
 		when length and queue is 0
-
-Shows
-	movie night
-	minute movies
-	s4s radio
-	anime review

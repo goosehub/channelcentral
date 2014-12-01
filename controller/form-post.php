@@ -7,13 +7,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // if(isset($_SESSION['name'])) //also works
 {
 
-// Redirect after submit
-	header("Location: ../view/upload.php");
 
 // Empty Errors
 	$_SESSION['errLength'] = $_SESSION['errRepeat'] = $_SESSION['errCode'] = 
 	$_SESSION['errImgSize'] = $_SESSION['errAudioSize'] = $_SESSION['errFileType'] = 
-	$_SESSION['errRickRoll'] = '';
+	$_SESSION['errQueueLimit'] = $_SESSION['errRickRoll'] = '';
 //set known variables for query
 	$name = $_SESSION['name'];
 	$name = mysqli_real_escape_string($con, $name);
@@ -32,7 +30,8 @@ include '../model/queue-limit.php';
 // 
 	if ($queueLimit['end'] > 1)
 	{
-// Queue limit reached
+// Queue limit error
+		$_SESSION['errQueueLimit'] = 'The queue is now full. Better luck next time.';
 	}
 	else {
 // Queue not full
@@ -80,9 +79,9 @@ if (strlen($youtubeInput) > 10)
 // Report length error
 			$_SESSION['errLength'] = "This is too long";
 		}
-		else if ($youtubeID = 'dQw4w9WgXcQ') 
+		else if ($youtubeID === 'dQw4w9WgXcQ') 
 		{
-			$_SESSION['errRickRoll'] = 'We\'re no strangers to Rick. You know the rules and so do I.';
+			$_SESSION['errRickRoll'] = 'ERROR: We\'re no strangers to Rick. You know the rules and so do I.';
 		}
 		else
 		{
@@ -224,5 +223,8 @@ if (strlen($youtubeInput) > 10)
 		}
 	}
 }
+
+// Redirect after submit
+	header("Location: ../view/upload.php");
 
 ?>
