@@ -64,7 +64,7 @@ session_start();
     </div>
 <h5 class="note">All times are EST (New York Time)</h5>
 
-<h3>Schedule Show</h3>
+<h3>Schedule A Show</h3>
 
 <div class="input-group">
     <div class="input-group-addon">Title</div>

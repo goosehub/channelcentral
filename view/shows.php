@@ -15,26 +15,18 @@
 
 <div id="showsWrp">
 
+<h1>Upcoming</h1>
+<div id="upcoming">
+  <?php
+  include '../model/upcoming.php';
+  ?>
+</div>
+
   <h1>Seeking Hosts</h1>
   <div id="appeal">
   <p class="appeal">Want to host the room for a few hours?</p>
   <p class="appeal">goosetube on skype</p>
   <p class="appeal">goose@esfores.com</p>
-  </div>
-
-<h1>Upcoming</h1>
-
-<!--   <div class="event">
-  <p class="name">le radioman Episode 7</p>
-  <p class="time">Friday Night at 10 PM</p>
-  </div> -->
-  <div class="event">
-  <p class="name">Sunday Morning Cartoons</p>
-  <p class="time">Saturday Morning til NOON</p>
-  </div>
-  <div class="event">
-  <p class="name">S4S Music</p>
-  <p class="time">Sunday Night starting at 10 PM</p>
   </div>
 
 </div>

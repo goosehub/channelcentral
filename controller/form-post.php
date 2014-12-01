@@ -51,6 +51,10 @@ if (strlen($youtubeInput) > 10)
 
 //check if valid and non repeating youtubeID
 //if valid, ignore audio and insert youtube into DB
+	if ($row['youtube'] === $youtubeID) {
+// Report repeat error
+		$error['repeat'] = "This has already been played recently";
+	}
 	if (strlen($youtubeID) === 11
 		&& $row['youtube'] !== $youtubeID)
 		{
@@ -66,7 +70,12 @@ if (strlen($youtubeInput) > 10)
 		$duration = $duration + 5;
 
 //check duration
-		if ($duration < $host['length'])
+		if ($duration > $host['length'])
+		{
+// Report length error
+			$error['length'] = "This is too long";
+		}
+		else
 		{
 // Find next available slot
 		include '../model/find-slot.php';
@@ -143,10 +152,10 @@ if (strlen($youtubeInput) > 10)
 		{	
 // Error check
 		  if ($_FILES["imageInput"]["error"] > 0) {
-		    $data['errorCode'] = "Return Code: " . $_FILES["imageInput"]["error"] . "<br>";
+		    $error['errorCode'] = "Return Code: " . $_FILES["imageInput"]["error"] . "<br/>";
 		  } 
 		  else if ($_FILES["audioInput"]["error"] > 0) {
-		    $data['errorCode'] = "Return Code: " . $_FILES["audioInput"]["error"] . "<br>";
+		    $error['errorCode'] = "Return Code: " . $_FILES["audioInput"]["error"] . "<br/>";
 		  } 
 		  else
 		  {
@@ -163,8 +172,13 @@ if (strlen($youtubeInput) > 10)
 		      $duration = floor($duration);
 // Add time for ads and loading time
 		      $duration = $duration + 5;
-		      		if ($duration < $host['length'])
+		      		if ($duration > $host['length'])
 		      		{
+// Report length error
+					$error['length'] = "This is too long";
+					}
+					else
+					{
 // find next available slot
 				include '../model/find-slot.php';
 				include '../model/find-end.php';
@@ -183,6 +197,11 @@ if (strlen($youtubeInput) > 10)
 			      $result = mysqli_query($con, $query);   
 				    }
 			    }
+			}
+// Error reporting
+			else
+			{
+				$error['audio'] = 'Display restrictions';
 			}
 		}
 	}
