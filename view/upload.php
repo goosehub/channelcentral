@@ -23,13 +23,23 @@ session_start();
     </div>
 
 <?php
-    if ($_SESSION['errRepeat'])
+    if ( $_SESSION['errLength']
+      || $_SESSION['errRepeat']
+      || $_SESSION['errCode']
+      || $_SESSION['errImgSize']
+      || $_SESSION['errAudioSize']
+      || $_SESSION['errFileType']
+      || $_SESSION['errRickRoll']
+      )
     {
     echo '<div class="alert alert-danger" role="alert">';
       echo $_SESSION['errLength'];
       echo $_SESSION['errRepeat'];
       echo $_SESSION['errCode'];
-      echo $_SESSION['errFile'];
+      echo $_SESSION['errImgSize'];
+      echo $_SESSION['errAudioSize'];
+      echo $_SESSION['errFileType'];
+      echo $_SESSION['errRickRoll'];
     echo '</div>';
     }
 ?>

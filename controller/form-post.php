@@ -7,8 +7,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // if(isset($_SESSION['name'])) //also works
 {
 
+// Redirect after submit
+	header("Location: ../view/upload.php");
+
 // Empty Errors
-	$_SESSION['errLength'] = $_SESSION['errRepeat'] = $_SESSION['errCode'] = $_SESSION['errFile'] = '';
+	$_SESSION['errLength'] = $_SESSION['errRepeat'] = $_SESSION['errCode'] = 
+	$_SESSION['errImgSize'] = $_SESSION['errAudioSize'] = $_SESSION['errFileType'] = 
+	$_SESSION['errRickRoll'] = '';
 //set known variables for query
 	$name = $_SESSION['name'];
 	$name = mysqli_real_escape_string($con, $name);
@@ -74,6 +79,10 @@ if (strlen($youtubeInput) > 10)
 		{
 // Report length error
 			$_SESSION['errLength'] = "This is too long";
+		}
+		else if ($youtubeID = 'dQw4w9WgXcQ') 
+		{
+			$_SESSION['errRickRoll'] = 'We\'re no strangers to Rick. You know the rules and so do I.';
 		}
 		else
 		{
@@ -143,10 +152,10 @@ if (strlen($youtubeInput) > 10)
 		)
 		&& ($_FILES["imageInput"]["size"] < 1600000)
 		&& ($_FILES["audioInput"]["size"] < 64000000)
-		&& ($image_height < 3200)
-		&& ($image_width < 3200)
-		&& ($image_height > 200)
-		&& ($image_width > 200)
+		// && ($image_height < 3200)
+		// && ($image_width < 3200)
+		// && ($image_height > 200)
+		// && ($image_width > 200)
 		&& in_array($extension, $allowedExts)
 		) 
 		{	
@@ -198,16 +207,22 @@ if (strlen($youtubeInput) > 10)
 				    }
 			    }
 			}
-// Error reporting
+// File Error reporting
 			else
 			{
-				$_SESSION['errFile'] = 'Display restrictions';
+				if ($_FILES["imageInput"]["size"] < 1600000) {
+					$_SESSION['errImgSize'] = 'Maximum image size is 1.6 MegaBytes';
+				}
+				else if ($_FILES["audioInput"]["size"] < 64000000) {
+					$_SESSION['errAudioSize'] = 'Maximum audio file size is 64 MegaBytes';
+				}
+				else
+				{
+					$_SESSION['errFileType'] = 'Wrong File Type. jpg, jpeg, gif, png, mp3, ogg, flak, and wav supported';
+				}
 			}
 		}
 	}
 }
-
-// Redirect after submit
-	header("Location: ../view/upload.php");
 
 ?>

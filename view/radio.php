@@ -43,7 +43,12 @@ function loginForm(){
 // Set session
 if(isset($_POST['enter'])){
     if($_POST['name'] != ""){
+// Set Name
         $_SESSION['name'] = stripslashes(htmlspecialchars($_POST['name']));
+// Set error reporting
+        $_SESSION['errLength'] = $_SESSION['errRepeat'] = $_SESSION['errCode'] = 
+        $_SESSION['errImgSize'] = $_SESSION['errAudioSize'] = $_SESSION['errFileType'] =
+        $_SESSION['errRickRoll'] = '';
     }
 }
 //Check if logged in
