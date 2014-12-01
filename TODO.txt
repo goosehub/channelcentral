@@ -1,7 +1,7 @@
 TODO
+	chat rework
 	active users
 	catch up when entering room
-	favicon
 	Add in bumps
 	navbar responsiveness
 	upload info shows no uploads

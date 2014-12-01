@@ -149,7 +149,7 @@ if (strlen($youtubeInput) > 10)
 		|| ($_FILES["imageInput"]["type"] == "image/x-png")
 		|| ($_FILES["imageInput"]["type"] == "image/png")
 		)
-		&& ($_FILES["imageInput"]["size"] < 1600000)
+		&& ($_FILES["imageInput"]["size"] < 4000000)
 		&& ($_FILES["audioInput"]["size"] < 64000000)
 		// && ($image_height < 3200)
 		// && ($image_width < 3200)
@@ -209,8 +209,8 @@ if (strlen($youtubeInput) > 10)
 // File Error reporting
 			else
 			{
-				if ($_FILES["imageInput"]["size"] < 1600000) {
-					$_SESSION['errImgSize'] = 'Maximum image size is 1.6 MegaBytes';
+				if ($_FILES["imageInput"]["size"] < 4000000) {
+					$_SESSION['errImgSize'] = 'Maximum image size is 4 MegaBytes';
 				}
 				else if ($_FILES["audioInput"]["size"] < 64000000) {
 					$_SESSION['errAudioSize'] = 'Maximum audio file size is 64 MegaBytes';
