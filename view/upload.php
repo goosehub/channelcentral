@@ -22,11 +22,20 @@ session_start();
     <div id="uploadInfo">
     </div>
 
+<?php
+    if ($_SESSION['errRepeat'])
+    {
+    echo '<div class="alert alert-danger" role="alert">';
+      echo $_SESSION['errLength'];
+      echo $_SESSION['errRepeat'];
+      echo $_SESSION['errCode'];
+      echo $_SESSION['errFile'];
+    echo '</div>';
+    }
+?>
 
     <form name="uploadForm" id="uploadForm" action="../controller/form-post.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
-
-    <!-- <p class="instructions">For youtube videos</p> -->
 
     <div class="input-group">
       <div class="input-group-addon">Enter Youtube URL</div>

@@ -6,9 +6,9 @@ include '../connect.php';
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 // if(isset($_SESSION['name'])) //also works
 {
-// Redirect after submit
-	header("Location: ../view/upload.php");
 
+// Empty Errors
+	$_SESSION['errLength'] = $_SESSION['errRepeat'] = $_SESSION['errCode'] = $_SESSION['errFile'] = '';
 //set known variables for query
 	$name = $_SESSION['name'];
 	$name = mysqli_real_escape_string($con, $name);
@@ -53,7 +53,7 @@ if (strlen($youtubeInput) > 10)
 //if valid, ignore audio and insert youtube into DB
 	if ($row['youtube'] === $youtubeID) {
 // Report repeat error
-		$error['repeat'] = "This has already been played recently";
+		$_SESSION['errRepeat'] = "This has already been played recently";
 	}
 	if (strlen($youtubeID) === 11
 		&& $row['youtube'] !== $youtubeID)
@@ -73,7 +73,7 @@ if (strlen($youtubeInput) > 10)
 		if ($duration > $host['length'])
 		{
 // Report length error
-			$error['length'] = "This is too long";
+			$_SESSION['errLength'] = "This is too long";
 		}
 		else
 		{
@@ -152,10 +152,10 @@ if (strlen($youtubeInput) > 10)
 		{	
 // Error check
 		  if ($_FILES["imageInput"]["error"] > 0) {
-		    $error['errorCode'] = "Return Code: " . $_FILES["imageInput"]["error"] . "<br/>";
+		    $_SESSION['errCode'] = "Return Code: " . $_FILES["imageInput"]["error"] . "<br/>";
 		  } 
 		  else if ($_FILES["audioInput"]["error"] > 0) {
-		    $error['errorCode'] = "Return Code: " . $_FILES["audioInput"]["error"] . "<br/>";
+		    $_SESSION['errCode'] = "Return Code: " . $_FILES["audioInput"]["error"] . "<br/>";
 		  } 
 		  else
 		  {
@@ -175,7 +175,7 @@ if (strlen($youtubeInput) > 10)
 		      		if ($duration > $host['length'])
 		      		{
 // Report length error
-					$error['length'] = "This is too long";
+					$_SESSION['errLength'] = "This is too long";
 					}
 					else
 					{
@@ -201,10 +201,13 @@ if (strlen($youtubeInput) > 10)
 // Error reporting
 			else
 			{
-				$error['audio'] = 'Display restrictions';
+				$_SESSION['errFile'] = 'Display restrictions';
 			}
 		}
 	}
 }
+
+// Redirect after submit
+	header("Location: ../view/upload.php");
 
 ?>

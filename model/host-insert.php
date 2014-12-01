@@ -29,7 +29,7 @@ include 'find-current.php';
 // Set new time slot
         	$newStart = $delay['start'] + $duration;
         	$newEnd = $delay['end'] + $duration;
-        	$newScheduled = ' '.$delay['scheduled'].' + '.$duration.' secs';
+        	$newScheduled = ''.$delay['scheduled'].' + '.$duration.'';
 	        	// Inner is needed to avoid mixups
 			      $queryInner = "UPDATE upload 
 			      SET start = '". $newStart ."',
