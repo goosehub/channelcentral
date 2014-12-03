@@ -7,7 +7,7 @@ $(document).ready(function()
 // upload information
         $.ajax(
         {
-            url: "/radio/view/upload-info.php",
+            url: "model/upload-info.php",
             cache: false,
             success: function(html)
             {
@@ -27,7 +27,7 @@ $(document).ready(function()
     {
         $.ajax(
         {
-            url: "/radio/view/active-submit.php",
+            url: "model/active-submit.php",
             cache: false,
             success: function(html)
             {

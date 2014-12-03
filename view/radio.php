@@ -5,18 +5,18 @@
   <title>esfores RADIO
   </title>
 
-  <meta name="keywords" content="music">
+  <meta name="keywords" content="esfores, radio, music, video, share, youtube">
   <meta name="description" content="An interactive online radio station">
-  <meta name="author" content="J Jonah Jameson">
+  <meta name="author" content="Goose">
   <meta name="robots" CONTENT="all">
 
       <!-- Style -->
-  <link rel="stylesheet" href="resources/bootstrap.min.css" />
+  <link rel="stylesheet" href="resources/tools/bootstrap.min.css" />
   <link rel="stylesheet" href="resources/style.css" />
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  <link rel="shortcut icon" href="resources/favicon.ico">
+  <link rel="shortcut icon" href="resources/images/favicon.ico">
 </head>
 
 <body>
@@ -130,8 +130,8 @@ else
 } //no content after this bracket 
 ?>
     <!-- Script -->
-  <script type="text/javascript" src="resources/jquery-1.8.3.min.js"></script>
-    <script src="resources/bootstrap.min.js"></script>
+    <script type="text/javascript" src="resources/tools/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript"src="resources/tools/bootstrap.min.js"></script>
     <script type="text/javascript" src="resources/script.js"></script>
 
 </body>

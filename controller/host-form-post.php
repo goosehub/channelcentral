@@ -303,7 +303,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			function get_duration($audioPath, $audioFile) 
 			{ 
 			// include getID3() library 
-			require_once('../resources/getID3-1.9.8/getid3/getid3.php'); 
+			require_once('../resources/tools/getID3-1.9.8/getid3/getid3.php'); 
 			$getID3 = new getID3();
 			//set up path
 			$FullFileName = realpath($audioPath.'/'.$audioFile); 

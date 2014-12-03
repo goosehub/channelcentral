@@ -3,13 +3,12 @@
 <meta charset="utf-8">
 <head>
       <!-- Style -->
-  <link rel="stylesheet" href="../resources/bootstrap.min.css" />
+  <link rel="stylesheet" href="../resources/type="text/javascript"bootstrap.min.css" />
   <link rel="stylesheet" href="../resources/upload-style.css" />
-  <link rel="stylesheet" type="text/css" href="/jquery.datetimepicker.css"/ >
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  <link rel="shortcut icon" href="../resources/favicon.ico">
+  <link rel="shortcut icon" href="../resources/tools/favicon.ico">
   <title>
   HOST center
   </title>
@@ -69,7 +68,7 @@ session_start();
 
 <h3>Host Settings</h3>
 
-<h5 class="note">Turn Length and Queue to 0 to turn off user uploads</h5>
+<h5 class="note">Set Length and Queue to 1 to turn off user uploads</h5>
 
 <div class="input-group">
     <div class="input-group-addon">Headline</div>
@@ -93,7 +92,6 @@ session_start();
 
 <h3>Navbar</h3>
 <h5 class="note">Enter any HTML you want loaded on click.</h5>
-<h5 class="note">Use <a href="http://7thspace.com/webmaster_tools/iframe_generator.html" target="_blank">this iframe generator</a> to embed websites.</h5>
 
 <div class="input-group">
     <div class="input-group-addon">Navbar Viewer Purple</div>
@@ -110,8 +108,9 @@ session_start();
       <input class="form-control" type="input" name="hostNavGreen" /><br />
     </div>
 <h5 class="note">Any iframe included will have sandbox attribute applied.</h5>
+<h5 class="note">Use <a href="http://7thspace.com/webmaster_tools/iframe_generator.html" target="_blank">this iframe generator</a> to embed websites.</h5>
 <h5 class="note">View <a href="https://quip.com/aO0pAZO9m9SG" target="_blank">this list of other allowed tags.</a></h5>
-<h5 class="note">Be aware of users with small screens. Use max-width and max-height to prevent spillover.</h5>
+<h5 class="note">Be aware of users with small screens, and use width and height to prevent spillover.</h5>
 
 <h3>Upload Maintenance</h3>
 
@@ -174,10 +173,9 @@ session_start();
 </div>
 
 <!-- Script -->
-    <script type="text/javascript" src="../resources/jquery-1.8.3.min.js"></script>
-    <script src="../resources/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../resources/tools/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../resources/tools/bootstrap.min.js"></script>
     <script type="text/javascript" src="../resources/host-script.js"></script>
-    <script src="/jquery.datetimepicker.js"></script>
 
    </body>
    </html>

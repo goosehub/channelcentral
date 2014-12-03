@@ -9,7 +9,7 @@ var purpleLoad = '<iframe id="pulpFrame" src="http://interplay.xyz/pulp/winter20
 
 var orangeLoad = '<iframe id="chanFrame" src="http://4chan.org/s4s/"></iframe>';
 
-var greenLoad = '<center><img class="img-circle questionImg" src="resources/special.gif"/></center>'; 
+var greenLoad = '<center><img class="img-circle questionImg" src="resources/sumo.gif"/></center>'; 
 
 $(document).ready(function()
 {
@@ -19,7 +19,7 @@ function loadContent()
 {
     $.ajax(
     {
-        url: "controller/load-content.php",
+        url: "model/load-content.php",
         cache: false,
         success: function(html)
         {
@@ -51,7 +51,7 @@ loadContent();
     {
         $.ajax(
         {
-            url: "view/chat-load.php",
+            url: "model/chat-load.php",
             cache: false,
             success: function(html)
             {
@@ -73,7 +73,7 @@ var background = '';
 // Navbar
         $.ajax(
         {
-            url: "view/navbar.php",
+            url: "model/navbar.php",
             cache: false,
             success: function(html)
             {
@@ -87,7 +87,7 @@ var background = '';
 // Headline
         $.ajax(
         {
-            url: "view/headline.php",
+            url: "model/headline.php",
             cache: false,
             success: function(html)
             {
@@ -97,7 +97,7 @@ var background = '';
 // background image
         $.ajax(
         {
-            url: "view/background.php",
+            url: "model/background.php",
             cache: false,
             success: function(html)
             {
@@ -167,7 +167,7 @@ $('#greenBtn').click(function()
 $("#submitChat").click(function()
 {
     var clientchat = $("#chatInput").val();
-    $.post("controller/chat-post.php",
+    $.post("model/chat-post.php",
     {
         text: clientchat
     });
