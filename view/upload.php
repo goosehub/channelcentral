@@ -51,24 +51,24 @@ session_start();
     <div class="form-group">
 
     <div class="input-group">
-      <div class="input-group-addon">Enter Youtube URL</div>
-      <input class="form-control" type="input" name="youtubeInput" /><br />
+      <div class="uploadAddon input-group-addon">Enter Youtube URL</div>
+      <input class="uploadInput form-control" type="input" name="youtubeInput" /><br />
     </div>
     
     <div id="contributeA">
     <input class="form-control btn btn-primary contribute" type="submit" name="submitForm" value="Contribute" />
     </div>
 
-    <button class="instructions btn" disabled="disabled"><strong>OR</strong></button>
+    <button class="or btn" disabled="disabled"><strong>OR</strong></button>
 
     <div class="input-group">
-      <div class="input-group-addon">Upload Audio</div>
-      <input class="form-control" name="audioInput" type="file" />
+      <div class="uploadAddon input-group-addon">Upload Audio</div>
+      <input class="uploadInput form-control" name="audioInput" type="file" />
     </div>
 
     <div class="input-group">
-      <div class="input-group-addon">Attach Image</div>
-      <input class="form-control" name="imageInput" type="file" />
+      <div class="uploadAddon input-group-addon">Attach Image</div>
+      <input class="uploadInput form-control" name="imageInput" type="file" />
     </div>
 
 <!--     <div id="typeInput" class="form-group">

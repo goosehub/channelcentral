@@ -1,8 +1,7 @@
 TODO
 	chat rework
-	active users
+	??active users
 	catch up when entering room
 	Add in bumps
-	navbar responsiveness
-	upload info shows no uploads
+	??upload info shows no uploads
 		when length and queue is 0

@@ -69,16 +69,17 @@ else
 
   <div class="col-md-4">
     <div id="navCnt">
-      <div id="navBar" class="btn-group" role="group" aria-label="...">
-          <a id="homeBtn" class="btn btn-default disabled" href="#">esfores</a>
-          <button id="uploadBtn" class="btn btn-default" href="#">Upload</button>
-          <button id="showsBtn" class="btn btn-primary" href="#">Shows</button>
-          <button id="pulpBtn" class="btn btn-info" href="#">Pulp</button>
-          <button id="chanBtn" class="btn btn-warning" href="#">4chan</button>
-          <!-- <button id="tribuneBtn" class="btn btn-danger" href="#">Tribune</button> -->
-          <button id="leaveBtn" class="btn btn-danger" href="#">Leave</button>
-          <!-- <a id="hostBtn" class="btn btn-info" href="view/host.php" target="_blank">Host</a> -->
-          <button id="specialBtn" class="btn btn-success" href="#">?</button>
+      <div id="navBarTop" class="btn-group" role="group" aria-label="...">
+          <!-- <a id="homeBtn" class="btn disabled" href="#">esfores</a> -->
+          <button id="showsBtn" class="btn" href="#">Shows</button>
+          <button id="uploadBtn" class="btn" href="#">Upload</button>
+          <button id="leaveBtn" class="btn" href="#">Leave</button>
+      </div>
+      <div id="navBarBottom" class="btn-group" role="group" aria-label="...">
+          <button id="pulpBtn" class="btn btn-low" href="#">Pulp</button>
+          <button id="chanBtn" class="btn btn-low" href="#">4chan</button>
+          <!-- <a id="hostBtn" class="btn" href="view/host.php" target="_blank">Host</a> -->
+          <button id="specialBtn" class="btn btn-low" href="#">&nbsp ? &nbsp</button>
       </div>
     </div>
     <div id="viewer">
@@ -104,14 +105,14 @@ else
 <!-- Right -->
 
   <div class="col-md-4">
-      <div id="chatHead">
+<!--       <div id="chatHead">
         <p>You are <?php echo $_SESSION['name'] ?></p>
-      </div>
+      </div> -->
 
                 <!-- chatroom -->
     <div id="inputCnt">
     <form name="chatForm" id="chatForm" action="controller/chatpost.php" method="post" enctype="multipart/form-data">
-    <input name="message" type="text" class="form-control" id="chatInput">
+    <input name="message" type="text" class="form-control" id="chatInput" placeholder="">
     <!-- submit button positioned off screen -->
     <input name="submitChat" type="submit" id="submitChat" value="DICK" style="position: absolute; left: -9999px">
     </form>

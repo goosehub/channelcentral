@@ -56,7 +56,7 @@ include '../model/find-current.php';
 // Else request users for content
 		else 
 		{
-		echo "<h1 id='requestContent'>Upload content to start the show</h1>
+		echo "<h1 id='requestContent'>Upload to start the show</h1>
 		|
 		2000";
 		}

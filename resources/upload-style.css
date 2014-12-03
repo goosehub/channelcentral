@@ -1,23 +1,65 @@
+ @font-face {
+  font-family: "OpenSans-Regular";
+  src: url(fonts/OpenSans-Regular.ttf) format("truetype");
+} 
+@font-face {
+  font-family: "BebasNeue";
+  src: url(fonts/BebasNeue.otf) format("opentype");
+}
 body {
 	background: none;
+	font-family: BebasNeue;
+	letter-spacing: 0.2em;
+	font-size: 1.4em;
+	line-height: 1em;
 }
 
 /*	upload */
-.instructions {
-	text-align: center;
-	width: 33%;
-	margin-left: 33.3%;
+#uploadForm {
+	opacity: 0.9;
+}
+input {
+	font-family: OpenSans;
+}
+.uploadInput {
+	opacity: 0.8;
+	font-family: BebasNeue;
+
+}
+.input-group-addon {
+	background-color: #6666FF;
+	color: #FFF;
+	font-weight: bold;
+	min-width: 18em;
+	font-family: BebasNeue;
+	letter-spacing: 0.1em;
+}
+.uploadAddon {
+	max-width: 10em;
 }
 .contribute {
-	width: 50%;
+	width: 33%;
 	margin: 0 auto;
 	margin-top: 0.2em;
 	margin-bottom: 0.2em;
 	display: block;
 	border-radius: 15px;
+	background-color: #4488DD;
    -moz-box-shadow:    inset 2px 2px 2px #FFF;
    -webkit-box-shadow: inset 2px 2px 2px #FFF;
    box-shadow:         inset 2px 2px 2px #FFF;
+   font-family: BebasNeue;
+   letter-spacing: 0.2em;
+}
+.contribute:hover {
+	background-color: #FFF;
+	color: #000;
+	font-weight: bold;
+}
+.or {
+	text-align: center;
+	width: 33%;
+	margin-left: 33.3%;
 }
 #uploadInfo {
 	background-color: #000;
@@ -29,6 +71,7 @@ body {
 	opacity: 0.9;
 	text-align: center;
 	margin-bottom: 0;
+	line-height: 1.5em;
 }
 
 /*	host */
@@ -41,9 +84,19 @@ body {
 	margin: 0.2em;
 	opacity: 0.8;
 }
+.passwordAddon {
+	background-color: #448866;
+}
 .hostSubmit {
 	margin-left: 0;
-	width: 30%;
+	width: 22.5em;
+	background-color: #88DD66;
+	font-size: 1.6em;
+	font-family: BebasNeue;
+}
+.hostSubmit:hover {
+	background-color: #FFF;
+	color: #000;
 }
 #reloadQueue {
 	width: 33%;
@@ -59,7 +112,19 @@ body {
 .checkbox {
 	width: 2em;
 	height: 2em;
+	margin-left: 1em !important;
+	/*	!important is needed for checkbox input to be positioned */
+}
+h5 {
+	margin: 0;
 }
 .note {
+	margin-left: 4em;
+	margin-top: 0;
+	margin-bottom: 0;
+	font-family: OpenSans;
+	letter-spacing: 0;
+}
+.note-lg {
 	margin-left: 4em;
 }

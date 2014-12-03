@@ -1,37 +1,71 @@
+ @font-face {
+  font-family: "CuldeSac";
+  src: url(fonts/CulDeSac.ttf) format("truetype");
+} 
+ @font-face {
+  font-family: "CheesePizza";
+  src: url(fonts/CheesePizza.ttf) format("truetype");
+} 
+ @font-face {
+  font-family: "OpenSans-Regular";
+  src: url(fonts/OpenSans-Regular.ttf) format("truetype");
+} 
+@font-face {
+  font-family: "BebasNeue";
+  src: url(fonts/BebasNeue.otf) format("opentype");
+}
 body {
 	background: none;
 }
 h1 {
 	text-align: center;
-	opacity: 0.7;
+	opacity: 0.8;
 	background-color: black;
 	color: white;
+	font-family: CuldeSac, CheesePizza, OpenSans;
 }
-#appeal {
-	text-align: center;
-	color: white;
-	background-color: black;
-	padding: 0.1em;
-	font-size: 1.4em;
+#upcoming {
+	border: 0;
+	border-radius: 20px;
 }
 .event {
 	opacity: 0.8;
 	margin: 0.3em;
-	background-color: black;
+	background-color: #FFF;
+	color: #000;
+	border: 0.1em solid #000;
+	border-radius: 10px;
 }
 .event p {
 	margin-top: 0;
 	margin-bottom: 0;
 }
 .name {
-	font-size: 1.2em;
+	font-size: 1.8em;
 	font-weight: bold;
-	color: white;
-	margin-left: 3em;
+	margin-left: 0.5em;
+	font-family: CheesePizza;
+	line-height: 1em;
 }
 .time {
 	font-size: 1em;
-	color: white;
 	opacity: 0.8;
 	margin-left: 1.5em;
+	font-family: OpenSans;
+	font-size: 1.4em;
+	letter-spacing: 0.1em;
+	line-height: 1em;
+}
+#appeal {
+	opacity: 0.8;
+	text-align: center;
+	color: white;
+	background-color: #000;
+	padding: 0.1em;
+	font-size: 1.4em;
+	font-family: CheesePizza;
+}
+.appeal {
+	margin-top: 0;
+	margin-bottom: 0;
 }

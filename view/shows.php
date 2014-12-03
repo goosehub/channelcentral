@@ -15,18 +15,18 @@
 
 <div id="showsWrp">
 
-<h1>Upcoming</h1>
+<h1 id="upcoming">Upcoming</h1>
 <div id="upcoming">
   <?php
   include '../model/upcoming.php';
   ?>
 </div>
 
-  <h1>Seeking Hosts</h1>
   <div id="appeal">
+  <h1>Seeking Hosts</h1>
   <p class="appeal">Want to host the room for a few hours?</p>
   <p class="appeal">goosetube on skype</p>
-  <p class="appeal">goose@esfores.com</p>
+  <p class="appeal">s4stribune@gmail.com</p>
   </div>
 
 </div>

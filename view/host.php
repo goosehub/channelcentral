@@ -25,23 +25,22 @@ session_start();
 <div id="hostFormCnt">
 
 <h2 id="welcome">Welcome to your hosting center</h2>
-<h4>When ready, enter Password and Submit</h4>
+<h4>Enter password, make changes, then press enter or click submit</h4>
 
 <form name="uploadForm" id="hostForm" action="../controller/host-form-post.php" method="post" enctype="multipart/form-data">
 <div class="form-group">
 
 <div class="input-group hostPassword">
-    <div class="input-group-addon">Enter Password</div>
+    <div class="input-group-addon passwordAddon">Enter Password</div>
       <input class="input-lg" type="input" name="passwordInput" value="1234"/><br />
     </div>
 
 <input class="btn btn-primary hostSubmit" type="submit" name="hostSubmitForm" value="Submit Changes" />
 
-<h5>Changes can take up to 30 seconds to take effect</h5>
+<h5 class="note-lg">Changes can take up to 30 seconds to take effect</h5>
 
 <h3>Host Uploads</h3>
-<h5 class="note">Host uploads go to the front of the queue</h5> 
-<h5 class="note">Host uploads have no length and size limits</h5>
+<h5 class="note">Host uploads go to the front of the queue | Host uploads have no length and size limits</h5>
 
     <div class="input-group">
   <div class="input-group-addon">Enter Youtube URL</div>
@@ -66,8 +65,7 @@ session_start();
     <div class="input-group-addon">Start time</div>
       <input class="form-control" type="input" name="hostStart" placeholder="YYYY-MM-DD HH:MM:SSPM" /><br />
     </div>
-<h5 class="note">Format is YYYY-MM-DD HH:MM:SSPM</h5>
-<h5 class="note">All times are EST (New York Time)</h5>
+<h5 class="note">Format is YYYY-MM-DD HH:MM:SSPM | All times are EST (New York Time)</h5>
 
 <h3>Host Settings</h3>
 
@@ -117,7 +115,7 @@ session_start();
     ?>
   </div>
 
-<div id="reloadQueue" class="btn btn-success">Click here to refresh</div>
+<div id="reloadQueue" class="btn btn-success">Refresh</div>
 
 <h3>Schedule A Show</h3>
 
@@ -135,8 +133,7 @@ session_start();
     <div class="input-group-addon">Start time</div>
       <input class="form-control" type="input" name="hostShowStart" placeholder="YYYY-MM-DD HH:MM:SSPM"/><br />
     </div>
-<h5 class="note">Format is YYYY-MM-DD HH:MM:SSPM</h5>
-<h5 class="note">All times are EST (New York Time)</h5>
+<h5 class="note">Format is YYYY-MM-DD HH:MM:SSPM | All times are EST (New York Time)</h5>
   
 <h3>Scheduled to Play</h3>
 
@@ -146,7 +143,7 @@ session_start();
     ?>
   </div>
 
-<div id="reloadQueue" class="btn btn-success">Click here to refresh</div>
+<div id="reloadQueue" class="btn btn-success">Refresh</div>
 
 </div>
 </form>
