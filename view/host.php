@@ -3,12 +3,12 @@
 <meta charset="utf-8">
 <head>
       <!-- Style -->
-  <link rel="stylesheet" href="../resources/type="text/javascript"bootstrap.min.css" />
+  <link rel="stylesheet" href="../resources/tools/bootstrap.min.css" />
   <link rel="stylesheet" href="../resources/upload-style.css" />
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  <link rel="shortcut icon" href="../resources/tools/favicon.ico">
+  <link rel="shortcut icon" href="../resources/images/favicon.ico">
   <title>
   HOST center
   </title>
