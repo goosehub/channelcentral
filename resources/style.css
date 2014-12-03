@@ -183,7 +183,7 @@ body {
 }
 #contentWindow {
 	max-height: 90%;
-	/*height: 65vh;*/
+	height: 65vh;
 }
 #youtubeFrame {
 	width: 100%;
