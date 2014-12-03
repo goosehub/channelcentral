@@ -98,7 +98,7 @@ input {
 	background-color: #FFF;
 	color: #000;
 }
-#reloadQueue {
+.reloadQueue {
 	width: 33%;
 	height: 2em;
 	font-size: 1.5em;
@@ -123,6 +123,7 @@ h5 {
 	margin-top: 0;
 	margin-bottom: 0;
 	font-family: OpenSans;
+	font-size: 1.2em;
 	letter-spacing: 0;
 }
 .note-lg {

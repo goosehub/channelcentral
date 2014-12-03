@@ -45,6 +45,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostStart = strtotime($hostStart);
 	$hostShowStart = strtotime($hostShowStart);
 
+// Allowed tags for host navbar
+	$whiteTags = '<iframe><a><abbr><acronym><address><area><b><bdo><big><blockquote><br><button><caption><center><cite><code><col><colgroup><dd><del><dfn><dir><div><dl><dt><em><fieldset><font><form><h1><h2><h3><h4><h5><h6><hr><i><img><input><ins><kbd><label><legend><li><map><menu><ol><optgroup><option><p><pre><q><s><samp><select><small><span><strike><strong><sub><sup><table><tbody><td><textarea><tfoot><th><thead><u><tr><tt><u><ul><var>';
+
 // If current video will be clear, set as ID to be deleted
 	if (isset($_POST['hostClearCurrent'])) {
 		include '../model/find-current.php';
@@ -95,6 +98,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Nav Purple
 		if ($hostNavPurple)
 		{
+			$hostNavPurple = strip_tags($hostNavPurple, $whiteTags);
+			$hostNavPurple = preg_replace("/<iframe/i", "<iframe sandbox", $hostNavPurple);
 		      $query = "UPDATE host 
 		      SET purple = '". $hostNavPurple ."'
 		      WHERE id = 1;";
@@ -103,6 +108,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Nav Orange
 		if ($hostNavOrange)
 		{
+			$hostNavOrange = strip_tags($hostNavOrange, $whiteTags);
+			$hostNavOrange = preg_replace("/<iframe/i", "<iframe sandbox", $hostNavOrange);
 		      $query = "UPDATE host 
 		      SET orange = '". $hostNavOrange ."'
 		      WHERE id = 1;";
@@ -111,6 +118,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Nav Green
 		if ($hostNavGreen)
 		{
+			$hostNavGreen = strip_tags($hostNavGreen, $whiteTags);
+			$hostNavGreen = preg_replace("/<iframe/i", "<iframe sandbox", $hostNavGreen);
 		      $query = "UPDATE host 
 		      SET green = '". $hostNavGreen ."'
 		      WHERE id = 1;";

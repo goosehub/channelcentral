@@ -9,7 +9,7 @@ $('#HostSubmitForm').click(function()
     $.post('controller/host-form-post.php', $('#hostForm').serialize());
 });
 // Reload the upcoming queue
-$('#reloadQueue').click(function()
+$('.reloadQueue').click(function()
 {
     // Current Queue
     $.ajax(

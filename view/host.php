@@ -81,10 +81,19 @@ session_start();
   <input class="form-control" name="hostBackgroundInput" type="file" />
 </div>
 
+<div class="input-group">
+    <div class="input-group-addon">Max Upload Length in Seconds</div>
+      <input class="form-control" type="input" name="hostLengthInput" /><br />
+    </div>
+
+<div class="input-group">
+    <div class="input-group-addon">Max Queue in Seconds</div>
+      <input class="form-control" type="input" name="hostQueueLimitInput" /><br />
+    </div>
+
 <h3>Navbar</h3>
-<h5 class="note">For Navbar Viewers, enter any HTML you want loaded on click.</h5>
-<h5 class="note">Use <a href"http://www.htmlbasix.com/iframe.shtml">this iframe generator</a> to embed websites.</h5>
-<h5 class="note">HTML elements are strongly recommended to have max-height and max-width of 100%</h5>
+<h5 class="note">Enter any HTML you want loaded on click.</h5>
+<h5 class="note">Use <a href="http://7thspace.com/webmaster_tools/iframe_generator.html" target="_blank">this iframe generator</a> to embed websites.</h5>
 
 <div class="input-group">
     <div class="input-group-addon">Navbar Viewer Purple</div>
@@ -100,19 +109,11 @@ session_start();
     <div class="input-group-addon">Navbar Viewer Green</div>
       <input class="form-control" type="input" name="hostNavGreen" /><br />
     </div>
+<h5 class="note">Any iframe included will have sandbox attribute applied.</h5>
+<h5 class="note">View <a href="https://quip.com/aO0pAZO9m9SG" target="_blank">this list of other allowed tags.</a></h5>
+<h5 class="note">Be aware of users with small screens. Use max-width and max-height to prevent spillover.</h5>
 
 <h3>Upload Maintenance</h3>
-
-<div class="input-group">
-    <div class="input-group-addon">Max Upload Length in Seconds</div>
-      <input class="form-control" type="input" name="hostLengthInput" /><br />
-    </div>
-
-<div class="input-group">
-    <div class="input-group-addon">Max Queue in Seconds</div>
-      <input class="form-control" type="input" name="hostQueueLimitInput" /><br />
-    </div>
-
 
 <div class="input-group">
     <div class="input-group-addon">Remove Queue Item by ID</div>
@@ -138,7 +139,7 @@ session_start();
     ?>
   </div>
 
-<div id="reloadQueue" class="btn btn-success">Refresh</div>
+<div class="reloadQueue btn btn-danger">Refresh</div>
 
 <h3>Schedule A Show</h3>
 
@@ -166,7 +167,7 @@ session_start();
     ?>
   </div>
 
-<div id="reloadQueue" class="btn btn-success">Refresh</div>
+<div class="reloadQueue btn btn-danger">Refresh</div>
 
 </div>
 </form>
