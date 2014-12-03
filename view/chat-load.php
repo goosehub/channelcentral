@@ -14,8 +14,9 @@ if ($result = mysqli_query($con, $query))
           {
                   if (! $row['name'] == "" && ! $row['message'] == "") {
                     $message = $row['message'];
-// Prevent running html
                     $message = htmlentities($message);
+                    $message = preg_replace("/([\w]+:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/i","<a target=\"_blank\" href=\"$1\">$1</a>", $message);
+// Prevent running html
 // Load name and message
                     echo '<font class="chatName"><strong>'.$row['name'].' </strong></font>
                     <font class="timestamp"> on '.$row['timestamp'].' EST</font>

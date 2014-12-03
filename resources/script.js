@@ -5,13 +5,11 @@ var uploadLoad = '<iframe id="uploadFrame" src="view/upload.php" seamless></ifra
 
 var showsLoad = '<iframe id="showsFrame" src="view/shows.php" seamless></iframe>';
 
-var chanLoad = '<iframe id="chanFrame" src="http://4chan.org/s4s/"></iframe>';
+var purpleLoad = '<iframe id="pulpFrame" src="http://interplay.xyz/pulp/winter2013.pdf" seamless></iframe>'; 
 
-var tribuneLoad = '<iframe id="tribuneFrame" src="/tribune/news/"></iframe>';
+var orangeLoad = '<iframe id="chanFrame" src="http://4chan.org/s4s/"></iframe>';
 
-var pulpLoad = '<iframe id="pulpFrame" src="http://interplay.xyz/pulp/winter2013.pdf" seamless></iframe>'; 
-
-var specialLoad = '<center><img class="img-circle questionImg" src="resources/special.gif"/></center>'; 
+var greenLoad = '<center><img class="img-circle questionImg" src="resources/special.gif"/></center>'; 
 
 $(document).ready(function()
 {
@@ -72,6 +70,20 @@ var background = '';
 //Load host information
     function loadHostInfo()
     {
+// Navbar
+        $.ajax(
+        {
+            url: "view/navbar.php",
+            cache: false,
+            success: function(html)
+            {
+// seperate content from counter data
+            var myArray = html.split("|");
+            purpleLoad = myArray[0];
+            orangeLoad = myArray[1];
+            greenLoad = myArray[2];
+            }
+        });
 // Headline
         $.ajax(
         {
@@ -123,39 +135,32 @@ var background = '';
     setInterval(loadHostInfo, 20000); 
 
 
-//frame loading
-$('#uploadBtn').click(function()
-{
-    $('#viewer').html(uploadLoad);
-});
+// NavBar
 $('#showsBtn').click(function()
 {
     $('#viewer').html(showsLoad);
 });
-$('#vocaBtn').click(function()
+$('#uploadBtn').click(function()
 {
-    $('#viewer').html(vocaLoad);
-});
-$('#chanBtn').click(function()
-{
-    $('#viewer').html(chanLoad);
-});
-$('#tribuneBtn').click(function()
-{
-    $('#viewer').html(tribuneLoad);
-});
-$('#pulpBtn').click(function()
-{
-    $('#viewer').html(pulpLoad);
-});
-$('#specialBtn').click(function()
-{
-    $('#viewer').html(specialLoad);
+    $('#viewer').html(uploadLoad);
 });
 // End user session
   $("#leaveBtn ").click(function(){
         window.location = 'controller/leave.php';   
     });
+$('#purpleBtn').click(function()
+{
+    $('#viewer').html(purpleLoad);
+});
+$('#orangeBtn').click(function()
+{
+    $('#viewer').html(orangeLoad);
+});
+$('#greenBtn').click(function()
+{
+    $('#viewer').html(greenLoad);
+});
+
 
 
 //chat input

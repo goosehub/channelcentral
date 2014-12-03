@@ -33,6 +33,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostShowTimeframe = mysqli_real_escape_string($con, $hostShowTimeframe);
 	$hostShowStart = $_POST['hostShowStart'];
 	$hostShowStart = mysqli_real_escape_string($con, $hostShowStart);
+	$hostNavPurple = $_POST['hostNavPurple'];
+	$hostNavPurple = mysqli_real_escape_string($con, $hostNavPurple);
+	$hostNavOrange = $_POST['hostNavOrange'];
+	$hostNavOrange = mysqli_real_escape_string($con, $hostNavOrange);
+	$hostNavGreen = $_POST['hostNavGreen'];
+	$hostNavGreen = mysqli_real_escape_string($con, $hostNavGreen);
 	// files must be sanitized later
 
 // Translate hostStart into UNIX
@@ -83,6 +89,30 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 		      $query = "UPDATE host 
 		      SET headline = '". $hostHeadlineInput ."'
+		      WHERE id = 1;";
+		      $result = mysqli_query($con, $query);  
+		}
+// Nav Purple
+		if ($hostNavPurple)
+		{
+		      $query = "UPDATE host 
+		      SET purple = '". $hostNavPurple ."'
+		      WHERE id = 1;";
+		      $result = mysqli_query($con, $query);  
+		}
+// Nav Orange
+		if ($hostNavOrange)
+		{
+		      $query = "UPDATE host 
+		      SET orange = '". $hostNavOrange ."'
+		      WHERE id = 1;";
+		      $result = mysqli_query($con, $query);  
+		}
+// Nav Green
+		if ($hostNavGreen)
+		{
+		      $query = "UPDATE host 
+		      SET green = '". $hostNavGreen ."'
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
 		}

@@ -31,10 +31,11 @@ session_start();
 function loginForm(){
     echo'
     <center>
-    <br><br><br><br><br>
+    <br/><br/><br/><br/><br/>
     <div id="loginform">
     <form action="index.php" method="post">
         <input type="text" name="name" id="name" />
+        <br/>
         <input type="submit" name="enter" id="loginEnter" value="Enter Name" />
     </form>
     </div>
@@ -70,16 +71,14 @@ else
   <div class="col-md-4">
     <div id="navCnt">
       <div id="navBarTop" class="btn-group" role="group" aria-label="...">
-          <!-- <a id="homeBtn" class="btn disabled" href="#">esfores</a> -->
           <button id="showsBtn" class="btn" href="#">Shows</button>
           <button id="uploadBtn" class="btn" href="#">Upload</button>
           <button id="leaveBtn" class="btn" href="#">Leave</button>
       </div>
       <div id="navBarBottom" class="btn-group" role="group" aria-label="...">
-          <button id="pulpBtn" class="btn btn-low" href="#">Pulp</button>
-          <button id="chanBtn" class="btn btn-low" href="#">4chan</button>
-          <!-- <a id="hostBtn" class="btn" href="view/host.php" target="_blank">Host</a> -->
-          <button id="specialBtn" class="btn btn-low" href="#">&nbsp ? &nbsp</button>
+          <button id="purpleBtn" class="btn btn-low" href="#">&nbsp ! &nbsp</button>
+          <button id="orangeBtn" class="btn btn-low" href="#">&nbsp ~ &nbsp</button>
+          <button id="greenBtn" class="btn btn-low" href="#">&nbsp ? &nbsp</button>
       </div>
     </div>
     <div id="viewer">
@@ -112,7 +111,7 @@ else
                 <!-- chatroom -->
     <div id="inputCnt">
     <form name="chatForm" id="chatForm" action="controller/chatpost.php" method="post" enctype="multipart/form-data">
-    <input name="message" type="text" class="form-control" id="chatInput" placeholder="">
+    <input name="message" type="text" class="form-control" id="chatInput" autocomplete="off" placeholder="">
     <!-- submit button positioned off screen -->
     <input name="submitChat" type="submit" id="submitChat" value="DICK" style="position: absolute; left: -9999px">
     </form>

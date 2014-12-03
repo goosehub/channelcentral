@@ -1,6 +1,8 @@
 TODO
+	passwords into database
+	more CMS
+	better MVC
 	chat rework
-	??active users
 	catch up when entering room
 	Add in bumps
 	??upload info shows no uploads

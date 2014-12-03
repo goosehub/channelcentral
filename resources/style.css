@@ -100,27 +100,27 @@ body {
 	border-color: #FFF;
 	background-color: #FFF;
 }
-#pulpBtn {
+#purpleBtn {
 	border-color: #000;
 	background-color: #CC49DE;
 }
-#pulpBtn:hover {
+#purpleBtn:hover {
 	border-color: #000;
 	background-color: #FF88DD;
 }
-#chanBtn {
+#orangeBtn {
 	border-color: #000;
 	background-color: #FF7700;
 }
-#chanBtn:hover {
+#orangeBtn:hover {
 	border-color: #000;
 	background-color: #00CCFF;
 }
-#specialBtn {
+#greenBtn {
 	border-color: #000;
 	background-color: #43E326;
 }
-#specialBtn:hover {
+#greenBtn:hover {
 	border-color: #000;
 	background-color: #FFE326;
 }
@@ -147,10 +147,6 @@ body {
 	width: 100%;
 	height: 100%;
 	opacity: 0.95;
-}
-#tribuneFrame {
-	width: 100%;
-	height: 100%;
 }
 #assignmentFrame, #pulpFrame {
 	width: 100%;
@@ -183,7 +179,7 @@ body {
 }
 #contentWindow {
 	max-height: 90%;
-	height: 65vh;
+	height: 75vh;
 }
 #youtubeFrame {
 	width: 100%;
@@ -197,15 +193,15 @@ body {
 	width: 100%;
 }
 #requestContent {
-	color: white;
+	color: #FFF;
 	opacity: 0.8;
 	text-align: center;
 	width: 66%;
 	margin: 0 auto;
-	margin-top: 4em;
+	margin-top: 1em;
 	padding: 0.5em;
-	background-color: black;
-	border: 3px white solid;
+	background-color: #000;
+	border: 3px #FFF solid;
 	border-radius: 50px;
 	font-family: CulDeSac, CheesePizza, OpenSans;
 }

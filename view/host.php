@@ -77,6 +77,33 @@ session_start();
     </div>
 
 <div class="input-group">
+  <div class="input-group-addon">Background Image</div>
+  <input class="form-control" name="hostBackgroundInput" type="file" />
+</div>
+
+<h3>Navbar</h3>
+<h5 class="note">For Navbar Viewers, enter any HTML you want loaded on click.</h5>
+<h5 class="note">Use <a href"http://www.htmlbasix.com/iframe.shtml">this iframe generator</a> to embed websites.</h5>
+<h5 class="note">HTML elements are strongly recommended to have max-height and max-width of 100%</h5>
+
+<div class="input-group">
+    <div class="input-group-addon">Navbar Viewer Purple</div>
+      <input class="form-control" type="input" name="hostNavPurple" /><br />
+    </div>
+
+<div class="input-group">
+    <div class="input-group-addon">Navbar Viewer Orange</div>
+      <input class="form-control" type="input" name="hostNavOrange" /><br />
+    </div>
+
+<div class="input-group">
+    <div class="input-group-addon">Navbar Viewer Green</div>
+      <input class="form-control" type="input" name="hostNavGreen" /><br />
+    </div>
+
+<h3>Upload Maintenance</h3>
+
+<div class="input-group">
     <div class="input-group-addon">Max Upload Length in Seconds</div>
       <input class="form-control" type="input" name="hostLengthInput" /><br />
     </div>
@@ -86,10 +113,11 @@ session_start();
       <input class="form-control" type="input" name="hostQueueLimitInput" /><br />
     </div>
 
+
 <div class="input-group">
-  <div class="input-group-addon">Background Image</div>
-  <input class="form-control" name="hostBackgroundInput" type="file" />
-</div>
+    <div class="input-group-addon">Remove Queue Item by ID</div>
+      <input class="form-control" type="input" name="hostDeleteItem" /><br />
+    </div>
 
 <div class="input-group">
     <div class="input-group-addon">Clear Currently Playing</div>
@@ -100,11 +128,6 @@ session_start();
     <div class="input-group-addon">Clear Upcoming Queue</div>
       <input class="checkbox" class="" type="checkbox" name="hostClearQueueInput" value="yes" />
 </div>
-
-<div class="input-group">
-    <div class="input-group-addon">Remove Queue Item by ID</div>
-      <input class="form-control" type="input" name="hostDeleteItem" /><br />
-    </div>
 
 <h3>Current Queue</h3>
 <h5 class="note">Ordered by start time, not by ID</h5>
