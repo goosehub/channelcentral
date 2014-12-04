@@ -242,7 +242,7 @@ body {
 }
 #chatInput {
 	/*background: none;*/
-	opacity: 0.4;
+	opacity: 0.5;
 	font-family: AveriaSerif-Regular;
 }
 #chatInput:focus {

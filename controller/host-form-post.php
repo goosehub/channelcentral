@@ -141,11 +141,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
 		}
+// Clear Past Uploads
+		if (isset($_POST['hostClearPastUploads']))
+		{
+		      $query = "DELETE FROM upload 
+		      WHERE end < '". $time ."';";
+		      $result = mysqli_query($con, $query);  
+		}
 // Clear Queue
 		if (isset($_POST['hostClearQueueInput']))
 		{
 		      $query = "DELETE FROM upload 
-		      WHERE start > '". $time ."';";
+		      WHERE start > '". $time ."'
+		      AND special != 'timed';";
 		      $result = mysqli_query($con, $query);  
 		}
 // If current or future is being cleared

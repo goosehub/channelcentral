@@ -6,6 +6,9 @@
   font-family: "BebasNeue";
   src: url(fonts/BebasNeue.otf) format("opentype");
 }
+/*		    */
+/*	gloabal */
+/*		    */
 body {
 	background: none;
 	font-family: BebasNeue;
@@ -13,8 +16,18 @@ body {
 	font-size: 1.4em;
 	line-height: 1em;
 }
+.input-group-addon {
+	background-color: #6666FF;
+	color: #FFF;
+	font-weight: bold;
+	min-width: 18em;
+	font-family: BebasNeue;
+	letter-spacing: 0.1em;
+}
 
+/*		   */
 /*	upload */
+/*		   */
 #uploadForm {
 	opacity: 0.9;
 }
@@ -24,15 +37,6 @@ input {
 .uploadInput {
 	opacity: 0.8;
 	font-family: BebasNeue;
-
-}
-.input-group-addon {
-	background-color: #6666FF;
-	color: #FFF;
-	font-weight: bold;
-	min-width: 18em;
-	font-family: BebasNeue;
-	letter-spacing: 0.1em;
 }
 .uploadAddon {
 	max-width: 10em;
@@ -74,10 +78,16 @@ input {
 	line-height: 1.5em;
 }
 
+
+/*		 */
 /*	host */
+/*		 */
 #hostFormCnt {
 	width: 66%;
 	margin-left: 12%;
+}
+#hostFormCnt input {
+	background-color: #CCC;
 }
 .itemInfo {	
 	color: #000;
@@ -90,7 +100,8 @@ input {
 .hostSubmit {
 	margin-left: 0;
 	width: 22.5em;
-	background-color: #88DD66;
+	background-color: #88DD66 !important;
+	/* !important to prevent from taking on #hostFormCnt input backgound color*/
 	font-size: 1.6em;
 	font-family: BebasNeue;
 }
@@ -115,8 +126,8 @@ input {
 	margin-left: 1em !important;
 	/*	!important is needed for checkbox input to be positioned */
 }
-h5 {
-	margin: 0;
+.hostOr {
+	min-width: 18em;
 }
 .note {
 	margin-left: 4em;

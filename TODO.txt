@@ -1,6 +1,6 @@
 TODO
 	passwords into database
-	more CMS
-	chat rework
-	catch up when entering room
 	Add in bumps
+	chat rework
+	more CMS
+	catch up when entering room
