@@ -10,7 +10,7 @@ include '../model/host-model.php';
 	{
 		echo '<input class="form-control btn btn-primary contribute disabled" type="submit" name="submitForm" value="Queue Full" />';
 	}
-	if ($host['length'] === '1'
+	else if ($host['length'] === '1'
 	|| $host['queue'] === '1')
 	{
 		echo '<input class="form-control btn btn-primary contribute disabled" type="submit" name="submitForm" value="Disabled" />';

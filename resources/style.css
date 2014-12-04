@@ -42,6 +42,28 @@ body {
 #pageWrapper {
 	height:100%;
 }
+#name, #loginEnter {
+	margin: 0 auto;
+	display: block;
+	opacity: 0.6;
+	font-family: CheesePizza;
+}
+#name {
+	margin-top: 40vh;
+	height: 1.6em;
+	width: 8em;
+	text-align: center;
+	font-size: 2em;
+	border-radius: 0.5em 0.5em 0 0;
+}
+#loginEnter {
+	height: 2em;
+	width: 8em;
+	background-color: #000;
+	color: #FFF;
+	font-size: 2em;
+	border-radius: 0 0 0.5em 0.5em;
+}
 
 /*	Left */
 
@@ -161,21 +183,20 @@ body {
 
 /*	Center */
 #headline {
+	color: #FFF;
+	background-color: #000;
 	height: 15vh;
 	text-align: center;
 	font-size: 5vh;
-	color: #FFF;
 	/*border: 1px #FFF solid;*/
 	border-radius: 0.1em;
-	background-color: #000;
 	font-family: CulDeSac, CheesePizza, OpenSans;
 }
 #headline:hover {
 	background: none;
+	color: #000;
 	border: 0;
 	box-shadow: 0;
-	color: #000;
-	font-weight: bold;
 }
 #contentWindow {
 	max-height: 90%;
@@ -220,10 +241,12 @@ body {
 	/*height: 5vh;*/
 }
 #chatInput {
-	background: none;
+	/*background: none;*/
+	opacity: 0.4;
+	font-family: AveriaSerif-Regular;
 }
 #chatInput:focus {
-	opacity: 0.9;
+	opacity: 0.8;
 	background-color: #FFF;
 	/*border: 1px solid #000;*/
 }

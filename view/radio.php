@@ -30,16 +30,12 @@ session_start();
  //login form
 function loginForm(){
     echo'
-    <center>
-    <br/><br/><br/><br/><br/>
     <div id="loginform">
     <form action="index.php" method="post">
         <input type="text" name="name" id="name" />
-        <br/>
         <input type="submit" name="enter" id="loginEnter" value="Enter Name" />
     </form>
     </div>
-    </center>
     ';
 }
 // Set session
