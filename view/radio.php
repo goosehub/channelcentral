@@ -72,9 +72,9 @@ else
           <button id="leaveBtn" class="btn" href="#">Leave</button>
       </div>
       <div id="navBarBottom" class="btn-group" role="group" aria-label="...">
-          <button id="purpleBtn" class="btn btn-low" href="#">&nbsp ! &nbsp</button>
-          <button id="orangeBtn" class="btn btn-low" href="#">&nbsp ~ &nbsp</button>
-          <button id="greenBtn" class="btn btn-low" href="#">&nbsp ? &nbsp</button>
+          <button id="purpleBtn" class="btn btn-low" href="#">&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+          <button id="orangeBtn" class="btn btn-low" href="#">&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+          <button id="greenBtn" class="btn btn-low" href="#">&nbsp&nbsp&nbsp&nbsp&nbsp</button>
       </div>
     </div>
     <div id="viewer">

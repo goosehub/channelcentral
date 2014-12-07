@@ -31,6 +31,7 @@ session_start();
 
 <div class="input-group hostPassword">
     <div class="input-group-addon passwordAddon">Enter Password</div>
+    <!-- Remove value="1234" when risk of unauthorized users exists or password changes -->
       <input class="input-lg" type="input" name="passwordInput" value="1234"/><br />
     </div>
 
@@ -68,7 +69,7 @@ session_start();
 
 <h3>Host Settings</h3>
 
-<h5 class="note">Set Length and Queue to 1 to turn off user uploads</h5>
+<h5 class="note">Set Length or Queue to 1 to turn off user uploads</h5>
 
 <div class="input-group">
     <div class="input-group-addon">Headline</div>

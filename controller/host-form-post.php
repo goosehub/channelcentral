@@ -27,12 +27,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostStart = mysqli_real_escape_string($con, $hostStart);
 	$hostYoutubeInput = $_POST['hostYoutubeInput'];
 	$hostYoutubeInput = mysqli_real_escape_string($con, $hostYoutubeInput);
-	$hostShowTitle = $_POST['hostShowTitle'];
-	$hostShowTitle = mysqli_real_escape_string($con, $hostShowTitle);
-	$hostShowTimeframe = $_POST['hostShowTimeframe'];
-	$hostShowTimeframe = mysqli_real_escape_string($con, $hostShowTimeframe);
-	$hostShowStart = $_POST['hostShowStart'];
-	$hostShowStart = mysqli_real_escape_string($con, $hostShowStart);
 	$hostNavPurple = $_POST['hostNavPurple'];
 	$hostNavPurple = mysqli_real_escape_string($con, $hostNavPurple);
 	$hostNavOrange = $_POST['hostNavOrange'];
@@ -41,9 +35,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostNavGreen = mysqli_real_escape_string($con, $hostNavGreen);
 	// files must be sanitized later
 
+// Get Valid Passwords
+	include '../model/host-password.php';
+	$hostPassword = $hostPassword['password'];
+	include '../model/master-password.php';
+	$masterPassword = $masterPassword['password'];
+
 // Translate hostStart into UNIX
 	$hostStart = strtotime($hostStart);
-	$hostShowStart = strtotime($hostShowStart);
 
 // Allowed tags for host navbar
 	$whiteTags = '<iframe><a><abbr><acronym><address><area><b><bdo><big><blockquote><br><button><caption><center><cite><code><col><colgroup><dd><del><dfn><dir><div><dl><dt><em><fieldset><font><form><h1><h2><h3><h4><h5><h6><hr><i><img><input><ins><kbd><label><legend><li><map><menu><ol><optgroup><option><p><pre><q><s><samp><select><small><span><strike><strong><sub><sup><table><tbody><td><textarea><tfoot><th><thead><u><tr><tt><u><ul><var>';
@@ -68,25 +67,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // 
 	if (
 // MASTER KEY
-		$passwordInput === '8462'
+		$passwordInput === $masterPassword
 		||
 // Temporary for event hosts
-		($passwordInput === '1234'
-		&& $time >= 1400000000
-		&& $time <= 2400000000)
+		$passwordInput === $hostPassword
 		)
 	{
-// Show insert
-		if ($hostShowTitle && $hostShowTimeframe && $hostShowStart)
-		{
-		      $query = "INSERT INTO schedule 
-		      (title, timeframe, start, name)
-		      VALUES('". $hostShowTitle ."',
-		      '". $hostShowTimeframe ."',
-		      '". $hostShowStart ."',
-		      '". $name ."');";
-		      $result = mysqli_query($con, $query);  
-		}
 // Headline
 		if ($hostHeadlineInput)
 		{
@@ -289,10 +275,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				include '../model/host-insert.php';
 // Query
 			      $query = "INSERT INTO upload 
-			      (name, time, youtube, duration, start, end, scheduled, special)
-			      VALUES('". $name ."', '". $time ."',
-			       '". $youtubeID ."', '". $duration ."', '". $start ."',
-			        '". $end ."', '". $scheduled ."', '".$special."');";
+			      			(name, time, youtube, duration,
+			      			start, end, scheduled, special)
+			      			VALUES('". $name ."', '". $time ."',
+			       			'". $youtubeID ."', '". $duration ."', '". $start ."',
+			       			'". $end ."', '". $scheduled ."', '".$special."');";
 			      $result = mysqli_query($con, $query);  
 
 //remove uneeded files if exists

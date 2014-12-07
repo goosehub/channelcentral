@@ -7,7 +7,7 @@ date_default_timezone_set('America/New_York');
 
 // Get current queue
     $query = "SELECT *
-    FROM schedule 
+    FROM upcoming 
     WHERE start > '". $time ."'
     ORDER BY start ASC;";
 // Fetch each row

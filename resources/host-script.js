@@ -2,11 +2,17 @@ $(document).ready(function()
 {
 
 	//form input
-$('#HostSubmitForm').click(function()
+$('#hostSubmitForm').click(function()
 {
     //not working
     loadContent();
     $.post('controller/host-form-post.php', $('#hostForm').serialize());
+});
+$('#masterSubmitForm').click(function()
+{
+    //not working
+    loadContent();
+    $.post('controller/master-form-post.php', $('#masterForm').serialize());
 });
 // Reload the upcoming queue
 $('.reloadQueue').click(function()
