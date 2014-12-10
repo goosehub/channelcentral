@@ -9,6 +9,13 @@ $time = time();
 
 // Query database
 include '../model/find-current.php';
+
+// Find how far behind if any user is
+$lag = $time - $current['start'];
+if ($lag < 4) {
+	$lag = 0;
+}
+
 // If end is valid end
 		if ($current['end'] > 1)
 		{
@@ -18,7 +25,7 @@ include '../model/find-current.php';
 // Youtube load
 				echo '<iframe id="youtubeFrame" src="//www.youtube.com/embed/
 				'.$current['youtube'].'
-				?autoplay=1" frameborder="0" allowfullscreen></iframe>';
+				?autoplay=1&start='.$lag.'" frameborder="0" allowfullscreen></iframe>';
 // Counter logic
 				$counter = $current['end'] - $time;
 // Convert to milliseconds

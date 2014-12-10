@@ -52,11 +52,12 @@ session_start();
     </div>
 
 <div class="input-group">
-    <div class="input-group-addon">Start time</div>
+    <div class="input-group-addon">Time to remove from upcoming</div>
       <input class="form-control" type="input" name="masterShowStart" placeholder="YYYY-MM-DD HH:MM:SSPM"/><br />
     </div>
 <h5 class="note">Format is YYYY-MM-DD HH:MM:SSPM | All times are EST (New York Time)</h5>
 <h5 class="note">When specifying timeframe, be sure to to specify timezone</h5>
+<h5 class="note">Time to remove is also used to order, soonest first</h5>
 
 <h3>Schedule a host</h3>
 
