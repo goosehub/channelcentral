@@ -230,13 +230,6 @@ body {
 
 
 /*	Right */
-/*#chatHead p {
-	color: white;
-	padding:0.1em;
-	border: 2px white solid;
-	text-align: center;
-	font-size: 2em;
-}*/
 #inputCnt {
 	/*height: 5vh;*/
 }
@@ -255,9 +248,10 @@ body {
 	opacity: 0.95;
 	background-color: #000;
 	color: #FFF;
-	height: 90vh;
+	height: 88vh;
 	overflow-x: hidden;
-	background: linear-gradient(to top, rgba(000, 000, 000, 0), rgba(000, 000, 000, 1) 2%);
+	overflow-y: auto;
+	background: linear-gradient(to bottom, rgba(000, 000, 000, 0), rgba(000, 000, 000, 1) 6%);
 }
 .chatName, .timestamp {
 	display: inline-block;

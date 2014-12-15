@@ -5,6 +5,9 @@
   <title>esfores RADIO
   </title>
 
+<!-- For Responsive Mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- For Crawlers -->
   <meta name="keywords" content="esfores, radio, music, video, share, youtube">
   <meta name="description" content="An interactive online radio station">
   <meta name="author" content="Goose">
@@ -43,6 +46,8 @@ if(isset($_POST['enter'])){
     if($_POST['name'] != ""){
 // Set Name
         $_SESSION['name'] = stripslashes(htmlspecialchars($_POST['name']));
+// Set spamLimit
+        $_SESSION['spamLimit'] = 1;
 // Set error reporting
         $_SESSION['errLength'] = $_SESSION['errRepeat'] = $_SESSION['errCode'] = 
         $_SESSION['errImgSize'] = $_SESSION['errAudioSize'] = $_SESSION['errFileType'] =
@@ -105,16 +110,18 @@ else
       </div> -->
 
                 <!-- chatroom -->
+    <div id="chatBox">
+      <div class="chatWrap">
+        Loading...
+      </div>
+    </div>
+
     <div id="inputCnt">
     <form name="chatForm" id="chatForm" action="controller/chatpost.php" method="post" enctype="multipart/form-data">
     <input name="message" type="text" class="form-control" id="chatInput" autocomplete="off" placeholder="">
     <!-- submit button positioned off screen -->
     <input name="submitChat" type="submit" id="submitChat" value="DICK" style="position: absolute; left: -9999px">
     </form>
-    </div>
-
-    <div id="chatBox">
-    Loading...
     </div>
 
   </div>

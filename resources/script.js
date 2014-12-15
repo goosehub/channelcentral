@@ -46,6 +46,23 @@ loadContent();
 
 //Chat
 
+// Keep chat viewing the bottom
+  //   monitor = function() {
+  //       var $this = $(this),
+  //           wrap = $this.find('.chatWrap'),
+  //           height = $this.height(),
+  //           maxScroll = wrap.height() - height,
+  //           top = $this.scrollTop();
+  //       if (maxScroll === top) {
+  //           $this.addClass('atBottom');
+  //       } else {
+  //           $this.removeClass('chatWrap');
+  //       }
+  //   }
+  // window.setInterval(function() {
+  //       monitor.call($('#chatBox').get(0));
+  //   }, 350);
+
 //Load chat display
     function loadLog()
     {

@@ -26,7 +26,7 @@
   <h1>Seeking Hosts</h1>
   <p class="appeal">Want to host the room for a few hours?</p>
   <p class="appeal">goosetube on skype</p>
-  <p class="appeal">s4stribune@gmail.com</p>
+  <p class="appeal">goosepostbox@gmail.com</p>
   </div>
 
 </div>
