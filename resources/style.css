@@ -84,6 +84,11 @@ body {
 	border-radius: 100px;
 }
 .btn {
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
 
 }
 .btn:hover {
@@ -191,6 +196,11 @@ body {
 	/*border: 1px #FFF solid;*/
 	border-radius: 0.1em;
 	font-family: CulDeSac, CheesePizza, OpenSans;
+  -o-transition:2s;
+  -ms-transition:2s;
+  -moz-transition:2s;
+  -webkit-transition:2s;
+  transition:2s;
 }
 #headline:hover {
 	background: none;
@@ -251,7 +261,7 @@ body {
 	height: 88vh;
 	overflow-x: hidden;
 	overflow-y: auto;
-	background: linear-gradient(to bottom, rgba(000, 000, 000, 0), rgba(000, 000, 000, 1) 6%);
+	background: linear-gradient(to top, rgba(000, 000, 000, 0), rgba(000, 000, 000, 1) 1%);
 }
 .chatName, .timestamp {
 	display: inline-block;

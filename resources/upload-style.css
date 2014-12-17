@@ -54,6 +54,11 @@ input {
    box-shadow:         inset 2px 2px 2px #FFF;
    font-family: BebasNeue;
    letter-spacing: 0.2em;
+  -o-transition:.2s;
+  -ms-transition:.2s;
+  -moz-transition:.2s;
+  -webkit-transition:.2s;
+  transition:.2s;
 }
 .contribute:hover {
 	background-color: #FFF;
