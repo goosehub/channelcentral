@@ -46,41 +46,40 @@ loadContent();
 
 //Chat
 
-// Keep chat viewing the bottom
-  //   monitor = function() {
-  //       var $this = $(this),
-  //           wrap = $this.find('.chatWrap'),
-  //           height = $this.height(),
-  //           maxScroll = wrap.height() - height,
-  //           top = $this.scrollTop();
-  //       if (maxScroll === top) {
-  //           $this.addClass('atBottom');
-  //       } else {
-  //           $this.removeClass('chatWrap');
-  //       }
-  //   }
-  // window.setInterval(function() {
-  //       monitor.call($('#chatBox').get(0));
-  //   }, 350);
-
-//Load chat display
-    function loadLog()
+// Initial Chat Load
+function chatLoad()
+{
+    $.ajax(
     {
-        $.ajax(
+        url: "model/chat-load.php",
+        cache: false,
+        success: function(html)
         {
-            url: "model/chat-load.php",
-            cache: false,
-            success: function(html)
+            $("#chatBox").html(html);
+            $("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
+        }
+    });
+}
+chatLoad();
+// Refresh
+//Load chat display
+function chatLogger()
+{
+    $.ajax(
+    {
+        url: "model/chat-logger.php",
+        cache: false,
+        success: function(html)
+        {
+            if (html != 'wait')
             {
-                $("#chatBox").html(html);
-                //$("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+                $("#chatBox").append(html);
+                $("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
             }
-        });
-    }
-    // Initial Load
-    loadLog();
-    // Refresh
-    setInterval(loadLog, 4000);
+        }
+    });
+}
+setInterval(chatLogger, 1000);
 
 // Used to determine current background image
 var background = '';
@@ -190,7 +189,7 @@ $("#submitChat").click(function()
     });
      $("#chatForm :input").val("");
 // Load log so user can instantly see his message
-    loadLog();
+    chatLogger();
     $.ajax(
     {
         url: "model/trim-chat.php",

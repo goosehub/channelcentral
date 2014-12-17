@@ -51,7 +51,7 @@ if(isset($_POST['enter'])){
 // Set error reporting
         $_SESSION['errLength'] = $_SESSION['errRepeat'] = $_SESSION['errCode'] = 
         $_SESSION['errImgSize'] = $_SESSION['errAudioSize'] = $_SESSION['errFileType'] =
-        $_SESSION['errQueueLimit'] = $_SESSION['errRickRoll'] = '';
+        $_SESSION['errQueueLimit'] = $_SESSION['errRickRoll'] = $_SESSION['chat-id'] = '';
     }
 }
 //Check if logged in
@@ -111,13 +111,13 @@ else
 
                 <!-- chatroom -->
     <div id="chatBox">
-      <div class="chatWrap">
+      <div id="chatInner">
         Loading...
       </div>
     </div>
 
     <div id="inputCnt">
-    <form name="chatForm" id="chatForm" action="controller/chatpost.php" method="post" enctype="multipart/form-data">
+    <form name="chatForm" id="chatForm" action="model/chat-post.php" method="post" enctype="multipart/form-data">
     <input name="message" type="text" class="form-control" id="chatInput" autocomplete="off" placeholder="">
     <!-- submit button positioned off screen -->
     <input name="submitChat" type="submit" id="submitChat" value="DICK" style="position: absolute; left: -9999px">

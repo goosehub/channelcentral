@@ -3,17 +3,6 @@ session_start();
 
 $time = time();
 
-echo $time;
-echo '<hr/>';
-echo $_SESSION['spamLimit'];
-echo '<hr/>';
-$spamLimit = $_SESSION['spamLimit'];
-echo $spamLimit;
-echo '<hr/>';
-echo intval($spamLimit);
-
-
-
 include '../connect.php';
 
 // Find who wrote the most recent message

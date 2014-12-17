@@ -3,6 +3,9 @@ session_start();
 
 include '../connect.php';
 
+// This is only for initial load
+// model/chat-logger.php is used for loading new messages 
+
 // Get chat data
 $query = "SELECT *
         from chat
