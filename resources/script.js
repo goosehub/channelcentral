@@ -75,15 +75,16 @@ function chatLogger()
             if (html != 'wait')
             {
                 // commented out code is attempt at non auto scrolling
-                // if ($('#chatBox').scrollTop() <= $('#chatBox')[0].scrollHeight - (jQuery(window).height() * 0.9) )
-                // {
+
+                if ($('#chatBox').scrollTop() >= $('#chatBox')[0].scrollHeight - (jQuery(window).height() * 0.9) )
+                {
                     $("#chatBox").append(html);
                     $("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
-                // }
-                // else
-                // {
-                //     $("#chatBox").append(html);
-                // }
+                }
+                else
+                {
+                    $("#chatBox").append(html);
+                }
             }
         }
     });
