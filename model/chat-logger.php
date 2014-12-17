@@ -50,7 +50,6 @@ else
               '.nl2br($message).'</font>';
 // set most recently loaded chat
               $_SESSION['chat-id'] = $row['id'];
-              // echo $_SESSION['chat-id'];
               }
     }
   }

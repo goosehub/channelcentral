@@ -109,9 +109,10 @@ else
         <p>You are <?php echo $_SESSION['name'] ?></p>
       </div> -->
 
+
                 <!-- chatroom -->
-    <div id="chatBox">
-      <div id="chatInner">
+    <div id="chatWrap">
+      <div id="chatBox">
         Loading...
       </div>
     </div>
