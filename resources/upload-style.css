@@ -31,7 +31,7 @@ body {
 #uploadForm {
 	opacity: 0.9;
 }
-input {
+input, textarea {
 	font-family: OpenSans;
 }
 .uploadInput {
@@ -91,7 +91,7 @@ input {
 	width: 66%;
 	margin-left: 12%;
 }
-#hostFormCnt input {
+#hostFormCnt input, #hostFormCnt textarea {
 	background-color: #EEE;
 }
 .itemInfo {	

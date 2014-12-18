@@ -17,6 +17,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$name = mysqli_real_escape_string($con, $name);
 	$time = time();
 	date_default_timezone_set('America/New_York');
+	$hostCurrentShowNameInput = $_POST['hostCurrentShowNameInput'];
+	$hostCurrentShowNameInput = mysqli_real_escape_string($con, $hostCurrentShowNameInput);
+	$hostCurrentShowDescInput = $_POST['hostCurrentShowDescInput'];
+	$hostCurrentShowDescInput = mysqli_real_escape_string($con, $hostCurrentShowDescInput);
 	$hostHeadlineInput = $_POST['hostHeadlineInput'];
 	$hostHeadlineInput = mysqli_real_escape_string($con, $hostHeadlineInput);
 	$hostLengthInput = $_POST['hostLengthInput'];
@@ -73,6 +77,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		$passwordInput === $hostPassword
 		)
 	{
+// Current show Name
+		if ($hostCurrentShowNameInput)
+		{
+		      $query = "UPDATE host 
+		      SET showName = '". $hostCurrentShowNameInput ."'
+		      WHERE id = 1;";
+		      $result = mysqli_query($con, $query);  
+		}
+// Current Show Description
+		if ($hostCurrentShowDescInput)
+		{
+		      $query = "UPDATE host 
+		      SET showDescription = '". $hostCurrentShowDescInput ."'
+		      WHERE id = 1;";
+		      $result = mysqli_query($con, $query);  
+		}
 // Headline
 		if ($hostHeadlineInput)
 		{

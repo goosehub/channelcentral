@@ -1,6 +1,10 @@
-TODO
-	passwords into database
+					TODO
+Highly Urgent
+	Make show frame live updating
+	Show Description maintain characters.
+Moderate Urgent
+	Post after long silent with name and/or date
+	Left Scrollbar on the left side of container
+Low Urgent
 	Add in bumps
-	chat rework
-	more CMS
-	catch up when entering room
+	Text Markdown font change in chat
