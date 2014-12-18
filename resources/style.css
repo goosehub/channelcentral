@@ -27,6 +27,12 @@ radio
   font-family: "AveriaSerif-Regular";
   src: url(fonts/AveriaSerif-Regular.ttf) format("truetype");
 } 
+/* @font-face {
+  font-family: "ComicNeue-Angular-Regular";
+  src: url(fonts/ComicNeue-Angular-Regular.woff) format("OpenType");
+} */
+
+
 /*	Global */
 body {
     overflow-x: hidden;
@@ -89,7 +95,6 @@ body {
   -moz-transition:.5s;
   -webkit-transition:.5s;
   transition:.5s;
-
 }
 .btn:hover {
 	border-radius: 100px;
@@ -244,17 +249,14 @@ body {
 	/*height: 5vh;*/
 }
 #chatInput {
-	/*background: none;*/
 	opacity: 0.5;
 	font-family: AveriaSerif-Regular;
 }
 #chatInput:focus {
 	opacity: 0.8;
 	background-color: #FFF;
-	/*border: 1px solid #000;*/
 }
 #chatBox {
-	margin-top: 0.5em;
 	opacity: 0.95;
 	background-color: #000;
 	color: #FFF;

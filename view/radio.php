@@ -83,8 +83,7 @@ else
       </div>
     </div>
     <div id="viewer">
-    <iframe id="uploadFrame" src="view/upload.php" seamless></iframe>
-    <iframe id="vocaFrame" src="http://vocaroo.com/?minimal" seamless></iframe>
+    <iframe id="showsFrame" src="view/shows.php" seamless></iframe>
     </div>
   </div>
 

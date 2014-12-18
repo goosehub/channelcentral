@@ -158,7 +158,7 @@ var background = '';
 // Initial Load
     loadHostInfo();
 // Refresh
-    setInterval(loadHostInfo, 20000); 
+    setInterval(loadHostInfo, 10000); 
 
 
 // NavBar

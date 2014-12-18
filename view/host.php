@@ -37,7 +37,7 @@ session_start();
 
 <input class="btn btn-primary hostSubmit" type="submit" name="hostSubmitForm" value="Submit Changes" />
 
-<h5 class="note-lg">Changes can take up to 30 seconds to take effect</h5>
+<h5 class="note-lg">Changes can take up to 10 seconds to take effect</h5>
 
 <h3>Host Uploads</h3>
 <h5 class="note">Host uploads go to the front of the queue | Host uploads have no length and size limits</h5>
