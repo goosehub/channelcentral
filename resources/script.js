@@ -103,7 +103,7 @@ var background = '';
             cache: false,
             success: function(html)
             {
-// seperate content from counter data
+            // seperate content from counter data
             var myArray = html.split("|");
             purpleLoad = myArray[0];
             orangeLoad = myArray[1];

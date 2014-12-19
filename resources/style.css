@@ -312,3 +312,16 @@ body {
 ::-webkit-scrollbar-thumb:window-inactive {
 	background: rgba(255,0,0,0.5); 
 }
+
+/*	Small Screens*/
+@media all and (max-width: 990px) {
+	#chatBox {
+		height: 50vh;
+	}
+	iframe {
+		height: 50vh;
+	}
+	#contentWindow {
+		height: 50vh;
+	}
+}

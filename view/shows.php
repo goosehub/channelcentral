@@ -15,21 +15,13 @@
 
 <div id="showsWrp">
 
+<div id="current-show-cnt">
 
   <?php
-  include '../model/host-model.php';
+  include '../model/current-show.php';
   ?>
 
-<h1 id="current-show-name">
-  <?php
-  echo $host['showName'];
-  ?>
-</h1>
-<p class="event" id="current-show-description">
-  <?php
-  echo $host['showDescription'];
-  ?>
-</p>
+</div>
 
 <h1 id="upcoming-headline">Upcoming</h1>
 <div id="upcoming">
@@ -48,9 +40,9 @@
 </div>
 
 <!-- Script -->
-    <!-- <script type="text/javascript" src="../resources/tools/jquery-1.8.3.min.js"></script> -->
+    <script type="text/javascript" src="../resources/tools/jquery-1.8.3.min.js"></script>
     <!-- <script type="text/javascript" src="../resources/tools/bootstrap.min.js"></script> -->
-    <!-- <script type="text/javascript" src="../resources/script.js"></script> -->
+    <script type="text/javascript" src="../resources/shows-script.js"></script>
 
    </body>
    </html>

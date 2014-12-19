@@ -69,6 +69,7 @@ else
 
 <!-- Left -->
 
+<!-- Nav Bar -->
   <div class="col-md-4">
     <div id="navCnt">
       <div id="navBarTop" class="btn-group" role="group" aria-label="...">
@@ -82,9 +83,39 @@ else
           <button id="greenBtn" class="btn btn-low" href="#">&nbsp&nbsp&nbsp&nbsp&nbsp</button>
       </div>
     </div>
+
+<!-- Viewer -->
     <div id="viewer">
     <iframe id="showsFrame" src="view/shows.php" seamless></iframe>
+
+
+<!-- <div id="showsWrp">
+
+<div id="current-show-cnt">
+  <?php
+  // include '../model/current-show.php';
+  ?>
+</div>
+
+<h1 id="upcoming-headline">Upcoming</h1>
+<div id="upcoming">
+  <?php
+  // include '../model/upcoming.php';
+  ?>
+</div>
+
+  <div id="appeal">
+  <h1 id="appeal-headline">Seeking Hosts</h1>
+  <p class="appeal">Want to host the room for a few hours?</p>
+  <p class="appeal">goosetube on skype</p>
+  <p class="appeal">goosepostbox@gmail.com</p>
+  </div>
+
+</div> -->
+
+
     </div>
+
   </div>
 
 <!-- Center -->

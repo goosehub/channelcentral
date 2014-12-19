@@ -30,12 +30,17 @@ h1 {
 }
 #current-show-name {
 	letter-spacing: 0.2em;
-
 }
 #current-show-description {
 	font-family: OpenSans;
 	font-size: 1.2em;
 	padding: 0.2em;
+	opacity: 0.8;
+	/*margin: 0.3em;*/
+	background-color: #FFF;
+	color: #000;
+	border: 0.1em solid #000;
+	/*border-radius: 10px;*/
 }
 #upcoming-headline {
 	border: 0;
