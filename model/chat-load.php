@@ -17,6 +17,7 @@ if ($result = mysqli_query($con, $query))
                   if (! $row['name'] == "" || ! $row['message'] == "") {
                     $message = $row['message'];
                     $message = htmlentities($message);
+// make links clickable.
                     $message = preg_replace("/([\w]+:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/i","<a target=\"_blank\" href=\"$1\">$1</a>", $message);
 // Prevent running html
 // Load name and message
