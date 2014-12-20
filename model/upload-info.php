@@ -13,6 +13,8 @@ echo '<p class="infoItem">The Host has switched off uploads</p>';
 }
 else
 {
+  $host['length'] = htmlentities($host['length']);
+  $host['queue'] = htmlentities($host['queue']);
 echo '<p class="infoItem">Length limit right now is <strong>';
 echo gmdate("H:i:s", $host['length']);
 echo '</strong></p>';

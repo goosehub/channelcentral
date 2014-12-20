@@ -200,7 +200,7 @@ body {
 	font-size: 5vh;
 	/*border: 1px #FFF solid;*/
 	border-radius: 0.1em;
-	font-family: CulDeSac, CheesePizza, OpenSans;
+	font-family: CulDeSac, CheesePizza, OpenSans-Regular;
   -o-transition:2s;
   -ms-transition:2s;
   -moz-transition:2s;
@@ -239,7 +239,7 @@ body {
 	background-color: #000;
 	border: 3px #FFF solid;
 	border-radius: 50px;
-	font-family: CulDeSac, CheesePizza, OpenSans;
+	font-family: CulDeSac, CheesePizza, OpenSans-Regular;
 }
 
 
@@ -277,7 +277,7 @@ body {
 .timestamp {
 	opacity: 60%;
 	font-size: 0.8em;
-	font-family: OpenSans;
+	font-family: OpenSans-Regular;
 }
 .chatName, .chatMsg {
 	margin-left: 0.5em;

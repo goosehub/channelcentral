@@ -26,14 +26,14 @@ h1 {
 	opacity: 0.8;
 	background-color: black;
 	color: white;
-	font-family: CheesePizza, OpenSans;
+	font-family: CheesePizza, OpenSans-Regular;
 }
 #current-show-name {
 	letter-spacing: 0.2em;
 }
 #current-show-description {
-	font-family: OpenSans;
-	font-size: 1.2em;
+	font-family: OpenSans-Regular;
+	font-size: 1em;
 	padding: 0.2em;
 	opacity: 0.8;
 	/*margin: 0.3em;*/
@@ -63,14 +63,14 @@ h1 {
 	font-size: 1.8em;
 	font-weight: bold;
 	margin-left: 0.5em;
-	font-family: CheesePizza, Open-Sans;
+	font-family: CheesePizza, Open-Sans-Regular;
 	line-height: 1em;
 }
 .time {
 	font-size: 1em;
 	opacity: 0.8;
 	margin-left: 1.5em;
-	font-family: OpenSans;
+	font-family: OpenSans-Regular;
 	font-size: 1.4em;
 	letter-spacing: 0.1em;
 	line-height: 1em;
@@ -89,5 +89,5 @@ h1 {
 	font-size: 1.4em;
 	margin-top: 0;
 	margin-bottom: 0;
-	font-family: BebasNeue, Open-Sans;
+	font-family: BebasNeue, Open-Sans-Regular;
 }
