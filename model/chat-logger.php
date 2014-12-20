@@ -9,6 +9,11 @@ include '../connect.php';
 // Get last loaded message
 $sessChat = $_SESSION['chat-id'];
 
+// If chat-id expired, set to 0 as to avoid php errors
+if (!$_SESSION['chat-id']) {
+  $_SESSION['chat-id'] = 0;
+}
+
 // Select most recent post
 $query = "SELECT id
           from chat
