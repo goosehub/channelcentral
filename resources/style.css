@@ -47,6 +47,11 @@ body {
 }
 #pageWrapper {
 	height:100%;
+  -o-transition:2s;
+  -ms-transition:2s;
+  -moz-transition:2s;
+  -webkit-transition:2s;
+  transition:2s;
 }
 #name, #loginEnter {
 	margin: 0 auto;
@@ -161,6 +166,7 @@ body {
 #viewer {
 	height: 85vh;
 	width: 100%;
+	/*overflow: scroll;*/
 }
 #uploadFrame {
 	width: 100%;
@@ -201,6 +207,7 @@ body {
 	/*border: 1px #FFF solid;*/
 	border-radius: 0.1em;
 	font-family: CulDeSac, CheesePizza, OpenSans-Regular;
+	cursor: pointer;
   -o-transition:2s;
   -ms-transition:2s;
   -moz-transition:2s;
@@ -294,7 +301,7 @@ body {
 
 /*	Scrollbar */
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 15px;
 }
 /* Track */
 ::-webkit-scrollbar-track {

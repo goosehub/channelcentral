@@ -86,34 +86,7 @@ else
 
 <!-- Viewer -->
     <div id="viewer">
-    <iframe id="showsFrame" src="view/shows.php" seamless></iframe>
-
-
-<!-- <div id="showsWrp">
-
-<div id="current-show-cnt">
-  <?php
-  // include '../model/current-show.php';
-  ?>
-</div>
-
-<h1 id="upcoming-headline">Upcoming</h1>
-<div id="upcoming">
-  <?php
-  // include '../model/upcoming.php';
-  ?>
-</div>
-
-  <div id="appeal">
-  <h1 id="appeal-headline">Seeking Hosts</h1>
-  <p class="appeal">Want to host the room for a few hours?</p>
-  <p class="appeal">goosetube on skype</p>
-  <p class="appeal">goosepostbox@gmail.com</p>
-  </div>
-
-</div> -->
-
-
+      <iframe id="showsFrame" src="view/shows.php" seamless></iframe>
     </div>
 
   </div>

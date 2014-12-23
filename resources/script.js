@@ -11,8 +11,23 @@ var orangeLoad = '<iframe id="chanFrame" src="http://4chan.org/s4s/"></iframe>';
 
 var greenLoad = '<center><img class="img-circle questionImg" src="resources/sumo.gif"/></center>'; 
 
+var invisible = 0;
+
 $(document).ready(function()
 {
+
+$('#headline').mousedown(function()
+{
+    $('#pageWrapper').css({
+        'opacity': 0
+    });
+});
+$('#headline').mouseup(function()
+{
+    $('#pageWrapper').css({
+        'opacity': 1
+    });
+});
 
 // Load content
 function loadContent()

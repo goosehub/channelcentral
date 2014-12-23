@@ -123,7 +123,7 @@ session_start();
 <h5 class="note">Use <a href="http://7thspace.com/webmaster_tools/iframe_generator.html" target="_blank">this iframe generator tool</a> to easily embed websites.</h5>
 <h5 class="note">Any iframe included will have limiting sandbox attribute applied for security reasons.</h5>
 <h5 class="note">Only iframe and <a href="https://quip.com/aO0pAZO9m9SG" target="_blank">gmail valid tags</a> are valid to use for security reasons.</h5>
-<h5 class="note">Be aware of users with small screens, set width and height in percent to prevent spillover.</h5>
+<h5 class="note">Set width and height in percent to prevent scroll bars from appearing.</h5>
 
 <h3>Upload Maintenance</h3>
 
