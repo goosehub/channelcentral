@@ -23,7 +23,7 @@ body {
 }
 h1 {
 	text-align: center;
-	opacity: 0.8;
+	opacity: 0.9;
 	background-color: black;
 	color: white;
 	font-family: CheesePizza, OpenSans-Regular;
@@ -35,7 +35,7 @@ h1 {
 	font-family: OpenSans-Regular;
 	font-size: 1em;
 	padding: 0.2em;
-	opacity: 0.8;
+	opacity: 0.9;
 	/*margin: 0.3em;*/
 	background-color: #FFF;
 	color: #000;
@@ -48,7 +48,7 @@ h1 {
 	letter-spacing: 0.5em;
 }
 .event {
-	opacity: 0.8;
+	opacity: 0.9;
 	margin: 0.3em;
 	background-color: #FFF;
 	color: #000;
@@ -68,7 +68,7 @@ h1 {
 }
 .time {
 	font-size: 1em;
-	opacity: 0.8;
+	opacity: 0.9;
 	margin-left: 1.5em;
 	font-family: OpenSans-Regular;
 	font-size: 1.4em;
@@ -76,7 +76,7 @@ h1 {
 	line-height: 1em;
 }
 #appeal {
-	opacity: 0.8;
+	opacity: 0.9;
 	background-color: #000;
 	color: #FFF;
 	text-align: center;
