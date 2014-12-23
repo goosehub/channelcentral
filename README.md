@@ -19,3 +19,5 @@ Radio is a project that allows groups to share youtube video's, audio files, voc
 5. Set passwords. As default, 1234 is the admin password. For security reasons, this can only be changed through direct database access. You can add temporary users and upcoming events at the following page YOURDIRECTORY/view/master.php
 
 You should now be set up. If you have any issues, feel free to contact me. goosepostbox@gmail.com
+
+If you have any unusual behavoir with the chat, replace script.js with alt-script.js
