@@ -1,5 +1,6 @@
 <?php 
 session_start();
+date_default_timezone_set('America/New_York');
 
 include '../connect.php';
 
@@ -29,8 +30,8 @@ if ($result = mysqli_query($con, $query))
             echo '<font class="chatName"><strong>'.$row['name'].' </strong></font>';
 // Convert and load Timestamp
             $timestamp = $row['timestamp'];
-            $timestamp = date("M j, g:i A", $timestamp);
-            echo '<font class="timestamp"> on '.$timestamp.' EST</font>';
+            $timestamp = date("M j, g:i A T", $timestamp);
+            echo '<font class="timestamp"> on '.$timestamp.'</font>';
         }
 // Set recent timestamp
         $_SESSION['loadTimestamp'] = $row['timestamp'];
