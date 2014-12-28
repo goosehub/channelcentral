@@ -23,8 +23,8 @@ session_start();
 
 <div id="hostFormCnt">
 
-<h2 id="welcome">Welcome to your hosting center</h2>
-<h4>Enter password, make changes, then press enter or click submit</h4>
+<h2 id="welcome">Welcome to the hosting center</h2>
+<h4>During beta, this page is available to all users except during events</h4>
 
 <form name="uploadForm" id="hostForm" action="../controller/host-form-post.php" method="post" enctype="multipart/form-data">
 <div class="form-group">
@@ -37,11 +37,9 @@ session_start();
 
 <input class="btn btn-primary hostSubmit" type="submit" name="hostSubmitForm" value="Submit Changes" />
 
-<h5 class="note-lg">Changes can take up to 10 seconds to take effect</h5>
-
 <h3>Host Settings</h3>
 
-<h5 class="note">Set Length or Queue to 1 to turn off user uploads</h5>
+<h5 class="note">-Set Length or Queue to 1 to turn off user uploads</h5>
 
 <div class="input-group">
     <div class="input-group-addon">Headline</div>
@@ -74,7 +72,7 @@ session_start();
     </div>
 
 <h3>Host Uploads</h3>
-<h5 class="note">Host uploads go to the front of the queue | Host uploads have no length and size limits</h5>
+<h5 class="note">-Host uploads go to the front of the queue | Host uploads have no length and size limits</h5>
 
     <div class="input-group">
   <div class="input-group-addon">Enter Youtube URL</div>
@@ -99,11 +97,11 @@ session_start();
     <div class="input-group-addon">Start time</div>
       <input class="form-control" type="input" name="55ostStart" placeholder="YYYY-MM-DD HH:MM:SSPM" /><br />
     </div>
-<h5 class="note">Format is YYYY-MM-DD HH:MM:SSPM | All times are EST (New York Time)</h5>
+<h5 class="note">-Format is YYYY-MM-DD HH:MM:SSPM | All times are EST (New York Time)</h5>
 
 
 <h3>Navbar</h3>
-<h5 class="note">Enter any HTML you want loaded on click.</h5>
+<h5 class="note">-Enter any HTML you want loaded on click.</h5>
 
 <div class="input-group">
     <div class="input-group-addon">Navbar Viewer Purple</div>
@@ -119,11 +117,11 @@ session_start();
     <div class="input-group-addon">Navbar Viewer Green</div>
       <input class="form-control" type="input" name="hostNavGreen" /><br />
     </div>
-<h5 class="note"><a href="http://getbootstrap.com/css/">Bootstrap HTML, CSS, and JS Framework</a> classes are included for your use.</h5>
-<h5 class="note">Use <a href="http://7thspace.com/webmaster_tools/iframe_generator.html" target="_blank">this iframe generator tool</a> to easily embed websites.</h5>
-<h5 class="note">Any iframe included will have limiting sandbox attribute applied for security reasons.</h5>
-<h5 class="note">Only iframe and <a href="https://quip.com/aO0pAZO9m9SG" target="_blank">gmail valid tags</a> are valid to use for security reasons.</h5>
-<h5 class="note">Set width and height in percent to prevent scroll bars from appearing.</h5>
+<h5 class="note">-<a href="http://getbootstrap.com/css/">Bootstrap HTML, CSS, and JS Framework</a> classes are included for your use.</h5>
+<h5 class="note">-Use <a href="http://7thspace.com/webmaster_tools/iframe_generator.html" target="_blank">this iframe generator tool</a> to easily embed websites.</h5>
+<h5 class="note">-Sandbox attribute (disabled javascript) is applied to iframes for security reasons.</h5>
+<h5 class="note">-Only iframe and <a href="https://quip.com/aO0pAZO9m9SG" target="_blank">gmail valid tags</a> are valid to use for security reasons.</h5>
+<h5 class="note">-Set width and height in percent to prevent scroll bars from appearing.</h5>
 
 <h3>Upload Maintenance</h3>
 
@@ -148,7 +146,7 @@ session_start();
 </div>
 
 <h3>Current Queue</h3>
-<h5 class="note">Ordered by start time, not by ID</h5>
+<h5 class="note">-Ordered by start time, not by ID</h5>
 
   <div id="currentQueue">
   <?php 

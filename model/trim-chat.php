@@ -1,4 +1,11 @@
 <?php
+
+
+
+// Disabled, keeping if needed
+
+
+
 include '../connect.php';
 // Clear all but the latest 32
     $query = "DELETE FROM `chat`
@@ -8,7 +15,7 @@ include '../connect.php';
       SELECT id
       FROM `chat`
       ORDER BY id DESC
-      LIMIT 1024 -- keep this many records
+      LIMIT 512 -- keep this many records
       ) foo);"; 
     // foo is for required alias
     $result = mysqli_query($con, $query);

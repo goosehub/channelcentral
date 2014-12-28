@@ -1,7 +1,6 @@
 // Nav bar buttons
 
-var uploadLoad = '<iframe id="uploadFrame" src="view/upload.php" seamless></iframe>' + 
-                    '<iframe id="vocaFrame" src="http://vocaroo.com/?minimal" seamless></iframe>';
+var uploadLoad = '<iframe id="uploadFrame" src="view/upload.php" seamless></iframe>';
 
 var showsLoad = '<iframe id="showsFrame" src="view/shows.php" seamless></iframe>';
 
@@ -87,10 +86,6 @@ function chatLogger()
         cache: false,
         success: function(html)
         {
-            if (html != 'wait')
-            {
-                // commented out code is attempt at non auto scrolling
-
                 if ($('#chatBox').scrollTop() >= $('#chatBox')[0].scrollHeight - (jQuery(window).height() * 0.9) )
                 {
                     $("#chatBox").append(html);
@@ -100,7 +95,6 @@ function chatLogger()
                 {
                     $("#chatBox").append(html);
                 }
-            }
         }
     });
 }
@@ -215,15 +209,7 @@ $("#submitChat").click(function()
      $("#chatForm :input").val("");
 // Load log so user can instantly see his message
     chatLogger();
-    $.ajax(
-    {
-        url: "model/trim-chat.php",
-        cache: false,
-        success: function(html)
-        {
-        // no action needed
-        }
-    });
+    $('#chatInput').focus();
     return false;
 });
 

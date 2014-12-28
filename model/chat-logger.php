@@ -1,6 +1,8 @@
 <?php 
 session_start();
 
+$time = time();
+
 include '../connect.php';
 
 // This is only for loading new messages
@@ -22,13 +24,7 @@ $result = mysqli_query($con, $query);
 $lastPost = mysqli_fetch_assoc($result);
 
 // If user is caught up on chat log
-if ($_SESSION['chat-id'] === $lastPost['id']) 
-{
-// Send wait message to client script
-  echo 'wait';
-}
-// Else, load log.
-else
+if ($_SESSION['chat-id'] != $lastPost['id']) 
 {
   // Get chat data
   $query = "SELECT *
@@ -39,25 +35,33 @@ else
   {
     while($row = mysqli_fetch_assoc($result)) 
     {
-            if (! $row['name'] == "" || ! $row['message'] == "") {
-              $message = $row['message'];
-              $message = htmlentities($message);
-              $message = preg_replace("/([\w]+:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/i",
-                "<a target=\"_blank\" href=\"$1\">$1</a>", $message);
-// Prevent running html
-// Load name and message
-              if (! $row['name'] == "") {
-              echo '<font class="chatName"><strong>'.$row['name'].' </strong></font>
-              <font class="timestamp"> on '.$row['timestamp'].' EST</font>';
-              }
-              echo '<font class="chatMsg">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              '.nl2br($message).'</font>';
+// Sanitize message
+        $message = $row['message'];
+        $message = htmlentities($message);
+        $message = preg_replace("/([\w]+:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/i",
+          "<a target=\"_blank\" href=\"$1\">$1</a>", $message);
+// If name is different or time has passed
+        if ($row['timestamp'] > $_SESSION['loadTimestamp'] + 1200
+          || $row['name'] != $_SESSION['loadName'])
+        {
+// Load Name
+            echo '<font class="chatName"><strong>'.$row['name'].' </strong></font>';
+// Convert and load Timestamp
+            $timestamp = $row['timestamp'];
+            $timestamp = date("M j, g:i A", $timestamp);
+            echo '<font class="timestamp"> on '.$timestamp.' EST</font>';
+        }
+// Set recent timestamp
+        $_SESSION['loadTimestamp'] = $row['timestamp'];
+// Load Message
+        echo '<font class="chatMsg">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        '.nl2br($message).'</font>';
 // set most recently loaded chat
-              $_SESSION['chat-id'] = $row['id'];
-              }
+        $_SESSION['chat-id'] = $row['id'];
+        $_SESSION['loadName'] = $row['name'];
+      }
     }
-  }
 }
 
 ?>

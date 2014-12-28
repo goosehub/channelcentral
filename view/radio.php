@@ -46,12 +46,11 @@ if(isset($_POST['enter'])){
     if($_POST['name'] != ""){
 // Set Name
         $_SESSION['name'] = stripslashes(htmlspecialchars($_POST['name']));
-// Set spamLimit
-        $_SESSION['spamLimit'] = 1;
 // Set error reporting
         $_SESSION['errLength'] = $_SESSION['errRepeat'] = $_SESSION['errCode'] = 
         $_SESSION['errImgSize'] = $_SESSION['errAudioSize'] = $_SESSION['errFileType'] =
-        $_SESSION['errQueueLimit'] = $_SESSION['errRickRoll'] = $_SESSION['chat-id'] = '';
+        $_SESSION['errQueueLimit'] = $_SESSION['errRickRoll'] = $_SESSION['chat-id'] = 
+        $_SESSION['loadName'] = $_SESSION['loadTimestamp'] = '';
     }
 }
 //Check if logged in
@@ -86,7 +85,7 @@ else
 
 <!-- Viewer -->
     <div id="viewer">
-      <iframe id="showsFrame" src="view/shows.php" seamless></iframe>
+      <iframe id="uploadFrame" src="view/upload.php" seamless></iframe> 
     </div>
 
   </div>

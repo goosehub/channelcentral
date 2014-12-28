@@ -1,10 +1,10 @@
  @font-face {
   font-family: "OpenSans-Regular";
-  src: url(fonts/OpenSans-Regular.ttf) format("truetype");
+  src: url(/radio/resources/fonts/OpenSans-Regular.ttf) format("truetype");
 } 
 @font-face {
   font-family: "BebasNeue";
-  src: url(fonts/BebasNeue.otf) format("opentype");
+  src: url(/radio/resources/fonts/BebasNeue.otf) format("opentype");
 }
 /*		    */
 /*	gloabal */
@@ -28,6 +28,10 @@ body {
 /*		   */
 /*	upload */
 /*		   */
+#uploadFormCnt .input-group-addon {
+	background-color: #000;
+	color: #FFF;
+}
 #uploadForm {
 	opacity: 0.9;
 }
@@ -48,7 +52,8 @@ input, textarea {
 	margin-bottom: 0.2em;
 	display: block;
 	border-radius: 15px;
-	background-color: #4488DD;
+	color: #FFF;
+	background-color: #000;
    -moz-box-shadow:    inset 2px 2px 2px #FFF;
    -webkit-box-shadow: inset 2px 2px 2px #FFF;
    box-shadow:         inset 2px 2px 2px #FFF;
@@ -61,8 +66,7 @@ input, textarea {
   transition:.2s;
 }
 .contribute:hover {
-	background-color: #FFF;
-	color: #000;
+	background-color: #4488DD;
 	font-weight: bold;
 }
 .or {
@@ -92,7 +96,7 @@ input, textarea {
 	margin-left: 12%;
 }
 #hostFormCnt input, #hostFormCnt textarea {
-	background-color: #EEE;
+	background-color: #DDD;
 }
 .itemInfo {	
 	color: #000;
@@ -105,7 +109,7 @@ input, textarea {
 .hostSubmit {
 	margin-left: 0;
 	width: 22.5em;
-	background-color: #88DD66 !important;
+	background-color: #448866 !important;
 	/* !important to prevent from taking on #hostFormCnt input backgound color*/
 	font-size: 1.6em;
 	font-family: BebasNeue;
@@ -144,4 +148,25 @@ input, textarea {
 }
 .note-lg {
 	margin-left: 4em;
+}
+
+/*	When host is in iframe */
+@media all and (max-width: 600px) {
+	#hostFormCnt {
+		width: 90% !important;
+		margin-left: 5% !important;
+		margin-left: 5% !important;
+	}
+	#hostFormCnt .input-group-addon, #hostFormCnt input, #hostFormCnt textarea{
+		display: block;
+	}
+	.hostSubmit {
+		width: 50% !important;
+	}
+	.reloadQueue {
+		width: 30vw !important;
+	}
+	.note {
+		margin-left: 0.5em !important;
+	}
 }
