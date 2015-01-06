@@ -34,9 +34,11 @@ function loginForm($slug){
 }
 // Set session
 if(isset($_POST['enter'])){
-    if($_POST['name'] != ""){
+    if($_POST['name'] != ''){
 // Set Session Name
         $_SESSION['name'] = stripslashes(htmlspecialchars($_POST['name']));
+// Set room
+        $_SESSION['slug'] = $slug;
 // Set Session Variables
         $_SESSION['errLength'] = $_SESSION['errRepeat'] = $_SESSION['errCode'] = 
         $_SESSION['errImgSize'] = $_SESSION['errAudioSize'] = $_SESSION['errFileType'] =
@@ -107,8 +109,9 @@ else
     </div>
 
     <div id="inputCnt">
-	    <form name="chatForm" id="chatForm" action="model/chat-post.php" method="post" enctype="multipart/form-data">
+	    <form name="chatForm" id="chatForm" action="post/chat-post.php" method="post" enctype="multipart/form-data">
 		    <input name="message" type="text" class="form-control" id="chatInput" autocomplete="off" placeholder="">
+        <input type="hidden" name="slug" value="<?php echo $slug; ?>">
 		    <!-- submit button positioned off screen -->
 		    <input name="submitChat" type="submit" id="submitChat" value="DICK" style="position: absolute; left: -9999px">
 	    </form>

@@ -67,8 +67,6 @@ On front page, thumbnail inplace of video
 			Steps
 Revamp readme
 Look for collaborators
-Install codeigniter
-install cjax
 Name
 Domain
 Database
@@ -88,11 +86,8 @@ Master View
 
 					TODO
 Highly Urgent
-	Make show frame live updating
-	Show Description maintain characters.
 	Sanitize HTML entities
 Moderate Urgent
-	Post after long silent with name and/or date
 	Left Scrollbar on the left side of container
 	Show javascript eats more bandwidth than needed.
 Low Urgent

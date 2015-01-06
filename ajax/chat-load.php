@@ -7,10 +7,14 @@ include '../connect.php';
 // This is only for initial load
 // ajax/chat-logger.php is used for loading new messages 
 
+// Get Slug
+$slug = $_POST['slug'];
+
 // Get chat data
 // Select the most recent 50, then order by ASC
 $query = "SELECT * from (
         SELECT * from chat
+        WHERE slug = '".$slug."'
         order by id DESC limit 50
         ) tmp ORDER BY tmp.id ASC;";
 if ($result = mysqli_query($con, $query))

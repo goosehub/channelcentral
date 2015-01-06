@@ -28,6 +28,8 @@ $(document).ready(function()
         $.ajax(
         {
             url: "../ajax/active-submit.php",
+            type: "POST",
+            data: { slug: slug },
             cache: false,
             success: function(html)
             {

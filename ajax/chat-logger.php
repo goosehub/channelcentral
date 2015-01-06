@@ -17,9 +17,13 @@ if (!$_SESSION['chat-id']) {
   $_SESSION['chat-id'] = 0;
 }
 
+// Get Slug
+$slug = $_POST['slug'];
+
 // Select most recent post
 $query = "SELECT id
           from chat
+          WHERE slug = '".$slug."'
           ORDER BY id DESC LIMIT 1;";
 $result = mysqli_query($con, $query);
 $lastPost = mysqli_fetch_assoc($result);
@@ -31,6 +35,7 @@ if ($_SESSION['chat-id'] != $lastPost['id'])
   $query = "SELECT *
           from chat
           WHERE id > ".$_SESSION['chat-id']."
+          AND WHERE slug = '".$slug."'
           ORDER BY id ASC;";
   if ($result = mysqli_query($con, $query))
   {

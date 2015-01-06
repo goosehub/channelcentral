@@ -84,11 +84,15 @@ session_start();
 
 <h5 class="note">Format is YYYY-MM-DD HH:MM:SSPM | All times are EST (New York Time)</h5>
 
+<input type="hidden" name="slug" value="<?php echo $slug; ?>">
+
 </div>
 </form>
 </div>
 
 <!-- Script -->
+    <!-- Set slug for script files -->
+    <script>var slug = '<?php echo $slug; ?>';</script>
     <script type="text/javascript" src="../resources/tools/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="../resources/tools/bootstrap.min.js"></script>
     <script type="text/javascript" src="../resources/host-script.js"></script>

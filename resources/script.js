@@ -34,6 +34,8 @@ function loadContent()
     $.ajax(
     {
         url: "ajax/load-content.php",
+        type: "POST",
+        data: { slug: slug },
         cache: false,
         success: function(html)
         {
@@ -66,6 +68,8 @@ function chatLoad()
     $.ajax(
     {
         url: "ajax/chat-load.php",
+        type: "POST",
+        data: { slug: slug },
         cache: false,
         success: function(html)
         {
@@ -83,6 +87,8 @@ function chatLogger()
     $.ajax(
     {
         url: "ajax/chat-logger.php",
+        type: "POST",
+        data: { slug: slug },
         cache: false,
         success: function(html)
         {
@@ -109,6 +115,8 @@ var background = '';
         $.ajax(
         {
             url: "ajax/navbar.php",
+            type: "POST",
+            data: { slug: slug },
             cache: false,
             success: function(html)
             {
@@ -123,6 +131,8 @@ var background = '';
         $.ajax(
         {
             url: "ajax/headline.php",
+            type: "POST",
+            data: { slug: slug },
             cache: false,
             success: function(html)
             {
@@ -133,6 +143,8 @@ var background = '';
         $.ajax(
         {
             url: "ajax/background.php",
+            type: "POST",
+            data: { slug: slug },
             cache: false,
             success: function(html)
             {
@@ -152,6 +164,8 @@ var background = '';
         $.ajax(
         {
             url: "ajax/check-reload.php",
+            type: "POST",
+            data: { slug: slug },
             cache: false,
             success: function(html)
             {
@@ -204,7 +218,8 @@ $("#submitChat").click(function()
     var clientchat = $("#chatInput").val();
     $.post("post/chat-post.php",
     {
-        text: clientchat
+        text: clientchat,
+        slug: slug
     });
      $("#chatForm :input").val("");
 // Load log so user can instantly see his message

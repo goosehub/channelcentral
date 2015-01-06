@@ -166,11 +166,15 @@ session_start();
 
 <div class="reloadQueue btn btn-danger">Refresh</div>
 
+<input type="hidden" name="slug" value="<?php echo $slug; ?>">
+
 </div>
 </form>
 </div>
 
 <!-- Script -->
+    <!-- Set slug for script files -->
+    <script>var slug = '<?php echo $slug; ?>';</script>
     <script type="text/javascript" src="../resources/tools/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="../resources/tools/bootstrap.min.js"></script>
     <script type="text/javascript" src="../resources/host-script.js"></script>

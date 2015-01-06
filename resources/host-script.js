@@ -21,6 +21,8 @@ $('.reloadQueue').click(function()
     $.ajax(
     {
         url: "../ajax/current-queue.php",
+        type: "POST",
+        data: { slug: slug },
         cache: false,
         success: function(html)
         {
@@ -31,6 +33,8 @@ $('.reloadQueue').click(function()
     $.ajax(
     {
         url: "../ajax/timed-queue.php",
+        type: "POST",
+        data: { slug: slug },
         cache: false,
         success: function(html)
         {

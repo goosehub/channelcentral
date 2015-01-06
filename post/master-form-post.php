@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // if(isset($_SESSION['name'])) //also works
 {
 // Redirect after submit
-	header("Location: ../load/master.php");
+	header("Location: /radio");
 
 //Set and sanitize known variables for query
 	// variable names are long to prevent confusion
