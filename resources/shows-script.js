@@ -5,6 +5,8 @@ $(document).ready(function()
         $.ajax(
         {
             url: "../ajax/current-show.php",
+            type: "POST",
+            data: { slug: slug },
             cache: false,
             success: function(html)
             {

@@ -1,5 +1,8 @@
 <?php
 
+// Get Slug
+$slug = $_POST['slug'];
+
 include '../connect.php';
 
 include 'host-ajax.php';
@@ -10,6 +13,7 @@ $limit = $time + $host['queue'];
 	FROM upload
 	WHERE end >= '".$limit."'
 	AND special != 'timed'
+    AND slug = '".$slug."'
 	ORDER BY start DESC
 	LIMIT 1;";
 	$result = mysqli_query($con, $query);

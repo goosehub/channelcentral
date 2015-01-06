@@ -150,21 +150,21 @@ session_start();
 
   <div id="currentQueue">
   <?php 
-  include '../model/current-queue.php';
+  include 'ajax/current-queue.php';
     ?>
   </div>
 
-<div class="reloadQueue btn btn-danger">Refresh</div>
+<!-- <div class="reloadQueue btn btn-danger">Refresh</div> -->
   
 <h3>Scheduled to Play</h3>
 
   <div id="timedQueue">
   <?php 
-  include '../model/timed-queue.php';
+  include 'ajax/timed-queue.php';
     ?>
   </div>
 
-<div class="reloadQueue btn btn-danger">Refresh</div>
+<!-- <div class="reloadQueue btn btn-danger">Refresh</div> -->
 
 <input type="hidden" name="slug" value="<?php echo $slug; ?>">
 

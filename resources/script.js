@@ -1,9 +1,5 @@
 // Nav bar buttons
 
-var uploadLoad = '<iframe id="uploadFrame" src="load/upload.php" seamless></iframe>';
-
-var showsLoad = '<iframe id="showsFrame" src="load/shows.php" seamless></iframe>';
-
 var purpleLoad = ''; 
 
 var orangeLoad = '';

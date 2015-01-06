@@ -7,6 +7,9 @@ include '../connect.php';
 // Set time
 $time = time();
 
+// Get Slug
+$slug = $_POST['slug'];
+
 // Query database
 include '../ajax/find-current.php';
 

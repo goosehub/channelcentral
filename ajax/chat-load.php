@@ -2,13 +2,13 @@
 session_start();
 date_default_timezone_set('America/New_York');
 
+// Get Slug
+$slug = $_POST['slug'];
+
 include '../connect.php';
 
 // This is only for initial load
 // ajax/chat-logger.php is used for loading new messages 
-
-// Get Slug
-$slug = $_POST['slug'];
 
 // Get chat data
 // Select the most recent 50, then order by ASC

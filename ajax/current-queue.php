@@ -1,13 +1,17 @@
 <?php
-include '../connect.php';
+include 'connect.php';
 
 $time = time();
 date_default_timezone_set('America/New_York');
+
+// Get Slug
+$slug = $_POST['slug'];
 
 // Get current queue
     $query = "SELECT *
     FROM upload 
     WHERE start > '". $time ."'
+    AND slug = '".$slug."'
     AND special != 'timed'
     ORDER BY start ASC;";
 // Fetch each row

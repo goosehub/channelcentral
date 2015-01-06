@@ -1,4 +1,8 @@
 <?php
+
+// Get Slug
+$slug = $_POST['slug'];
+
 // Find current upload
 include 'find-current.php';
 // If timed start, start at time
@@ -15,12 +19,14 @@ include 'find-current.php';
 	{
 		$start = $time;
 	}
+
 // Find end
 	include 'find-end.php';
 // Push all others in queue behind this upload
 	$query = "SELECT *
 	FROM upload
 	WHERE start >= ".$time."
+    AND slug = '".$slug."'
 	AND special != 'timed';";
 	$result = mysqli_query($con, $query);
         while(($delay = mysqli_fetch_assoc($result))

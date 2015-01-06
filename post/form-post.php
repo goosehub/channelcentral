@@ -19,6 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$limit = $time + 900;
 	date_default_timezone_set('America/New_York');
 	$youtubeInput = $_POST['youtubeInput'];
+	$slug = $_POST['slug'];
 	$youtubeInput = mysqli_real_escape_string($con, $youtubeInput);
 	// files must be sanitized later
 
@@ -49,7 +50,8 @@ if (strlen($youtubeInput) > 10)
 // Check database to see if youtubeID already exists
 			$query = "SELECT youtube
 			FROM upload
-			WHERE youtube = '".$youtubeID."';";
+			WHERE youtube = '".$youtubeID."'
+		    AND slug = '".$slug."';";
 			$result = mysqli_query($con, $query);
 			$row = mysqli_fetch_assoc($result);
 
@@ -91,10 +93,10 @@ if (strlen($youtubeInput) > 10)
 
 // Query
 		      $query = "INSERT INTO upload 
-		      (name, time, youtube, duration, start, end, scheduled)
+		      (name, time, youtube, duration, start, end, scheduled, slug)
 		      VALUES('". $name ."', '". $time ."',
 		       '". $youtubeID ."', '". $duration ."', '". $start ."',
-		        '". $end ."', '". $scheduled ."');";
+		        '". $end ."', '". $scheduled ."', '".$slug."');";
 		      $result = mysqli_query($con, $query);  
 
 //remove uneeded files if exists
@@ -109,6 +111,8 @@ if (strlen($youtubeInput) > 10)
 
 //rest is for file uploads only
 
+
+	$slug = $_POST['slug'];
 
 // GetID3 function
 	function get_duration($audioPath, $audioFile) 
@@ -198,10 +202,10 @@ if (strlen($youtubeInput) > 10)
 
 // Query
 			      $query = "INSERT INTO upload 
-			      (name, time, audio, image, duration, start, end, scheduled)
+			      (name, time, audio, image, duration, start, end, scheduled, slug)
 			      VALUES('". $name ."', '". $time ."', '". $audioInput ."',
 			       '". $imageInput ."', '". $duration ."'
-			       , '". $start ."', '". $end ."', '". $scheduled ."');";
+			       , '". $start ."', '". $end ."', '". $scheduled ."', '".$slug."');";
 			      $result = mysqli_query($con, $query);   
 				    }
 			    }

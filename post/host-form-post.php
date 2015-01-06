@@ -17,6 +17,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$name = mysqli_real_escape_string($con, $name);
 	$time = time();
 	date_default_timezone_set('America/New_York');
+	$slug = $_POST['slug'];
 	$hostCurrentShowNameInput = $_POST['hostCurrentShowNameInput'];
 	$hostCurrentShowNameInput = mysqli_real_escape_string($con, $hostCurrentShowNameInput);
 	$hostCurrentShowDescInput = $_POST['hostCurrentShowDescInput'];
@@ -40,9 +41,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	// files must be sanitized later
 
 // Get Valid Passwords
-	include '../ajax/host-password.php';
+	include 'host-password.php';
 	$hostPassword = $hostPassword['password'];
-	include '../ajax/master-password.php';
+	include 'master-password.php';
 	$masterPassword = $masterPassword['password'];
 
 // Translate hostStart into UNIX
@@ -53,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 // If current video will be clear, set as ID to be deleted
 	if (isset($_POST['hostClearCurrent'])) {
-		include '../ajax/find-current.php';
+		include 'find-current.php';
 		$hostDeleteItem = $current['id'];
 	}
 // Else, prepare any other ID's to be deleted
@@ -82,7 +83,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 		      $query = "UPDATE rooms 
 		      SET showName = '". $hostCurrentShowNameInput ."'
-		      WHERE id = 1;";
+		      WHERE slug = '".$slug."';";
 		      $result = mysqli_query($con, $query);  
 		}
 // Current Show Description
@@ -90,7 +91,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 		      $query = "UPDATE rooms 
 		      SET showDescription = '". $hostCurrentShowDescInput ."'
-		      WHERE id = 1;";
+		      WHERE slug = '".$slug."';";
 		      $result = mysqli_query($con, $query);  
 		}
 // Headline
@@ -98,7 +99,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 		      $query = "UPDATE rooms 
 		      SET headline = '". $hostHeadlineInput ."'
-		      WHERE id = 1;";
+		      WHERE slug = '".$slug."';";
 		      $result = mysqli_query($con, $query);  
 		}
 // Nav Purple
@@ -108,7 +109,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			$hostNavPurple = preg_replace("/<iframe/i", "<iframe sandbox", $hostNavPurple);
 		      $query = "UPDATE rooms 
 		      SET purple = '". $hostNavPurple ."'
-		      WHERE id = 1;";
+		      WHERE slug = '".$slug."';";
 		      $result = mysqli_query($con, $query);  
 		}
 // Nav Orange
@@ -118,7 +119,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			$hostNavOrange = preg_replace("/<iframe/i", "<iframe sandbox", $hostNavOrange);
 		      $query = "UPDATE rooms 
 		      SET orange = '". $hostNavOrange ."'
-		      WHERE id = 1;";
+		      WHERE slug = '".$slug."';";
 		      $result = mysqli_query($con, $query);  
 		}
 // Nav Green
@@ -128,7 +129,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			$hostNavGreen = preg_replace("/<iframe/i", "<iframe sandbox", $hostNavGreen);
 		      $query = "UPDATE rooms 
 		      SET green = '". $hostNavGreen ."'
-		      WHERE id = 1;";
+		      WHERE slug = '".$slug."';";
 		      $result = mysqli_query($con, $query);  
 		}
 // Max Length
@@ -136,7 +137,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 		      $query = "UPDATE rooms 
 		      SET length = '". $hostLengthInput ."'
-		      WHERE id = 1;";
+		      WHERE slug = '".$slug."';";
 		      $result = mysqli_query($con, $query);  
 		}
 // Max Queue
@@ -144,7 +145,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 		      $query = "UPDATE rooms 
 		      SET queue = '". $hostQueueLimitInput ."'
-		      WHERE id = 1;";
+		      WHERE slug = '".$slug."';";
 		      $result = mysqli_query($con, $query);  
 		}
 // Clear Past Uploads
@@ -159,6 +160,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 		      $query = "DELETE FROM upload 
 		      WHERE start > '". $time ."'
+		      AND slug = '".$slug."'
 		      AND special != 'timed';";
 		      $result = mysqli_query($con, $query);  
 		}
@@ -175,25 +177,28 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Set reload command to be found by client
 			    $query = "UPDATE rooms 
 			    SET reload = '". $reloadTime ."'
-			    WHERE id = 1;";
+			    WHERE slug = '".$slug."';";
 			    $result = mysqli_query($con, $query); 
 // Set ID to be deleted to be the current
-			include '../ajax/find-current.php';
+			include 'find-current.php';
 			$hostDeleteItem = $current['id'];
 			}
 // find duration of deleted item
 			$query = "SELECT * FROM upload 
-			WHERE id = '". $hostDeleteItem ."';";
+			WHERE id = '". $hostDeleteItem ."'
+		    AND slug = '".$slug."';";
 			$deleteItemResult = mysqli_query($con, $query); 
 			$deletedItem = mysqli_fetch_assoc($deleteItemResult);
 // Deleted selected
 		    $query = "DELETE FROM upload 
-		    WHERE id = '". $hostDeleteItem ."';";
+		    WHERE id = '". $hostDeleteItem ."'
+		    AND slug = '".$slug."';";
 		    $deletedResult = mysqli_query($con, $query); 
 // Move the rest forward that are not timed
   		    $query = "SELECT * FROM upload 
 		    WHERE special != 'timed'
-		    AND start >= '".$deletedItem['start']."';";
+		    AND start >= '".$deletedItem['start']."'
+		    AND slug = '".$slug."';";
 			if ($advanceResult = mysqli_query($con, $query))
 			{
 		        while($advance = mysqli_fetch_assoc($advanceResult)) 
@@ -207,7 +212,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 						      end = '". $newEnd ."',
 						      scheduled = '". $newScheduled ."'
 						      WHERE id = '".$advance['id'] ."'
-						      AND special != 'timed';";
+						      AND special != 'timed'
+							  AND slug = '".$slug."';";
 		        	$result = mysqli_query($con, $query); 
 		        }
 		    }
@@ -257,7 +263,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Query
 		      $query = "UPDATE rooms 
 		      SET background = '". $hostBackgroundInput ."'
-		      WHERE id = 1;";
+		      WHERE slug = '".$slug."';";
 		      $result = mysqli_query($con, $query);  
 		}
 	}
@@ -292,14 +298,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				$duration = $duration + 5;
 
 // Find next available slot
-				include '../ajax/host-insert.php';
+				include 'host-insert.php';
 // Query
 			      $query = "INSERT INTO upload 
 			      			(name, time, youtube, duration,
-			      			start, end, scheduled, special)
+			      			start, end, scheduled, special, slug)
 			      			VALUES('". $name ."', '". $time ."',
 			       			'". $youtubeID ."', '". $duration ."', '". $start ."',
-			       			'". $end ."', '". $scheduled ."', '".$special."');";
+			       			'". $end ."', '". $scheduled ."', '".$special."', '".$slug."');";
 			      $result = mysqli_query($con, $query);  
 
 //remove uneeded files if exists
@@ -388,7 +394,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				      $duration = $duration + 5;
 
 // Find next available slot
-					  include '../ajax/host-insert.php';
+					  include 'host-insert.php';
 
 // Prepare for ajax
 				      $hostImageInput = $filename;
@@ -397,10 +403,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 // Query
 				      $query = "INSERT INTO upload 
-				      (name, time, audio, image, duration, start, end, scheduled, special)
+				      (name, time, audio, image, duration, start, end, scheduled, special, slug)
 				      VALUES('". $name ."', '". $time ."', '". $hostAudioInput ."',
 				       '". $hostImageInput ."', '". $duration ."'
-				       , '". $start ."', '". $end ."', '". $scheduled ."', '".$special."');";
+				       , '". $start ."', '". $end ."', '". $scheduled ."', '".$special."', '".$slug."');";
 				      $result = mysqli_query($con, $query);   
 				  }
 		    }

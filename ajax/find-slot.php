@@ -1,8 +1,13 @@
 <?php
+
+// Get Slug
+$slug = $_POST['slug'];
+
 	$query = "SELECT * 
 	FROM upload 
 	WHERE end >= '".$time."' 
 	AND special != 'timed'
+    AND slug = '".$slug."'
 	ORDER BY end 
 	DESC LIMIT 1";
 	$result = mysqli_query($con, $query);

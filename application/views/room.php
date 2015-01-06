@@ -78,7 +78,7 @@ else
 
 <!-- Viewer -->
     <div id="viewer">
-      <iframe id="showsFrame" src="load/shows.php" seamless></iframe> 
+      <iframe id="showsFrame" src="<?php echo $slug; ?>/shows" seamless></iframe> 
     </div>
 
   </div>
@@ -127,7 +127,10 @@ else
 ?>
     <!-- Script -->
     <!-- Set slug for script files -->
-    <script>var slug = '<?php echo $slug; ?>';</script>
+    <script>var slug = '<?php echo $slug; ?>';
+    var uploadLoad = '<iframe id="uploadFrame" src="<?php echo $slug; ?>/upload" seamless></iframe>';
+    var showsLoad = '<iframe id="showsFrame" src="<?php echo $slug; ?>/shows" seamless></iframe>'; 
+    </script>
     <script type="text/javascript" src="resources/tools/jquery-1.8.3.min.js"></script>
     <script type="text/javascript"src="resources/tools/bootstrap.min.js"></script>
     <script type="text/javascript" src="resources/script.js"></script>

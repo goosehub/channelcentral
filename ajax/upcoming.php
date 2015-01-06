@@ -1,11 +1,19 @@
 <?php
+
+include 'connect.php';
+
+
   $time = time();
   date_default_timezone_set('America/New_York');
+
+// Get Slug
+$slug = $_POST['slug'];
 
   // Get current queue
       $query = "SELECT *
       FROM upcoming 
       WHERE start > '". $time ."'
+      AND slug = '".$slug."'
       ORDER BY start ASC;";
   // Fetch each row
   if ($result = mysqli_query($con, $query))

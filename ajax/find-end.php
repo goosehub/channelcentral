@@ -1,4 +1,8 @@
 <?php
+
+// Get Slug
+$slug = $_POST['slug'];
+
 // Find natural end
 	$end = $start + $duration;
 // Check if timed uploads will have to cutoff this upload
@@ -7,6 +11,7 @@
 	WHERE start >= '".$start."'
 	AND start <= '".$end."'
 	AND special = 'timed'
+    AND slug = '".$slug."'
 	ORDER BY start ASC
 	LIMIT 1;";
 	$result = mysqli_query($con, $query);
