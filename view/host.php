@@ -105,12 +105,12 @@ session_start();
 
 <div class="input-group">
     <div class="input-group-addon">Navbar Viewer Purple</div>
-      <input class="form-control" type="input" name="hostNavPurple" /><br />
+      <input class="form-control" type="input" name="hostNavPurple" disabled /><br />
     </div>
 
 <div class="input-group">
     <div class="input-group-addon">Navbar Viewer Orange</div>
-      <input class="form-control" type="input" name="hostNavOrange" /><br />
+      <input class="form-control" type="input" name="hostNavOrange" disabled /><br />
     </div>
 
 <div class="input-group">
