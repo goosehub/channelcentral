@@ -60,11 +60,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		if ($masterShowTitle && $masterShowTimeframe && $masterShowStart)
 		{
 		      $query = "INSERT INTO upcoming 
-		      (title, timeframe, start, name)
+		      (title, timeframe, start, name, slug)
 		      VALUES('". $masterShowTitle ."',
 		      '". $masterShowTimeframe ."',
 		      '". $masterShowStart ."',
-		      '". $name ."');";
+		      '". $name ."',
+		      '". $slug ."');";
 		      $result = mysqli_query($con, $query);  
 		}
 // Show insert
@@ -72,13 +73,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			&& $masterHostEnd && $masterHostReadStart && $masterHostReadEnd)
 		{
 		      $query = "INSERT INTO passwords 
-		      (name, password, start, end, readStart, readEnd)
+		      (name, password, start, end, readStart, readEnd, slug)
 		      VALUES('". $masterHostName ."',
 		      '". $masterPasswordGenerate ."',
 		      '". $masterHostStart ."',
 		      '". $masterHostEnd ."',
 		      '". $masterHostReadStart ."',
-		      '". $masterHostReadEnd ."');";
+		      '". $masterHostReadEnd ."',
+		      '". $slug ."');";
 		      $result = mysqli_query($con, $query);  
 		}
 	}

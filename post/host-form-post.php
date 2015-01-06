@@ -41,9 +41,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	// files must be sanitized later
 
 // Get Valid Passwords
-	include 'host-password.php';
+	include '../ajax/host-password.php';
 	$hostPassword = $hostPassword['password'];
-	include 'master-password.php';
+	include '../ajax/master-password.php';
 	$masterPassword = $masterPassword['password'];
 
 // Translate hostStart into UNIX
@@ -54,7 +54,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 // If current video will be clear, set as ID to be deleted
 	if (isset($_POST['hostClearCurrent'])) {
-		include 'find-current.php';
+		include '../ajax/find-current.php';
 		$hostDeleteItem = $current['id'];
 	}
 // Else, prepare any other ID's to be deleted
@@ -180,7 +180,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			    WHERE slug = '".$slug."';";
 			    $result = mysqli_query($con, $query); 
 // Set ID to be deleted to be the current
-			include 'find-current.php';
+			include '../ajax/find-current.php';
 			$hostDeleteItem = $current['id'];
 			}
 // find duration of deleted item
@@ -298,7 +298,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				$duration = $duration + 5;
 
 // Find next available slot
-				include 'host-insert.php';
+				include '../ajax/host-insert.php';
 // Query
 			      $query = "INSERT INTO upload 
 			      			(name, time, youtube, duration,
@@ -394,7 +394,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				      $duration = $duration + 5;
 
 // Find next available slot
-					  include 'host-insert.php';
+					  include '../ajax/host-insert.php';
 
 // Prepare for ajax
 				      $hostImageInput = $filename;

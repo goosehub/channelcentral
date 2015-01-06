@@ -1,5 +1,5 @@
 <?php
-  include '../ajax/host-ajax.php';
+  include 'host-ajax.php';
 ?>
 
 <h1 id="current-show-name">

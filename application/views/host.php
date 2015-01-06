@@ -95,7 +95,7 @@ session_start();
 
 <div class="input-group">
     <div class="input-group-addon">Start time</div>
-      <input class="form-control" type="input" name="55ostStart" placeholder="YYYY-MM-DD HH:MM:SSPM" /><br />
+      <input class="form-control" type="input" name="hostStart" placeholder="YYYY-MM-DD HH:MM:SSPM" /><br />
     </div>
 <h5 class="note">-Format is YYYY-MM-DD HH:MM:SSPM | All times are EST (New York Time)</h5>
 
