@@ -4,7 +4,7 @@
 
 include '../connect.php';
 
-include '../model/host-model.php';
+include '../ajax/host-ajax.php';
 
 echo $host['background'];
 

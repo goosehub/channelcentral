@@ -2,9 +2,9 @@
 
 include '../connect.php';
 
-include '../model/queue-limit.php';
+include '../ajax/queue-limit.php';
 
-include '../model/host-model.php';
+include '../ajax/host-ajax.php';
 
 	if ($queueLimit['start'] > 1)
 	{

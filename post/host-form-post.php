@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // if(isset($_SESSION['name'])) //also works
 {
 // Redirect after submit
-	header("Location: ../view/host.php");
+	header("Location: /radio");
 
 //Set and sanitize known variables for query
 	// variable names are long to prevent confusion
@@ -40,9 +40,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	// files must be sanitized later
 
 // Get Valid Passwords
-	include '../model/host-password.php';
+	include '../ajax/host-password.php';
 	$hostPassword = $hostPassword['password'];
-	include '../model/master-password.php';
+	include '../ajax/master-password.php';
 	$masterPassword = $masterPassword['password'];
 
 // Translate hostStart into UNIX
@@ -53,7 +53,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 // If current video will be clear, set as ID to be deleted
 	if (isset($_POST['hostClearCurrent'])) {
-		include '../model/find-current.php';
+		include '../ajax/find-current.php';
 		$hostDeleteItem = $current['id'];
 	}
 // Else, prepare any other ID's to be deleted
@@ -80,7 +80,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Current show Name
 		if ($hostCurrentShowNameInput)
 		{
-		      $query = "UPDATE host 
+		      $query = "UPDATE rooms 
 		      SET showName = '". $hostCurrentShowNameInput ."'
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
@@ -88,7 +88,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Current Show Description
 		if ($hostCurrentShowDescInput)
 		{
-		      $query = "UPDATE host 
+		      $query = "UPDATE rooms 
 		      SET showDescription = '". $hostCurrentShowDescInput ."'
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
@@ -96,7 +96,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Headline
 		if ($hostHeadlineInput)
 		{
-		      $query = "UPDATE host 
+		      $query = "UPDATE rooms 
 		      SET headline = '". $hostHeadlineInput ."'
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
@@ -106,7 +106,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 			$hostNavPurple = strip_tags($hostNavPurple, $whiteTags);
 			$hostNavPurple = preg_replace("/<iframe/i", "<iframe sandbox", $hostNavPurple);
-		      $query = "UPDATE host 
+		      $query = "UPDATE rooms 
 		      SET purple = '". $hostNavPurple ."'
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
@@ -116,7 +116,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 			$hostNavOrange = strip_tags($hostNavOrange, $whiteTags);
 			$hostNavOrange = preg_replace("/<iframe/i", "<iframe sandbox", $hostNavOrange);
-		      $query = "UPDATE host 
+		      $query = "UPDATE rooms 
 		      SET orange = '". $hostNavOrange ."'
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
@@ -126,7 +126,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 			$hostNavGreen = strip_tags($hostNavGreen, $whiteTags);
 			$hostNavGreen = preg_replace("/<iframe/i", "<iframe sandbox", $hostNavGreen);
-		      $query = "UPDATE host 
+		      $query = "UPDATE rooms 
 		      SET green = '". $hostNavGreen ."'
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
@@ -134,7 +134,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Max Length
 		if ($hostLengthInput)
 		{
-		      $query = "UPDATE host 
+		      $query = "UPDATE rooms 
 		      SET length = '". $hostLengthInput ."'
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
@@ -142,7 +142,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Max Queue
 		if ($hostQueueLimitInput)
 		{
-		      $query = "UPDATE host 
+		      $query = "UPDATE rooms 
 		      SET queue = '". $hostQueueLimitInput ."'
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
@@ -173,12 +173,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Keep consistant
 				$reloadTime = $time + 20;
 // Set reload command to be found by client
-			    $query = "UPDATE host 
+			    $query = "UPDATE rooms 
 			    SET reload = '". $reloadTime ."'
 			    WHERE id = 1;";
 			    $result = mysqli_query($con, $query); 
 // Set ID to be deleted to be the current
-			include '../model/find-current.php';
+			include '../ajax/find-current.php';
 			$hostDeleteItem = $current['id'];
 			}
 // find duration of deleted item
@@ -252,10 +252,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Move Files
 		      move_uploaded_file($_FILES["hostBackgroundInput"]["tmp_name"],
 		      "../upload/background/" . $filename);
-// Prepare for model
+// Prepare for ajax
 		      $hostBackgroundInput = $filename;
 // Query
-		      $query = "UPDATE host 
+		      $query = "UPDATE rooms 
 		      SET background = '". $hostBackgroundInput ."'
 		      WHERE id = 1;";
 		      $result = mysqli_query($con, $query);  
@@ -292,7 +292,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				$duration = $duration + 5;
 
 // Find next available slot
-				include '../model/host-insert.php';
+				include '../ajax/host-insert.php';
 // Query
 			      $query = "INSERT INTO upload 
 			      			(name, time, youtube, duration,
@@ -388,9 +388,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				      $duration = $duration + 5;
 
 // Find next available slot
-					  include '../model/host-insert.php';
+					  include '../ajax/host-insert.php';
 
-// Prepare for model
+// Prepare for ajax
 				      $hostImageInput = $filename;
 		  		      $hostAudioInput = $_FILES["hostAudioInput"]["name"];
 					  $hostAudioInput = mysqli_real_escape_string($con, $hostAudioInput);

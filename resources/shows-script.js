@@ -4,7 +4,7 @@ $(document).ready(function()
     {
         $.ajax(
         {
-            url: "../model/current-show.php",
+            url: "../ajax/current-show.php",
             cache: false,
             success: function(html)
             {

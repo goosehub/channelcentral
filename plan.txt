@@ -47,7 +47,7 @@ Only one name of a kind at a time
 
 			HOW
 	Model
-each table gets a room column
+each table gets a slug column
 host is turned into rooms
 rooms is more than one row
 rooms row made with each ADMIN sign up
@@ -72,11 +72,8 @@ install cjax
 Name
 Domain
 Database
-Routing
-Home Model
-Room Model
+Model
 Home Controller
-News Controller
 Room Controller
 Main Controller
 Host Controller
@@ -87,3 +84,18 @@ Room view
 Host view
 Admin View
 Master View
+
+
+					TODO
+Highly Urgent
+	Make show frame live updating
+	Show Description maintain characters.
+	Sanitize HTML entities
+Moderate Urgent
+	Post after long silent with name and/or date
+	Left Scrollbar on the left side of container
+	Show javascript eats more bandwidth than needed.
+Low Urgent
+	Add in bumps
+	Text Markdown font change in chat
+	CMS improvements

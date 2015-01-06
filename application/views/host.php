@@ -26,7 +26,7 @@ session_start();
 <h2 id="welcome">Welcome to the hosting center</h2>
 <h4>During beta, this page is available to all users except during events</h4>
 
-<form name="uploadForm" id="hostForm" action="../controller/host-form-post.php" method="post" enctype="multipart/form-data">
+<form name="uploadForm" id="hostForm" action="../post/host-form-post.php" method="post" enctype="multipart/form-data">
 <div class="form-group">
 
 <div class="input-group hostPassword">

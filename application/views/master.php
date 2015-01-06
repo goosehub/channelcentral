@@ -26,7 +26,7 @@ session_start();
 <h2 id="welcome">Welcome to your Master center</h2>
 <h4>Enter password, make changes, then press enter or click submit</h4>
 
-<form name="uploadForm" id="masterForm" action="../controller/master-form-post.php" method="post" enctype="multipart/form-data">
+<form name="uploadForm" id="masterForm" action="../post/master-form-post.php" method="post" enctype="multipart/form-data">
 <div class="form-group">
 
 <div class="input-group hostPassword">

@@ -18,7 +18,7 @@
 <div id="current-show-cnt">
 
   <?php
-  include '../model/current-show.php';
+  include '../ajax/current-show.php';
   ?>
 
 </div>
@@ -26,7 +26,7 @@
 <h1 id="upcoming-headline">Upcoming</h1>
 <div id="upcoming">
   <?php
-  include '../model/upcoming.php';
+  include '../ajax/upcoming.php';
   ?>
 </div>
 

@@ -2,7 +2,7 @@
 
 include '../connect.php';
 
-include 'host-model.php';
+include 'host-ajax.php';
 
 $time = time();
 $limit = $time + $host['queue'];

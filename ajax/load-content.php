@@ -8,7 +8,7 @@ include '../connect.php';
 $time = time();
 
 // Query database
-include '../model/find-current.php';
+include '../ajax/find-current.php';
 
 // Find how far behind if any user is
 $lag = $time - $current['start'];

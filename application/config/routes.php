@@ -38,9 +38,14 @@
 |
 */
 
-$route['default_controller'] = "welcome";
+$route['default_controller'] = "home";
 $route['404_override'] = '';
 
+$route['admin'] = 'admin';
+// $route['main'] = 'room/main/$1';
+$route['(:any)/host'] = 'room/host/$1';
+$route['(:any)/master'] = 'room/master/$1';
+$route['(:any)'] = 'room/view/$1';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

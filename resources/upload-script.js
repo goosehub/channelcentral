@@ -7,7 +7,7 @@ $(document).ready(function()
 // upload information
         $.ajax(
         {
-            url: "../model/upload-info.php",
+            url: "../ajax/upload-info.php",
             cache: false,
             success: function(html)
             {
@@ -27,7 +27,7 @@ $(document).ready(function()
     {
         $.ajax(
         {
-            url: "../model/active-submit.php",
+            url: "../ajax/active-submit.php",
             cache: false,
             success: function(html)
             {
@@ -45,7 +45,7 @@ $(document).ready(function()
 $('#submitForm').click(function()
 {
     loadContent();
-    $.post('controller/form-post.php', $('#uploadForm').serialize());
+    $.post('post/form-post.php', $('#uploadForm').serialize());
 });
 
 

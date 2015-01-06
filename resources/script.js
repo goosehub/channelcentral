@@ -1,14 +1,14 @@
 // Nav bar buttons
 
-var uploadLoad = '<iframe id="uploadFrame" src="view/upload.php" seamless></iframe>';
+var uploadLoad = '<iframe id="uploadFrame" src="load/upload.php" seamless></iframe>';
 
-var showsLoad = '<iframe id="showsFrame" src="view/shows.php" seamless></iframe>';
+var showsLoad = '<iframe id="showsFrame" src="load/shows.php" seamless></iframe>';
 
-var purpleLoad = '<iframe id="pulpFrame" src="http://interplay.xyz/pulp/winter2013.pdf" seamless></iframe>'; 
+var purpleLoad = ''; 
 
-var orangeLoad = '<iframe id="chanFrame" src="http://4chan.org/s4s/"></iframe>';
+var orangeLoad = '';
 
-var greenLoad = '<center><img class="img-circle questionImg" src="resources/sumo.gif"/></center>'; 
+var greenLoad = ''; 
 
 var invisible = 0;
 
@@ -33,7 +33,7 @@ function loadContent()
 {
     $.ajax(
     {
-        url: "model/load-content.php",
+        url: "ajax/load-content.php",
         cache: false,
         success: function(html)
         {
@@ -65,7 +65,7 @@ function chatLoad()
 {
     $.ajax(
     {
-        url: "model/chat-load.php",
+        url: "ajax/chat-load.php",
         cache: false,
         success: function(html)
         {
@@ -82,7 +82,7 @@ function chatLogger()
 {
     $.ajax(
     {
-        url: "model/chat-logger.php",
+        url: "ajax/chat-logger.php",
         cache: false,
         success: function(html)
         {
@@ -108,7 +108,7 @@ var background = '';
 // Navbar
         $.ajax(
         {
-            url: "model/navbar.php",
+            url: "ajax/navbar.php",
             cache: false,
             success: function(html)
             {
@@ -122,7 +122,7 @@ var background = '';
 // Headline
         $.ajax(
         {
-            url: "model/headline.php",
+            url: "ajax/headline.php",
             cache: false,
             success: function(html)
             {
@@ -132,7 +132,7 @@ var background = '';
 // background image
         $.ajax(
         {
-            url: "model/background.php",
+            url: "ajax/background.php",
             cache: false,
             success: function(html)
             {
@@ -151,7 +151,7 @@ var background = '';
 // Check if current song is still playing
         $.ajax(
         {
-            url: "model/check-reload.php",
+            url: "ajax/check-reload.php",
             cache: false,
             success: function(html)
             {
@@ -181,7 +181,7 @@ $('#uploadBtn').click(function()
 });
 // End user session
   $("#leaveBtn ").click(function(){
-        window.location = 'controller/leave.php';   
+        window.location = 'post/leave.php';   
     });
 $('#purpleBtn').click(function()
 {
@@ -202,7 +202,7 @@ $('#greenBtn').click(function()
 $("#submitChat").click(function()
 {
     var clientchat = $("#chatInput").val();
-    $.post("model/chat-post.php",
+    $.post("post/chat-post.php",
     {
         text: clientchat
     });

@@ -26,7 +26,7 @@ $config['base_url']	= '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +224,10 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+
+// Special Note For Radio Project. This is the open source encryption key
+// Change this and keep secret for live use
+$config['encryption_key'] = 'Omg8o5C89j2W5e15F8WPFuxC9Q0YSk14';
 
 /*
 |--------------------------------------------------------------------------

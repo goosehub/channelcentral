@@ -2,38 +2,19 @@
 session_start();
 date_default_timezone_set('America/New_York');
 
-$time = time();
-
 include '../connect.php';
 
-// This is only for loading new messages
-// model/chat-load.php is the initial chat log load
+// This is only for initial load
+// ajax/chat-logger.php is used for loading new messages 
 
-// Get last loaded message
-$sessChat = $_SESSION['chat-id'];
-
-// If chat-id expired, set to 0 as to avoid php errors
-if (!$_SESSION['chat-id']) {
-  $_SESSION['chat-id'] = 0;
-}
-
-// Select most recent post
-$query = "SELECT id
-          from chat
-          ORDER BY id DESC LIMIT 1;";
-$result = mysqli_query($con, $query);
-$lastPost = mysqli_fetch_assoc($result);
-
-// If user is caught up on chat log
-if ($_SESSION['chat-id'] != $lastPost['id']) 
+// Get chat data
+// Select the most recent 50, then order by ASC
+$query = "SELECT * from (
+        SELECT * from chat
+        order by id DESC limit 50
+        ) tmp ORDER BY tmp.id ASC;";
+if ($result = mysqli_query($con, $query))
 {
-  // Get chat data
-  $query = "SELECT *
-          from chat
-          WHERE id > ".$_SESSION['chat-id']."
-          ORDER BY id ASC;";
-  if ($result = mysqli_query($con, $query))
-  {
     while($row = mysqli_fetch_assoc($result)) 
     {
 // Sanitize message
@@ -61,7 +42,6 @@ if ($_SESSION['chat-id'] != $lastPost['id'])
 // set most recently loaded chat
         $_SESSION['chat-id'] = $row['id'];
         $_SESSION['loadName'] = $row['name'];
-      }
     }
 }
 

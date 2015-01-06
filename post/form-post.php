@@ -23,10 +23,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	// files must be sanitized later
 
 // Load for later
-include '../model/host-model.php';
+include '../ajax/host-ajax.php';
 
 // Find queue limit
-include '../model/queue-limit.php';
+include '../ajax/queue-limit.php';
 // 
 	if ($queueLimit['end'] > 1)
 	{
@@ -86,8 +86,8 @@ if (strlen($youtubeInput) > 10)
 		else
 		{
 // Find next available slot
-		include '../model/find-slot.php';
-		include '../model/find-end.php';
+		include '../ajax/find-slot.php';
+		include '../ajax/find-end.php';
 
 // Query
 		      $query = "INSERT INTO upload 
@@ -188,10 +188,10 @@ if (strlen($youtubeInput) > 10)
 					else
 					{
 // find next available slot
-				include '../model/find-slot.php';
-				include '../model/find-end.php';
+				include '../ajax/find-slot.php';
+				include '../ajax/find-end.php';
 
-// Prepare for model
+// Prepare for ajax
 			      $imageInput = $filename;
 	  		      $audioInput = $_FILES["audioInput"]["name"];
 				  $audioInput = mysqli_real_escape_string($con, $audioInput);
@@ -225,6 +225,6 @@ if (strlen($youtubeInput) > 10)
 }
 
 // Redirect after submit
-	header("Location: ../view/upload.php");
+	header("Location: ../load/upload.php");
 
 ?>

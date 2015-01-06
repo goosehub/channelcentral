@@ -2,7 +2,7 @@
 
 include '../connect.php';
 
-include '../model/host-model.php';
+include '../ajax/host-ajax.php';
 
 $time = time();
 

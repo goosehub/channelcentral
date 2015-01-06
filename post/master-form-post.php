@@ -8,7 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // if(isset($_SESSION['name'])) //also works
 {
 // Redirect after submit
-	header("Location: ../view/master.php");
+	header("Location: ../load/master.php");
 
 //Set and sanitize known variables for query
 	// variable names are long to prevent confusion
@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$masterHostEnd = strtotime($masterHostEnd);
 
 // Get Valid Passwords
-	include '../model/master-password.php';
+	include '../ajax/master-password.php';
 	$masterPassword = $masterPassword['password'];
 
 // 

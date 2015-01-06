@@ -6,13 +6,13 @@ $('#hostSubmitForm').click(function()
 {
     //not working
     loadContent();
-    $.post('controller/host-form-post.php', $('#hostForm').serialize());
+    $.post('post/host-form-post.php', $('#hostForm').serialize());
 });
 $('#masterSubmitForm').click(function()
 {
     //not working
     loadContent();
-    $.post('controller/master-form-post.php', $('#masterForm').serialize());
+    $.post('post/master-form-post.php', $('#masterForm').serialize());
 });
 // Reload the upcoming queue
 $('.reloadQueue').click(function()
@@ -20,7 +20,7 @@ $('.reloadQueue').click(function()
     // Current Queue
     $.ajax(
     {
-        url: "../model/current-queue.php",
+        url: "../ajax/current-queue.php",
         cache: false,
         success: function(html)
         {
@@ -30,7 +30,7 @@ $('.reloadQueue').click(function()
     // Timed Queue
     $.ajax(
     {
-        url: "../model/timed-queue.php",
+        url: "../ajax/timed-queue.php",
         cache: false,
         success: function(html)
         {

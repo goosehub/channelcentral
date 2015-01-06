@@ -2,7 +2,7 @@
 
 include '../connect.php';
 
-include '../model/host-model.php';
+include '../ajax/host-ajax.php';
 	
 // | is used to split data for jquery 
 echo $host['purple'];
