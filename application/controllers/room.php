@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
 class Room extends CI_Controller {
 

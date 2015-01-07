@@ -84,6 +84,16 @@ Admin View
 Master View
 
 
+				TO DO for BETA
+Functional experience
+Bootstrap added pages
+Viewer count
+Homepage listing
+Remove admin temporarily
+Intuitive redirecting
+Explain features
+
+
 					TODO
 Highly Urgent
 	Sanitize HTML entities

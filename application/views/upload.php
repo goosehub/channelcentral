@@ -13,10 +13,6 @@
 <body>
     <!-- Body -->
 
-<?php 
-session_start();
-?>
-
     <div id="uploadFormCnt">
 
     <div id="uploadInfo">
