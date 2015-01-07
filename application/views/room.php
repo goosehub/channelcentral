@@ -39,6 +39,7 @@ if(isset($_POST['enter'])){
         $_SESSION['name'] = stripslashes(htmlspecialchars($_POST['name']));
 // Set room
         $_SESSION['slug'] = $slug;
+
 // Set Session Variables
         $_SESSION['errLength'] = $_SESSION['errRepeat'] = $_SESSION['errCode'] = 
         $_SESSION['errImgSize'] = $_SESSION['errAudioSize'] = $_SESSION['errFileType'] =

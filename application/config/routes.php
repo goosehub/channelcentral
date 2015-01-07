@@ -47,6 +47,12 @@ $route['(:any)/shows'] = 'room/shows/$1';
 $route['(:any)/upload'] = 'room/upload/$1';
 $route['(:any)/host'] = 'room/host/$1';
 $route['(:any)/master'] = 'room/master/$1';
+$route['(:any)/new'] = 'create/make_room/$1';
+$route['(:any)/login'] = 'login/admin/$1';
+$route['(:any)/logout'] = 'login/logout/$1';
+$route['(:any)/verifylogin'] = 'login/verifylogin/$1';
+
+$route['(:any)/(:any)'] = 'home';
 $route['(:any)'] = 'room/view/$1';
 
 /* End of file routes.php */

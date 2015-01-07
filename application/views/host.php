@@ -16,24 +16,24 @@
 
 <body>
     <!-- Body -->
-
 <?php 
 session_start();
 ?>
 
 <div id="hostFormCnt">
 
-<h2 id="welcome">Welcome to the hosting center</h2>
-<h4>During beta, this page is available to all users except during events</h4>
+<h2 id="welcome">Welcome to your hosting center</h2>
+
+<h3><a href="logout">Logout</a></h3>
 
 <form name="uploadForm" id="hostForm" action="../post/host-form-post.php" method="post" enctype="multipart/form-data">
 <div class="form-group">
 
-<div class="input-group hostPassword">
+<!-- <div class="input-group hostPassword">
     <div class="input-group-addon passwordAddon">Enter Password</div>
-    <!-- Remove value="1234" when risk of unauthorized users exists or password changes -->
+    Remove value="1234" when risk of unauthorized users exists or password changes
       <input class="input-lg" type="input" name="passwordInput" value="1234"/><br />
-    </div>
+    </div> -->
 
 <input class="btn btn-primary hostSubmit" type="submit" name="hostSubmitForm" value="Submit Changes" />
 

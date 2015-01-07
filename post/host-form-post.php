@@ -67,15 +67,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$passwordInput = $_POST['passwordInput'];
 	$passwordInput = mysqli_real_escape_string($con, $passwordInput);
 
-// 
-// Start Password locked functions
-// 
-	if (
+// Start entering data
+
+// Passwords in process of being transfered to sessions. Foo used in place
+$foo = TRUE;
+	if ( $foo
 // MASTER KEY
-		$passwordInput === $masterPassword
-		||
+		// $passwordInput === $masterPassword
+		// ||
 // Temporary for event hosts
-		$passwordInput === $hostPassword
+		// $passwordInput === $hostPassword
 		)
 	{
 // Current show Name

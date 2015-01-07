@@ -4,14 +4,17 @@ class Room extends CI_Controller {
 
  function __construct()
  {
-   parent::__construct();
-   $this->load->model('room_model','',TRUE);
+	parent::__construct();
+	$this->load->model('room_model','',TRUE);
+	$this->load->helper(array('form'));
+	$this->load->helper('url'); 
+	$this->load->library('session');
  }
 
 	public function view($slug)
 	{
-		session_start();
 	    $data['title'] = $slug;
+	    $data['test'] = $slug;
 		$data['slug'] = $_POST['slug'] = $slug;
 	    $check = $this->room_model->check_slug_exists($slug);
 	    if ($check)
@@ -20,7 +23,7 @@ class Room extends CI_Controller {
 	    }
 	    else
 	    {
-		$this->load->view('create', $data);
+		$this->load->view('new', $data);
 		}
 	}
 	public function shows($slug)
@@ -35,9 +38,19 @@ class Room extends CI_Controller {
 	}
 	public function host($slug)
 	{
-	    $data['title'] = $slug.' Host Page';
-		$data['slug'] = $_POST['slug'] = $slug;
-		$this->load->view('host', $data);
+		if($this->session->userdata('logged_in')['username'] === $slug)
+		{
+		    $data['title'] = $slug.' Host Page';
+			$data['slug'] = $_POST['slug'] = $slug;
+			$this->load->view('host', $data);
+		}
+		else
+		{
+// Request login
+		    $data['title'] = $slug;
+		 	$data['slug'] = $slug;
+		 	$this->load->view('login', $data);
+		}
 	}
 	public function master($slug)
 	{
@@ -53,3 +66,5 @@ class Room extends CI_Controller {
 	}
 	
 }
+
+?>

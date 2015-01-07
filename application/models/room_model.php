@@ -4,21 +4,43 @@ Class room_model extends CI_Model
 {
 	function check_slug_exists($slug)
 	{
-	$this->db->select('slug');
-	$this->db->from('rooms');
-	$this->db->where('slug', $slug);
-	$this->db->limit(1);
+		$this->db->select('slug');
+		$this->db->from('rooms');
+		$this->db->where('slug', $slug);
+		$this->db->limit(1);
 
-	$query = $this->db->get();
+		$query = $this->db->get();
 
-	if($query -> num_rows() == 1)
-	{
-	 return $query->result();
+		if($query -> num_rows() == 1)
+		{
+		 return $query->result();
+		}
+		else
+		{
+		 return false;
+		}
 	}
-	else
+	function verify_room_password($slug, $password)
 	{
-	 return false;
+		// $array = array('slug' => $slug, 'password' => md5($password));
+		$this->db->select('slug', 'id', 'password');
+		$this->db->from('rooms');
+		// $this->db->where($array);
+		$this->db->where('slug', $slug);
+		$this->db->where('password', md5($password));
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+
+		if($query -> num_rows() == 1)
+		{
+		 return $query->result();
+		}
+		else
+		{
+		 return false;
+		}
 	}
 }
 
-}
+?>
