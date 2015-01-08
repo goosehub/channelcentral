@@ -7,7 +7,7 @@
 <!-- For Responsive Mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- For Crawlers -->
-  <meta name="keywords" content="esfores, radio, music, video, share, youtube">
+  <meta name="keywords" content="channelcentral, radio, music, video, share, youtube">
   <meta name="description" content="An interactive online radio station">
   <meta name="author" content="Goose">
   <meta name="robots" CONTENT="all">

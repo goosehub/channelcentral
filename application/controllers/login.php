@@ -14,7 +14,9 @@ class Login extends CI_Controller {
  {
     $data['title'] = $slug;
  	$data['slug'] = $slug;
+  $this->load->view('templates/header', $data);
  	$this->load->view('login', $data);
+  $this->load->view('templates/footer', $data);
  }
  function verifylogin($slug)
   {
@@ -27,7 +29,9 @@ class Login extends CI_Controller {
    {
 //Field validation failed.  User redirected to login page
      $data['title'] = 'Login';
-     $this->load->view('login');
+     $this->load->view('templates/header', $data);
+     $this->load->view('command/login');
+     $this->load->view('templates/footer', $data);
    }
    else
    {

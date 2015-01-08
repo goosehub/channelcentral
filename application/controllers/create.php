@@ -22,7 +22,9 @@ class Create extends CI_Controller {
 		{
 //Field validation failed. Reload create page
 		  $data['title'] = 'Problem with your form';
-		  $this->load->view('new', $data);
+		  $this->load->view('templates/header', $data);
+		  $this->load->view('room/new', $data);
+		  $this->load->view('templates/footer', $data);
 		}
 		else if ($check_slug)
 		{
@@ -47,7 +49,9 @@ class Create extends CI_Controller {
 			}
 // Load start page
 		  $data['title'] = 'Get Started';
-		  $this->load->view('start', $data);
+		  $this->load->view('templates/header', $data);
+		  $this->load->view('command/start', $data);
+		  $this->load->view('templates/footer', $data);
 	   }
    }
 

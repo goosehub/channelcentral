@@ -20,22 +20,24 @@ class Room extends CI_Controller {
 	    $check = $this->room_model->check_slug_exists($slug);
 	    if ($check)
 	    {
-		$this->load->view('room', $data);
+		$this->load->view('room/main_view', $data);
 	    }
 	    else
 	    {
-		$this->load->view('new', $data);
+		$this->load->view('templates/header', $data);
+		$this->load->view('room/new', $data);
+		$this->load->view('templates/footer', $data);
 		}
 	}
 	public function shows($slug)
 	{
 		$data['slug'] = $_POST['slug'] = $slug;
-		$this->load->view('shows', $data);
+		$this->load->view('room/shows', $data);
 	}
 	public function upload($slug)
 	{
 		$data['slug'] = $_POST['slug'] = $slug;
-		$this->load->view('upload', $data);
+		$this->load->view('room/upload', $data);
 	}
 	public function host($slug)
 	{
@@ -43,27 +45,29 @@ class Room extends CI_Controller {
 		{
 		    $data['title'] = $slug.' Host Page';
 			$data['slug'] = $_POST['slug'] = $slug;
-			$this->load->view('host', $data);
+			$this->load->view('command/host', $data);
 		}
 		else
 		{
 // Request login
 		    $data['title'] = $slug;
 		 	$data['slug'] = $slug;
-		 	$this->load->view('login', $data);
+			$this->load->view('templates/header', $data);
+		 	$this->load->view('command/login', $data);
+			$this->load->view('templates/footer', $data);
 		}
 	}
 	public function master($slug)
 	{
 	    $data['title'] = $slug.' Master Page';
 		$data['slug'] = $_POST['slug'] = $slug;
-		$this->load->view('master', $data);
+		$this->load->view('command/master', $data);
 	}
 	public function main($slug)
 	{
 	    $data['title'] = $slug;
 		$data['slug'] = $_POST['slug'] = $slug;
-		$this->load->view('room', $data);
+		$this->load->view('room/main_view', $data);
 	}
 	
 }
