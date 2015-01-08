@@ -91,7 +91,6 @@ Viewer count
 Homepage listing
 Remove admin temporarily
 Intuitive redirecting
-Explain features
 
 
 					TODO

@@ -1,10 +1,10 @@
  @font-face {
   font-family: "OpenSans-Regular";
-  src: url(/radio/resources/fonts/OpenSans-Regular.ttf) format("truetype");
+  src: url(../resources/fonts/OpenSans-Regular.ttf) format("truetype");
 } 
 @font-face {
   font-family: "BebasNeue";
-  src: url(/radio/resources/fonts/BebasNeue.otf) format("opentype");
+  src: url(../resources/fonts/BebasNeue.otf) format("opentype");
 }
 /*		    */
 /*	gloabal */

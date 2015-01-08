@@ -16,7 +16,8 @@ Class create_model extends CI_Model
 	    'reload' => '0',
 	    'purple' => '<h1>TEST</h1>',
 	    'orange' => '<h1>TEST</h1>',
-	    'green' => '<h1>TEST</h1>'
+	    'green' => '<h1>TEST</h1>',
+	    'started' => time()
 	    );
 	   $this->db->insert('rooms', $data);
 	}

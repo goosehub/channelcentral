@@ -4,7 +4,7 @@
 <head>
       <!-- Style -->
   <!-- <link rel="stylesheet" href="../resources/tools/bootstrap.min.css" /> -->
-  <link rel="stylesheet" href="/radio/resources/shows-style.css" />
+  <link rel="stylesheet" href="<?=base_url()?>resources/shows-style.css" />
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -43,9 +43,9 @@
 <!-- Script -->
     <!-- Set slug for script files -->
     <script>var slug = '<?php echo $slug; ?>';</script>
-    <script type="text/javascript" src="/radio/resources/tools/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>resources/tools/jquery-1.8.3.min.js"></script>
     <!-- <script type="text/javascript" src="../resources/tools/bootstrap.min.js"></script> -->
-    <script type="text/javascript" src="/radio/resources/shows-script.js"></script>
+    <script type="text/javascript" src="<?=base_url()?>resources/shows-script.js"></script>
 
    </body>
    </html>
