@@ -9,7 +9,6 @@ class Room extends CI_Controller {
 	parent::__construct();
 	$this->load->model('room_model','',TRUE);
 	$this->load->helper(array('form'));
-	$this->load->helper('url'); 
 	$this->load->library('session');
  }
 
