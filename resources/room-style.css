@@ -1,5 +1,5 @@
 /*
-radio
+channel central
 */
 
 /*	Include fonts*/
@@ -38,7 +38,7 @@ body {
     overflow-x: hidden;
     /*overflow-y: hidden;*/
     background-color: #000000;
-    background: url('/radio/resources/background-img.jpg') no-repeat center center fixed; 
+    background: url('/resources/image/background-img.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -53,7 +53,7 @@ body {
   -webkit-transition:2s;
   transition:2s;
 }
-#name, #loginEnter {
+#name, #loginEnter, #host-link {
 	margin: 0 auto;
 	display: block;
 	opacity: 0.6;
@@ -74,6 +74,10 @@ body {
 	color: #FFF;
 	font-size: 2em;
 	border-radius: 0 0 0.5em 0.5em;
+}
+#host-link {
+	margin-top: 1em;
+	width: 10%;
 }
 
 /*	Left */

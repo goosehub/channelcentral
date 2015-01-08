@@ -14,7 +14,7 @@
 
 <!-- Style -->
   <link rel="stylesheet" href="resources/tools/bootstrap.min.css" />
-  <link rel="stylesheet" href="resources/style.css" />
+  <link rel="stylesheet" href="resources/room-style.css" />
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -30,6 +30,7 @@ function loginForm($slug){
     <form action="'.$slug.'" method="post">
     <input type="text" name="name" id="name" />
     <input type="submit" name="enter" id="loginEnter" value="Enter Name" />
+    <a id="host-link" class="btn btn-default btn-xs" href="'.$slug.'/host">Host page</a>
     </form></div>';
 }
 // Set session

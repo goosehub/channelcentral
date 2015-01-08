@@ -14,29 +14,29 @@ class Login extends CI_Controller {
  {
     $data['title'] = $slug;
  	$data['slug'] = $slug;
-  $this->load->view('templates/header', $data);
- 	$this->load->view('login', $data);
-  $this->load->view('templates/footer', $data);
+  $this->load->view('templates/form_header', $data);
+ 	$this->load->view('command/login', $data);
+  $this->load->view('templates/form_footer', $data);
  }
  function verifylogin($slug)
   {
 //This method will have the validation
    $this->load->library('form_validation');
-   $this->form_validation->set_rules('slug', 'Username', 'trim|required|xss_clean');
+   $this->form_validation->set_rules('slug', 'Username', 'trim|xss_clean');
    $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
 
    if($this->form_validation->run() == FALSE)
    {
 //Field validation failed.  User redirected to login page
      $data['title'] = 'Login';
-     $this->load->view('templates/header', $data);
+     $this->load->view('templates/form_header', $data);
      $this->load->view('command/login');
-     $this->load->view('templates/footer', $data);
+     $this->load->view('templates/form_footer', $data);
    }
    else
    {
 //Go to private area
-     redirect('/', 'refresh');
+     redirect(''.$this->session->userdata('logged_in')['username'].'/host', 'refresh');
    }
 
  }
@@ -50,6 +50,7 @@ class Login extends CI_Controller {
 
    if($result)
    {
+     $update = $this->room_model->update_last_login($slug);
      $sess_array = array();
      foreach($result as $row)
      {

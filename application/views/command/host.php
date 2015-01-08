@@ -1,30 +1,8 @@
-<!doctype html>
-<html lang="en">
-<meta charset="utf-8">
-<head>
-      <!-- Style -->
-  <link rel="stylesheet" href="../resources/tools/bootstrap.min.css" />
-  <link rel="stylesheet" href="../resources/upload-style.css" />
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <link rel="shortcut icon" href="../resources/images/favicon.ico">
-  <title>
-  HOST center
-  </title>
-</head>
-
-<body>
-    <!-- Body -->
-<?php 
-session_start();
-?>
-
 <div id="hostFormCnt">
 
 <h2 id="welcome">Welcome to your hosting center</h2>
 
-<h3><a href="logout">Logout</a></h3>
+<h3><a class="btn btn-primary" href="logout">Logout</a></h3>
 
 <form name="uploadForm" id="hostForm" action="../post/host-form-post.php" method="post" enctype="multipart/form-data">
 <div class="form-group">
@@ -37,9 +15,40 @@ session_start();
 
 <input class="btn btn-primary hostSubmit" type="submit" name="hostSubmitForm" value="Submit Changes" />
 
-<h3>Host Settings</h3>
+<hr/>
 
-<h5 class="note">-Set Length or Queue to 1 to turn off user uploads</h5>
+<h3>Host Uploads</h3>
+<h5 class="note">-Host uploads go to the front of the queue | Host uploads have no length and size limits</h5>
+
+  <div class="input-group">
+  <div class="input-group-addon">Enter Youtube URL</div>
+  <input class="form-control" type="input" name="hostYoutubeInput" /><br />
+</div>
+
+<button class="btn hostOr" disabled="disabled"><strong>OR</strong></button>
+
+<div class="input-group">
+  <div class="input-group-addon">Upload Audio</div>
+  <input class="form-control" name="hostAudioInput" type="file" />
+</div>
+
+<div class="input-group">
+  <div class="input-group-addon">Attach Image</div>
+  <input class="form-control" name="hostImageInput" type="file" />
+</div>
+
+<button class="btn hostOr" disabled="disabled"><strong>OPTIONAL</strong></button>
+
+<div class="input-group">
+    <div class="input-group-addon">Start time</div>
+      <input class="form-control" type="input" name="hostStart" placeholder="YYYY-MM-DD HH:MM:SSPM" /><br />
+    </div>
+<h5 class="note">-Format is YYYY-MM-DD HH:MM:SSPM | All times are EST (New York Time)</h5>
+
+<hr/>
+
+<h3>Host Settings</h3>
+<h5 class="note">-Set Length to 1 to turn off user uploads</h5>
 
 <div class="input-group">
     <div class="input-group-addon">Headline</div>
@@ -71,34 +80,7 @@ session_start();
       <textarea class="form-control" type="input" name="hostCurrentShowDescInput" /></textarea><br />
     </div>
 
-<h3>Host Uploads</h3>
-<h5 class="note">-Host uploads go to the front of the queue | Host uploads have no length and size limits</h5>
-
-    <div class="input-group">
-  <div class="input-group-addon">Enter Youtube URL</div>
-  <input class="form-control" type="input" name="hostYoutubeInput" /><br />
-</div>
-
-<button class="btn hostOr" disabled="disabled"><strong>OR</strong></button>
-
-<div class="input-group">
-  <div class="input-group-addon">Upload Audio</div>
-  <input class="form-control" name="hostAudioInput" type="file" />
-</div>
-
-<div class="input-group">
-  <div class="input-group-addon">Attach Image</div>
-  <input class="form-control" name="hostImageInput" type="file" />
-</div>
-
-<button class="btn hostOr" disabled="disabled"><strong>OPTIONAL</strong></button>
-
-<div class="input-group">
-    <div class="input-group-addon">Start time</div>
-      <input class="form-control" type="input" name="hostStart" placeholder="YYYY-MM-DD HH:MM:SSPM" /><br />
-    </div>
-<h5 class="note">-Format is YYYY-MM-DD HH:MM:SSPM | All times are EST (New York Time)</h5>
-
+<hr/>
 
 <h3>Navbar</h3>
 <h5 class="note">-Enter any HTML you want loaded on click.</h5>
@@ -123,6 +105,8 @@ session_start();
 <h5 class="note">-Only iframe and <a href="https://quip.com/aO0pAZO9m9SG" target="_blank">gmail valid tags</a> are valid to use for security reasons.</h5>
 <h5 class="note">-Set width and height in percent to prevent scroll bars from appearing.</h5>
 
+<hr/>
+
 <h3>Upload Maintenance</h3>
 
 <div class="input-group">
@@ -145,6 +129,8 @@ session_start();
       <input class="checkbox" class="" type="checkbox" name="hostClearPastUploads" value="yes" />
 </div>
 
+<hr/>
+
 <h3>Current Queue</h3>
 <h5 class="note">-Ordered by start time, not by ID</h5>
 
@@ -156,6 +142,8 @@ session_start();
 
 <!-- <div class="reloadQueue btn btn-danger">Refresh</div> -->
   
+<hr/>
+
 <h3>Scheduled to Play</h3>
 
   <div id="timedQueue">
@@ -166,18 +154,10 @@ session_start();
 
 <!-- <div class="reloadQueue btn btn-danger">Refresh</div> -->
 
+<hr/>
+
 <input type="hidden" name="slug" value="<?php echo $slug; ?>">
 
 </div>
 </form>
 </div>
-
-<!-- Script -->
-    <!-- Set slug for script files -->
-    <script>var slug = '<?php echo $slug; ?>';</script>
-    <script type="text/javascript" src="../resources/tools/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="../resources/tools/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../resources/host-script.js"></script>
-
-   </body>
-   </html>

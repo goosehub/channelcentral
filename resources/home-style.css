@@ -1,0 +1,95 @@
+/*	General Style */
+
+/*	Include fonts*/
+@font-face {
+  font-family: "BebasNeue";
+  src: url(fonts/BebasNeue.otf) format("opentype");
+}
+ @font-face {
+  font-family: "CheesePizza";
+  src: url(fonts/CheesePizza.ttf) format("truetype");
+} 
+ @font-face {
+  font-family: "HelloGoodbye";
+  src: url(fonts/HelloGoodbye.otf) format("opentype");
+} 
+ @font-face {
+  font-family: "CuldeSac";
+  src: url(fonts/CulDeSac.ttf) format("truetype");
+} 
+ @font-face {
+  font-family: "OpenSans-Regular";
+  src: url(fonts/OpenSans-Regular.ttf) format("truetype");
+} 
+ @font-face {
+  font-family: "AveriaSerif-Regular";
+  src: url(fonts/AveriaSerif-Regular.ttf) format("truetype");
+} 
+
+/*	Global */
+
+body {
+	background-color: #000;
+	color: #FFF;
+	font-family: "AveriaSerif-Regular";
+}
+.channel-list, .recent-uploads, .info-panel {
+	color: #000;
+}
+h2 {
+	text-align: center;
+}
+
+/*	Head */
+
+.head {
+	color: #FFF;
+	text-align: center;
+}
+.main-title {
+	display: inline;
+	text-align: center;
+}
+.search {
+}
+
+/*	Channel List */
+
+.channel-list {
+	background-color: #ffe6f3;
+	text-align: center;
+}
+.channel-list_item {
+	margin: 0.2em;
+	font-family: "CheesePizza";
+	letter-spacing: 0.2em;
+}
+
+/*	Recent Uploads */
+
+.recent-uploads {
+	background-color: #E7FFCC;
+}
+audio, iframe, .image-cover {
+	width:100%;
+}
+iframe {
+	min-height: 40vh;
+}
+.playby {
+	font-family: "CheesePizza";
+	letter-spacing: 0.2em;
+}
+
+/*	Info */
+
+.info-panel {
+	background-color: #D1E9FF;
+}
+
+/*	Footer */
+
+footer {
+	margin-top: 2em;
+	color: #888;
+}

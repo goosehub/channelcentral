@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2014 at 09:48 PM
+-- Generation Time: Jan 08, 2015 at 07:16 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `radio`
+-- Database: `channelcentral`
 --
 
 -- --------------------------------------------------------
@@ -32,36 +32,9 @@ CREATE TABLE IF NOT EXISTS `chat` (
   `message` text COLLATE utf8_bin NOT NULL,
   `host` varchar(12) COLLATE utf8_bin NOT NULL COMMENT 'Determines host status',
   `timestamp` varchar(32) COLLATE utf8_bin NOT NULL,
+  `slug` varchar(100) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `host`
---
-
-CREATE TABLE IF NOT EXISTS `host` (
-  `id` int(12) NOT NULL AUTO_INCREMENT,
-  `showName` varchar(512) COLLATE utf8_bin NOT NULL,
-  `showDescription` varchar(4096) COLLATE utf8_bin NOT NULL,
-  `headline` varchar(36) COLLATE utf8_bin NOT NULL,
-  `background` varchar(64) COLLATE utf8_bin NOT NULL,
-  `length` varchar(16) COLLATE utf8_bin NOT NULL,
-  `queue` varchar(16) COLLATE utf8_bin NOT NULL,
-  `purple` text COLLATE utf8_bin NOT NULL,
-  `orange` text COLLATE utf8_bin NOT NULL,
-  `green` text COLLATE utf8_bin NOT NULL,
-  `reload` varchar(12) COLLATE utf8_bin NOT NULL COMMENT 'Clients reload when time is less than reload',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `host`
---
-
-INSERT INTO `host` (`id`, `showName`, `showDescription`, `headline`, `background`, `length`, `queue`, `purple`, `orange`, `green`, `reload`) VALUES
-(1, 'Show Name', 'Show description', 'Headline', '', '600', '1200', '<button class="btn btn-default disabled">Customize the nav buttons</button>       <a target="_blank" href="http://esfores.com/radio/view/host.php"><button class="btn btn-primary">Hosting Page</button></a>', '<button class="btn btn-default disabled">Customize the nav buttons</button>       <a target="_blank" href="http://esfores.com/radio/view/host.php"><button class="btn btn-primary">Hosting Page</button></a>', '<button class="btn btn-default disabled">Customize the nav buttons</button>       <a target="_blank" href="http://esfores.com/radio/view/host.php"><button class="btn btn-primary">Hosting Page</button></a>', '');
 
 -- --------------------------------------------------------
 
@@ -77,15 +50,35 @@ CREATE TABLE IF NOT EXISTS `passwords` (
   `end` varchar(12) COLLATE utf8_bin NOT NULL,
   `readStart` varchar(64) COLLATE utf8_bin NOT NULL,
   `readEnd` varchar(64) COLLATE utf8_bin NOT NULL,
+  `slug` varchar(100) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `passwords`
+-- Table structure for table `rooms`
 --
 
-INSERT INTO `passwords` (`id`, `name`, `password`, `start`, `end`, `readStart`, `readEnd`) VALUES
-(1, 'ADMIN', '1234', '', '', '', '');
+CREATE TABLE IF NOT EXISTS `rooms` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `slug` varchar(100) COLLATE utf8_bin NOT NULL,
+  `daily_viewers` int(12) NOT NULL,
+  `showName` varchar(512) COLLATE utf8_bin NOT NULL,
+  `showDescription` varchar(4096) COLLATE utf8_bin NOT NULL,
+  `headline` varchar(36) COLLATE utf8_bin NOT NULL,
+  `length` varchar(16) COLLATE utf8_bin NOT NULL,
+  `queue` varchar(16) COLLATE utf8_bin NOT NULL,
+  `background` varchar(64) COLLATE utf8_bin NOT NULL,
+  `reload` varchar(12) COLLATE utf8_bin NOT NULL COMMENT 'Clients reload when time is less than reload',
+  `purple` text COLLATE utf8_bin NOT NULL,
+  `orange` text COLLATE utf8_bin NOT NULL,
+  `green` text COLLATE utf8_bin NOT NULL,
+  `password` varchar(100) COLLATE utf8_bin NOT NULL,
+  `started` int(12) NOT NULL,
+  `last_login` int(12) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -99,6 +92,7 @@ CREATE TABLE IF NOT EXISTS `upcoming` (
   `timeframe` varchar(128) COLLATE utf8_bin NOT NULL,
   `start` varchar(12) COLLATE utf8_bin NOT NULL,
   `name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `slug` varchar(100) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 
@@ -110,6 +104,7 @@ CREATE TABLE IF NOT EXISTS `upcoming` (
 
 CREATE TABLE IF NOT EXISTS `upload` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `slug` varchar(100) COLLATE utf8_bin NOT NULL,
   `name` varchar(32) COLLATE utf8_bin NOT NULL,
   `type` varchar(32) COLLATE utf8_bin NOT NULL,
   `title` varchar(1000) COLLATE utf8_bin NOT NULL,
@@ -120,8 +115,10 @@ CREATE TABLE IF NOT EXISTS `upload` (
   `end` varchar(12) COLLATE utf8_bin NOT NULL,
   `youtube` varchar(16) COLLATE utf8_bin NOT NULL,
   `audio` varchar(64) COLLATE utf8_bin NOT NULL,
+  `vocaroo` varchar(100) COLLATE utf8_bin NOT NULL,
   `image` varchar(64) COLLATE utf8_bin NOT NULL,
   `special` varchar(64) COLLATE utf8_bin NOT NULL COMMENT 'For priority, events, and circumstance',
+  `viewers` int(12) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
 

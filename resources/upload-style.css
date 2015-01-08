@@ -24,6 +24,10 @@ body {
 	font-family: BebasNeue;
 	letter-spacing: 0.1em;
 }
+.form-cnt {
+	width: 66%;
+	margin-left: 12%;
+}
 
 /*		   */
 /*	upload */
@@ -169,4 +173,12 @@ input, textarea {
 	.note {
 		margin-left: 0.5em !important;
 	}
+}
+
+/*		  */
+/*	login */
+/*		  */
+.login-btn {
+	width: 12em;
+	margin-top: 1em;
 }

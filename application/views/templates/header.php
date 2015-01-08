@@ -17,8 +17,9 @@
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 <!-- Favicon Icon -->
-    <link rel="shortcut icon" href="<?=base_url()?>favicon.ico">
+    <link rel="shortcut icon" href="<?=base_url()?>resources/images/favicon.ico">
 <!-- CSS -->
-	<!-- <link type="text/css" rel="stylesheet" href="resources/style.css"> -->
+  	<link rel="stylesheet" href="<?=base_url()?>resources/tools/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="resources/home-style.css">
 </head>
 <body>

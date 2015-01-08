@@ -41,6 +41,15 @@ Class room_model extends CI_Model
 		 return false;
 		}
 	}
+	function update_last_login($slug)
+	{
+		$data = array(
+		'last_login' => time()
+		);
+		$this->db->where('slug', $slug);
+		$this->db->update('rooms', $data);
+	}
+
 }
 
 ?>

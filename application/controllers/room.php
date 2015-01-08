@@ -24,9 +24,9 @@ class Room extends CI_Controller {
 	    }
 	    else
 	    {
-		$this->load->view('templates/header', $data);
+		$this->load->view('templates/form_header', $data);
 		$this->load->view('room/new', $data);
-		$this->load->view('templates/footer', $data);
+		$this->load->view('templates/form_footer', $data);
 		}
 	}
 	public function shows($slug)
@@ -45,16 +45,18 @@ class Room extends CI_Controller {
 		{
 		    $data['title'] = $slug.' Host Page';
 			$data['slug'] = $_POST['slug'] = $slug;
+			$this->load->view('templates/form_header', $data);
 			$this->load->view('command/host', $data);
+			$this->load->view('templates/form_footer', $data);
 		}
 		else
 		{
 // Request login
 		    $data['title'] = $slug;
 		 	$data['slug'] = $slug;
-			$this->load->view('templates/header', $data);
+			$this->load->view('templates/form_header', $data);
 		 	$this->load->view('command/login', $data);
-			$this->load->view('templates/footer', $data);
+			$this->load->view('templates/form_footer', $data);
 		}
 	}
 	public function master($slug)

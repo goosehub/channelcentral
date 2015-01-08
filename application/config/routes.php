@@ -42,12 +42,14 @@ $route['default_controller'] = "home";
 $route['404_override'] = '';
 
 $route['admin'] = 'admin';
+$route['home/do_search'] = 'home/do_search';
 // $route['main'] = 'room/main/$1';
 $route['(:any)/shows'] = 'room/shows/$1';
 $route['(:any)/upload'] = 'room/upload/$1';
 $route['(:any)/host'] = 'room/host/$1';
 $route['(:any)/master'] = 'room/master/$1';
 $route['(:any)/new'] = 'create/make_room/$1';
+$route['(:any)/start'] = 'create/start/$1';
 $route['(:any)/login'] = 'login/admin/$1';
 $route['(:any)/logout'] = 'login/logout/$1';
 $route['(:any)/verifylogin'] = 'login/verifylogin/$1';
