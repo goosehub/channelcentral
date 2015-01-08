@@ -1,23 +1,25 @@
-radio
+<h1>Channel Central</h1>
 
-=====
+<h2>An interactive customizable radio station</h2>
 
-An interactive customizable radio station
+Channel Central is a project that allows groups to share videos and audio. It is currently hosted at http://channelcentral.me/. This project needs your help. If you are the least bit famiiar with Graphic Design, CSS, Javascript, Ajax, PHP, or MySQL, please get involved.
 
-=====
+This project is built with PHP, with codeigniter handeling the non ajax aspects inside the application folder. The actual channel view is handeled through ajax with the post and ajax folders.
 
-Radio is a project that allows groups to share youtube video's, audio files, vocaroo's, images, links, and have conversations. The original instance of this is located at esfores.com. For everyone that would like to install this onto their website, here are the instructions to install it.
+To install this project on your local host or your website, follow these steps.
 
-1. Install the files into the target directory.
+<ol>
+<li>Install the files into the target directory.</li>
 
-2. Insert the sql file into your database.
+<li>Insert the sql file into your database.</li>
 
-3. Alter the connect.php file to match your database information.
+<li>Alter the connect.php file to match your database information.</li>
 
-4. Set your host settings. At the very least, set a background image to replace the ugly white background. Host settings can be set at YOURDIRECTORY/view/host.php
+<li>Go to application/config/database, and alter the file to match your database information.</li>
+</ol>
 
-5. Set passwords. As default, 1234 is the admin password. For security reasons, this can only be changed through direct database access. You can add temporary users and upcoming events at the following page YOURDIRECTORY/view/master.php
+If you want to help, have any issues installing, have questions, or just want to talk web development, contact me.
 
-You should now be set up. If you have any issues, feel free to contact me. goosepostbox@gmail.com
+<strong>goosepostbox@gmail.com</strong>
 
-If you have any unusual behavoir with the chat, replace script.js with alt-script.js
+<strong>goosetube on skype</strong>

@@ -225,7 +225,7 @@ $config['cache_path'] = '';
 |
 */
 
-// Special Note For Radio Project. This is the open source encryption key
+// Special Note For Channel Central Project. This is the open source encryption key
 // Change this and keep secret for live use
 $config['encryption_key'] = 'Omg8o5C89j2W5e15F8WPFuxC9Q0YSk14';
 

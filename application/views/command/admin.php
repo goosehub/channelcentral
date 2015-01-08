@@ -18,8 +18,10 @@
     <!-- Body -->
 
 <?php 
-session_start();
+// session_start();
 ?>
+
+<!-- SEND SLUG TO FORM -->
 
 <div id="hostFormCnt">
 

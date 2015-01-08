@@ -5,10 +5,13 @@ session_start();
 include '../connect.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')
-// if(isset($_SESSION['name'])) //also works
 {
+
+// Set slug
+	$slug = $_POST['slug'];
+
 // Redirect after submit
-	header("Location: /radio");
+	header("Location: ../".$slug."/host");
 
 //Set and sanitize known variables for query
 	// variable names are long to prevent confusion
@@ -17,7 +20,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$name = mysqli_real_escape_string($con, $name);
 	$time = time();
 	date_default_timezone_set('America/New_York');
-	$slug = $_POST['slug'];
 	$hostCurrentShowNameInput = $_POST['hostCurrentShowNameInput'];
 	$hostCurrentShowNameInput = mysqli_real_escape_string($con, $hostCurrentShowNameInput);
 	$hostCurrentShowDescInput = $_POST['hostCurrentShowDescInput'];
