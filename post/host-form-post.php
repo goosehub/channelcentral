@@ -52,7 +52,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostStart = strtotime($hostStart);
 
 // Allowed tags for host navbar
-	$whiteTags = '<iframe><a><abbr><acronym><address><area><b><bdo><big><blockquote><br><button><caption><center><cite><code><col><colgroup><dd><del><dfn><dir><div><dl><dt><em><fieldset><font><form><h1><h2><h3><h4><h5><h6><hr><i><img><input><ins><kbd><label><legend><li><map><menu><ol><optgroup><option><p><pre><q><s><samp><select><small><span><strike><strong><sub><sup><table><tbody><td><textarea><tfoot><th><thead><u><tr><tt><u><ul><var>';
+	$whiteTags_desc = '<a><b><br><center><em><h1><h2><h3><h4><h5><h6><i><img><li><ol><p><span><strike><strong><ul>';
+	$whiteTags_nav = '<iframe><a><abbr><acronym><address><area><b><bdo><big><blockquote><br><button><caption><center><cite><code><col><colgroup><dd><del><dfn><dir><div><dl><dt><em><fieldset><font><form><h1><h2><h3><h4><h5><h6><hr><i><img><input><ins><kbd><label><legend><li><map><menu><ol><optgroup><option><p><pre><q><s><samp><select><small><span><strike><strong><sub><sup><table><tbody><td><textarea><tfoot><th><thead><u><tr><tt><u><ul><var>';
 
 // If current video will be clear, set as ID to be deleted
 	if (isset($_POST['hostClearCurrent'])) {
@@ -92,6 +93,7 @@ $foo = TRUE;
 // Current Show Description
 		if ($hostCurrentShowDescInput)
 		{
+			$hostCurrentShowDescInput = strip_tags($hostCurrentShowDescInput, $whiteTags_desc);
 		      $query = "UPDATE rooms 
 		      SET showDescription = '". $hostCurrentShowDescInput ."'
 		      WHERE slug = '".$slug."';";
@@ -108,7 +110,7 @@ $foo = TRUE;
 // Nav Purple
 		if ($hostNavPurple)
 		{
-			$hostNavPurple = strip_tags($hostNavPurple, $whiteTags);
+			$hostNavPurple = strip_tags($hostNavPurple, $whiteTags_nav);
 			$hostNavPurple = preg_replace("/<iframe/i", "<iframe sandbox", $hostNavPurple);
 		      $query = "UPDATE rooms 
 		      SET purple = '". $hostNavPurple ."'
@@ -118,7 +120,7 @@ $foo = TRUE;
 // Nav Orange
 		if ($hostNavOrange)
 		{
-			$hostNavOrange = strip_tags($hostNavOrange, $whiteTags);
+			$hostNavOrange = strip_tags($hostNavOrange, $whiteTags_nav);
 			$hostNavOrange = preg_replace("/<iframe/i", "<iframe sandbox", $hostNavOrange);
 		      $query = "UPDATE rooms 
 		      SET orange = '". $hostNavOrange ."'
@@ -128,7 +130,7 @@ $foo = TRUE;
 // Nav Green
 		if ($hostNavGreen)
 		{
-			$hostNavGreen = strip_tags($hostNavGreen, $whiteTags);
+			$hostNavGreen = strip_tags($hostNavGreen, $whiteTags_nav);
 			$hostNavGreen = preg_replace("/<iframe/i", "<iframe sandbox", $hostNavGreen);
 		      $query = "UPDATE rooms 
 		      SET green = '". $hostNavGreen ."'

@@ -29,7 +29,7 @@ function loginForm($slug){
     echo'<div id="loginform">
     <form action="'.$slug.'" method="post">
     <input type="text" name="name" id="name" placeholder="Enter Your Name" onKeydown="memSort(event);"/>
-    <a id="return-link" class="btn btn-default btn-xs" href="<?=base_url()?>">Return</a>
+    <a id="return-link" class="btn btn-default btn-sm" href="<?=base_url()?>">Return</a>
     <a id="host-link" class="btn btn-default btn-xs" href="'.$slug.'/host">Host page</a>
     <input name="enter-room" id="enter-room" type="submit" value="foo" style="position: absolute; left: -9999px">
     </form></div>';

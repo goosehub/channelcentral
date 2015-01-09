@@ -9,6 +9,10 @@ include '../connect.php';
 // This is only for loading new messages
 // ajax/chat-load.php is the initial chat log load
 
+// Get Slug
+
+$slug = $_POST['slug'];
+
 // Tell javascript to reload if session expired
 if (! isset($_SESSION['chat-id'])) {
     echo 1;
@@ -18,9 +22,7 @@ else
 
   $sessChat = $_SESSION['chat-id'];
 
-  // Get Slug
 
-  $slug = $_POST['slug'];
 
   // Select most recent post
   $query = "SELECT id

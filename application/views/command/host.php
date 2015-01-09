@@ -83,6 +83,10 @@
     <div class="input-group-addon">Current Show Description</div>
       <textarea class="form-control" type="input" name="hostCurrentShowDescInput" /></textarea><br />
     </div>
+<h5 class="note">-The following HTML tags are allowed in the show Description</h5>
+<h5 class="note"><code>
+&lt;a&gt;&lt;b&gt;&lt;br&gt;&lt;center&gt;&lt;em&gt;&lt;h1&gt;&lt;h2&gt;&lt;h3&gt;&lt;h4&gt;&lt;h5&gt;&lt;h6&gt;&lt;i&gt;&lt;img&gt;&lt;li&gt;&lt;ol&gt;&lt;p&gt;&lt;span&gt;&lt;strike&gt;&lt;strong&gt;&lt;ul&gt;
+</code></h5>
 
 <hr/>
 

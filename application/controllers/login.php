@@ -28,10 +28,8 @@ class Login extends CI_Controller {
    if($this->form_validation->run() == FALSE)
    {
 //Field validation failed.  User redirected to login page
-     $data['title'] = 'Login';
-     $this->load->view('templates/form_header', $data);
-     $this->load->view('command/login');
-     $this->load->view('templates/form_footer', $data);
+     $slug = $this->input->post('slug');
+     redirect(''.$slug.'/host', 'refresh');
    }
    else
    {

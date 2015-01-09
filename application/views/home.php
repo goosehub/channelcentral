@@ -3,11 +3,6 @@
 		<h1 class="main-title">Channel Central - BETA</h1>
 	</div>
 	<div class="col-md-6">
-	    <?php echo validation_errors(); ?>
-	    <?php echo form_open('home/do_search'); ?>
-	    <div class="input-group">
-			<div class="search-label input-group-addon">Find a Channel, or Start Your Own</div>
-			<input class="search form-control" type="search" name="search"></input>
 		</div>
 		</fonm>
 	</div>
@@ -28,6 +23,10 @@
 
   <div class="col-sm-4 channel-list">
   <h2>Channel Listing</h2>
+      <?php echo validation_errors(); ?>
+      <?php echo form_open('home/do_search'); ?>
+      <h4>Find a Channel, or Start Your Own</h4>
+      <input class="search form-control" type="search" name="search"></input>
   	<?php $i = 0;
   	foreach ($channels as $channel): ?>
 
