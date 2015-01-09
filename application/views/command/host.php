@@ -2,7 +2,11 @@
 
 <h2 id="welcome">Welcome to your hosting center</h2>
 
-<h3><a class="btn btn-primary" href="logout">Logout</a></h3>
+<a class="btn btn-success" target="_blank" href="<?=base_url()?>">Go to Front Page</a>
+<a class="btn btn-primary" target="_blank" href="../<?php echo $slug; ?>">Go to your channel</a>
+<a class="btn btn-danger" href="logout">Logout</a>
+
+<hr/>
 
 <form name="uploadForm" id="hostForm" action="../post/host-form-post.php" method="post" enctype="multipart/form-data">
 <div class="form-group">

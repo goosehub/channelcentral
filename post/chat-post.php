@@ -19,10 +19,9 @@ $recentName = mysqli_fetch_assoc($result);
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 // Set and secure data
+	$slug = $_POST['slug'];
 	$name = $_SESSION['name'];
 	$message = $_POST['text'];
-	
-$slug = $_POST['slug'];
 	$message = mysqli_real_escape_string($con, $message);
 	date_default_timezone_set('America/New_York');
 	$timestamp = time();

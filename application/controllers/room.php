@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 
 class Room extends CI_Controller {
 
@@ -10,6 +8,7 @@ class Room extends CI_Controller {
 	$this->load->model('room_model','',TRUE);
 	$this->load->helper(array('form'));
 	$this->load->library('session');
+	$this->load->helper('url');
  }
 
 	public function view($slug)

@@ -28,24 +28,24 @@
 function loginForm($slug){
     echo'<div id="loginform">
     <form action="'.$slug.'" method="post">
-    <input type="text" name="name" id="name" />
-    <input type="submit" name="enter" id="loginEnter" value="Enter Name" />
+    <input type="text" name="name" id="name" placeholder="Enter Your Name" onKeydown="memSort(event);"/>
+    <a id="return-link" class="btn btn-default btn-xs" href="<?=base_url()?>">Return</a>
     <a id="host-link" class="btn btn-default btn-xs" href="'.$slug.'/host">Host page</a>
+    <input name="enter-room" id="enter-room" type="submit" value="foo" style="position: absolute; left: -9999px">
     </form></div>';
 }
 // Set session
-if(isset($_POST['enter'])){
-    if($_POST['name'] != ''){
-// Set Session Name
-        $_SESSION['name'] = stripslashes(htmlspecialchars($_POST['name']));
 // Set room
         $_SESSION['slug'] = $slug;
-
 // Set Session Variables
         $_SESSION['errLength'] = $_SESSION['errRepeat'] = $_SESSION['errCode'] = 
         $_SESSION['errImgSize'] = $_SESSION['errAudioSize'] = $_SESSION['errFileType'] =
         $_SESSION['errQueueLimit'] = $_SESSION['errRickRoll'] = $_SESSION['chat-id'] = 
         $_SESSION['loadName'] = $_SESSION['loadTimestamp'] = '';
+if(isset($_POST['name'])){
+    if($_POST['name'] != ''){
+// Set Session Name
+        $_SESSION['name'] = $chatname = stripslashes(htmlspecialchars($_POST['name']));
     }
 }
 // Check if Logged in
@@ -115,7 +115,7 @@ else
 		    <input name="message" type="text" class="form-control" id="chatInput" autocomplete="off" placeholder="">
         <input type="hidden" name="slug" value="<?php echo $slug; ?>">
 		    <!-- submit button positioned off screen -->
-		    <input name="submitChat" type="submit" id="submitChat" value="DICK" style="position: absolute; left: -9999px">
+		    <input name="submitChat" type="submit" id="submitChat" value="foo" style="position: absolute; left: -9999px">
 	    </form>
     </div>
 

@@ -1,5 +1,5 @@
 <div class="form-cnt">
-    <h1>This room is free</h1>
+    <h1>This room is available!</h1>
     <h6>This room can be yours in one step.</h6>
 
     <?php echo validation_errors(); ?>

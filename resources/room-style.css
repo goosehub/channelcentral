@@ -53,7 +53,7 @@ body {
   -webkit-transition:2s;
   transition:2s;
 }
-#name, #loginEnter, #host-link {
+#name, #loginEnter, #host-link, #return-link {
 	margin: 0 auto;
 	display: block;
 	opacity: 0.6;
@@ -65,17 +65,17 @@ body {
 	width: 8em;
 	text-align: center;
 	font-size: 2em;
-	border-radius: 0.5em 0.5em 0 0;
+	border-radius: 0.5em;
 }
-#loginEnter {
+/*#loginEnter {
 	height: 2em;
 	width: 8em;
 	background-color: #000;
 	color: #FFF;
 	font-size: 2em;
 	border-radius: 0 0 0.5em 0.5em;
-}
-#host-link {
+}*/
+#host-link, #return-link {
 	margin-top: 1em;
 	width: 10%;
 }

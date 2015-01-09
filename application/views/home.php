@@ -6,7 +6,7 @@
 	    <?php echo validation_errors(); ?>
 	    <?php echo form_open('home/do_search'); ?>
 	    <div class="input-group">
-			<div class="input-group-addon">Find a room, or start your own</div>
+			<div class="search-label input-group-addon">Find a Channel, or Start Your Own</div>
 			<input class="search form-control" type="search" name="search"></input>
 		</div>
 		</fonm>
@@ -15,12 +15,10 @@
 
 	<?php if(isset($username)) { ?>
 		<p>You are logged in as <strong><?php echo $username; ?></strong></p>
-		<a class="btn btn-primary" href="<?php echo $username; ?>/host">Go to your host page</a>
+    <a class="btn btn-primary" href="<?php echo $username; ?>">Go to your Channel</a>
+    <a class="btn btn-info" href="<?php echo $username; ?>/host">Go to your Host Center</a>
 		<a class="btn btn-danger" href="<?php echo $username; ?>/logout">Logout</a>
 	<?php } ?>
-
-<!-- 	<a class="btn btn-primary" href="<?=base_url()?>esfores">
-	For those of you coming from esfores.com, meet me here</a> -->
 
 </div>
 
@@ -66,10 +64,10 @@
           </audio><br/>
         <?php } ?>
 	<h4>This was played on 
-  	<a href="<?php echo $upload->slug; ?>">
-  	<button class="btn btn-default playby"><strong>
+  	<a class="btn btn-default playby" href="<?php echo $upload->slug; ?>">
+  	<strong>
 	  	<?php echo $upload->slug; ?>
-  	</strong></button></a></h4>
+  	</strong></a></h4>
   	<hr/>
 
   	<?php $i = $i + 1;
@@ -84,12 +82,19 @@
   	<p class="lead">Channel Central is a place for groups to share video and audio.
   	There is no sign-up needed to browse, and starting a channel only requires a password.</p>
     <hr/>
+    <p class="lead">This website is in Open Beta 
+    If you come across any error messages, strange behavoir, or have features you'd like to see added, please contact me.</p>
+    <hr/>
     <p class="lead">This is an open source project. 
-    If you are the least bit famiiar with Graphic Design, CSS, Javascript, Ajax, PHP, or MySQL, please get involved.</p>
+    If you are the least bit famiiar with Graphic Design, CSS, Javascript, PHP, or MySQL, please get involved.</p>
     <hr/>
-    <p class="lead">The project is on <a href="">GitHub</a></p>
+    <p class="lead">The project is on <a href="https://github.com/goosehub/channelcentral">GitHub</a></p>
     <hr/>
-    <p class="lead">goosepostbox@gmail.com</p>
+    <p class="lead">
+    <!-- <a href="mailto:goosepostbox@gmail.com"> -->
+    goosepostbox@gmail.com
+    <!-- </a> -->
+    </p>
     <hr/>
     <p class="lead">goosetube on skype</p>
   </div>

@@ -14,6 +14,7 @@ Class home_model extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('upload');
+		$this->db->where('start <', time());
 		$this->db->order_by("start", "DESC");
 		$query = $this->db->get();
 		return $query->result();

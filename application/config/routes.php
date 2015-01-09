@@ -54,7 +54,7 @@ $route['(:any)/login'] = 'login/admin/$1';
 $route['(:any)/logout'] = 'login/logout/$1';
 $route['(:any)/verifylogin'] = 'login/verifylogin/$1';
 
-$route['(:any)/(:any)'] = 'home';
+$route['(:any)/(:any)'] = 'home/not_found';
 $route['(:any)'] = 'room/view/$1';
 
 /* End of file routes.php */

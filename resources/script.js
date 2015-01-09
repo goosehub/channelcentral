@@ -8,8 +8,15 @@ var greenLoad = '';
 
 var invisible = 0;
 
+var joined = 0;
+
 $(document).ready(function()
 {
+
+$("#enter-room").click(function()
+{
+    joined = 'on';
+});
 
 $('#headline').mousedown(function()
 {
@@ -57,6 +64,7 @@ function startCounter(counter){
 loadContent();
 
 //Chat
+// Chat functions also work with making session logic work
 
 // Initial Chat Load
 function chatLoad()
@@ -88,6 +96,14 @@ function chatLogger()
         cache: false,
         success: function(html)
         {
+// If session expired, reload window. This resubmits the form, starts session over.
+            if (html === '1')
+            {
+                location.reload();
+            }
+// Else load new chat messages
+            else
+            {
                 if ($('#chatBox').scrollTop() >= $('#chatBox')[0].scrollHeight - (jQuery(window).height() * 0.9) )
                 {
                     $("#chatBox").append(html);
@@ -97,6 +113,7 @@ function chatLogger()
                 {
                     $("#chatBox").append(html);
                 }
+            }
         }
     });
 }
@@ -215,6 +232,7 @@ $("#submitChat").click(function()
     $.post("post/chat-post.php",
     {
         text: clientchat,
+        name: 'name',
         slug: slug
     });
      $("#chatForm :input").val("");

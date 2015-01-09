@@ -50,7 +50,11 @@ h2 {
 	display: inline;
 	text-align: center;
 }
+.search-label {
+	color: #0037FF;
+}
 .search {
+	background-color: #D1E9FF;
 }
 
 /*	Channel List */

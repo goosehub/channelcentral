@@ -24,7 +24,7 @@ class Home extends CI_Controller {
 		$recent_uploads = $data['recent_uploads'] = $this->home_model->recently_uploaded();
 	    $data['title'] = 'ChannelCentral';
 		$this->load->view('templates/header', $data);
-		$this->load->view('home');
+		$this->load->view('home', $data);
 		$this->load->view('templates/footer', $data);
 	}
 	public function do_search()
@@ -39,5 +39,12 @@ class Home extends CI_Controller {
 			$slug = $this->input->post('search');
 			redirect($slug, 'refresh');
 		}
+	}
+	public function not_found()
+	{
+	    $data['title'] = 'Page Not Found';
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/not_found', $data);
+		$this->load->view('templates/footer', $data);
 	}
 }
