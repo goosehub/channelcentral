@@ -245,5 +245,4 @@ $("#submitChat").click(function()
 });
 
 
-
 }); //end document

@@ -229,6 +229,6 @@ if (strlen($youtubeInput) > 10)
 }
 
 // Redirect after submit
-	header("Location: ../load/upload.php");
+	header("Location: ../../".$slug."/upload");
 
 ?>

@@ -65,12 +65,12 @@
 </div>
 
 <div class="input-group">
-    <div class="input-group-addon">Max Upload Length in Seconds</div>
+    <div class="input-group-addon">Max Upload Length in Minutes</div>
       <input class="form-control" type="input" name="hostLengthInput" /><br />
     </div>
 
 <div class="input-group">
-    <div class="input-group-addon">Max Queue in Seconds</div>
+    <div class="input-group-addon">Max Queue in Minutes</div>
       <input class="form-control" type="input" name="hostQueueLimitInput" /><br />
     </div>
 

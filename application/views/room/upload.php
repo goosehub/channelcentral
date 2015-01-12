@@ -43,7 +43,7 @@
     }
 ?>
 
-    <form name="uploadForm" id="uploadForm" action="../post/form-post.php" method="post" enctype="multipart/form-data">
+    <form name="uploadForm" id="uploadForm" action="<?=base_url()?>/post/form-post.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
 
     <div class="upload-reload input-group">

@@ -28,8 +28,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostHeadlineInput = mysqli_real_escape_string($con, $hostHeadlineInput);
 	$hostLengthInput = $_POST['hostLengthInput'];
 	$hostLengthInput = mysqli_real_escape_string($con, $hostLengthInput);
+	$hostLengthInput = $hostLengthInput * 60;
 	$hostQueueLimitInput = $_POST['hostQueueLimitInput'];
 	$hostQueueLimitInput = mysqli_real_escape_string($con, $hostQueueLimitInput);
+	$hostQueueLimitInput = $hostQueueLimitInput * 60;
 	$hostStart = $_POST['hostStart'];
 	$hostStart = mysqli_real_escape_string($con, $hostStart);
 	$hostYoutubeInput = $_POST['hostYoutubeInput'];
