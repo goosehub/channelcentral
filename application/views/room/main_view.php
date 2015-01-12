@@ -71,12 +71,14 @@ else
 <!-- Absolute Navbar -->
 <div class="absolute-bar">
   <?php echo form_open('home/do_search'); ?>
-  <!-- <div class="viewers-cnt"> -->
-  <div id="viewersBtn" class="btn">1</div>
-  <!-- </div> -->
-  <div id="fadeoutBtn" class="btn">Fade</div>
-  <div id="leaveBtn" class="btn" href="#">Leave</div>
-  <input class="in-channel-search" type="search" name="search" placeholder="Go To New Room"></input>
+  <div class="btn-group" role="group" aria-label="...">
+    <div id="viewersBtn" class="nav-btn btn">1</div>
+    <div id="fadeoutBtn" class="nav-btn btn">Fade</div>
+    <div id="leaveBtn" class="nav-btn btn" href="#">Leave</div>
+  </div>
+
+  <input class="nav-btn in-channel-search" type="search" name="search" placeholder="Go To New Room"></input>
+
   </form>
 </div>
 

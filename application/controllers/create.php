@@ -15,6 +15,7 @@ public function make_room($slug)
 	$this->load->library('form_validation');
 	$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|xss_clean');
 	$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|alpha_dash|min_length[1]|max_length[100]|matches[confirm_password]');
+	$slug = strtolower($slug);
 	$check_slug = $this->room_model->check_slug_exists($slug);
 
 	if($this->form_validation->run() == FALSE)

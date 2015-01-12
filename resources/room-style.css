@@ -92,38 +92,41 @@ body {
 	top: 0px;
 	left: 0px;
 	z-index: 1000;
+	font-family: CheesePizza;
+}
+.nav-btn {
+	font-size: 1.4em;
+	font-weight: bold;
 }
 #viewersBtn {
-	font-family: CheesePizza;
-	font-size: 1.2em;
-	color: #FFF;
-	border-color: #FFF;
-	background-color: #000;	
+	border-color: #000;
+	background-color: #CC49DE;
+}
+#viewersBtn:hover {
+	border-color: #000;
+	background-color: #FF88DD;
 }
 #fadeoutBtn {
-	font-family: CheesePizza;
-	font-size: 1.2em;
-	color: #FFF;
-	border-color: #FFF;
-	background-color: #000;
+	border-color: #000;
+	background-color: #FF7700;
+}
+#fadeoutBtn:hover {
+	border-color: #000;
+	background-color: #00CCFF;
 }
 #leaveBtn {
-	font-family: CheesePizza;
-	font-size: 1.2em;
-	color: #FFF;
-	border-color: #FFF;
-	background-color: #000;
-	border-radius: 0 0 10px 0;
+	border-color: #000;
+	background-color: #43E326;
 }
 #leaveBtn:hover {
-	border-color: #FFF;
-	background-color: #FFF;
-	color: #000;
+	border-color: #000;
+	background-color: #FFE326;
 }
 .in-channel-search {
-	width: 10em;
-	border-radius: 0 0 0.5em 0;
-
+	width: 8em;
+	border-radius: 2em/6em;
+	height: 2.2em;
+	text-align: center;
 }
 
 /*	Info */

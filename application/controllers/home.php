@@ -37,6 +37,7 @@ class Home extends CI_Controller {
 		else
 		{
 			$slug = $this->input->post('search');
+			$slug = strtolower($slug);
 			redirect($slug, 'refresh');
 		}
 	}

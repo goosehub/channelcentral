@@ -24,8 +24,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostCurrentShowNameInput = mysqli_real_escape_string($con, $hostCurrentShowNameInput);
 	$hostCurrentShowDescInput = $_POST['hostCurrentShowDescInput'];
 	$hostCurrentShowDescInput = mysqli_real_escape_string($con, $hostCurrentShowDescInput);
-	$hostHeadlineInput = $_POST['hostHeadlineInput'];
-	$hostHeadlineInput = mysqli_real_escape_string($con, $hostHeadlineInput);
 	$hostLengthInput = $_POST['hostLengthInput'];
 	$hostLengthInput = mysqli_real_escape_string($con, $hostLengthInput);
 	$hostLengthInput = $hostLengthInput * 60;
@@ -36,12 +34,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostStart = mysqli_real_escape_string($con, $hostStart);
 	$hostYoutubeInput = $_POST['hostYoutubeInput'];
 	$hostYoutubeInput = mysqli_real_escape_string($con, $hostYoutubeInput);
-	$hostNavPurple = $_POST['hostNavPurple'];
-	$hostNavPurple = mysqli_real_escape_string($con, $hostNavPurple);
-	$hostNavOrange = $_POST['hostNavOrange'];
-	$hostNavOrange = mysqli_real_escape_string($con, $hostNavOrange);
-	$hostNavGreen = $_POST['hostNavGreen'];
-	$hostNavGreen = mysqli_real_escape_string($con, $hostNavGreen);
 	// files must be sanitized later
 
 // Get Valid Passwords
@@ -54,8 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostStart = strtotime($hostStart);
 
 // Allowed tags for host navbar
-	$whiteTags_desc = '<a><b><br><center><em><h1><h2><h3><h4><h5><h6><i><img><li><ol><p><span><strike><strong><ul>';
-	$whiteTags_nav = '<iframe><a><abbr><acronym><address><area><b><bdo><big><blockquote><br><button><caption><center><cite><code><col><colgroup><dd><del><dfn><dir><div><dl><dt><em><fieldset><font><form><h1><h2><h3><h4><h5><h6><hr><i><img><input><ins><kbd><label><legend><li><map><menu><ol><optgroup><option><p><pre><q><s><samp><select><small><span><strike><strong><sub><sup><table><tbody><td><textarea><tfoot><th><thead><u><tr><tt><u><ul><var>';
+	$whiteTags = '<iframe><a><abbr><acronym><address><area><b><bdo><big><blockquote><br><button><caption><center><cite><code><col><colgroup><dd><del><dfn><dir><div><dl><dt><em><fieldset><font><form><h1><h2><h3><h4><h5><h6><hr><i><img><input><ins><kbd><label><legend><li><map><menu><ol><optgroup><option><p><pre><q><s><samp><select><small><span><strike><strong><sub><sup><table><tbody><td><textarea><tfoot><th><thead><u><tr><tt><u><ul><var>';
 
 // If current video will be clear, set as ID to be deleted
 	if (isset($_POST['hostClearCurrent'])) {
@@ -95,47 +86,9 @@ $foo = TRUE;
 // Current Show Description
 		if ($hostCurrentShowDescInput)
 		{
-			$hostCurrentShowDescInput = strip_tags($hostCurrentShowDescInput, $whiteTags_desc);
+			$hostCurrentShowDescInput = strip_tags($hostCurrentShowDescInput, $whiteTags);
 		      $query = "UPDATE rooms 
 		      SET showDescription = '". $hostCurrentShowDescInput ."'
-		      WHERE slug = '".$slug."';";
-		      $result = mysqli_query($con, $query);  
-		}
-// Headline
-		if ($hostHeadlineInput)
-		{
-		      $query = "UPDATE rooms 
-		      SET headline = '". $hostHeadlineInput ."'
-		      WHERE slug = '".$slug."';";
-		      $result = mysqli_query($con, $query);  
-		}
-// Nav Purple
-		if ($hostNavPurple)
-		{
-			$hostNavPurple = strip_tags($hostNavPurple, $whiteTags_nav);
-			$hostNavPurple = preg_replace("/<iframe/i", "<iframe sandbox", $hostNavPurple);
-		      $query = "UPDATE rooms 
-		      SET purple = '". $hostNavPurple ."'
-		      WHERE slug = '".$slug."';";
-		      $result = mysqli_query($con, $query);  
-		}
-// Nav Orange
-		if ($hostNavOrange)
-		{
-			$hostNavOrange = strip_tags($hostNavOrange, $whiteTags_nav);
-			$hostNavOrange = preg_replace("/<iframe/i", "<iframe sandbox", $hostNavOrange);
-		      $query = "UPDATE rooms 
-		      SET orange = '". $hostNavOrange ."'
-		      WHERE slug = '".$slug."';";
-		      $result = mysqli_query($con, $query);  
-		}
-// Nav Green
-		if ($hostNavGreen)
-		{
-			$hostNavGreen = strip_tags($hostNavGreen, $whiteTags_nav);
-			$hostNavGreen = preg_replace("/<iframe/i", "<iframe sandbox", $hostNavGreen);
-		      $query = "UPDATE rooms 
-		      SET green = '". $hostNavGreen ."'
 		      WHERE slug = '".$slug."';";
 		      $result = mysqli_query($con, $query);  
 		}

@@ -7,12 +7,19 @@ $slug = $_POST['slug'];
 
 $query = "SELECT viewers
 		FROM upload
-		WHERE end >= '".time()."'
+		WHERE start < '".time()."'
 	    AND slug = '".$slug."'
-		ORDER BY end DESC
+		ORDER BY id DESC
 		LIMIT 1;";
 		$result = mysqli_query($con, $query);
 		$current = mysqli_fetch_assoc($result);
-		echo $current['viewers'];
-		echo ' viewers';
+		if ($current['viewers'] < 2)
+		{
+			echo '1 Viewer';
+		}
+		else
+		{
+			echo $current['viewers'];
+			echo ' Viewers';
+		}
 ?>
