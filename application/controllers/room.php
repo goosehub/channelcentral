@@ -40,6 +40,12 @@ class Room extends CI_Controller {
 		$data['slug'] = $_POST['slug'] = $slug;
 		$this->load->view('room/upload', $data);
 	}
+	public function upload_view($slug)
+	{
+		$data['slug'] = $slug;
+	    $data['title'] = 'Upload Form';
+		$this->load->view('room/upload', $data);
+	}
 	public function host($slug)
 	{
 		if($this->session->userdata('logged_in')['username'] === $slug)

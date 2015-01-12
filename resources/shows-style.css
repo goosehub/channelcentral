@@ -29,6 +29,7 @@ h1 {
 	font-family: CheesePizza, OpenSans-Regular;
 }
 #current-show-name {
+	margin-top: 1.2em;
 	letter-spacing: 0.2em;
 }
 #current-show-description {

@@ -7,7 +7,7 @@
   src: url(../resources/fonts/BebasNeue.otf) format("opentype");
 }
 /*		    */
-/*	gloabal */
+/*	global */
 /*		    */
 body {
 	background: none;
@@ -42,55 +42,18 @@ body {
 input, textarea {
 	font-family: OpenSans;
 }
+.uploadAddon {
+	max-width: 50vw;
+}
 .uploadInput {
 	opacity: 0.8;
 	font-family: BebasNeue;
+	width: 50vw !important;
 }
-.uploadAddon {
-	max-width: 10em;
+.uploads-disabled {
+	width: 100vw;
+	height: 2.8em;
 }
-.contribute {
-	width: 33%;
-	margin: 0 auto;
-	margin-top: 0.2em;
-	margin-bottom: 0.2em;
-	display: block;
-	border-radius: 15px;
-	color: #FFF;
-	background-color: #000;
-   -moz-box-shadow:    inset 2px 2px 2px #FFF;
-   -webkit-box-shadow: inset 2px 2px 2px #FFF;
-   box-shadow:         inset 2px 2px 2px #FFF;
-   font-family: BebasNeue;
-   letter-spacing: 0.2em;
-  -o-transition:.2s;
-  -ms-transition:.2s;
-  -moz-transition:.2s;
-  -webkit-transition:.2s;
-  transition:.2s;
-}
-.contribute:hover {
-	background-color: #4488DD;
-	font-weight: bold;
-}
-.or {
-	text-align: center;
-	width: 33%;
-	margin-left: 33.3%;
-}
-#uploadInfo {
-	background-color: #000;
-	opacity: 0.7;
-}
-.infoItem {
-	font-size: 1.5em;	
-	color: #FFF;
-	opacity: 0.9;
-	text-align: center;
-	margin-bottom: 0;
-	line-height: 1.5em;
-}
-
 
 /*		 */
 /*	host */
@@ -181,4 +144,11 @@ input, textarea {
 .login-btn {
 	width: 12em;
 	margin-top: 1em;
+}
+
+/*	Get Started */
+/*			    */
+/*			    */
+.get-started {
+	font-family: "CheesePizza";
 }

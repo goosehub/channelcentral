@@ -7,24 +7,18 @@ include '../ajax/host-ajax.php';
 $time = time();
 
 if ($host['length'] === '1')
-{
-echo '<p class="infoItem">The Host has switched off uploads</p>';
-}
-else
-{
-  $host['length'] = htmlentities($host['length']);
-  $host['queue'] = htmlentities($host['queue']);
-echo '<p class="infoItem">Length limit right now is <strong>';
-// Convert so that hours time can display more than 23 hours
-$minsec = gmdate("i:s", $host['length']);
-$hours = gmdate("d", $host['length'])*12 + gmdate("H", $host['length']);
-echo $hours.':'.$minsec;
-echo '</strong></p>';
-echo '<p class="infoItem">Queue limit right now is <strong>';
-// Convert so that hours time can display more than 23 hours
-$minsec = gmdate("i:s", $host['queue']);
-$hours = gmdate("d", $host['queue'])*12 + gmdate("H", $host['queue']);
-echo $hours.':'.$minsec;
-echo '</strong></p>';
-}
+{ ?>
+    <button class="uploads-disabled" disabled>Uploads disabled</button>
+<?php
+	} else { 
+	$host['length'] = htmlentities($host['length']);
+	$host['queue'] = htmlentities($host['queue']);
+	$minsec = gmdate("i:s", $host['length']);
+	$hours = gmdate("d", $host['length'])*12 + gmdate("H", $host['length']);
+	$length_limit = 'Max Length is '.$hours.':'.$minsec;
 ?>
+    <div class="upload-reload input-group">
+      <div class="uploadAddon input-group-addon">Enter Youtube URL</div>
+      <input class="uploadInput form-control" type="input" name="youtubeInput" placeholder="<?php echo $length_limit; ?>" /><br />
+    </div>
+<?php } ?>

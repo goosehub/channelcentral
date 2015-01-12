@@ -11,29 +11,32 @@
   <meta name="description" content="An interactive online radio station">
   <meta name="author" content="Goose">
   <meta name="robots" CONTENT="all">
+<!-- For IE -->
+  <!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
 
 <!-- Style -->
   <link rel="stylesheet" href="resources/tools/bootstrap.min.css" />
   <link rel="stylesheet" href="resources/room-style.css" />
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
   <link rel="shortcut icon" href="resources/images/favicon.ico">
 </head>
 
 <body>
+<!-- Body -->
+
+<!-- Login Form -->
 
 <?php
-// Login form
-function loginForm($slug){
-    echo'<div id="loginform">
-    <form action="'.$slug.'" method="post">
+function loginForm($slug){ ?>
+    <div id="loginform">
+    <form action="<?php echo $slug; ?>" method="post">
     <input type="text" name="name" id="name" placeholder="Enter Your Name" onKeydown="memSort(event);"/>
     <a id="return-link" class="btn btn-default btn-sm" href="<?=base_url()?>">Return</a>
-    <a id="host-link" class="btn btn-default btn-xs" href="'.$slug.'/host">Host page</a>
+    <a id="host-link" class="btn btn-default btn-xs" href="<?php echo $slug; ?>/host">Host page</a>
     <input name="enter-room" id="enter-room" type="submit" value="foo" style="position: absolute; left: -9999px">
-    </form></div>';
-}
+    </form></div>
+<?php }
 // Set session
 // Set room
         $_SESSION['slug'] = $slug;
@@ -42,16 +45,24 @@ function loginForm($slug){
         $_SESSION['errImgSize'] = $_SESSION['errAudioSize'] = $_SESSION['errFileType'] =
         $_SESSION['errQueueLimit'] = $_SESSION['errRickRoll'] = $_SESSION['chat-id'] = 
         $_SESSION['loadName'] = $_SESSION['loadTimestamp'] = '';
+
+// If named posted, and not blank
 if(isset($_POST['name'])){
     if($_POST['name'] != ''){
+
 // Set Session Name
         $_SESSION['name'] = $chatname = stripslashes(htmlspecialchars($_POST['name']));
+
     }
 }
+
 // Check if Logged in
 if(!isset($_SESSION['name'])){
+
 // Display login form
     loginForm($slug);
+
+// Else, show page
 }
 else 
 { ?>
@@ -59,28 +70,24 @@ else
 
 <div id="pageWrapper">
 
+<!-- Absolute Navbar -->
+<div class="absolute-bar">
+  <?php echo form_open('home/do_search'); ?>
+  <div id="leaveBtn" class="btn" type="leave" href="#">Leave</div>
+  <input class="in-channel-search" type="search" name="search" placeholder="Go To New Room"></input>
+  </form>
+</div>
+
 <div class="row">
 
 <!-- Left -->
 
 <!-- Nav Bar -->
   <div class="col-md-4">
-    <div id="navCnt">
-      <div id="navBarTop" class="btn-group" role="group" aria-label="...">
-          <button id="showsBtn" class="btn" href="#">Shows</button>
-          <button id="uploadBtn" class="btn" href="#">Upload</button>
-          <button id="leaveBtn" class="btn" href="#">Leave</button>
-      </div>
-      <div id="navBarBottom" class="btn-group" role="group" aria-label="...">
-          <button id="purpleBtn" class="btn btn-low" href="#">&nbsp&nbsp&nbsp&nbsp&nbsp</button>
-          <button id="orangeBtn" class="btn btn-low" href="#">&nbsp&nbsp&nbsp&nbsp&nbsp</button>
-          <button id="greenBtn" class="btn btn-low" href="#">&nbsp&nbsp&nbsp&nbsp&nbsp</button>
-      </div>
-    </div>
 
 <!-- Viewer -->
     <div id="viewer">
-      <iframe id="showsFrame" src="<?php echo $slug; ?>/shows" seamless></iframe> 
+      <iframe class="frame" src="<?php echo $slug; ?>/shows" seamless></iframe> 
     </div>
 
   </div>
@@ -88,15 +95,13 @@ else
 <!-- Center -->
   
   <div class="col-md-4">
-    <div id="headline">
-        <p>
-        ...
-        </p>
-    </div>
+
+    <iframe class="upload-frame" src="<?php echo $slug; ?>/upload" scrolling="no" seamless></iframe> 
 
   	<div id="contentWindow">
 <p>Loading...</p>
   	</div>
+
   </div>
 
 <!-- Right -->
@@ -112,7 +117,7 @@ else
 
     <div id="inputCnt">
 	    <form name="chatForm" id="chatForm" action="post/chat-post.php" method="post" enctype="multipart/form-data">
-		    <input name="message" type="text" class="form-control" id="chatInput" autocomplete="off" placeholder="">
+		    <input type="text" name="message" class="form-control" id="chatInput" autocomplete="off" placeholder="">
         <input type="hidden" name="slug" value="<?php echo $slug; ?>">
 		    <!-- submit button positioned off screen -->
 		    <input name="submitChat" type="submit" id="submitChat" value="foo" style="position: absolute; left: -9999px">
@@ -130,11 +135,9 @@ else
     <!-- Script -->
     <!-- Set slug for script files -->
     <script>var slug = '<?php echo $slug; ?>';
-    var uploadLoad = '<iframe id="uploadFrame" src="<?php echo $slug; ?>/upload" seamless></iframe>';
-    var showsLoad = '<iframe id="showsFrame" src="<?php echo $slug; ?>/shows" seamless></iframe>'; 
     </script>
     <script type="text/javascript" src="resources/tools/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript"src="resources/tools/bootstrap.min.js"></script>
+    <script type="text/javascript" src="resources/tools/bootstrap.min.js"></script>
     <script type="text/javascript" src="resources/script.js"></script>
 
 </body>

@@ -86,38 +86,41 @@ chatLoad();
 
 // Refresh
 //Load chat display
-function chatLogger()
-{
-    $.ajax(
-    {
-        url: "ajax/chat-logger.php",
-        type: "POST",
-        data: { slug: slug },
-        cache: false,
-        success: function(html)
-        {
-// If session expired, reload window. This resubmits the form, starts session over.
-            if (html === '1')
-            {
-                location.reload();
-            }
-// Else load new chat messages
-            else
-            {
-                if ($('#chatBox').scrollTop() >= $('#chatBox')[0].scrollHeight - (jQuery(window).height() * 0.9) )
-                {
-                    $("#chatBox").append(html);
-                    $("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
-                }
-                else
-                {
-                    $("#chatBox").append(html);
-                }
-            }
-        }
-    });
-}
-setInterval(chatLogger, 1000);
+
+// Logger disabled until bugs worked out
+
+// function chatLogger()
+// {
+//     $.ajax(
+//     {
+//         url: "ajax/chat-logger.php",
+//         type: "POST",
+//         data: { slug: slug },
+//         cache: false,
+//         success: function(html)
+//         {
+// // If session expired, reload window. This resubmits the form, starts session over.
+//             if (html === '1')
+//             {
+//                 location.reload();
+//             }
+// // Else load new chat messages
+//             else
+//             {
+//                 if ($('#chatBox').scrollTop() >= $('#chatBox')[0].scrollHeight - (jQuery(window).height() * 0.9) )
+//                 {
+//                     $("#chatBox").append(html);
+//                     $("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
+//                 }
+//                 else
+//                 {
+//                     $("#chatBox").append(html);
+//                 }
+//             }
+//         }
+//     });
+// }
+setInterval(chatLoad, 1000);
 
 // Used to determine current background image
 var background = '';
@@ -231,13 +234,12 @@ $("#submitChat").click(function()
     var clientchat = $("#chatInput").val();
     $.post("post/chat-post.php",
     {
-        text: clientchat,
+        message: clientchat,
         name: 'name',
         slug: slug
     });
      $("#chatForm :input").val("");
 // Load log so user can instantly see his message
-    chatLogger();
     $('#chatInput').focus();
     return false;
 });

@@ -27,9 +27,9 @@
       <?php echo form_open('home/do_search'); ?>
       <h4>Find a Channel, or Start Your Own</h4>
       <input class="search form-control" type="search" name="search"></input>
+
   	<?php $i = 0;
   	foreach ($channels as $channel): ?>
-
 
   	<a class="channel-list_item btn btn-default" href="<?php echo $channel->slug; ?>">
   	<strong><?php echo $channel->slug; ?></strong></a>

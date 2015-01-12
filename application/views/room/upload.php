@@ -15,8 +15,8 @@
 
     <div id="uploadFormCnt">
 
-    <div id="uploadInfo">
-    </div>
+<!--     <div id="uploadInfo">
+    </div> -->
 
 <!-- Error Reporting -->
 <?php
@@ -46,43 +46,9 @@
     <form name="uploadForm" id="uploadForm" action="../post/form-post.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
 
-    <div class="input-group">
+    <div class="upload-reload input-group">
       <div class="uploadAddon input-group-addon">Enter Youtube URL</div>
-      <input class="uploadInput form-control" type="input" name="youtubeInput" /><br />
-    </div>
-    
-    <div id="contributeA">
-    <input class="form-control btn btn-primary contribute" type="submit" name="submitForm" value="Contribute" />
-    </div>
-
-    <button class="or btn" disabled="disabled"><strong>OR</strong></button>
-
-    <div class="input-group">
-      <div class="uploadAddon input-group-addon">Upload Audio</div>
-      <input class="uploadInput form-control" name="audioInput" type="file" />
-    </div>
-
-    <div class="input-group">
-      <div class="uploadAddon input-group-addon">Attach Image</div>
-      <input class="uploadInput form-control" name="imageInput" type="file" />
-    </div>
-
-<!--     <div id="typeInput" class="form-group">
-      <div class="input-group">
-        <div class="input-group-addon"><strong>And</strong> Pick Type</div>
-
-        <select class="form-control" name="typeInput">
-          <option value="default">Pick An Option</option>
-          <option value="Music">Music</option>
-          <option value="Shoutout">Shoutout</option>
-          <option value="Segment">Segment</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-    </div> -->
-
-    <div id="contributeB">
-    <input class="form-control btn btn-primary contribute" type="submit" name="submitForm" value="Contribute" />
+      <input class="uploadInput form-control" type="input" name="youtubeInput" placeholder="" /><br />
     </div>
 
     <input type="hidden" name="slug" value="<?php echo $slug; ?>">

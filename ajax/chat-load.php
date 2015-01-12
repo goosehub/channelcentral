@@ -10,6 +10,8 @@ include '../connect.php';
 // This is only for initial load
 // ajax/chat-logger.php is used for loading new messages 
 
+$_SESSION['loadName'] = '0';
+
 // Get chat data
 // Select the most recent 50, then order by ASC
 $query = "SELECT * from (

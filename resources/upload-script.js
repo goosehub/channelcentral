@@ -13,7 +13,7 @@ $(document).ready(function()
             cache: false,
             success: function(html)
             {
-                $("#uploadInfo").html(html);
+                $(".upload-reload").html(html);
             }
         });
     }

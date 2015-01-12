@@ -46,6 +46,7 @@ $route['home/do_search'] = 'home/do_search';
 // $route['main'] = 'room/main/$1';
 $route['(:any)/shows'] = 'room/shows/$1';
 $route['(:any)/upload'] = 'room/upload/$1';
+$route['(:any)/upload_view'] = 'room/upload_view/$1';
 $route['(:any)/host'] = 'room/host/$1';
 $route['(:any)/master'] = 'room/master/$1';
 $route['(:any)/new'] = 'create/make_room/$1';
