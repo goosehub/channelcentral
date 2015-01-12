@@ -65,7 +65,7 @@
 	<h4>This was played on 
   	<a class="btn btn-default playby" href="<?php echo $upload->slug; ?>">
   	<strong>
-	  	<?php echo $upload->slug; ?>
+	  	<?php echo $upload->slug; ?> | <?php echo $upload->viewers; ?> Viewers
   	</strong></a></h4>
   	<hr/>
 

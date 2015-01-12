@@ -68,15 +68,19 @@ else
 { ?>
 <!-- Begin page content -->
 
-<div id="pageWrapper">
-
 <!-- Absolute Navbar -->
 <div class="absolute-bar">
   <?php echo form_open('home/do_search'); ?>
-  <div id="leaveBtn" class="btn" type="leave" href="#">Leave</div>
+  <!-- <div class="viewers-cnt"> -->
+  <div id="viewersBtn" class="btn">1</div>
+  <!-- </div> -->
+  <div id="fadeoutBtn" class="btn">Fade</div>
+  <div id="leaveBtn" class="btn" href="#">Leave</div>
   <input class="in-channel-search" type="search" name="search" placeholder="Go To New Room"></input>
   </form>
 </div>
+
+<div id="pageWrapper">
 
 <div class="row">
 
@@ -86,9 +90,12 @@ else
   <div class="col-md-4">
 
 <!-- Viewer -->
-    <div id="viewer">
-      <iframe class="frame" src="<?php echo $slug; ?>/shows" seamless></iframe> 
+  <div id="info-content-cnt">
+    <div id="info-content">
     </div>
+  </div>
+
+      <!-- <iframe class="frame" src="<?php echo $slug; ?>/shows" seamless></iframe>  -->
 
   </div>
 

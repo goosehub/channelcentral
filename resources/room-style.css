@@ -93,6 +93,20 @@ body {
 	left: 0px;
 	z-index: 1000;
 }
+#viewersBtn {
+	font-family: CheesePizza;
+	font-size: 1.2em;
+	color: #FFF;
+	border-color: #FFF;
+	background-color: #000;	
+}
+#fadeoutBtn {
+	font-family: CheesePizza;
+	font-size: 1.2em;
+	color: #FFF;
+	border-color: #FFF;
+	background-color: #000;
+}
 #leaveBtn {
 	font-family: CheesePizza;
 	font-size: 1.2em;
@@ -107,19 +121,37 @@ body {
 	color: #000;
 }
 .in-channel-search {
+	width: 10em;
 	border-radius: 0 0 0.5em 0;
 
 }
 
-/*	viewer */
-#viewer {
+/*	Info */
+
+#info-content-cnt {
 	height: 95vh;
-	width: 100%;
-	/*overflow: scroll;*/
+	overflow-y: scroll;
 }
-.frame {
-	width: 100%;
-	height: 100%;
+#current-show-name {
+	text-align: center;
+	opacity: 0.9;
+	background-color: black;
+	color: white;
+	font-family: CheesePizza, OpenSans-Regular;
+}
+#current-show-name {
+	margin-top: 1.2em;
+	letter-spacing: 0.2em;
+}
+#current-show-description {
+	font-family: OpenSans-Regular;
+	font-size: 1em;
+	padding: 0.2em;
+	opacity: 0.9;
+	background-color: #FFF;
+	color: #000;
+	border: 0.1em solid #000;
+	border-radius: 4px;
 }
 
 /*	Center */
@@ -195,7 +227,7 @@ body {
 	color: #FFF;
 	height: 88vh;
 	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow-y: hidden;
 	background: linear-gradient(to top, rgba(000, 000, 000, 0), rgba(000, 000, 000, 1) 1%);
 }
 .chatName, .timestamp {

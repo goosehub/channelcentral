@@ -1,10 +1,6 @@
 // Nav bar buttons
 
-var purpleLoad = ''; 
-
-var orangeLoad = '';
-
-var greenLoad = ''; 
+show = '';
 
 var invisible = 0;
 
@@ -13,22 +9,29 @@ var joined = 0;
 $(document).ready(function()
 {
 
+// When entering room, set user as joined for session logic later
 $("#enter-room").click(function()
 {
     joined = 'on';
 });
 
-$('#headline').mousedown(function()
+// Press button to fade out and back in
+$('#fadeoutBtn').click(function()
 {
-    $('#pageWrapper').css({
-        'opacity': 0
-    });
-});
-$('#headline').mouseup(function()
-{
-    $('#pageWrapper').css({
-        'opacity': 1
-    });
+    if (invisible === 0)
+    {
+        $('#pageWrapper').css({
+            'opacity': 0
+        });
+        invisible = 1;
+    } 
+    else 
+    {
+        $('#pageWrapper').css({
+            'opacity': 1
+        });
+        invisible = 0;
+    }
 });
 
 // Load content
@@ -120,41 +123,32 @@ chatLoad();
 //         }
 //     });
 // }
+
 setInterval(chatLoad, 1000);
+
+function loadViewerCount()
+{
+    $.ajax(
+    {
+        url: "ajax/get-viewer-count.php",
+        type: "POST",
+        data: { slug: slug },
+        cache: false,
+        success: function(html)
+        {
+            $("#viewersBtn").html(html);
+        }
+    });
+}
+
+loadViewerCount();
+setInterval(loadViewerCount, 1000);
 
 // Used to determine current background image
 var background = '';
 //Load host information
     function loadHostInfo()
     {
-// Navbar
-        $.ajax(
-        {
-            url: "ajax/navbar.php",
-            type: "POST",
-            data: { slug: slug },
-            cache: false,
-            success: function(html)
-            {
-            // seperate content from counter data
-            var myArray = html.split("|");
-            purpleLoad = myArray[0];
-            orangeLoad = myArray[1];
-            greenLoad = myArray[2];
-            }
-        });
-// Headline
-        $.ajax(
-        {
-            url: "ajax/headline.php",
-            type: "POST",
-            data: { slug: slug },
-            cache: false,
-            success: function(html)
-            {
-                $("#headline").html(html);
-            }
-        });
 // background image
         $.ajax(
         {
@@ -198,6 +192,36 @@ var background = '';
     loadHostInfo();
 // Refresh
     setInterval(loadHostInfo, 10000); 
+
+
+
+    function reloadShowInfo()
+    {
+        $.ajax(
+        {
+            url: "ajax/current-show.php",
+            type: "POST",
+            data: { slug: slug },
+            cache: false,
+            success: function(html)
+            {
+                if (show === html)
+                {
+                }
+                else
+                {
+                    show = html;
+                    $("#info-content").html(html);
+                }
+            }
+        });
+    }
+
+// Initial Load
+    reloadShowInfo();
+// Refresh
+    setInterval(reloadShowInfo, 10000); 
+
 
 
 // NavBar

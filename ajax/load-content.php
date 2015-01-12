@@ -10,8 +10,14 @@ $time = time();
 // Get Slug
 $slug = $_POST['slug'];
 
-// Query database
+// Query database for current video
 include '../ajax/find-current.php';
+
+// Add 1 to the videos viewer count
+$query = "UPDATE upload
+		SET viewers = viewers + 1
+		WHERE id = ".$current['id'].";";
+		$result = mysqli_query($con, $query);
 
 // Find how far behind if any user is
 $lag = $time - $current['start'];
