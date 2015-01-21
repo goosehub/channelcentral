@@ -83,7 +83,7 @@ if (strlen($youtubeInput) > 10)
 		}
 		else if ($youtubeID === 'dQw4w9WgXcQ') 
 		{
-			$_SESSION['errRickRoll'] = 'ERROR: We\'re no strangers to Rick. You know the rules and so do I.';
+			$_SESSION['errRickRoll'] = 'We\'re no strangers to Rick. You know the rules and so do I.';
 		}
 		else
 		{
