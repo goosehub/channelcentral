@@ -19,6 +19,7 @@ $query = "SELECT * from (
         WHERE slug = '".$slug."'
         order by id DESC limit 50
         ) tmp ORDER BY tmp.id ASC;";
+// Fetch
 if ($result = mysqli_query($con, $query))
 {
     while($row = mysqli_fetch_assoc($result)) 
@@ -28,7 +29,7 @@ if ($result = mysqli_query($con, $query))
         $message = htmlentities($message);
         $message = preg_replace("/([\w]+:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/i",
           "<a target=\"_blank\" href=\"$1\">$1</a>", $message);
-// If name is different or time has passed
+// If name is different or time has passed, display both
         if ($row['timestamp'] > $_SESSION['loadTimestamp'] + 1200
           || $row['name'] != $_SESSION['loadName'])
         {
@@ -39,13 +40,12 @@ if ($result = mysqli_query($con, $query))
             $timestamp = date("M j, g:i A T", $timestamp);
             echo '<font class="timestamp"> on '.$timestamp.'</font>';
         }
-// Set recent timestamp
-        $_SESSION['loadTimestamp'] = $row['timestamp'];
-// Load Message
+// Load Message Always, starting with indention
         echo '<font class="chatMsg">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         '.nl2br($message).'</font>';
-// set most recently loaded chat
+// set most recently loaded message info
+        $_SESSION['loadTimestamp'] = $row['timestamp'];
         $_SESSION['chat-id'] = $row['id'];
         $_SESSION['loadName'] = $row['name'];
     }

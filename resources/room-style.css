@@ -18,10 +18,6 @@ Channel Central
   src: url(fonts/HelloGoodbye.otf) format("opentype");
 } 
  @font-face {
-  font-family: "CuldeSac";
-  src: url(fonts/CulDeSac.ttf) format("truetype");
-} 
- @font-face {
   font-family: "OpenSans-Regular";
   src: url(fonts/OpenSans-Regular.ttf) format("truetype");
 } 
@@ -162,28 +158,6 @@ body {
 .upload-frame {
 	height: 2.8em;
 	width: 100%;
-}
-#headline {
-	color: #FFF;
-	background-color: #000;
-	height: 15vh;
-	text-align: center;
-	font-size: 5vh;
-	/*border: 1px #FFF solid;*/
-	border-radius: 0.1em;
-	font-family: CheesePizza, OpenSans-Regular;
-	cursor: pointer;
-	-o-transition:2s;
-	-ms-transition:2s;
-	-moz-transition:2s;
-	-webkit-transition:2s;
-	transition:2s;
-}
-#headline:hover {
-	background: none;
-	color: #000;
-	border: 0;
-	box-shadow: 0;
 }
 #contentWindow {
 	max-height: 90%;

@@ -22,8 +22,6 @@ else
 
   $sessChat = $_SESSION['chat-id'];
 
-
-
   // Select most recent post
   $query = "SELECT id
             from chat
