@@ -88,42 +88,6 @@ function chatLoad()
 chatLoad();
 
 // Refresh
-//Load chat display
-
-// Logger disabled until bugs worked out
-
-// function chatLogger()
-// {
-//     $.ajax(
-//     {
-//         url: "ajax/chat-logger.php",
-//         type: "POST",
-//         data: { slug: slug },
-//         cache: false,
-//         success: function(html)
-//         {
-// // If session expired, reload window. This resubmits the form, starts session over.
-//             if (html === '1')
-//             {
-//                 location.reload();
-//             }
-// // Else load new chat messages
-//             else
-//             {
-//                 if ($('#chatBox').scrollTop() >= $('#chatBox')[0].scrollHeight - (jQuery(window).height() * 0.9) )
-//                 {
-//                     $("#chatBox").append(html);
-//                     $("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
-//                 }
-//                 else
-//                 {
-//                     $("#chatBox").append(html);
-//                 }
-//             }
-//         }
-//     });
-// }
-
 setInterval(chatLoad, 1000);
 
 function loadViewerCount()

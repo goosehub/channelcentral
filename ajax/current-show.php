@@ -1,4 +1,7 @@
 <?php
+
+// Used to display the show information
+
   include 'host-ajax.php';
 ?>
 

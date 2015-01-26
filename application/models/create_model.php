@@ -7,7 +7,12 @@ Class create_model extends CI_Model
 	    $data = array(
 	    'slug' => $slug,
 	    'password' => md5($password),
-	    'showName' => 'Welcome',
+
+// Default channel information panel after =>
+	    'showName' => 
+
+	    'Welcome',
+
 	    'showDescription' => '<center>
 <h1>'.$slug.'</h1>
 
@@ -19,7 +24,9 @@ This is a Channel. Use it to Share Videos.
 If you are the Owner of this page, <a target="_blank" href="http://channelcentral.me/music/host">Visit your Hosting Center.
 </a>
 </b>
-</center>',
+</center>'
+		,
+		// End channel information panel after ,
 	    'headline' => $slug,
 	    'length' => '600',
 	    'queue' => '1200',

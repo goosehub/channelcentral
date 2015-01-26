@@ -1,5 +1,7 @@
 <?php
 
+// Used to find the slot that an upload should be placed in
+
 // Get Slug
 $slug = $_POST['slug'];
 

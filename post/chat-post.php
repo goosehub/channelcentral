@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+// Used to insert chat message
+
 $time = time();
 
 include '../connect.php';

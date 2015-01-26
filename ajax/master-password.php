@@ -1,6 +1,7 @@
 <?php
-
 include '../connect.php';
+
+// Used to get master password for verification
 
 // Get Slug
 $slug = $_POST['slug'];

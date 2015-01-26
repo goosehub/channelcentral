@@ -1,5 +1,7 @@
 <?php
 
+// Used to get viewer count
+
 include '../connect.php';
 
 // Get Slug

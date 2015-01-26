@@ -1,5 +1,7 @@
 <?php
 
+// Used to get host password for verifying
+
 include '../connect.php';
 
 $time = time();

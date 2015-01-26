@@ -1,5 +1,7 @@
 <?php
 
+// Used to find end of an upload
+
 // Get Slug
 $slug = $_POST['slug'];
 

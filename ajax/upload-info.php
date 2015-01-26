@@ -1,6 +1,7 @@
 <?php
-
 include '../connect.php';
+
+// Used to display information for upload forms, before and after
 
 include '../ajax/host-ajax.php';
 
@@ -27,7 +28,7 @@ if ($host['length'] === '0')
 { ?>
     <button class="uploads-disabled" disabled>Uploads disabled</button>
 <?php
-// Error Reporting
+// Error Reporting, done via alert script
 	} else if (isset($_SESSION['errLength'])) { ?>
     <div class="upload-reload input-group">
       <div class="uploadAddon input-group-addon">Enter Youtube URL</div>

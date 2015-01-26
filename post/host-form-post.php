@@ -1,8 +1,8 @@
 <?php
-
 session_start();
-
 include '../connect.php';
+
+// Used for hosts inserting uploads
 
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {

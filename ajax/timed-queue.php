@@ -1,6 +1,8 @@
 <?php
 include 'connect.php';
 
+// Used to place uploads on a timed slot
+
 $time = time();
 date_default_timezone_set('America/New_York');
 

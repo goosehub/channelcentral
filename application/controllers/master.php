@@ -1,6 +1,8 @@
 <?php
 
-class Admin extends CI_Controller {
+// Used for Top Level Administration
+
+class Master extends CI_Controller {
 
 	public function index()
 	{

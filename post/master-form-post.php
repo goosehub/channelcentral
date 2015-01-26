@@ -1,5 +1,7 @@
 <?php
 
+// Used for master functions
+
 session_start();
 
 include '../connect.php';

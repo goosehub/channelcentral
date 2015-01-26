@@ -1,8 +1,8 @@
 <?php
-// Session start is for potential future data needed
 session_start();
-
 include '../connect.php';
+
+// Used for loading content into the play view
 
 // Set time
 $time = time();

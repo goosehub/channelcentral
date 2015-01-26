@@ -1,5 +1,7 @@
 <?php
 
+// Used to insert host uploads at the start
+
 // Get Slug
 $slug = $_POST['slug'];
 

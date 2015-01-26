@@ -1,6 +1,8 @@
 <?php
 include '../connect.php';
 
+// Utility used to get host information
+
 // Get Slug
 $slug = $_POST['slug'];
 

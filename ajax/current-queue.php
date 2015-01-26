@@ -1,6 +1,8 @@
 <?php
 include 'connect.php';
 
+// Used to get the current queue of uploads on a playlist
+
 $time = time();
 date_default_timezone_set('America/New_York');
 

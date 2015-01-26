@@ -1,13 +1,11 @@
 <?php
 session_start();
-
 include '../connect.php';
 
+// Used to insert uploads
+
 if($_SERVER['REQUEST_METHOD'] == 'POST')
-// if(isset($_SESSION['name'])) //also works
 {
-
-
 // Empty Errors
 	$_SESSION['errLength'] = $_SESSION['errRepeat'] = $_SESSION['errCode'] = 
 	$_SESSION['errImgSize'] = $_SESSION['errAudioSize'] = $_SESSION['errFileType'] = 

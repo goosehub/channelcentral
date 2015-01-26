@@ -1,4 +1,7 @@
 <?php
+
+// Used to check if currently playing was canceled
+
 // Find time
 $time = time();
 // Search for reload command

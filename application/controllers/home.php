@@ -1,5 +1,7 @@
 <?php
 
+// Used for front page
+
 class Home extends CI_Controller {
 
  function __construct()
@@ -12,6 +14,7 @@ class Home extends CI_Controller {
 	$this->load->helper('url');
 }
 
+// Front page index
 	public function index()
 	{
 // If logged in, set username
@@ -27,6 +30,7 @@ class Home extends CI_Controller {
 		$this->load->view('home', $data);
 		$this->load->view('templates/footer', $data);
 	}
+// Returns search results
 	public function do_search()
 	{
 		$this->load->library('form_validation');
@@ -41,6 +45,7 @@ class Home extends CI_Controller {
 			redirect($slug, 'refresh');
 		}
 	}
+// Not found page
 	public function not_found()
 	{
 	    $data['title'] = 'Page Not Found';
