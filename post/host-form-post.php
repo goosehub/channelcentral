@@ -140,8 +140,8 @@ $foo = TRUE;
 			    WHERE slug = '".$slug."';";
 			    $result = mysqli_query($con, $query); 
 // Set ID to be deleted to be the current
-			include '../ajax/find-current.php';
-			$hostDeleteItem = $current['id'];
+				include '../ajax/find-current.php';
+				$hostDeleteItem = $current['id'];
 			}
 // find duration of deleted item
 			$query = "SELECT * FROM upload 
@@ -250,13 +250,11 @@ $foo = TRUE;
 				$url = "http://gdata.youtube.com/feeds/api/videos/". $youtubeID;
 				$doc = new DOMDocument;
 				$doc->load($url);
-					// title is not retrieved for all videos 
+// title is not retrieved for all videos 
 				// $title = $doc->getElementsByTagName("title")->item(0)->nodeValue;
 				$duration = $doc->getElementsByTagName('duration')->item(0)->getAttribute('seconds');
-				// Add time for ads and loading time
-				// Will need monitoring for adjusting
+// Add time for loading time
 				$duration = $duration + 5;
-
 // Find next available slot
 				include '../ajax/host-insert.php';
 // Query
