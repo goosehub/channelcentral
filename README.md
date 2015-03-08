@@ -32,13 +32,12 @@ If you want to help, have any issues installing, have questions, or just want to
 
 <ul>
 
-<li>IMPROVEMENT: HOST form autopopulate</li>
-<li>ISSUE: Fix styling issues with upload iframe</li>
+<li>SECURITY: Ensure all query inserts are sanitized</li>
 <li>ISSUE: Fix IE fonts</li>
 <li>FEATURE: Get Daily Viewers, and sort Channel List by that column</li>
 <li>FEATURE: Match users one on one</li>
 <li>IMPROVEMENT: Make logged in host see button on channel to host page</li>
-<li>IMPROVEMENT: Checkmarks replaced with buttons</li>
+<li>IMPROVEMENT: Checkmarks replaced with toggles</li>
 <li>IMPROVEMENT: Work on mobile view</li>
 <li>IMPROVEMENT: Style outside channel pages</li>
 
