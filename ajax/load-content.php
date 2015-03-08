@@ -31,6 +31,10 @@ if ($lag < 4) {
 // If content is youtube video 
 			if ($current['youtube'])
 			{
+// If repeat, tell users it is a repeat
+				if ($current['special'] === 'repeat') {
+				    echo '<h2 id="repeatNotice">Repeat</h2>' ;
+				}
 // Youtube load
 				echo '<iframe id="youtubeFrame" src="//www.youtube.com/embed/
 				'.$current['youtube'].'
@@ -75,67 +79,79 @@ if ($lag < 4) {
 		{
 // Get a random video
 			$query = "SELECT *
-					FROM upload
-					WHERE slug = '".$slug."'
-					AND special != 'repeat'
-					AND duration < 900
-					ORDER BY RAND()
-					LIMIT 1;";
-					$result = mysqli_query($con, $query);
-					$current = mysqli_fetch_assoc($result);
-// Calculate and store values
-			$name = 'repeat2424';
-			$time = time();
-			$youtubeID = $current['youtube'];
-			$duration = $current['duration'] + 5;
-			$start = time();
-// Find natural end
-			$end = $start + $duration;
-// Check if timed uploads will have to cutoff this upload
-			$query = "SELECT *
 			FROM upload
-			WHERE start >= '".$start."'
-			AND start <= '".$end."'
-			AND special = 'timed'
-		    AND slug = '".$slug."'
-			ORDER BY start ASC
+			WHERE slug = '".$slug."'
+			AND special != 'repeat'
+			ORDER BY RAND()
 			LIMIT 1;";
 			$result = mysqli_query($con, $query);
-			$cutoff = mysqli_fetch_assoc($result);
-// If so, end is start of timed video
-			if (strlen($cutoff['start']) > 2)
+			$current = mysqli_fetch_assoc($result);
+// Get room info
+			include 'host-ajax.php';
+// If shuffle is off, or this room has never had an upload, request for content
+			if (empty($current) || $host['shuffle'] === '0')
 			{
-				$end = $cutoff['start'];
-			}
+// Pipe is used to split data
+				var_dump($current);
+				echo "<h1 id='requestContent'>Upload to start the show</h1>
+				|
+				2000";
+// Else, load a random video into playlist
+			} else {
+// Calculate and store values
+				$name = 'repeat2424';
+				$time = time();
+				$youtubeID = $current['youtube'];
+				$duration = $current['duration'] + 5;
+				$start = time();
+// Find natural end
+				$end = $start + $duration;
+// Check if timed uploads will have to cutoff this upload
+				$query = "SELECT *
+				FROM upload
+				WHERE start >= '".$start."'
+				AND start <= '".$end."'
+				AND special = 'timed'
+			    AND slug = '".$slug."'
+				ORDER BY start ASC
+				LIMIT 1;";
+				$result = mysqli_query($con, $query);
+				$cutoff = mysqli_fetch_assoc($result);
+// If so, end is start of timed video
+				if (strlen($cutoff['start']) > 2)
+				{
+					$end = $cutoff['start'];
+				}
 // Record information
-			$scheduled = date("M j, Y, g:i:s a", $start);
-			$special = 'repeat';
-			$slug = $slug;
+				$scheduled = date("M j, Y, g:i:s a", $start);
+				$special = 'repeat';
+				$slug = $slug;
 // Insert into database as a repeat
-		    $query = "INSERT INTO upload 
-		      		(name, time, youtube, duration,
-		      		start, end, scheduled, special, slug)
-		      		VALUES('". $name ."', '". $time ."',
-		       		'". $youtubeID ."', '". $duration ."', '". $start ."',
-		       		'". $end ."', '". $scheduled ."', '".$special."', '".$slug."');";
-		    $result = mysqli_query($con, $query);  
+			    $query = "INSERT INTO upload 
+			      		(name, time, youtube, duration,
+			      		start, end, scheduled, special, slug)
+			      		VALUES('". $name ."', '". $time ."',
+			       		'". $youtubeID ."', '". $duration ."', '". $start ."',
+			       		'". $end ."', '". $scheduled ."', '".$special."', '".$slug."');";
+			    $result = mysqli_query($con, $query); 
+// Tell users it is a repeat
+			    echo '<h2 id="repeatNotice">Repeat</h2>' ;
 // Youtube load
-			echo '<iframe id="youtubeFrame" src="//www.youtube.com/embed/
-			'.$current['youtube'].'
-			?autoplay=1" frameborder="0" allowfullscreen></iframe>';
+				echo '<iframe id="youtubeFrame" src="//www.youtube.com/embed/
+				'.$current['youtube'].'
+				?autoplay=1" frameborder="0" allowfullscreen></iframe>';
 // Counter logic
-			$counter = $current['duration'];
+				$counter = $current['duration'];
 // Convert to milliseconds
-			$counter = $counter * 1000;
+				$counter = $counter * 1000;
 // Split from data
-			echo '|';
+				echo '|';
 // Data is sent with echo.
-			echo $counter;
-
-// Request for content turned off9
-		// echo "<h1 id='requestContent'>Upload to start the show</h1>
-		// |
-		// 2000";
-			
+				echo $counter;
+// Request for content turned off
+				// echo "<h1 id='requestContent'>Upload to start the show</h1>
+				// |
+				// 2000";
+			}			
 		}
 ?>

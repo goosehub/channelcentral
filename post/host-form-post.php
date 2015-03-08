@@ -108,6 +108,19 @@ $foo = TRUE;
 		      WHERE slug = '".$slug."';";
 		      $result = mysqli_query($con, $query);  
 		}
+// Set Shuffle
+		if (isset($_POST['hostShuffle']))
+		{
+		      $query = "UPDATE rooms 
+		      SET shuffle = '1'
+		      WHERE slug = '".$slug."';";
+		      $result = mysqli_query($con, $query); 
+		} else {
+		      $query = "UPDATE rooms 
+		      SET shuffle = '0'
+		      WHERE slug = '".$slug."';";
+		      $result = mysqli_query($con, $query); 
+		  }
 // Clear Past Uploads
 		if (isset($_POST['hostClearPastUploads']))
 		{

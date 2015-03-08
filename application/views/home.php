@@ -79,8 +79,6 @@
   <div class="col-sm-4 info-panel">
   	<h2>What is Channel Central?</h2>
 
-    <button class="btn btn-primary">Monkey</button>
-
   	<p class="lead">Channel Central is a place for groups to share video and audio.
   	There is no sign-up needed to browse, and starting a channel only requires a password.</p>
     <hr/>

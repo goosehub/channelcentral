@@ -59,6 +59,11 @@ class Room extends CI_Controller {
 // If logged in, load host page
 		if($this->session->userdata('logged_in')['username'] === $slug)
 		{
+// Get host data to populate forums
+		    $data['host'] = $this->room_model->get_host_info($slug);
+// Do seconds to minute conversions
+		    $data['host']->length = $data['host']->length / 60;
+		    $data['host']->queue = $data['host']->queue / 60;
 		    $data['title'] = $slug.' Host Page';
 			$data['slug'] = $_POST['slug'] = $slug;
 			$this->load->view('templates/form_header', $data);

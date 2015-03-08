@@ -2,6 +2,14 @@
 
 Class room_model extends CI_Model
 {
+	function get_host_info($slug)
+	{
+		$this->db->select('*');
+		$this->db->from('rooms');
+		$this->db->where('slug', $slug);
+		$query = $this->db->get();
+		return $query->row();
+	}
 	function check_slug_exists($slug)
 	{
 		$this->db->select('slug');

@@ -56,28 +56,37 @@
 <h5 class="note">~Set Length to 0 to turn off user uploads</h5>
 
 <div class="input-group">
+    <div class="input-group-addon">Shuffle when Playlist Empty</div>
+      <input class="checkbox" class="" type="checkbox" name="hostShuffle" value="yes" 
+      <?php if($host->shuffle==='1') {echo 'checked';} ?>/>
+</div>
+<div class="input-group">
   <div class="input-group-addon">Background Image</div>
   <input class="form-control" name="hostBackgroundInput" type="file" />
 </div>
 
 <div class="input-group">
     <div class="input-group-addon">Max Upload Length in Minutes</div>
-      <input class="form-control" type="input" name="hostLengthInput" /><br />
+      <input class="form-control" type="input" name="hostLengthInput" 
+      value="<?php echo $host->length; ?>"/><br />
     </div>
 
 <div class="input-group">
     <div class="input-group-addon">Max Queue in Minutes</div>
-      <input class="form-control" type="input" name="hostQueueLimitInput" /><br />
+      <input class="form-control" type="input" name="hostQueueLimitInput" 
+      value="<?php echo $host->queue; ?>" /><br />
     </div>
 
 <div class="input-group">
     <div class="input-group-addon">Current Show Name</div>
-      <input class="form-control" type="input" name="hostCurrentShowNameInput" /><br />
+      <input class="form-control" type="input" name="hostCurrentShowNameInput" 
+      value="<?php echo $host->showName; ?>" /><br />
     </div>
 
 <div class="input-group">
     <div class="input-group-addon">Current Show Description</div>
-      <textarea class="form-control" type="input" name="hostCurrentShowDescInput" /></textarea><br />
+      <textarea class="form-control" type="input" name="hostCurrentShowDescInput" 
+      /><?php echo $host->showDescription; ?></textarea><br />
     </div>
 <h5 class="note">~If your choose, HTML tags<a href="https://quip.com/aO0pAZO9m9SG" target="_blank">on this list</a> are allowed for the show description.</h5>
 <h5 class="note">~<a href="http://getbootstrap.com/css/">Bootstrap HTML, CSS, and JS Framework</a> classes are included for your use.</h5>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2015 at 07:16 PM
+-- Generation Time: Mar 08, 2015 at 11:59 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `chat` (
   `timestamp` varchar(32) COLLATE utf8_bin NOT NULL,
   `slug` varchar(100) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=97 ;
 
 -- --------------------------------------------------------
 
@@ -77,8 +77,9 @@ CREATE TABLE IF NOT EXISTS `rooms` (
   `password` varchar(100) COLLATE utf8_bin NOT NULL,
   `started` int(12) NOT NULL,
   `last_login` int(12) NOT NULL,
+  `shuffle` int(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=11 ;
 
 -- --------------------------------------------------------
 
@@ -105,22 +106,22 @@ CREATE TABLE IF NOT EXISTS `upcoming` (
 CREATE TABLE IF NOT EXISTS `upload` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `slug` varchar(100) COLLATE utf8_bin NOT NULL,
+  `viewers` int(12) NOT NULL,
   `name` varchar(32) COLLATE utf8_bin NOT NULL,
-  `type` varchar(32) COLLATE utf8_bin NOT NULL,
-  `title` varchar(1000) COLLATE utf8_bin NOT NULL,
-  `time` varchar(12) COLLATE utf8_bin NOT NULL COMMENT 'UNIX time created',
-  `duration` varchar(16) COLLATE utf8_bin NOT NULL COMMENT 'In seconds',
   `scheduled` varchar(64) COLLATE utf8_bin NOT NULL COMMENT 'Record of changes',
+  `duration` varchar(16) COLLATE utf8_bin NOT NULL COMMENT 'In seconds',
+  `youtube` varchar(16) COLLATE utf8_bin NOT NULL,
+  `time` varchar(12) COLLATE utf8_bin NOT NULL COMMENT 'UNIX time created',
   `start` varchar(12) COLLATE utf8_bin NOT NULL,
   `end` varchar(12) COLLATE utf8_bin NOT NULL,
-  `youtube` varchar(16) COLLATE utf8_bin NOT NULL,
+  `type` varchar(32) COLLATE utf8_bin NOT NULL,
+  `title` varchar(1000) COLLATE utf8_bin NOT NULL,
   `audio` varchar(64) COLLATE utf8_bin NOT NULL,
-  `vocaroo` varchar(100) COLLATE utf8_bin NOT NULL,
   `image` varchar(64) COLLATE utf8_bin NOT NULL,
+  `vocaroo` varchar(100) COLLATE utf8_bin NOT NULL,
   `special` varchar(64) COLLATE utf8_bin NOT NULL COMMENT 'For priority, events, and circumstance',
-  `viewers` int(12) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=977 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -32,6 +32,7 @@ If you are the Owner of this page, <a target="_blank" href="http://channelcentra
 	    'queue' => '1200',
 	    'background' => 'default.jpg',
 	    'reload' => '0',
+	    'shuffle' => '0',
 	    'purple' => '<center><img class="img-circle" style="width: 100%; max-height: 100%" src="resources/images/purple.gif"/></center>',
 	    'orange' => '<center><img class="img-circle" style="width: 100%; max-height: 100%" src="resources/images/orange.gif"/></center>',
 	    'green' => '<center><img class="img-circle" style="width: 100%; max-height: 100%" src="resources/images/green.gif"/></center>',
