@@ -25,19 +25,9 @@
 <body>
 <!-- Body -->
 
-<!-- Login Form -->
-
 <?php
-function loginForm($slug){ ?>
-    <div id="loginform">
-    <form action="<?php echo $slug; ?>" method="post">
-    <input type="text" name="name" id="name" placeholder="Enter Your Name" onKeydown="memSort(event);"/>
-    <a id="return-link" class="btn btn-default btn-sm" href="<?=base_url()?>">Return</a>
-    <a id="host-link" class="btn btn-default btn-xs" href="<?php echo $slug; ?>/host">Host page</a>
-    <input name="enter-room" id="enter-room" type="submit" value="foo" style="position: absolute; left: -9999px">
-    </form></div>
-<?php }
 // Set session
+
 // Set room
         $_SESSION['slug'] = $slug;
 // Set Session Variables
@@ -56,23 +46,18 @@ if(isset($_POST['name'])){
     }
 }
 
-// Check if Logged in
-if(!isset($_SESSION['name'])){
+?>
 
-// Display login form
-    loginForm($slug);
-
-// Else, show page
-}
-else 
-{ ?>
 <!-- Begin page content -->
 
 <!-- Absolute Navbar -->
 <div class="absolute-bar">
   <?php echo form_open('home/do_search'); ?>
   <div class="btn-group" role="group" aria-label="...">
-    <div id="viewersBtn" class="nav-btn btn">1</div>
+    <div id="viewersBtn" class="nav-btn btn">1 Viewer</div>
+    <?php if (isset($host_user)) { ?>
+    <div id="hostBtn" class="nav-btn btn">Host</div>
+    <?php } ?>
     <div id="fadeoutBtn" class="nav-btn btn">Fade</div>
     <div id="leaveBtn" class="nav-btn btn" href="#">Leave</div>
   </div>
@@ -123,6 +108,23 @@ else
         Loading...
       </div>
     </div>
+
+<?php
+// If not logged in, show form
+if(!isset($_SESSION['name'])){ ?>
+
+
+    <div id="loginform">
+    <form action="<?php echo $slug; ?>" method="post">
+    <input class="form-control" type="text" name="name" id="name" 
+    placeholder="Enter Your Name To Join Chat" onKeydown="memSort(event);"/>
+    <!-- <a id="return-link" class="btn btn-default btn-sm" href="<?=base_url()?>">Return</a> -->
+    <!-- <a id="host-link" class="btn btn-default btn-xs" href="<?php echo $slug; ?>/host">Host page</a> -->
+    <input name="enter-room" id="enter-room" type="submit" value="foo" style="position: absolute; left: -9999px">
+    </form></div>
+
+<!-- Else show chat input -->
+<?php } else { ?>
 
     <div id="inputCnt">
 	    <form name="chatForm" id="chatForm" action="post/chat-post.php" method="post" enctype="multipart/form-data">

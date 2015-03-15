@@ -32,6 +32,7 @@ body {
 	background-color: #000;
 	color: #FFF;
 	font-family: "AveriaSerif-Regular";
+	overflow-x: hidden;
 }
 .channel-list, .recent-uploads, .info-panel {
 	color: #000;

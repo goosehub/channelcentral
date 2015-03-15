@@ -1,4 +1,4 @@
-// Nav bar buttons
+// Variables set for later
 
 show = '';
 
@@ -186,32 +186,14 @@ var background = '';
 // Refresh
     setInterval(reloadShowInfo, 10000); 
 
-
-
-// NavBar
-$('#showsBtn').click(function()
-{
-    $('#viewer').html(showsLoad);
+// go to host page
+$("#hostBtn ").click(function(){
+    window.location = slug + '/host';   
 });
-$('#uploadBtn').click(function()
-{
-    $('#viewer').html(uploadLoad);
-});
+
 // End user session
-  $("#leaveBtn ").click(function(){
-        window.location = 'post/leave.php';   
-    });
-$('#purpleBtn').click(function()
-{
-    $('#viewer').html(purpleLoad);
-});
-$('#orangeBtn').click(function()
-{
-    $('#viewer').html(orangeLoad);
-});
-$('#greenBtn').click(function()
-{
-    $('#viewer').html(greenLoad);
+$("#leaveBtn ").click(function(){
+    window.location = 'post/leave.php';   
 });
 
 

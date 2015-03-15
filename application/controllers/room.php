@@ -21,6 +21,10 @@ class Room extends CI_Controller {
 	    $data['test'] = $slug;
 		$data['slug'] = $_POST['slug'] = $slug;
 	    $check = $this->room_model->check_slug_exists($slug);
+	    if ($this->session->userdata('logged_in')['username'] === $slug)
+	    {
+	    	$data['host_user'] = TRUE;
+	    }
 // If channel exists, load
 	    if ($check)
 	    {

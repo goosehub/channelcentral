@@ -50,24 +50,6 @@ body {
 	-webkit-transition:2s;
 	transition:2s;
 }
-#name, #loginEnter, #host-link, #return-link {
-	margin: 0 auto;
-	display: block;
-	opacity: 0.8;
-	font-family: CheesePizza;
-}
-#name {
-	margin-top: 40vh;
-	height: 1.6em;
-	width: 8em;
-	text-align: center;
-	font-size: 2em;
-	border-radius: 0.2em;
-}
-#host-link, #return-link {
-	margin-top: 1em;
-	width: 10%;
-}
 
 /*	Left */
 
@@ -101,14 +83,23 @@ body {
 #viewersBtn:hover {
 	border-color: #000;
 	background-color: #FF88DD;
+	cursor: default;
+}
+#hostBtn {
+	border-color: #000;
+	background-color: #FF4444;
+}
+#hostBtn:hover {
+	border-color: #000;
+	background-color: #8888FF;
 }
 #fadeoutBtn {
 	border-color: #000;
-	background-color: #FF7700;
+	background-color: #00CCFF;
 }
 #fadeoutBtn:hover {
 	border-color: #000;
-	background-color: #00CCFF;
+	background-color: #FF7700;
 }
 #leaveBtn {
 	border-color: #000;
@@ -116,7 +107,7 @@ body {
 }
 #leaveBtn:hover {
 	border-color: #000;
-	background-color: #FFE326;
+	background-color: #FFFF00;
 }
 .in-channel-search {
 	width: 8em;
