@@ -27,12 +27,13 @@
       || $_SESSION['errAudioSize']
       || $_SESSION['errFileType']
       || $_SESSION['errQueueLimit']
+      || $_SESSION['errYoutube']
       || $_SESSION['errRickRoll']
       )
     {
       $error_message = $_SESSION['errLength'] . ' '. $_SESSION['errRepeat'] . ' '. $_SESSION['errCode']
        . ' '. $_SESSION['errImgSize'] . ' '. $_SESSION['errAudioSize'] . ' '. $_SESSION['errFileType']
-        . ' '. $_SESSION['errQueueLimit'] . ' '. $_SESSION['errRickRoll'];
+        . ' '. $_SESSION['errQueueLimit'] . ' '. $_SESSION['errYoutube'] . ' ' . $_SESSION['errRickRoll'];
       echo '<script type="text/javascript">alert("' . $error_message . '");</script>';
     // echo '<div class="alert alert-danger" role="alert">';
     //   echo $_SESSION['errLength'];

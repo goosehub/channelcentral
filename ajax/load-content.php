@@ -92,7 +92,6 @@ if ($lag < 4) {
 			if (empty($current) || $host['shuffle'] === '0')
 			{
 // Pipe is used to split data
-				var_dump($current);
 				echo "<h1 id='requestContent'>Upload to start the show</h1>
 				|
 				2000";

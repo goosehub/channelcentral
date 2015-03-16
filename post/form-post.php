@@ -9,9 +9,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 // Empty Errors
 	$_SESSION['errLength'] = $_SESSION['errRepeat'] = $_SESSION['errCode'] = 
 	$_SESSION['errImgSize'] = $_SESSION['errAudioSize'] = $_SESSION['errFileType'] = 
-	$_SESSION['errQueueLimit'] = $_SESSION['errRickRoll'] = '';
+	$_SESSION['errQueueLimit'] = $_SESSION['errYoutube'] = $_SESSION['errRickRoll'] = '';
 //set known variables for query
-	$name = $_SESSION['name'];
+	if (isset($_SESSION['name']))
+	{
+		$name = $_SESSION['name'];
+	}
+	else
+	{
+		$name = 'anonymous';
+	}
 	$name = mysqli_real_escape_string($con, $name);
 	$time = time();
 	$limit = $time + 900;
@@ -62,44 +69,85 @@ if (strlen($youtubeInput) > 10)
 	if (strlen($youtubeID) === 11
 		&& $row['youtube'] !== $youtubeID)
 		{
-//get youtube video duration and title
-		$url = "http://gdata.youtube.com/feeds/api/videos/". $youtubeID;
-		$doc = new DOMDocument;
-		$doc->load($url);
-			// title is not retrieved for all videos 
-		// $title = $doc->getElementsByTagName("title")->item(0)->nodeValue;
-		$duration = $doc->getElementsByTagName('duration')->item(0)->getAttribute('seconds');
-		// Add time for ads and loading time
-		// Will need monitoring for adjusting
-		$duration = $duration + 5;
-
-//check duration
-		if ($duration > $host['length'])
-		{
-// Report length error
-			$_SESSION['errLength'] = "This is too long";
+// Function for finding youtube video duration
+		function getDurationSeconds($duration){
+		    preg_match_all('/[0-9]+[HMS]/',$duration,$matches);
+		    $duration=0;
+		    foreach($matches as $match){    
+		        foreach($match as $portion){        
+		            $unite=substr($portion,strlen($portion)-1);
+		            switch($unite){
+		                case 'H':{  
+		                    $duration +=    substr($portion,0,strlen($portion)-1)*60*60;            
+		                }break;             
+		                case 'M':{                  
+		                    $duration +=substr($portion,0,strlen($portion)-1)*60;           
+		                }break;             
+		                case 'S':{                  
+		                    $duration +=    substr($portion,0,strlen($portion)-1);          
+		                }break;
+		            }
+		        }
+		    }
+		     return $duration;
 		}
-		else if ($youtubeID === 'dQw4w9WgXcQ') 
+// Get data from youtube using this API key
+		$api_key = "AIzaSyD_lT8RkN6KffGEfJ3xBcBgn2VZga-a05I";
+		$url = "https://www.googleapis.com/youtube/v3/videos?id=" . $youtubeID . "&key=" . $api_key . "%20&part=snippet,contentDetails,statistics,status";
+		$json = file_get_contents($url); 
+		$data = json_decode($json);
+		$public = $data->items;
+// If not public, give error
+		if (! $public)
 		{
-			$_SESSION['errRickRoll'] = 'We\'re no strangers to Rick. You know the rules and so do I.';
+			$_SESSION['errYoutube'] = 'This is a private video';
 		}
 		else
 		{
+			$status = $data->items[0]->status;
+			$embeddable = $data->items[0]->status->embeddable;
+// If not embeddable, give error
+			if (!$embeddable)
+			{
+				$_SESSION['errYoutube'] = 'This video is not allowed to be embedded';
+			}
+// Else, set duration
+			else
+			{
+				$duration = $data->items[0]->contentDetails->duration;
+				$duration = getDurationSeconds($duration);
+// Add time for ads and loading time
+				$duration = $duration + 5;
+
+//check duration
+				if ($duration > $host['length'])
+				{
+// Report length error
+					$_SESSION['errLength'] = "This is too long";
+				}
+				else if ($youtubeID === 'dQw4w9WgXcQ') 
+				{
+					$_SESSION['errRickRoll'] = 'We\'re no strangers to Rick. You know the rules and so do I.';
+				}
+				else
+				{
 // Find next available slot
-		include '../ajax/find-slot.php';
-		include '../ajax/find-end.php';
+				include '../ajax/find-slot.php';
+				include '../ajax/find-end.php';
 
 // Query
-		      $query = "INSERT INTO upload 
-		      (name, time, youtube, duration, start, end, scheduled, slug)
-		      VALUES('". $name ."', '". $time ."',
-		       '". $youtubeID ."', '". $duration ."', '". $start ."',
-		        '". $end ."', '". $scheduled ."', '".$slug."');";
-		      $result = mysqli_query($con, $query);  
+				      $query = "INSERT INTO upload 
+				      (name, time, youtube, duration, start, end, scheduled, slug)
+				      VALUES('". $name ."', '". $time ."',
+				       '". $youtubeID ."', '". $duration ."', '". $start ."',
+				        '". $end ."', '". $scheduled ."', '".$slug."');";
+				      $result = mysqli_query($con, $query);  
 
 //remove uneeded files if exists
-			$imageInput = '';
-			$audioInput = '';
+					$imageInput = '';
+					$audioInput = '';
+					}
+				}
 			}
 		}
 	}
