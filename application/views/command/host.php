@@ -88,7 +88,7 @@
       <textarea class="form-control" type="input" name="hostCurrentShowDescInput" 
       /><?php echo $host->showDescription; ?></textarea><br />
     </div>
-<h5 class="note">~If your choose, HTML tags<a href="https://quip.com/aO0pAZO9m9SG" target="_blank">on this list</a> are allowed for the show description.</h5>
+<h5 class="note">~If your choose, HTML tags <a href="https://quip.com/aO0pAZO9m9SG" target="_blank">on this list</a> are allowed for the show description.</h5>
 <h5 class="note">~<a href="http://getbootstrap.com/css/">Bootstrap HTML, CSS, and JS Framework</a> classes are included for your use.</h5>
 <h5 class="note">~<strong>Caution:</strong> HTML tags can break your Channels layout. Setting you height and width inline will help. An example is below.</h5>
 <br/>

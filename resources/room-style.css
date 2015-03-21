@@ -25,10 +25,10 @@ Channel Central
   font-family: "AveriaSerif-Regular";
   src: url(fonts/AveriaSerif-Regular.ttf) format("truetype");
 } 
-/* @font-face {
-  font-family: "ComicNeue-Angular-Regular";
-  src: url(fonts/ComicNeue-Angular-Regular.woff) format("OpenType");
-} */
+ @font-face {
+  font-family: "glyphicons-halflings-regular";
+  src: url(fonts/glyphicons-halflings-regular.ttf) format("truetype");
+} 
 
 /*	Global */
 
@@ -75,6 +75,7 @@ body {
 .nav-btn {
 	font-size: 1.4em;
 	font-weight: bold;
+	color: #000;
 }
 #viewersBtn {
 	border-color: #000;
@@ -235,6 +236,9 @@ body {
 	font-size: 1.1em;
 	line-height: 1.1em;
 	font-family: AveriaSerif-Regular;
+}
+#change_name {
+	float: left;
 }
 
 /*	Scrollbar */

@@ -43,6 +43,7 @@ $route['404_override'] = '';
 
 // Ajax
 $route['ajax/chat_login/(:any)'] = 'ajax/chat_login/$1';
+$route['ajax/chat_logout/(:any)'] = 'ajax/chat_logout/$1';
 
 
 $route['admin'] = 'admin';

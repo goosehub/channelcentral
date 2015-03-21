@@ -6,5 +6,6 @@
 session_start();
 //logout
     session_destroy();
+	// unset($_SESSION['name']);
     echo '<META HTTP-EQUIV="Refresh" Content="0; URL=../">';
 ?>

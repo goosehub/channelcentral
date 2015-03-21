@@ -57,7 +57,7 @@ if(isset($_POST['name'])){
     <div id="viewersBtn" class="nav-btn btn">1 Viewer</div>
     <div id="hostBtn" class="nav-btn btn">Host</div>
     <div id="fadeoutBtn" class="nav-btn btn">Fade</div>
-    <div id="leaveBtn" class="nav-btn btn" href="#">Leave</div>
+    <a id="leaveBtn" class="nav-btn btn" href="<?=base_url()?>">Leave</a>
   </div>
 
   <input class="nav-btn in-channel-search" type="search" name="search" placeholder="Go To New Room"></input>
@@ -108,36 +108,20 @@ if(isset($_POST['name'])){
 <!-- Chat input -->
     <div id="inputCnt">
 
-<?php
-// If not logged in, show form
-if(!isset($_SESSION['name'])){ ?>
-
-
-    <div id="loginform">
-      <form action="" method="post" >
-        <div class="row">
-          <div class="col-sm-8">
-            <input class="form-control" type="text" name="name" id="name" 
-            placeholder="Enter Your Name" onKeydown="memSort(event);"/>
+      <div id="loginform">
+        <form action="" method="post" >
+          <div class="row">
+            <div class="col-sm-8">
+              <input class="form-control" type="text" name="name" id="name" 
+              placeholder="Enter Your Name" onKeydown="memSort(event);"/>
+            </div>
+            <div class="col-sm-4">
+              <input name="enter-room" id="enter-room" class="form-control btn- btn-default" type="submit" value="Join">
+            </div>
           </div>
-          <div class="col-sm-4">
-            <input name="enter-room" id="enter-room" class="form-control btn- btn-default" type="submit" value="Join">
-          </div>
-        </div>
-      </form>
-    </div>
-
-<!-- Else show chat input -->
-<?php } else { ?>
-
-	    <form name="chatForm" id="chatForm" action="post/chat-post.php" method="post" enctype="multipart/form-data">
-		    <input type="text" name="message" class="form-control" id="chatInput" autocomplete="off" placeholder="">
-        <input type="hidden" name="slug" value="<?php echo $slug; ?>">
-		    <!-- submit button positioned off screen -->
-		    <input name="submitChat" type="submit" id="submitChat" value="foo" style="position: absolute; left: -9999px">
-	    </form>
-
-<?php } ?>
+        </form>
+      </div>
+      
     </div>
 
 

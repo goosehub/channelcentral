@@ -9,8 +9,28 @@ var invisible = 0;
 $(document).ready(function()
 {
 
+// On room load, check if logged in
+var client_name = $("#name").val();
+    $.ajax(
+    {
+        url: "ajax/chat_login/" + slug,
+        type: "POST",
+        data: { name: client_name },
+        cache: false,
+        success: function(html)
+        {
+// Replace form if truly success
+            if (html.length > 10)
+            {
+                $('#inputCnt').html(html);
+            }
+// Turn focus to chat input
+            $('#chatInput').focus();
+        }
+    });
+
 // Name submitted for chatroom
-$("#enter-room").click(function()
+$("#inputCnt").delegate('#enter-room', 'click', function()
 {
 // Set name to be sent
 var client_name = $("#name").val();
@@ -213,12 +233,28 @@ var background = '';
 
 // go to host page
 $("#hostBtn ").click(function(){
-    window.open(slug + '/host');   
+    window.location = slug + '/host';   
 });
 
-// End user session
-$("#leaveBtn ").click(function(){
-    window.location = 'post/leave.php';   
+// End user chat session
+$("#inputCnt").delegate('#change_name', 'click', function(){
+    $.ajax(
+    {
+        url: "ajax/chat_logout/" + slug,
+        type: "POST",
+        data: { name: client_name },
+        cache: false,
+        success: function(html)
+        {
+// Replace form if truly success
+            if (html.length > 10)
+            {
+                $('#inputCnt').html(html);
+            }
+// Turn focus to chat input
+            $('#chatInput').focus();
+        }
+    });
 });
 
 

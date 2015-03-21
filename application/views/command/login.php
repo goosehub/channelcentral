@@ -8,6 +8,8 @@
     <label for="password">Password:</label>
     <input type="password" id="password" name="password"/>
     <br/>
-    <input class="login-btn btn btn-lg btn-deafault" type="submit" value="Login"/>
+    <button class="login-btn btn btn-lg btn-danger" type="submit"/>Log In</button>
+    <a class="login-btn btn btn-lg btn-primary" href="../<?php echo $slug; ?>"/>Back to Channel</a>
+    <a class="login-btn btn btn-lg btn-success" href="<?=base_url()?>"/>Front Page</a>
   </form>
 </div>
