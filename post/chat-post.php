@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 // Set and secure data
 	$slug = $_POST['slug'];
-	$name = $_SESSION['name'];
+	$name = $_SESSION[$slug]['name'];
 	$message = $_POST['message'];
 	$message = mysqli_real_escape_string($con, $message);
 	date_default_timezone_set('America/New_York');

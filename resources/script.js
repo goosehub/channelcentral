@@ -13,7 +13,7 @@ $(document).ready(function()
 var client_name = $("#name").val();
     $.ajax(
     {
-        url: "ajax/chat_login/" + slug,
+        url: "chat/chat_login/" + slug,
         type: "POST",
         data: { name: client_name },
         cache: false,
@@ -36,7 +36,7 @@ $("#inputCnt").delegate('#enter-room', 'click', function()
 var client_name = $("#name").val();
     $.ajax(
     {
-        url: "ajax/chat_login/" + slug,
+        url: "chat/chat_login/" + slug,
         type: "POST",
         data: { name: client_name },
         cache: false,
@@ -240,7 +240,7 @@ $("#hostBtn ").click(function(){
 $("#inputCnt").delegate('#change_name', 'click', function(){
     $.ajax(
     {
-        url: "ajax/chat_logout/" + slug,
+        url: "chat/chat_logout/" + slug,
         type: "POST",
         data: { name: client_name },
         cache: false,

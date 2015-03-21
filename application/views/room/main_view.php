@@ -108,20 +108,6 @@ if(isset($_POST['name'])){
 <!-- Chat input -->
     <div id="inputCnt">
 
-      <div id="loginform">
-        <form action="" method="post" >
-          <div class="row">
-            <div class="col-sm-8">
-              <input class="form-control" type="text" name="name" id="name" 
-              placeholder="Enter Your Name" onKeydown="memSort(event);"/>
-            </div>
-            <div class="col-sm-4">
-              <input name="enter-room" id="enter-room" class="form-control btn- btn-default" type="submit" value="Join">
-            </div>
-          </div>
-        </form>
-      </div>
-      
     </div>
 
 

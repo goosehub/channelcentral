@@ -9,9 +9,6 @@ $slug = $_POST['slug'];
 
 include '../connect.php';
 
-// This is only for initial load
-// ajax/chat-logger.php is used for loading new messages 
-
 $_SESSION['loadName'] = '0';
 
 // Get chat data
