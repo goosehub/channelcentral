@@ -17,7 +17,7 @@ class Chat extends CI_Controller {
 			?>
                 <div class="col-sm-10">
 					<form name="chatForm" id="chatForm" action="post/chat-post.php" method="post" enctype="multipart/form-data">
-		                <input type="text" name="message" class="form-control" id="chatInput" autocomplete="off" value="Hello">
+		                <input type="text" name="message" class="form-control" id="chatInput" autocomplete="off" value="">
 		                <input type="hidden" name="slug" value="<?php echo $slug; ?>">
 		                <!-- submit button positioned off screen -->
 		                <input name="submitChat" type="submit" id="submitChat" value="foo" style="position: absolute; left: -9999px">

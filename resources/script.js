@@ -15,7 +15,6 @@ var client_name = $("#name").val();
     {
         url: "chat/chat_login/" + slug,
         type: "POST",
-        data: { name: client_name },
         cache: false,
         success: function(html)
         {
@@ -272,6 +271,7 @@ $("#inputCnt").delegate('#submitChat', 'click', function()
      $("#chatForm :input").val("");
 // Load log so user can instantly see his message
     $('#chatInput').focus();
+// Return false to prevent form submission
     return false;
 });
 

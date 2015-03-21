@@ -36,16 +36,6 @@
         $_SESSION['errQueueLimit'] = $_SESSION['errYoutube'] = $_SESSION['errRickRoll'] = $_SESSION['chat-id'] = 
         $_SESSION['loadName'] = $_SESSION['loadTimestamp'] = '';
 
-// If named posted, and not blank
-if(isset($_POST['name'])){
-    if($_POST['name'] != ''){
-
-// Set Session Name
-        $_SESSION['name'] = $chatname = stripslashes(htmlspecialchars($_POST['name']));
-
-    }
-}
-
 ?>
 
 <!-- Begin page content -->
