@@ -55,9 +55,7 @@ if(isset($_POST['name'])){
   <?php echo form_open('home/do_search'); ?>
   <div class="btn-group" role="group" aria-label="...">
     <div id="viewersBtn" class="nav-btn btn">1 Viewer</div>
-    <?php if (isset($host_user)) { ?>
     <div id="hostBtn" class="nav-btn btn">Host</div>
-    <?php } ?>
     <div id="fadeoutBtn" class="nav-btn btn">Fade</div>
     <div id="leaveBtn" class="nav-btn btn" href="#">Leave</div>
   </div>
@@ -81,8 +79,6 @@ if(isset($_POST['name'])){
     <div id="info-content">
     </div>
   </div>
-
-      <!-- <iframe class="frame" src="<?php echo $slug; ?>/shows" seamless></iframe>  -->
 
   </div>
 
@@ -109,40 +105,47 @@ if(isset($_POST['name'])){
       </div>
     </div>
 
+<!-- Chat input -->
+    <div id="inputCnt">
+
 <?php
 // If not logged in, show form
 if(!isset($_SESSION['name'])){ ?>
 
 
     <div id="loginform">
-    <form action="<?php echo $slug; ?>" method="post">
-    <input class="form-control" type="text" name="name" id="name" 
-    placeholder="Enter Your Name To Join Chat" onKeydown="memSort(event);"/>
-    <!-- <a id="return-link" class="btn btn-default btn-sm" href="<?=base_url()?>">Return</a> -->
-    <!-- <a id="host-link" class="btn btn-default btn-xs" href="<?php echo $slug; ?>/host">Host page</a> -->
-    <input name="enter-room" id="enter-room" type="submit" value="foo" style="position: absolute; left: -9999px">
-    </form></div>
+      <form action="" method="post" >
+        <div class="row">
+          <div class="col-sm-8">
+            <input class="form-control" type="text" name="name" id="name" 
+            placeholder="Enter Your Name" onKeydown="memSort(event);"/>
+          </div>
+          <div class="col-sm-4">
+            <input name="enter-room" id="enter-room" class="form-control btn- btn-default" type="submit" value="Join">
+          </div>
+        </div>
+      </form>
+    </div>
 
 <!-- Else show chat input -->
 <?php } else { ?>
 
-    <div id="inputCnt">
 	    <form name="chatForm" id="chatForm" action="post/chat-post.php" method="post" enctype="multipart/form-data">
 		    <input type="text" name="message" class="form-control" id="chatInput" autocomplete="off" placeholder="">
         <input type="hidden" name="slug" value="<?php echo $slug; ?>">
 		    <!-- submit button positioned off screen -->
 		    <input name="submitChat" type="submit" id="submitChat" value="foo" style="position: absolute; left: -9999px">
 	    </form>
+
+<?php } ?>
     </div>
+
 
   </div>
 
 <!-- row and pagewrap -->
 </div>
 </div>
-<?php 
-} //no content after this bracket 
-?>
     <!-- Script -->
     <!-- Set slug for script files -->
     <script>var slug = '<?php echo $slug; ?>';

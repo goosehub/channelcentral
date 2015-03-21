@@ -26,7 +26,7 @@
       <?php echo validation_errors(); ?>
       <?php echo form_open('home/do_search'); ?>
       <h4>Find a Channel, or Start Your Own</h4>
-      <input class="search form-control" type="search" name="search"></input>
+      <input class="search form-control" type="search" name="search" placeholder="Search"></input>
 
   	<?php $i = 0;
   	foreach ($channels as $channel): ?>

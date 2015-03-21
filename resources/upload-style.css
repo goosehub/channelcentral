@@ -70,20 +70,18 @@ input, textarea {
 	margin: 0.2em;
 	opacity: 0.8;
 }
-.passwordAddon {
-	background-color: #448866;
-}
 .hostSubmit {
 	margin-left: 0;
 	width: 22.5em;
-	background-color: #448866 !important;
+	background-color: #fff !important;
+	color: #000;
 	/* !important to prevent from taking on #hostFormCnt input backgound color*/
 	font-size: 1.6em;
 	font-family: BebasNeue;
 }
 .hostSubmit:hover {
-	background-color: #FFF;
-	color: #000;
+	background-color: #000 !important;
+	color: #fff;
 }
 .reloadQueue {
 	width: 33%;

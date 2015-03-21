@@ -41,6 +41,10 @@
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 
+// Ajax
+$route['ajax/chat_login/(:any)'] = 'ajax/chat_login/$1';
+
+
 $route['admin'] = 'admin';
 $route['home/do_search'] = 'home/do_search';
 // $route['main'] = 'room/main/$1';

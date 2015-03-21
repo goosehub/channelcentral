@@ -1,18 +1,43 @@
+// var slug is set in main_view.php
+
 // Variables set for later
 
 show = '';
 
 var invisible = 0;
 
-var joined = 0;
-
 $(document).ready(function()
 {
 
-// When entering room, set user as joined for session logic later
+// Name submitted for chatroom
 $("#enter-room").click(function()
 {
-    joined = 'on';
+// Set name to be sent
+var client_name = $("#name").val();
+    $.ajax(
+    {
+        url: "ajax/chat_login/" + slug,
+        type: "POST",
+        data: { name: client_name },
+        cache: false,
+        success: function(html)
+        {
+// Replace form if truly success
+            if (html.length > 10)
+            {
+                $('#inputCnt').html(html);
+            }
+// Else, throw error
+            else
+            {
+                alert('Please enter a name to join chat');
+            }
+// Turn focus to chat input
+            $('#chatInput').focus();
+        }
+    });
+// Return false to prevent form submission
+            return false;
 });
 
 // Press button to fade out and back in
@@ -188,7 +213,7 @@ var background = '';
 
 // go to host page
 $("#hostBtn ").click(function(){
-    window.location = slug + '/host';   
+    window.open(slug + '/host');   
 });
 
 // End user session
@@ -197,9 +222,9 @@ $("#leaveBtn ").click(function(){
 });
 
 
-
-//chat input
-$("#submitChat").click(function()
+// Chat input
+// Delegated because input is sometimes generated
+$("#inputCnt").delegate('#submitChat', 'click', function()
 {
     var clientchat = $("#chatInput").val();
     $.post("post/chat-post.php",
