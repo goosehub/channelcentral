@@ -53,4 +53,10 @@ class Home extends CI_Controller {
 		$this->load->view('templates/not_found', $data);
 		$this->load->view('templates/footer', $data);
 	}
+	public function random()
+	{
+		$random_room = $this->home_model->random_room();
+		$random_room = $random_room->slug;
+		redirect($random_room, 'refresh');
+	}
 }

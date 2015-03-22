@@ -20,5 +20,14 @@ Class home_model extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
+	function random_room()
+	{
+		$this->db->select('*');
+		$this->db->from('rooms');
+		$this->db->order_by("start", "random");
+		$this->db->limit(1);
+		$query = $this->db->get();
+		return $query->row();
+	}
 
 }

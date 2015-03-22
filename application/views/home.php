@@ -28,6 +28,10 @@
       <h4>Find a Channel, or Start Your Own</h4>
       <input class="search form-control" type="search" name="search" placeholder="Search"></input>
 
+
+    <a class="channel-list_item btn btn-success" href="random">
+    <strong>random</strong></a>
+
   	<?php $i = 0;
   	foreach ($channels as $channel): ?>
 

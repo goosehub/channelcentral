@@ -41,6 +41,9 @@
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 
+// Random room
+$route['random'] = 'home/random';
+
 // Ajax
 $route['chat/chat_login/(:any)'] = 'chat/chat_login/$1';
 $route['chat/chat_logout/(:any)'] = 'chat/chat_logout/$1';
@@ -59,6 +62,7 @@ $route['(:any)/start'] = 'create/start/$1';
 $route['(:any)/login'] = 'login/admin/$1';
 $route['(:any)/logout'] = 'login/logout/$1';
 $route['(:any)/verifylogin'] = 'login/verifylogin/$1';
+
 
 $route['(:any)/(:any)'] = 'home/not_found';
 $route['(:any)'] = 'room/view/$1';
