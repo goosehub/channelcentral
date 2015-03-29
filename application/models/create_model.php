@@ -25,7 +25,7 @@ Class create_model extends CI_Model
 	    'queue' => '1200',
 	    'background' => 'default.jpg',
 	    'reload' => '0',
-	    'shuffle' => '1',
+	    'shuffle' => '0',
 	    'started' => time(),
 	    'last_login' => time()
 	    );

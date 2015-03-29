@@ -16,6 +16,7 @@ Class home_model extends CI_Model
 		$this->db->from('chat');
 		$this->db->where('timestamp > ' . $active_limit );
 		$this->db->group_by('slug');
+		$this->db->order_by('timestamp', 'DESC');
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -25,6 +26,7 @@ Class home_model extends CI_Model
 		$this->db->from('upload');
 		$this->db->where('end > ' . $active_limit );
 		$this->db->group_by('slug');
+		$this->db->order_by('end', 'DESC');
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -34,6 +36,7 @@ Class home_model extends CI_Model
 		$this->db->from('chat');
 		$this->db->where('timestamp <= ' . $active_limit );
 		$this->db->group_by('slug');
+		$this->db->order_by('timestamp', 'DESC');
 		$query = $this->db->get();
 		return $query->result();
 	}
