@@ -8,10 +8,12 @@ class Chat extends CI_Controller {
 // For logging into chat and decalring new name
 	public function chat_login($slug)
 	{
+// If user is logging in, create session
 	    if(isset($_POST['name']) && $_POST['name'] != '')
 	    {
-			$_SESSION[$slug]['name'] = stripslashes(htmlspecialchars($_POST['name']));
+			$_SESSION[$slug]['name'] = stripslashes(htmlspecialchars(strtoupper($_POST['name'])));
 		}
+// If name is set, load form
 		if (isset($_SESSION[$slug]['name']) && $_SESSION[$slug]['name'] != '')
 		{
 			?>
@@ -32,17 +34,19 @@ class Chat extends CI_Controller {
 		}
 		else
 		{
-// the the login form for chat
+// If name is not set, load chat_logout to get login form
 			$this->chat_logout($slug);
 		}
 	}
 // For logging out of chat, and changing name
 	public function chat_logout($slug)
 	{
+// End any existing sessions
 		if (isset($_SESSION[$slug]['name']))
 		{
 			unset($_SESSION[$slug]['name']);
 		}
+		// Load login form
 		?>
 			<div id="loginform">
 			  <form action="" method="post" >

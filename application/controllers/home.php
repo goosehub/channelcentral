@@ -22,12 +22,22 @@ class Home extends CI_Controller {
 		{
 			$data['username'] = $this->session->userdata('logged_in')['username'];
 		}
-// Get channel list
-		$channels = $data['channels'] = $this->home_model->channel_list();
-		$recent_uploads = $data['recent_uploads'] = $this->home_model->recently_uploaded();
+// Set time active is defined as
+		$active_limit = time() - 1200;
+// Get active channels
+		$channels_by_chat = $this->home_model->active_channels_by_chat($active_limit);
+		$channels_by_upload = $this->home_model->active_channels_by_upload($active_limit);
+		$data['active_channels'] = $channels_by_chat;
+// Get empty channels
+		$empty_channels_by_chat = $this->home_model->empty_channels_by_chat($active_limit);
+		$data['empty_channels'] = $empty_channels_by_chat;
+// Disabled model calls
+		// $recent_uploads = $data['recent_uploads'] = $this->home_model->recently_uploaded();
+		// $recent_chats = $data['recent_chats'] = $this->home_model->recent_chats();
+// Load view
 	    $data['title'] = 'ChannelCentral';
 		$this->load->view('templates/header', $data);
-		$this->load->view('home', $data);
+		$this->load->view('home/default', $data);
 		$this->load->view('templates/footer', $data);
 	}
 // Returns search results

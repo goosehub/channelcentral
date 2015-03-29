@@ -33,7 +33,7 @@ if ($lag < 4) {
 			{
 // If repeat, tell users it is a repeat
 				if ($current['special'] === 'repeat') {
-				    echo '<h2 id="repeatNotice">Repeat</h2>' ;
+				    echo '<h2 id="repeatNotice">Replay</h2>' ;
 				}
 // Youtube load
 				echo '<iframe id="youtubeFrame" src="//www.youtube.com/embed/

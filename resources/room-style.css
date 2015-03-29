@@ -170,13 +170,12 @@ body {
 	color: #FFF;
 	opacity: 0.8;
 	text-align: center;
-	width: 66%;
+	width: 100%;
 	margin: 0 auto;
-	padding: 0.2em;
+	padding: 0.1em;
 	background-color: #000;
 	border: 3px #FFF solid;
-	border-radius: 0.5em;
-	font-family: CheesePizza, OpenSans-Regular;
+	font-family: BebasNeue, OpenSans-Regular;
 }
 #requestContent {
 	color: #FFF;
@@ -194,6 +193,10 @@ body {
 
 /*	Right */
 
+#name {
+	color: #FFF;
+	background: #000;
+}
 #chatInput {
 	opacity: 0.5;
 	font-family: AveriaSerif-Regular;

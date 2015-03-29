@@ -1,7 +1,12 @@
 <footer>
 <!-- Copyright -->
 	<div id="copyright"><strong> &copy; 2015 </strong></div>
-	<p>Devloped by <strong><a href="http://gooseweb.io/">Cory Long</a></strong></p>
+	<p>Devloped by <strong><a target="_blank" href="http://gooseweb.io/">goose</a></strong>
+	<strong> | </strong>
+	<small><a href="mailto:goosepostbox@gmail.com">goosepostbox@gmail.com</a></small>
+	<strong> | </strong>
+	<small>goosetube on skype</small>
+	</p>
 </footer>
 
 <!-- JavaScript -->

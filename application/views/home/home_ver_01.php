@@ -48,7 +48,7 @@
   <div class="col-sm-4 recent-uploads">
   <h2>Recent Uploads</h2>
   	<?php $i = 0;
-  	foreach ($recent_uploads as $upload):
+  	foreach ($recent_uploads as $upload) {
 // If youtube, load youtube
         if ($upload->youtube != '') { ?>
           <iframe id="youtubeFrame" 
@@ -73,14 +73,33 @@
   	</strong></a></h4>
   	<hr/>
 
-  	<?php $i = $i + 1;
-  	if ($i == 10) break;
-  	endforeach ?>
+  	<?php $i++;
+  	} ?>
   </div>
 
 <!-- Info Panel -->
 
   <div class="col-sm-4 info-panel">
+    <?php 
+    // var_dump($recent_chats);
+    ?>
+
+      <h2>Recent Chatter</h2>
+        <?php $i = 0;
+        foreach ($recent_chats as $row) { ?>
+
+
+        <a class="channel-list_item" href="<?php echo $row->slug; ?>">
+        <strong><?php echo $row->slug; ?></strong></a>
+        <strong><?php echo $row->name ?></strong>
+        <small><?php echo $row->message ?></small>
+
+
+
+        <div class="divider"></div>
+
+        <?php $i++; } ?>
+
   	<h2>What is Channel Central?</h2>
 
   	<p class="lead">Channel Central is a place for groups to share video and audio.
@@ -95,9 +114,9 @@
     <p class="lead">The project is on <a href="https://github.com/goosehub/channelcentral">GitHub</a></p>
     <hr/>
     <p class="lead">
-    <!-- <a href="mailto:goosepostbox@gmail.com"> -->
+    <a href="mailto:goosepostbox@gmail.com">
     goosepostbox@gmail.com
-    <!-- </a> -->
+    </a>
     </p>
     <hr/>
     <p class="lead">goosetube on skype</p>

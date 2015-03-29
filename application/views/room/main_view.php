@@ -45,7 +45,7 @@
   <?php echo form_open('home/do_search'); ?>
   <div class="btn-group" role="group" aria-label="...">
     <div id="viewersBtn" class="nav-btn btn">1 Viewer</div>
-    <div id="hostBtn" class="nav-btn btn">Host</div>
+    <a id="hostBtn" class="nav-btn btn" href="<?=base_url()?><?php echo $slug; ?>/host" target="_blank">Host</a>
     <div id="fadeoutBtn" class="nav-btn btn">Fade</div>
     <a id="leaveBtn" class="nav-btn btn" href="<?=base_url()?>">Leave</a>
   </div>

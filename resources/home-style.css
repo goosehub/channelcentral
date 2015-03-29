@@ -26,6 +26,10 @@
   src: url(fonts/AveriaSerif-Regular.ttf) format("truetype");
 } 
 
+
+/*	New 03/29/15 */
+
+
 /*	Global */
 
 body {
@@ -34,9 +38,6 @@ body {
 	font-family: "AveriaSerif-Regular";
 	overflow-x: hidden;
 }
-.channel-list, .recent-uploads, .info-panel {
-	color: #000;
-}
 h2 {
 	text-align: center;
 }
@@ -44,7 +45,6 @@ h2 {
 /*	Head */
 
 .head {
-	color: #FFF;
 	text-align: center;
 }
 .main-title {
@@ -60,36 +60,10 @@ h2 {
 
 /*	Channel List */
 
-.channel-list {
-	background-color: #ffe6f3;
-	text-align: center;
-}
 .channel-list_item {
 	margin: 0.2em;
 	font-family: "CheesePizza";
 	letter-spacing: 0.2em;
-}
-
-/*	Recent Uploads */
-
-.recent-uploads {
-	background-color: #E7FFCC;
-}
-audio, iframe, .image-cover {
-	width:100%;
-}
-iframe {
-	min-height: 40vh;
-}
-.playby {
-	font-family: "CheesePizza";
-	letter-spacing: 0.2em;
-}
-
-/*	Info */
-
-.info-panel {
-	background-color: #D1E9FF;
 }
 
 /*	Footer */
