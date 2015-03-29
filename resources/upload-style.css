@@ -55,6 +55,17 @@ input, textarea {
 	height: 2.8em;
 }
 
+/*				  */
+/*	new and login */
+/*				  */
+.available_cnt, .login_cnt {
+	text-align: center;
+	margin-top: 12em;
+}
+.get_started {
+	letter-spacing: 0.2em;
+}
+
 /*		 */
 /*	host */
 /*		 */

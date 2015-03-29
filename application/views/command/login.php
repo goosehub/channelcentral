@@ -1,4 +1,4 @@
-<div class="form-cnt">
+<div class="login_cnt">
 <h1>Host Login</h1>
 <h6>This page for the host only</h6>
   <?php echo validation_errors(); ?>

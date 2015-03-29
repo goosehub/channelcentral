@@ -42,8 +42,8 @@ class Create extends CI_Controller {
                     $this->session->set_userdata('logged_in', $sess_array);
                 }
             }
-// Redirect to start page
-            redirect('' . $slug . '/start', 'refresh');
+// Redirect to channel
+            redirect('' . $slug, 'refresh');
         }
     }
 // Landing page after creating room

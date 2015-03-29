@@ -44,13 +44,14 @@ class Home extends CI_Controller {
 	public function do_search()
 	{
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('search', 'Search', 'trim|required|xss_clean|alpha_dash|max_length[24]');
+		$this->form_validation->set_rules('search', 'Search', 'trim|required|xss_clean|max_length[24]');
 		if($this->form_validation->run() == FALSE)
 		{
 		}
 		else
 		{
 			$slug = $this->input->post('search');
+			$slug = str_replace(' ', '_', $slug);
 			$slug = strtolower($slug);
 			redirect($slug, 'refresh');
 		}

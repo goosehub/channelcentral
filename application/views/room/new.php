@@ -1,4 +1,4 @@
-<div class="form-cnt">
+<div class="available_cnt">
     <h1>This room is available!</h1>
     <h6>This room can be yours in one step.</h6>
 
@@ -17,7 +17,7 @@
      <input class="input-textarea"
      type="email" size="20" id="email" name="email"/> -->
      <br/>
-     <input class="btn btn-success" type="submit" value="Get Started"/>
+     <button class="get_started btn btn-success" type="submit">Get Started</button>
      <a class="btn btn-primary" href="/">Return to front page</a>
    </form>
 
