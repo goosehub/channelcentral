@@ -28,11 +28,14 @@ class Home extends CI_Controller {
 		$channels_by_chat = $this->home_model->active_channels_by_chat($active_limit);
 		$active_channels = $data['active_channels'] = $channels_by_chat;
 // Get empty channels by removing active channels
-		$active_array = [];
+		// Random used incase there are no active channels
+		$active_array = ['random'];
+		// Record all active channels
 		foreach ($active_channels as $channel) 
 		{
 			array_push($active_array, $channel->slug);
 		}
+		// Get all channels that are not active
 		$data['empty_channels'] = $this->home_model->empty_channels($active_array);
 // Disabled model calls
 		// $recent_uploads = $data['recent_uploads'] = $this->home_model->recently_uploaded();

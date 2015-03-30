@@ -45,11 +45,12 @@
 
 	    <h2>Active Channels</h2>
 
-
+	    <?php if (empty($active_channels)) { ?>
+	    	<p class="lead">Currently no active channels</p>
+	    <?php } ?>
 		<?php foreach ($active_channels as $channel) { ?>
 			<a class="channel-list_item btn btn-default btn-lg" href="<?php echo $channel->slug; ?>">
 			<strong><?php echo $channel->slug; ?></strong></a>
-
 		<?php } ?>
 
 		<h2>Empty Channels</h2>
