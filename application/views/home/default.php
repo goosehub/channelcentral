@@ -46,34 +46,23 @@
 	    <h2>Active Channels</h2>
 
 
-		<?php 
-		if (empty($active_channels)) { ?>
-		<strong class="channel-list_item">No active channels</strong>
-		<?php }
-		$i = 0;
-		foreach ($active_channels as $channel): ?>
+		<?php foreach ($active_channels as $channel) { ?>
+			<a class="channel-list_item btn btn-default btn-lg" href="<?php echo $channel->slug; ?>">
+			<strong><?php echo $channel->slug; ?></strong></a>
 
-		<a class="channel-list_item btn btn-default btn-lg" href="<?php echo $channel->slug; ?>">
-		<strong><?php echo $channel->slug; ?></strong></a>
-
-		<?php $i = $i + 1;
-		if ($i == 1000) break;
-		endforeach ?>
+		<?php } ?>
 
 		<h2>Empty Channels</h2>
 
 		<a class="channel-list_item btn btn-success" href="random">
 		<strong>random</strong></a>
 
-		<?php $i = 0;
-		foreach ($empty_channels as $channel): ?>
+		<?php foreach ($empty_channels as $channel) { ?>
 
 		<a class="channel-list_item btn btn-default" href="<?php echo $channel->slug; ?>">
 		<strong><?php echo $channel->slug; ?></strong></a>
 
-		<?php $i = $i + 1;
-		if ($i == 1000) break;
-		endforeach ?>
+		<?php } ?>
 
 		<hr/>
 

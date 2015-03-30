@@ -228,12 +228,7 @@ var background = '';
 // Initial Load
     reloadShowInfo();
 // Refresh
-    setInterval(reloadShowInfo, 10000); 
-
-// go to host page
-$("#hostBtn ").click(function(){
-    window.location = slug + '/host';   
-});
+    setInterval(reloadShowInfo, 5000); 
 
 // End user chat session
 $("#inputCnt").delegate('#change_name', 'click', function(){

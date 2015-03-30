@@ -2,14 +2,6 @@
 
 Class home_model extends CI_Model
 {
-	function channel_list()
-	{
-		$this->db->select('*');
-		$this->db->from('rooms');
-		$this->db->order_by('last_login', 'DESC');
-		$query = $this->db->get();
-		return $query->result();
-	}
 	function active_channels_by_chat($active_limit)
 	{
 		$this->db->select('*');
@@ -20,23 +12,13 @@ Class home_model extends CI_Model
 		$query = $this->db->get();
 		return $query->result();
 	}
-	function active_channels_by_upload($active_limit)
+	function empty_channels($active_array)
 	{
 		$this->db->select('*');
-		$this->db->from('upload');
-		$this->db->where('end > ' . $active_limit );
+		$this->db->from('rooms');
+		$this->db->where_not_in('slug', $active_array);
 		$this->db->group_by('slug');
-		$this->db->order_by('end', 'DESC');
-		$query = $this->db->get();
-		return $query->result();
-	}
-	function empty_channels_by_chat($active_limit)
-	{
-		$this->db->select('*');
-		$this->db->from('chat');
-		$this->db->where('timestamp <= ' . $active_limit );
-		$this->db->group_by('slug');
-		$this->db->order_by('timestamp', 'DESC');
+		$this->db->order_by('last_login', 'DESC');
 		$query = $this->db->get();
 		return $query->result();
 	}
