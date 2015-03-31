@@ -30,7 +30,7 @@
 /*	Note: */
 /*	If the user has javascript disabled, this will be removed */
 #preloader {
-    background: #000000;
+    background: #000;
     height: 120%;
     position: fixed;
     width: 100%;
@@ -51,23 +51,29 @@
 
 .hr {
 	visibility: hidden;
+  	-webkit-animation-duration: 5.0s;
+    -moz-animation-duration: 5.0s;
+    -o-animation-duration: 5.0s;
+}
+
+.active_channels_header, .no_active_channels, .active_channel_item {
+	visibility: hidden;
   	-webkit-animation-duration: 4.0s;
     -moz-animation-duration: 4.0s;
     -o-animation-duration: 4.0s;
-	-webkit-animation-delay: 0.6s;
-	-moz-animation-delay: 0.6s;
-	-o-animation-delay: 0.6s;
+	-webkit-animation-delay: 2.0s;
+	-moz-animation-delay: 2.0s;
+	-o-animation-delay: 2.0s;
 }
 
-.active_channels_header, .no_active_channels, .empty_channels_header, .random_channel, .active_channel_item,
-.empty_channel_item {
+.empty_channels_header, .random_channel, .empty_channel_item {
 	visibility: hidden;
-  	-webkit-animation-duration: 3.0s;
-    -moz-animation-duration: 3.0s;
-    -o-animation-duration: 3.0s;
-	-webkit-animation-delay: 1.6s;
-	-moz-animation-delay: 1.6s;
-	-o-animation-delay: 1.6s;
+  	-webkit-animation-duration: 4.0s;
+    -moz-animation-duration: 4.0s;
+    -o-animation-duration: 4.0s;
+	-webkit-animation-delay: 2.5s;
+	-moz-animation-delay: 2.5s;
+	-o-animation-delay: 2.5s;
 }
 
 .start_channel_header, .search {
@@ -75,9 +81,9 @@
   	-webkit-animation-duration: 1.5s;
     -moz-animation-duration: 1.5s;
     -o-animation-duration: 1.5s;
-	-webkit-animation-delay: 2.0s;
-	-moz-animation-delay: 2.0s;
-	-o-animation-delay: 2.0s;
+	-webkit-animation-delay: 4.0s;
+	-moz-animation-delay: 4.0s;
+	-o-animation-delay: 4.0s;
 }
 
 .github_note, #copyright, .developed_by, .email, .skype, .footer_pipe {

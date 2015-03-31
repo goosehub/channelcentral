@@ -42,7 +42,7 @@
 				No sign-up to participate.
 			</p>
 			<p class="intro_item intro_3 texts lead">
-				Free to create your own room.
+				Free to create your own channel.
 			</p>
 		</div>
 
