@@ -20,6 +20,7 @@
     <link rel="shortcut icon" href="<?=base_url()?>resources/images/favicon.ico">
 <!-- CSS -->
   	<link rel="stylesheet" href="<?=base_url()?>resources/tools/bootstrap.min.css" />
+	<link type="text/css" rel="stylesheet" href="resources/tools/animate.css">
 	<link type="text/css" rel="stylesheet" href="resources/home-style.css">
 </head>
 <body>

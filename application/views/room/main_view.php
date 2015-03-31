@@ -112,7 +112,7 @@
     </script>
     <script type="text/javascript" src="resources/tools/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="resources/tools/bootstrap.min.js"></script>
-    <script type="text/javascript" src="resources/script.js"></script>
+    <script type="text/javascript" src="resources/room_script.js"></script>
 
 </body>
 </html>

@@ -26,9 +26,69 @@
   src: url(fonts/AveriaSerif-Regular.ttf) format("truetype");
 } 
 
+/*	Here I set the Preloader for Fade-In */
+/*	Note: */
+/*	If the user has javascript disabled, this will be removed */
+#preloader {
+    background: #000000;
+    height: 120%;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
 
-/*	New 03/29/15 */
+/*	Here I set the animation speed and delay */
+/*	visibility is hidden so elements don't flash before the animation begins */
+.main-title, .login_cnt {
+	visibility: hidden;
+  	-webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -o-animation-duration: 1.5s;
+	-webkit-animation-delay: 0.6s;
+	-moz-animation-delay: 0.6s;
+	-o-animation-delay: 0.6s;
+}
 
+.hr {
+	visibility: hidden;
+  	-webkit-animation-duration: 4.0s;
+    -moz-animation-duration: 4.0s;
+    -o-animation-duration: 4.0s;
+	-webkit-animation-delay: 0.6s;
+	-moz-animation-delay: 0.6s;
+	-o-animation-delay: 0.6s;
+}
+
+.active_channels_header, .no_active_channels, .empty_channels_header, .random_channel, .active_channel_item,
+.empty_channel_item {
+	visibility: hidden;
+  	-webkit-animation-duration: 3.0s;
+    -moz-animation-duration: 3.0s;
+    -o-animation-duration: 3.0s;
+	-webkit-animation-delay: 1.6s;
+	-moz-animation-delay: 1.6s;
+	-o-animation-delay: 1.6s;
+}
+
+.start_channel_header, .search {
+	visibility: hidden;
+  	-webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    -o-animation-duration: 1.5s;
+	-webkit-animation-delay: 2.0s;
+	-moz-animation-delay: 2.0s;
+	-o-animation-delay: 2.0s;
+}
+
+.github_note, #copyright, .developed_by, .email, .skype, .footer_pipe {
+	visibility: hidden;
+  	-webkit-animation-duration: 1.0s;
+    -moz-animation-duration: 1.0s;
+    -o-animation-duration: 1.0s;
+	-webkit-animation-delay: 3.5s;
+	-moz-animation-delay: 3.5s;
+	-o-animation-delay: 3.5s;
+}
 
 /*	Global */
 
@@ -43,7 +103,16 @@ h2 {
 }
 
 /*	Head */
-
+.intro_lines {
+	text-align: center;
+	height: 2em;
+}
+.intro_item {
+	visibility: hidden;
+	position: fixed;
+	width:100%;
+	/*top: 8em;*/
+}
 .head {
 	text-align: center;
 }
@@ -51,16 +120,13 @@ h2 {
 	display: inline;
 	text-align: center;
 }
-.search-label {
-	color: #0037FF;
-}
 .search {
 	background-color: #D1E9FF;
 }
 
 /*	Channel List */
 
-.channel-list_item {
+.channel_list_item, .random_channel {
 	margin: 0.2em;
 	font-family: "CheesePizza";
 	letter-spacing: 0.2em;

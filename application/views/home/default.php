@@ -1,8 +1,22 @@
+<!-- Preloader and Intro Fallback for users without javascript -->
+<noscript><style>
+  #preloader {
+    background: none !important;
+}
+* {
+	visibility: visible !important;
+}
+</style></noscript>
+
+<!-- Used for preloading the website for fade in -->
+<div id="preloader">
+</div>
+
 <div class="row head">
 	<div class="col-md-6">
 		<h1 class="main-title">Channel Central</h1>
 	</div>
-	<div class="col-md-6">
+	<div class="col-md-6 login_cnt">
 		<?php if(isset($username)) { ?>
 			<p>You are logged in as <strong><?php echo $username; ?></strong></p>
 	    <a class="btn btn-primary" href="<?php echo $username; ?>">Go to your Channel</a>
@@ -12,7 +26,7 @@
 	</div>
 </div>
 
-<hr/>
+<hr class="hr" />
 
 <div class="row">
 
@@ -20,17 +34,19 @@
 	</div>
 	<div class="col-md-6">
 
-		<p class="lead">
-			Watch youtube with friends in real-time. 
-		</p>
-		<p class="lead">
-			No sign-up to participate.
-		</p>
-		<p class="lead">
-			Free to create your own room.
-		</p>
+		<div class="intro_lines">
+			<p class="intro_item intro_1 texts lead">
+				Watch youtube with friends in real-time. 
+			</p>
+			<p class="intro_item intro_2 texts lead">
+				No sign-up to participate.
+			</p>
+			<p class="intro_item intro_3 texts lead">
+				Free to create your own room.
+			</p>
+		</div>
 
-	    <h2>Start Your Own Channel</h2>
+	    <h2 class="start_channel_header">Start Your Own Channel</h2>
 		<div class="row">
 		    <div class="col-sm-3">
 		    </div>
@@ -43,31 +59,31 @@
 		    </div>
 	    </div>
 
-	    <h2>Active Channels</h2>
+	    <h2 class="active_channels_header">Active Channels</h2>
 
 	    <?php if (empty($active_channels)) { ?>
-	    	<p class="lead">Currently no active channels</p>
+	    	<p class="no_active_channels lead">Currently no active channels</p>
 	    <?php } ?>
 		<?php foreach ($active_channels as $channel) { ?>
-			<a class="channel-list_item btn btn-default btn-lg" href="<?php echo $channel->slug; ?>">
+			<a class="channel_list_item active_channel_item btn btn-default btn-lg" href="<?php echo $channel->slug; ?>">
 			<strong><?php echo $channel->slug; ?></strong></a>
 		<?php } ?>
 
-		<h2>Empty Channels</h2>
+		<h2 class="empty_channels_header">Empty Channels</h2>
 
-		<a class="channel-list_item btn btn-success" href="random">
+		<a class="channel-list_item random_channel btn btn-success" href="random">
 		<strong>random</strong></a>
 
 		<?php foreach ($empty_channels as $channel) { ?>
 
-		<a class="channel-list_item btn btn-default" href="<?php echo $channel->slug; ?>">
+		<a class="channel_list_item empty_channel_item btn btn-default" href="<?php echo $channel->slug; ?>">
 		<strong><?php echo $channel->slug; ?></strong></a>
 
 		<?php } ?>
 
-		<hr/>
+		<hr class="hr" />
 
-		<p>This is an open source project on <a target="_blank" href="https://github.com/goosehub/channelcentral">GitHub</a></p>
+		<p class="github_note">This is an open source project on <a target="_blank" href="https://github.com/goosehub/channelcentral">GitHub</a></p>
 
 	</div>
 	<div class="col-md-3">
