@@ -110,8 +110,7 @@ h2 {
 .intro_item {
 	visibility: hidden;
 	position: fixed;
-	width:100%;
-	/*top: 8em;*/
+	/*width:100%;*/
 }
 .head {
 	text-align: center;
