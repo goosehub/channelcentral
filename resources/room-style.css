@@ -34,7 +34,7 @@ Channel Central
 
 body {
     overflow-x: hidden;
-	font-family: OpenSans-Regular;
+	font-family: OpenSans-Regular, AveriaSerif-Regular;
     background-color: #000000;
     background: url('/resources/image/background-img.jpg') no-repeat center center fixed; 
 	-webkit-background-size: cover;
@@ -70,7 +70,7 @@ body {
 	top: 0px;
 	left: 0px;
 	z-index: 1000;
-	font-family: CheesePizza;
+	font-family: CheesePizza, BebasNeue;
 }
 .nav-btn {
 	font-size: 1.4em;
@@ -79,11 +79,11 @@ body {
 }
 #viewersBtn {
 	border-color: #000;
-	background-color: #CC49DE;
+	background-color: #FFE044;
 }
 #viewersBtn:hover {
 	border-color: #000;
-	background-color: #FF88DD;
+	background-color: #D57AD5;
 	cursor: default;
 }
 #hostBtn {
@@ -92,7 +92,7 @@ body {
 }
 #hostBtn:hover {
 	border-color: #000;
-	background-color: #8888FF;
+	background-color: #B581D8;
 }
 #fadeoutBtn {
 	border-color: #000;
@@ -100,7 +100,7 @@ body {
 }
 #fadeoutBtn:hover {
 	border-color: #000;
-	background-color: #FF7700;
+	background-color: #D2F541;
 }
 #leaveBtn {
 	border-color: #000;
@@ -108,7 +108,7 @@ body {
 }
 #leaveBtn:hover {
 	border-color: #000;
-	background-color: #FFFF00;
+	background-color: #F29615;
 }
 .in-channel-search {
 	width: 8em;
@@ -120,22 +120,22 @@ body {
 /*	Info */
 
 #info-content-cnt {
-	height: 95vh;
-	overflow-y: scroll;
+	height: 95vh;2
+	overflow-y: hidden;
 }
 #current-show-name {
 	text-align: center;
 	opacity: 0.9;
 	background-color: black;
 	color: white;
-	font-family: CheesePizza, OpenSans-Regular;
+	font-family: CheesePizza, BebasNeue, OpenSans-Regular, AveriaSerif-Regular;
 }
 #current-show-name {
 	margin-top: 1.2em;
 	letter-spacing: 0.2em;
 }
 #current-show-description {
-	font-family: OpenSans-Regular;
+	font-family: OpenSans-Regular, AveriaSerif-Regular;
 	font-size: 1em;
 	padding: 0.2em;
 	opacity: 0.9;
@@ -175,7 +175,7 @@ body {
 	padding: 0.1em;
 	background-color: #000;
 	border: 3px #FFF solid;
-	font-family: BebasNeue, OpenSans-Regular;
+	font-family: BebasNeue, OpenSans-Regular, AveriaSerif-Regular;
 }
 #requestContent {
 	color: #FFF;
@@ -188,7 +188,7 @@ body {
 	background-color: #000;
 	border: 3px #FFF solid;
 	border-radius: 5px;
-	font-family: CheesePizza, OpenSans-Regular;
+	font-family: CheesePizza, BebasNeue, OpenSans-Regular, AveriaSerif-Regular;
 }
 
 /*	Right */
@@ -221,12 +221,12 @@ body {
 .chatName {
 	font-size: 1.5em;
 	letter-spacing: 0.1em;
-	font-family: CheesePizza;
+	font-family: CheesePizza, BebasNeue, AveriaSerif-Regular;
 }
 .timestamp {
 	opacity: 60%;
 	font-size: 0.8em;
-	font-family: OpenSans-Regular;
+	font-family: OpenSans-Regular, AveriaSerif-Regular;
 }
 .chatName, .chatMsg {
 	margin-left: 0.5em;
@@ -279,4 +279,11 @@ body {
 	#contentWindow {
 		height: 50vh;
 	}
+}
+
+/*	Firefox */
+@-moz-document url-prefix() {
+    #requestContent, .absolute-bar, .chatName {
+    	font-family: BebasNeue;
+    }
 }

@@ -60,6 +60,7 @@
       <input class="checkbox" class="" type="checkbox" name="hostShuffle" value="yes" 
       <?php if($host->shuffle==='1') {echo 'checked';} ?>/>
 </div>
+
 <div class="input-group">
   <div class="input-group-addon">Background Image</div>
   <input class="form-control" name="hostBackgroundInput" type="file" />
@@ -72,19 +73,19 @@
     </div>
 
 <div class="input-group">
-    <div class="input-group-addon">Max Queue in Minutes</div>
+    <div class="input-group-addon">Max Playlist Queue in Minutes</div>
       <input class="form-control" type="input" name="hostQueueLimitInput" 
       value="<?php echo $host->queue; ?>" /><br />
     </div>
 
 <div class="input-group">
-    <div class="input-group-addon">Current Show Name</div>
+    <div class="input-group-addon">Current Headline Message</div>
       <input class="form-control" type="input" name="hostCurrentShowNameInput" 
       value="<?php echo $host->showName; ?>" /><br />
     </div>
 
 <div class="input-group">
-    <div class="input-group-addon">Current Show Description</div>
+    <div class="input-group-addon">Current Description</div>
       <textarea class="form-control" type="input" name="hostCurrentShowDescInput" 
       /><?php echo $host->showDescription; ?></textarea><br />
     </div>

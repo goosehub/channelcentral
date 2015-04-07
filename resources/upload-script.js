@@ -52,6 +52,12 @@ $('#submitForm').click(function()
     $.post('post/form-post.php', $('#uploadForm').serialize());
 });
 
+// Flash alerts
+
+    window.setTimeout(function(){
+        $('.flash_alert').remove(); 
+    }, 3000);
+
 
 
 }); //end document

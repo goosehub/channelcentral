@@ -34,7 +34,7 @@
         $_SESSION['errLength'] = $_SESSION['errRepeat'] = $_SESSION['errCode'] = 
         $_SESSION['errImgSize'] = $_SESSION['errAudioSize'] = $_SESSION['errFileType'] =
         $_SESSION['errQueueLimit'] = $_SESSION['errYoutube'] = $_SESSION['errRickRoll'] = $_SESSION['chat-id'] = 
-        $_SESSION['loadName'] = $_SESSION['loadTimestamp'] = '';
+        $_SESSION['loadName'] = $_SESSION['loadTimestamp'] = $_SESSION['successful_upload'] = '';
 
 ?>
 

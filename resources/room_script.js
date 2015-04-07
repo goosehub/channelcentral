@@ -150,7 +150,7 @@ function loadViewerCount()
 }
 
 loadViewerCount();
-setInterval(loadViewerCount, 1000);
+setInterval(loadViewerCount, 5000);
 
 // Used to determine current background image
 var background = '';
@@ -199,7 +199,7 @@ var background = '';
 // Initial Load
     loadHostInfo();
 // Refresh
-    setInterval(loadHostInfo, 10000); 
+    setInterval(loadHostInfo, 5000); 
 
 
 

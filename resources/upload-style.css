@@ -43,7 +43,10 @@ input, textarea {
 	font-family: OpenSans;
 }
 .uploadAddon {
+	opacity: 0.8;
 	max-width: 50vw;
+	color: #FFFF00 !important;
+	background-color: #000 !important;
 }
 .uploadInput {
 	opacity: 0.8;
@@ -54,13 +57,22 @@ input, textarea {
 	width: 100vw;
 	height: 2.8em;
 }
+.flash_alert {
+	height: 2.4em;
+}
 
 /*				  */
 /*	new and login */
 /*				  */
+.new_room_username {
+	float: left;
+	margin-left: 1em;
+	margin-top: 0.3em;
+	font-size: 1.4em;
+}
 .available_cnt, .login_cnt {
 	text-align: center;
-	margin-top: 12em;
+	margin-top: 4em;
 }
 .get_started {
 	letter-spacing: 0.2em;

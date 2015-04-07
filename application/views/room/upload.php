@@ -31,29 +31,31 @@
       || $_SESSION['errRickRoll']
       )
     {
-      $error_message = $_SESSION['errLength'] . ' '. $_SESSION['errRepeat'] . ' '. $_SESSION['errCode']
-       . ' '. $_SESSION['errImgSize'] . ' '. $_SESSION['errAudioSize'] . ' '. $_SESSION['errFileType']
-        . ' '. $_SESSION['errQueueLimit'] . ' '. $_SESSION['errYoutube'] . ' ' . $_SESSION['errRickRoll'];
-      echo '<script type="text/javascript">alert("' . $error_message . '");</script>';
-    // echo '<div class="alert alert-danger" role="alert">';
-    //   echo $_SESSION['errLength'];
-    //   echo $_SESSION['errRepeat'];
-    //   echo $_SESSION['errCode'];
-    //   echo $_SESSION['errImgSize'];
-    //   echo $_SESSION['errAudioSize'];
-    //   echo $_SESSION['errFileType'];
-    //   echo $_SESSION['errQueueLimit'];
-    //   echo $_SESSION['errRickRoll'];
-    // echo '</div>';
+    echo '<div class="flash_alert alert alert-danger" role="alert">';
+      echo $_SESSION['errLength'];
+      echo $_SESSION['errRepeat'];
+      echo $_SESSION['errCode'];
+      echo $_SESSION['errImgSize'];
+      echo $_SESSION['errAudioSize'];
+      echo $_SESSION['errFileType'];
+      echo $_SESSION['errQueueLimit'];
+      echo $_SESSION['errRickRoll'];
+    echo '</div>';
+    }
+    else if ($_SESSION['successful_upload'])
+    { ?>
+      <div class="flash_alert alert alert-danger" role="alert">
+      <?php echo $_SESSION['successful_upload']; ?>
+      </div>
+      <?php
     }
 ?>
-
     <form name="uploadForm" id="uploadForm" action="<?=base_url()?>/post/form-post.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
 
     <div class="upload-reload input-group">
       <div class="uploadAddon input-group-addon">Enter Youtube URL</div>
-      <input class="uploadInput form-control" type="input" name="youtubeInput" placeholder="" /><br />
+      <input class="uploadInput form-control" type="input" name="youtubeInput" placeholder="<?php echo $_SESSION['successful_upload']; ?>" /><br />
     </div>
 
     <input type="hidden" name="slug" value="<?php echo $slug; ?>">

@@ -2,28 +2,18 @@
 
 Class create_model extends CI_Model
 {
-	function new_room($slug, $password)
+	function new_room($slug, $password, $hostLengthInput, 
+                $hostQueueLimitInput, $hostCurrentShowNameInput, $hostCurrentShowDescInput, $filename)
 	{
 	    $data = array(
 	    'slug' => $slug,
 	    'password' => md5($password),
-
-// Default channel information panel after =>
-	    'showName' => 
-
-	    'Welcome',
-
-	    'showDescription' => '<center>
-<h1>'.$slug.'</h1>
-
-<img height="50%" width="50%" src="http://channelcentral.me/resources/images/purple.gif">
-</center>'
-		,
-		// End channel information panel after ,
+	    'showName' => $hostCurrentShowNameInput,
+	    'showDescription' => $hostCurrentShowDescInput,
 	    'headline' => $slug,
-	    'length' => '900',
-	    'queue' => '1200',
-	    'background' => 'default.jpg',
+	    'length' => $hostLengthInput,
+	    'queue' => $hostQueueLimitInput,
+	    'background' => $filename,
 	    'reload' => '0',
 	    'shuffle' => '0',
 	    'started' => time(),

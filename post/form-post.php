@@ -119,7 +119,7 @@ if (strlen($youtubeInput) > 10)
 // Add time for ads and loading time
 				$duration = $duration + 5;
 
-//check duration
+// Check duration
 				if ($duration > $host['length'])
 				{
 // Report length error
@@ -132,16 +132,17 @@ if (strlen($youtubeInput) > 10)
 				else
 				{
 // Find next available slot
-				include '../ajax/find-slot.php';
-				include '../ajax/find-end.php';
+					$_SESSION['successful_upload'] = 'Your video is coming up.';
+					include '../ajax/find-slot.php';
+					include '../ajax/find-end.php';
 
 // Query
-				      $query = "INSERT INTO upload 
-				      (name, time, youtube, duration, start, end, scheduled, slug)
-				      VALUES('". $name ."', '". $time ."',
-				       '". $youtubeID ."', '". $duration ."', '". $start ."',
-				        '". $end ."', '". $scheduled ."', '".$slug."');";
-				      $result = mysqli_query($con, $query);  
+					$query = "INSERT INTO upload 
+					(name, time, youtube, duration, start, end, scheduled, slug)
+					VALUES('". $name ."', '". $time ."',
+					'". $youtubeID ."', '". $duration ."', '". $start ."',
+					'". $end ."', '". $scheduled ."', '".$slug."');";
+					$result = mysqli_query($con, $query);  
 
 //remove uneeded files if exists
 					$imageInput = '';
