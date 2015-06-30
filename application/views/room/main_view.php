@@ -25,8 +25,6 @@
 <body>
 <!-- Body -->
 
-<!-- Facebook Share -->
-
 <?php
 // Set session
 
