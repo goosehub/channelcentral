@@ -25,6 +25,8 @@
 <body>
 <!-- Body -->
 
+<!-- Facebook Share -->
+
 <?php
 // Set session
 
@@ -47,10 +49,11 @@
     <div id="viewersBtn" class="nav-btn btn">1 Viewer</div>
     <a id="hostBtn" class="nav-btn btn" href="<?=base_url()?><?php echo $slug; ?>/host" target="_blank">Host</a>
     <div id="fadeoutBtn" class="nav-btn btn">Fade</div>
+    <a id="shareBtn" class="nav-btn btn" href="https://www.facebook.com/sharer/sharer.php?u=channelcentral.me/<?php echo $slug; ?>" target="_blank">Share</a>
     <a id="leaveBtn" class="nav-btn btn" href="<?=base_url()?>">Leave</a>
   </div>
 
-  <input class="nav-btn in-channel-search" type="search" name="search" placeholder="Go To New Room"></input>
+  <input class="nav-btn in-channel-search" type="search" name="search" placeholder="Go to new room"></input>
 
   </form>
 </div>

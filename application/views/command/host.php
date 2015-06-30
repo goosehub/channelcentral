@@ -17,8 +17,7 @@
       <input class="input-lg" type="input" name="passwordInput" value="1234"/><br />
     </div> -->
 
-<input class="btn btn-primary hostSubmit" type="submit" name="hostSubmitForm" value="Submit Changes" />
-<h5 class="note"><strong>Or just press the enter key when you're ready</strong></h5>
+<input class="btn btn-primary hostSubmit" type="submit" name="hostSubmitForm" value="Submit Changes When Ready" />
 
 <hr/>
 

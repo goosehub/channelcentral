@@ -75,44 +75,39 @@ body {
 .nav-btn {
 	font-size: 1.4em;
 	font-weight: bold;
-	color: #000;
-}
-#viewersBtn {
+	color: #fff;
 	border-color: #000;
-	background-color: #FFE044;
+	background-color: #000;
 }
 #viewersBtn:hover {
 	border-color: #000;
-	background-color: #D57AD5;
+	color: #fff;
+	background-color: #FFE044;
 	cursor: default;
-}
-#hostBtn {
-	border-color: #000;
-	background-color: #FF4444;
 }
 #hostBtn:hover {
 	border-color: #000;
-	background-color: #B581D8;
-}
-#fadeoutBtn {
-	border-color: #000;
-	background-color: #00CCFF;
+	color: #fff;
+	background-color: #FF4444;
 }
 #fadeoutBtn:hover {
 	border-color: #000;
-	background-color: #D2F541;
+	color: #fff;
+	background-color: #90305A;
 }
-#leaveBtn {
+#shareBtn:hover {
 	border-color: #000;
-	background-color: #43E326;
+	color: #fff;
+	background-color: #00CCFF;
 }
 #leaveBtn:hover {
 	border-color: #000;
-	background-color: #F29615;
+	color: #fff;
+	background-color: #43E326;
 }
 .in-channel-search {
-	width: 8em;
-	border-radius: 2em/6em;
+	width: 6em;
+	max-width: 10vw;
 	height: 2.2em;
 	text-align: center;
 }
@@ -120,7 +115,7 @@ body {
 /*	Info */
 
 #info-content-cnt {
-	height: 95vh;2
+	height: 95vh;
 	overflow-y: hidden;
 }
 #current-show-name {

@@ -40,7 +40,7 @@ body {
 	opacity: 0.9;
 }
 input, textarea {
-	font-family: OpenSans;
+	font-family: "OpenSans-Regular";
 }
 .uploadAddon {
 	opacity: 0.8;
@@ -94,17 +94,18 @@ input, textarea {
 	opacity: 0.8;
 }
 .hostSubmit {
-	margin-left: 0;
-	width: 22.5em;
-	background-color: #fff !important;
-	color: #000;
+	margin-left: 25%;
+	width: 50%;
+	height: 2.5em;
+	background-color: #FF8921 !important;
+	color: #222;
 	/* !important to prevent from taking on #hostFormCnt input backgound color*/
 	font-size: 1.6em;
 	font-family: BebasNeue;
 }
 .hostSubmit:hover {
-	background-color: #000 !important;
-	color: #fff;
+	background-color: #428bca !important;
+	color: #000;
 }
 .reloadQueue {
 	width: 33%;
@@ -130,7 +131,7 @@ input, textarea {
 	margin-left: 4em;
 	margin-top: 0;
 	margin-bottom: 0;
-	font-family: OpenSans;
+	font-family: "OpenSans-Regular";
 	font-size: 1.2em;
 	letter-spacing: 0;
 }

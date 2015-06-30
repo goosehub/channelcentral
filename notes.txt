@@ -1,0 +1,8 @@
+================================================
+notes
+================================================
+
+replicate and fix bug
+restyle navbar
+restyle host page
+add share buttons
