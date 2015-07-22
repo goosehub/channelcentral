@@ -49,6 +49,16 @@
     </div>
 <h5 class="note">~Format is YYYY-MM-DD HH:MM:SSPM | All times are EST (New York Time)</h5>
 
+<div class="input-group">
+    <div class="input-group-addon">Embed Twitch</div>
+      <input class="form-control" type="input" name="hostTwitch" placeholder="Twitch channel name" value="<?php echo $host->twitch; ?>" /><br />
+    </div>
+<div class="input-group">
+    <div class="input-group-addon">Turn Stream On</div>
+      <input class="checkbox" class="" type="checkbox" name="hostStream" value="yes" 
+      <?php if($host->twitch_on==='1') {echo 'checked';} ?>/>
+</div>
+
 <hr/>
 
 <h3>Host Settings</h3>

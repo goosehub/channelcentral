@@ -34,6 +34,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostStart = mysqli_real_escape_string($con, $hostStart);
 	$hostYoutubeInput = $_POST['hostYoutubeInput'];
 	$hostYoutubeInput = mysqli_real_escape_string($con, $hostYoutubeInput);
+	$hostTwitch = $_POST['hostTwitch'];
+	$hostTwitch = mysqli_real_escape_string($con, $hostTwitch);
+	$hostStream = $_POST['hostStream'];
+	$hostStream = mysqli_real_escape_string($con, $hostStream);
 	// files must be sanitized later
 
 // Get Valid Passwords
@@ -190,6 +194,76 @@ $foo = TRUE;
 		        	$result = mysqli_query($con, $query); 
 		        }
 		    }
+		}
+// Twitch stream
+		if ($hostTwitch)
+		{			
+// Reload if stream has changed
+			$query = "SELECT twitch from rooms 
+			WHERE slug = '".$slug."';";
+			$result = mysqli_query($con, $query); 
+			while($twitch_status = mysqli_fetch_assoc($result)) 
+			{ 
+				if ($twitch_status['twitch'] === $hostTwitch)
+				{
+					$reloadTime = $time + 20;
+					$query = "UPDATE rooms 
+					SET reload = '". $reloadTime ."'
+					WHERE slug = '".$slug."';";
+					$result = mysqli_query($con, $query); 
+				}
+			}
+			$query = "UPDATE rooms 
+			SET twitch = '". $hostTwitch ."'
+			WHERE slug = '".$slug."';";
+			$result = mysqli_query($con, $query);  
+		}
+// Twitch on
+		if ($hostStream)
+		{
+// Reload if stream was off
+			$query = "SELECT twitch_on from rooms 
+			WHERE slug = '".$slug."';";
+			$result = mysqli_query($con, $query); 
+			while($twitch_status = mysqli_fetch_assoc($result)) 
+			{ 
+				if ($twitch_status['twitch_on'] === '0')
+				{
+					$reloadTime = $time + 20;
+					$query = "UPDATE rooms 
+					SET reload = '". $reloadTime ."'
+					WHERE slug = '".$slug."';";
+					$result = mysqli_query($con, $query); 
+				}
+			}
+// Set reload
+			$query = "UPDATE rooms 
+			SET twitch_on = '1'
+			WHERE slug = '".$slug."';";
+			$result = mysqli_query($con, $query);  
+		}
+// Twitch off
+		else
+		{
+// Reload if stream was on
+			$query = "SELECT twitch_on from rooms 
+			WHERE slug = '".$slug."';";
+			$result = mysqli_query($con, $query); 
+			while($twitch_status = mysqli_fetch_assoc($result)) 
+			{ 
+				if ($twitch_status['twitch_on'] === '1')
+				{
+					$reloadTime = $time + 20;
+					$query = "UPDATE rooms 
+					SET reload = '". $reloadTime ."'
+					WHERE slug = '".$slug."';";
+					$result = mysqli_query($con, $query); 
+				}
+			}
+			$query = "UPDATE rooms 
+			SET twitch_on = '0'
+			WHERE slug = '".$slug."';";
+			$result = mysqli_query($con, $query);  			
 		}
 // Upload new background image
 		if ($_FILES["hostBackgroundInput"]["name"])

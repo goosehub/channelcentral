@@ -150,7 +150,7 @@ body {
 	max-height: 90%;
 	height: 75vh;
 }
-#youtubeFrame {
+#youtubeFrame, #twitchFrame {
 	width: 100%;
 	height: 100%;
 }

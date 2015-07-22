@@ -95,6 +95,10 @@ function loadContent()
             var counter = myArray[1];
 // turn counter string into int
             counter = parseInt(counter);
+            if (counter === 1)
+            {
+                counter = 10000000;
+            }
 // Load content
             $("#contentWindow").html(content);
 // Set countdown to next reload
