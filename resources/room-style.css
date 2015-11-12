@@ -185,6 +185,9 @@ body {
 	border-radius: 5px;
 	font-family: CheesePizza, BebasNeue, OpenSans-Regular, AveriaSerif-Regular;
 }
+#audio_stream_element {
+	width: 100%;
+}
 
 /*	Right */
 

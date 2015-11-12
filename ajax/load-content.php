@@ -13,6 +13,21 @@ $slug = $_POST['slug'];
 // Query database for host info
 include '../ajax/host-ajax.php';
 
+// Audio Stream
+if ($host['audio_stream_on'] === '1')
+{
+// Embed audio stream
+	?>
+	<audio controls autoplay id="audio_stream_element">
+	  <source src="<?php echo $host['audio_stream']; ?>">
+	  Try a different browser to listen to this stream
+	</audio>
+	<?php
+// Split from data
+	echo '|';
+// Data is sent with echo.
+	echo 10000000000000000;
+}
 // Twitch
 if ($host['twitch_on'] === '1')
 {

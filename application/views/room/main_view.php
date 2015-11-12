@@ -79,9 +79,9 @@
 
     <iframe class="upload-frame" src="<?php echo $slug; ?>/upload" scrolling="no" seamless></iframe> 
 
-  	<div id="contentWindow">
-<p>Loading...</p>
-  	</div>
+    <div id="contentWindow">
+      <p>Loading...</p>
+    </div>
 
   </div>
 
@@ -114,6 +114,9 @@
     <script type="text/javascript" src="resources/tools/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="resources/tools/bootstrap.min.js"></script>
     <script type="text/javascript" src="resources/room_script.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cp8.shoutcheap.com:2199/system/streaminfo.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cp8.shoutcheap.com:2199/system/player.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cp8.shoutcheap.com:2199/jplayer/skin/blue.monday/css/jplayer.blue.monday.css">
 
 </body>
 </html>

@@ -38,6 +38,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$hostTwitch = mysqli_real_escape_string($con, $hostTwitch);
 	$hostStream = $_POST['hostStream'];
 	$hostStream = mysqli_real_escape_string($con, $hostStream);
+	$hostAudioStream = $_POST['hostAudioStream'];
+	$hostAudioStream = mysqli_real_escape_string($con, $hostAudioStream);
+	$hostAudioStreamOn = $_POST['hostAudioStreamOn'];
+	$hostAudioStreamOn = mysqli_real_escape_string($con, $hostAudioStreamOn);
 	// files must be sanitized later
 
 // Get Valid Passwords
@@ -262,6 +266,76 @@ $foo = TRUE;
 			}
 			$query = "UPDATE rooms 
 			SET twitch_on = '0'
+			WHERE slug = '".$slug."';";
+			$result = mysqli_query($con, $query);  			
+		}
+// Audio stream
+		if ($hostAudioStream)
+		{			
+// Reload if stream has changed
+			$query = "SELECT audio_stream from rooms 
+			WHERE slug = '".$slug."';";
+			$result = mysqli_query($con, $query); 
+			while($audio_stream_status = mysqli_fetch_assoc($result)) 
+			{ 
+				if ($audio_stream_status['audio_stream'] === $hostAudioStream)
+				{
+					$reloadTime = $time + 20;
+					$query = "UPDATE rooms 
+					SET reload = '". $reloadTime ."'
+					WHERE slug = '".$slug."';";
+					$result = mysqli_query($con, $query); 
+				}
+			}
+			$query = "UPDATE rooms 
+			SET audio_stream = '". $hostAudioStream ."'
+			WHERE slug = '".$slug."';";
+			$result = mysqli_query($con, $query);  
+		}
+// Audio Stream on
+		if ($hostAudioStreamOn)
+		{
+// Reload if stream was off
+			$query = "SELECT audio_stream_on from rooms 
+			WHERE slug = '".$slug."';";
+			$result = mysqli_query($con, $query); 
+			while($audio_stream_status = mysqli_fetch_assoc($result)) 
+			{ 
+				if ($audio_stream_status['audio_stream_on'] === '0')
+				{
+					$reloadTime = $time + 20;
+					$query = "UPDATE rooms 
+					SET reload = '". $reloadTime ."'
+					WHERE slug = '".$slug."';";
+					$result = mysqli_query($con, $query); 
+				}
+			}
+// Set reload
+			$query = "UPDATE rooms 
+			SET audio_stream_on = '1'
+			WHERE slug = '".$slug."';";
+			$result = mysqli_query($con, $query);  
+		}
+// Audio Stream off
+		else
+		{
+// Reload if stream was on
+			$query = "SELECT audio_stream_on from rooms 
+			WHERE slug = '".$slug."';";
+			$result = mysqli_query($con, $query); 
+			while($audio_stream_status = mysqli_fetch_assoc($result)) 
+			{ 
+				if ($audio_stream_status['audio_stream_on'] === '1')
+				{
+					$reloadTime = $time + 20;
+					$query = "UPDATE rooms 
+					SET reload = '". $reloadTime ."'
+					WHERE slug = '".$slug."';";
+					$result = mysqli_query($con, $query); 
+				}
+			}
+			$query = "UPDATE rooms 
+			SET audio_stream_on = '0'
 			WHERE slug = '".$slug."';";
 			$result = mysqli_query($con, $query);  			
 		}

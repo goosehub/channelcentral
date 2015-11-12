@@ -59,6 +59,16 @@
       <?php if($host->twitch_on==='1') {echo 'checked';} ?>/>
 </div>
 
+<div class="input-group">
+    <div class="input-group-addon">Embed Audio Stream</div>
+      <input class="form-control" type="input" name="hostAudioStream" placeholder="Audio stream url" value="<?php echo $host->audio_stream; ?>" /><br />
+    </div>
+<div class="input-group">
+    <div class="input-group-addon">Turn Audio Stream On</div>
+      <input class="checkbox" class="" type="checkbox" name="hostAudioStreamOn" value="yes" 
+      <?php if($host->audio_stream_on==='1') {echo 'checked';} ?>/>
+</div>
+
 <hr/>
 
 <h3>Host Settings</h3>

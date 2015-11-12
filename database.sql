@@ -79,6 +79,8 @@ CREATE TABLE IF NOT EXISTS `rooms` (
   `background` varchar(64) COLLATE utf8_bin NOT NULL,
   `twitch` varchar(64) COLLATE utf8_bin NOT NULL,
   `twitch_on` int(1) NOT NULL,
+  `audio_stream` varchar(1000) COLLATE utf8_bin NOT NULL,
+  `audio_stream_on` int(1) NOT NULL,
   `reload` varchar(12) COLLATE utf8_bin NOT NULL COMMENT 'Clients reload when time is less than reload',
   `purple` text COLLATE utf8_bin NOT NULL,
   `orange` text COLLATE utf8_bin NOT NULL,
