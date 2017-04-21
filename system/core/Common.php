@@ -254,7 +254,10 @@ if ( ! function_exists('get_config'))
 			}
 		}
 
-		return $_config[0] =& $config;
+		// Fixed by clong
+		// http://stackoverflow.com/questions/28348879/only-variable-references-should-be-returned-by-reference-codeigniter
+		$_config[0] =& $config;
+		return $_config[0]; 
 	}
 }
 
